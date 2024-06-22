@@ -1,0 +1,86 @@
+\chapter{Groups}
+
+\begin{center}
+    {
+    \renewcommand{\arraystretch}{2}
+    \begin{tabular}{| m{20em} | m{20em} |}
+        \hline
+        Additive Group & Multiplicative Group\\
+        \hline
+        Let $G$ be a set, and ${\color{red} +}$ be an operation, 
+        then $(G, {\color{red} +})$ is an additive group provided & 
+        Let $G$ be a set, and  be an operation, 
+        then $(G, {\color{ForestGreen} \circ})$ is an multiplicative group provided\\[1em]
+        \hline
+        1. $\forall a, b \in G$, $a \, {\color{red} +}\, b \in G$ & 
+        6. $\forall a, b \in G$, $a \,{\color{ForestGreen} \circ}\, b \in G$\\[1em]
+        \hline
+        2. $\forall a, b, c \in G$, $a \, {\color{red} +}\, (b \, {\color{red} +}\, c ) = (a \, {\color{red} +}\, b) \, {\color{red} +}\, c $ & 
+        7. $\forall a, b, c \in G$, $a \, {\color{ForestGreen} \circ}\, (b \, {\color{ForestGreen} \circ}\, c ) = (a \, {\color{ForestGreen} \circ}\, b) \, {\color{ForestGreen} \circ}\, c $\\[1em]
+        \hline
+        3. $\forall a \in G, \exists\, 0 \in G $ (identity) s.t. 
+            \[a \, {\color{red} +} \, 0 = a = 0 \, {\color{red} +}\, a\] & 
+        8. $\forall a \in G, \exists 1 \in G $ (unity) s.t. \[a \, {\color{ForestGreen} \circ}\, 1 = a = 1 \, {\color{ForestGreen} \circ} \, a\]\\[1em] 
+        \hline
+        
+        4. $\forall a \in G, \exists\, -a \in G $ (additive inverse) s.t. 
+            \[a \, {\color{red} +}\, (-a) = 0 = (-a)\, {\color{red} +}\, a\] & 
+        9. $\forall a \in G, \exists a^{-1} \in G $ (unity) s.t. \[a \, {\color{ForestGreen} \circ}\, a^{-1} = 1 = a^{-1} \, {\color{ForestGreen} \circ}\, a\]\\[1em]
+        \hline
+        5. (Commutative) $\forall a, b \in G$, $a \, {\color{red} +}\, b = b \, {\color{red} +}\, a$ &
+        10. (Commutative) $\forall a, b \in G$, $a \, {\color{ForestGreen} \circ}\, b = b \, {\color{ForestGreen} \circ}\, a$\\[1em]
+        \hline
+    \end{tabular}
+    }
+\end{center}
+
+Joining additive and multiplicative groups together, we form a ring with \textbf{distributive laws}
+
+\[11. \quad \forall a, b, c \in G, (a \, {\color{red} +}\, b) \, {\color{ForestGreen} \circ}\, c = (a \, {\color{ForestGreen} \circ}\, c) \, {\color{red} +}\, (b \, {\color{ForestGreen} \circ}\, c)  \]
+\[12. \quad \forall a, b, c \in G, c \, {\color{ForestGreen} \circ}\, (a \, {\color{red} +}\, b) = (c \, {\color{ForestGreen} \circ}\, a) \, {\color{red} +}\, (c \, {\color{ForestGreen} \circ}\, b)  \]
+
+\begin{itemize}
+    \item Abelian group: (1-5) or (6-10)
+    \item Associative Ring: 1-6, with 11 and 12
+    \item Semigroup: 1, 2 only
+    \item Monoid: 1, 3 only
+    \item Commutative ring: 1-5, 6, 10, 11, and 12
+    \item Ring: 1-5, with 11 and 12
+    \item Ring with unity: 1-6, with 8, 11, and 12
+    \item Field: 1-12
+\end{itemize}
+
+\begin{theorem}[Socks-shoes property]
+    \begin{equation}
+        ({\color{red} a}\, \circ \, {\color{BurntOrange} b })^{-1} = {\color{BurntOrange} b }^{-1} \, \circ \, {\color{red} a}^{-1}
+    \end{equation}
+\end{theorem}
+
+\begin{remark}
+    In abstract algebra, the position of inputs in binary operator is very important! The commutative property no necessary hold.
+    ${\color{red} a}\, \circ \, {\color{BurntOrange} b } \neq {\color{red} b}\, \circ \, {\color{BurntOrange} a }$.
+    E.g. matrix multiplication $AB \neq BA$.
+\end{remark}
+
+\begin{theorem}
+    The following statements are equivalent.
+
+    \begin{enumerate}
+        \item Every subgroup of a cyclic group (multiplicative group) is cyclic.
+        \item If $|\langle a \rangle| = n$, then the order of any subgroup of $\langle a \rangle$ is a divisor of $n$.
+        \item For each positive divisor $k | n$, $\langle a \rangle$ has exactly one subgroup of order $k$. 
+        $\langle a^{n/k} \rangle$ if multiplicative group, $\langle \frac{n}{k}a \rangle$ if additive group.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let $G$ be a cyclic group and $H$ be a subgroup of $G$. We need to show that $H$ is also cyclic.
+    Example: $H = \langle a^m \rangle$ s.t. $m$ is the least positive integer.
+
+    By randomly pick integer $b \in H$, $b = a^k, k \in \mathbb{Z}^+$. By division algorithm, $k = qm + r$, where $0 \leq r < m$.
+
+    \begin{align*}
+        b = a^k = a^{qm+r} = (a^m)^{q}a^r &\Rightarrow a^r = (a^m)^{-q} b \in H\\
+        &\Rightarrow a^r \in H, \quad 0 \leq r < m\\
+        &\Rightarrow r = 0
+    \end{align*}
+\end{proof}
