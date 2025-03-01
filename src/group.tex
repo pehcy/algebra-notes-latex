@@ -175,6 +175,17 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
     \end{align*}
 \end{proof}
 
+\section{Finite groups and Subgroups}
+
+\begin{remark}
+    We use the notation $H \leq G$ to mean that $H$ is a subgroup of $G$. We use the notation $H < G$ to denote that 
+$H$ is a proper subgroup of $G$. 
+
+The subgroup $\{ e \}$ is called the trivial subgroup of $G$; a subgroup that is not 
+$\{ e \}$ is called a nontrivial subgroup of $G$.
+\end{remark}
+
+
 \section{Cyclic groups}
 
 Cyclic groups are groups in which every element is a power of some fixed element. In additive group, then every 
@@ -254,16 +265,16 @@ element is a multiple of some fixed element. For instance,
     thus $G$ is an abelian group.
 \end{proof}
 
-\begin{definition}
+\begin{definition}[Center of group]
     The \textbf{center}, $Z(G)$, of a group $G$ is a subset of elements in $G$ that commute with every element of $G$, that is, 
     \begin{equation}
         Z(G) = \{ g \in G \> | \> gx = xg \text{ for all } x \in G \}.
     \end{equation}
 \end{definition}
 
-\begin{theorem}
+\begin{lemma}
     The center of a group $G$ is also a subgroup of $G$.
-\end{theorem}
+\end{lemma}
 \begin{proof}
     We use one-step subgroup test to verify:
     \begin{enumerate}
@@ -295,6 +306,85 @@ element is a multiple of some fixed element. For instance,
     Therefore the center $Z(G)$ is a subgroup of $G$ by one-step subgroup test.
 \end{proof}
 
+\begin{definition}[Group centralizer]
+    Let $a$ be a \textbf{fixed} element of a group $G$. The centralizer of $a$ in G is 
+    \begin{equation}
+        C(a) = \{ g \in G \> | \> ga = ag\}.
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    Let $\mathfrak{a}$ be a \textbf{fixed} element in group $G$. If $\mathfrak{a}$ has infinite order, then $\mathfrak{a}^i = \mathfrak{a}^j$
+    if and only if $i = j$.
+
+    However, if $\mathfrak{a}$ has finite order, said, $n$, then 
+    \begin{equation}
+        \langle \mathfrak{a} \rangle = \{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \}
+    \end{equation}
+    and $\mathfrak{a}^i = \mathfrak{a}^j$
+    if and only if $n | i - j$.
+\end{theorem}
+\begin{proof}
+    Consider a group $G$, and take an $\mathfrak{a}$ from $G$. If $\mathfrak{a}$ has infinite order, say, 
+    $\textbf{ord}(\mathfrak{a}) = \infty$, then there is no nonzero integer $n$ such that $\mathfrak{a}^n = e$.
+    We assume an equation $\mathfrak{a}^i = \mathfrak{a}^j$ for some $i,j \in \mathbb{Z}$, we have 
+    \[
+        \mathfrak{a}^{i-j} = e \Rightarrow i - j = 0 \Rightarrow \fbox{$i = j$}.
+    \]
+    and we are done.
+
+    On the other hand, if $\mathfrak{a}$ has finite order, just say $\textbf{ord}(\mathfrak{a}) = n$. We want to show 
+    \[
+        \langle \mathfrak{a} \rangle = \{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \}.
+    \]
+    Apparently, $e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1}$ are all belongs to $\langle \mathfrak{a} \rangle$, so 
+    $\{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \} \subseteq \langle \mathfrak{a} \rangle$.
+    Now we continue to check if $\{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \} \supseteq \langle \mathfrak{a} \rangle$.
+
+    By \textit{division algorithm}, there exists some integers $q$ and $r$ such that 
+    \[
+        k = qn + r,\quad  0 \leq r < n
+    \]
+    compute 
+    \[
+        \mathfrak{a}^k = \mathfrak{a}^{qn+r} = (\mathfrak{a}^n)^{q}\, \mathfrak{a}^r = e^q \mathfrak{a}^r = \mathfrak{a}^r
+    \]
+    this implies $\mathfrak{a}^k = \mathfrak{a}^r \in \{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \}$. Thus we have 
+    \[
+        \{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \} \supseteq \langle \mathfrak{a} \rangle.
+    \]
+
+    Now the final part is to show $\mathfrak{a}^i = \mathfrak{a}^j$ iff $n|i-j$, we are going to proof on two directions.
+
+    $(\Rightarrow)$ If $\mathfrak{a}^i = \mathfrak{a}^j$, we need to show that $n$ is divisible by $i - j$. Again we 
+    applying the division algorithm, 
+    \[
+        i - j = nq + r, \quad 0 \leq r < n
+    \]
+    which $q$ is quotient and $r$ is remainder.
+
+    compute 
+    \begin{align*}
+        \mathfrak{a}^{i-j} = e \> &\Rightarrow \mathfrak{a}^{nq+r} = e & \text{dividion algorithm}\\
+        &\Rightarrow \mathfrak{a}^{nq}\,  \mathfrak{a}^{r} = e\\
+        &\Rightarrow (\mathfrak{a}^{n})^q \, \mathfrak{a}^{r} = e\\
+        &\Rightarrow e^q \, \mathfrak{a}^{r} = e & \text{since } \mathfrak{a}^n = e\\
+        &\Rightarrow e \, \mathfrak{a}^{r} = e\\
+        &\Rightarrow \mathfrak{a}^{r} = e\\
+    \end{align*}
+    but $n$ is the least integer such that $\mathfrak{a}^n = e$ and so the condition $0 \leq r < n$ implies 
+    $r = 0$. Now we continue on the opposite side of the statement.
+
+    $(\Leftarrow)$ This part is more straightforward. Conversely, if $n|i-j$, then 
+    \begin{align*}
+        \mathfrak{a}^{i-j} &= \mathfrak{a}^{nq+r} & \text{dividion algorithm}\\ 
+        &= \mathfrak{a}^{nq} & \text{remainder } r \text{ is zero}\\ 
+        &= (\mathfrak{a}^n)^q\\
+        &= e^q & \text{since } \mathfrak{a}^n = e\\
+        &= e
+    \end{align*}
+    and we are done.
+\end{proof}
 
 \subsection{Subgroup tests}
 
@@ -383,7 +473,7 @@ element is a multiple of some fixed element. For instance,
     If $H$ is a normal subgroup of $G$, and the order of $H$ is equal to the order of $G$, we called $H$ the proper normal subgroup, write as $H \trianglelefteq G$. 
 \end{definition}
 
-You should be very careful here. The equality $gH = Hg$ is a set equality. Not constants or numbers! It says that a 
+You should be very careful here. The equality $gH = Hg$ is a set equality. They are not constants or numbers! It says that a 
 right coset is equal to left a coset, it is not an equality elementwise.
 
 \begin{example}
@@ -431,7 +521,7 @@ G/H = \{ gH \> | \> g \in H \}
             \item Let $*$ defined on $G = \mathbb{R}$ by letting $a * b = ab \quad \forall a, b \in \mathbb{R}$.
             \item Let $*$ defined on $G = 2\mathbb{Z}$ by letting $a * b = a + b \quad \forall a, b \in 2\mathbb{Z}$.
             \item Let $*$ defined on $G = \mathbb{R}^\times$ by letting $a * b = \sqrt{ab} \quad \forall a, b \in \mathbb{R}^\times$.
-            \item Let $*$ defined on $G = \mathbb{Z}$ by letting $a * b = \max(a,b) \quad \forall a, b \in \mathbb{Z}$.
+            \item Let $*$ defined on $G = \mathbb{Z}$ by letting $a * b = \max \{a,b\} \quad \forall a, b \in \mathbb{Z}$.
         \end{enumerate}
     \end{Exercise}
 
@@ -588,7 +678,7 @@ G/H = \{ gH \> | \> g \in H \}
 
     \vspace{0.752cm}
     \begin{Exercise}
-        Compute the quotient $\mathbb{Z}_{12}/ \langle 2 \rangle$.
+        Compute the quotient group $\mathbb{Z}_{12}/ \langle 2 \rangle$.
     \end{Exercise}
 
     \vspace{0.752cm}
@@ -614,6 +704,16 @@ G/H = \{ gH \> | \> g \in H \}
                     \phi(x) = 5^x \quad \forall x \in G
                 \]
                 where $G = \mathbb{R} \setminus \{ 0 \}$ is a group defined under usual multiplication. Show that 
+                $\phi$ is a homomorphism, and hence find $ker(\phi)$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $\phi: G \to G$ be a mapping defined by 
+                \[
+                    \phi(x) = 7x \quad \forall x \in G
+                \]
+                where $G = \mathbb{Z}$ is a group defined under usual addition. Show that 
                 $\phi$ is a homomorphism, and hence find $ker(\phi)$.
     \end{Exercise}
 
