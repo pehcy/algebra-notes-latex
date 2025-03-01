@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  23 JUN 2024 03:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  1 MAR 2025 19:25
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/pehcy/github/algebra-notes/main.tex
-(/home/pehcy/github/algebra-notes/main.tex
+**/home/pehcy/github/algebra-notes-latex/main.tex
+(/home/pehcy/github/algebra-notes-latex/main.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
@@ -453,7 +453,7 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 ))
 \c@tcblisting=\count314
 )) (/usr/share/texlive/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
@@ -670,7 +670,8 @@ Package thmtools Info: Key `numbered' (with value `no')
 \c@example=\count327
 \c@theorem=\count328
 \c@definition=\count329
-\c@corollary=\count330
+\c@lemma=\count330
+\c@corollary=\count331
  (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
@@ -678,28 +679,28 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks51
 \t@pgfplots@tokc=\toks52
 \pgfplots@tmpa=\dimen283
-\c@pgfplots@coordindex=\count331
-\c@pgfplots@scanlineindex=\count332
+\c@pgfplots@coordindex=\count332
+\c@pgfplots@scanlineindex=\count333
  (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count333
+\c@pgfplotsarray@tmp=\count334
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count334
+\c@pgfplotstable@counta=\count335
 \t@pgfplotstable@a=\toks53
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count335
+\c@pgfplotslibrarysurf@no=\count336
  (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen284
 \pgfdecoratedremainingdistance=\dimen285
 \pgfdecoratedinputsegmentcompleteddistance=\dimen286
 \pgfdecoratedinputsegmentremainingdistance=\dimen287
 \pgf@decorate@distancetomove=\dimen288
-\pgf@decorate@repeatstate=\count336
+\pgf@decorate@repeatstate=\count337
 \pgfdecorationsegmentamplitude=\dimen289
 \pgfdecorationsegmentlength=\dimen290
 )
 \tikz@lib@dec@box=\box86
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count337
+\pgfplots@numplots=\count338
 \pgfplots@xmin@reg=\dimen291
 \pgfplots@xmax@reg=\dimen292
 \pgfplots@ymin@reg=\dimen293
@@ -720,8 +721,8 @@ File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfarrowlinewidth=\dimen300
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/graphs/tikzlibrarygraphs.code.tex
 File: tikzlibrarygraphs.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\tikz@lib@auto@number=\count338
-\tikz@qnode@count=\count339
+\tikz@lib@auto@number=\count339
+\tikz@qnode@count=\count340
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
@@ -772,7 +773,7 @@ File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.fillbetween.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibraryfillbetween.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
-\pgf@intersect@solutions=\count340
+\pgf@intersect@solutions=\count341
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfcontrib/tikzlibrarydecorations.softclip.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfcontrib/pgflibraryfillbetween.code.tex))) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.decorations.softclip.code.tex)) (/usr/share/texlive/texmf-dist/tex/latex/circuitikz/circuitikz.sty
 Package: circuitikz 2021/12/06{} The CircuiTikz circuit drawing package version 1.4.5
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
@@ -792,9 +793,9 @@ File: pgflibrarycurvilinear.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 \pgf@arrows@the@rigidity=\dimen308
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
-\pgf@circ@count@a=\count341
-\pgf@circ@count@b=\count342
-\pgf@circ@count@c=\count343
+\pgf@circ@count@a=\count342
+\pgf@circ@count@b=\count343
+\pgf@circ@count@c=\count344
 \pgf@circ@res@up=\dimen309
 \pgf@circ@res@down=\dimen310
 \pgf@circ@res@zero=\dimen311
@@ -809,12 +810,12 @@ File: pgflibrarycurvilinear.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircutils.tex
 \ctikz@scratchbox=\box107
 ) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
-\pgf@circ@res@count=\count344
+\pgf@circ@res@count=\count345
 ) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
 \pgfcirc@labelshift=\dimen320
 ) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex) (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count345
-\decimalpart=\count346
+\integerpart=\count346
+\decimalpart=\count347
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 ) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
@@ -822,15 +823,15 @@ Package: siunitx 2022-02-02 v3.0.46 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen321
 \l__siunitx_angle_marker_box=\box108
 \l__siunitx_angle_unit_box=\box109
-\l__siunitx_compound_count_int=\count347
+\l__siunitx_compound_count_int=\count348
  (/usr/share/texlive/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/01/04 v1.11 internationalization of LaTeX2e packages (CN)
 )
-\l__siunitx_number_exponent_fixed_int=\count348
-\l__siunitx_number_min_decimal_int=\count349
-\l__siunitx_number_min_integer_int=\count350
-\l__siunitx_number_round_precision_int=\count351
-\l__siunitx_number_group_minimum_int=\count352
+\l__siunitx_number_exponent_fixed_int=\count349
+\l__siunitx_number_min_decimal_int=\count350
+\l__siunitx_number_min_integer_int=\count351
+\l__siunitx_number_round_precision_int=\count352
+\l__siunitx_number_group_minimum_int=\count353
 \l__siunitx_table_tmp_box=\box110
 \l__siunitx_table_tmp_dim=\dimen322
 \l__siunitx_table_column_width_dim=\dimen323
@@ -840,22 +841,22 @@ Package: translations 2022/01/04 v1.11 internationalization of LaTeX2e packages 
 \l__siunitx_table_after_box=\box114
 \l__siunitx_table_before_dim=\dimen324
 \l__siunitx_table_carry_dim=\dimen325
-\l__siunitx_unit_tmp_int=\count353
-\l__siunitx_unit_position_int=\count354
-\l__siunitx_unit_total_int=\count355
+\l__siunitx_unit_tmp_int=\count354
+\l__siunitx_unit_position_int=\count355
+\l__siunitx_unit_total_int=\count356
  (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/empheq.sty
 Package: empheq 2017/03/31 v2.15 Emphasizing equations
-\l_EQ_equationtype_int=\count356
-\l_EQ_alignmentmode_int=\count357
+\l_EQ_equationtype_int=\count357
+\l_EQ_alignmentmode_int=\count358
 \l_EQ_totalwidth_dim=\dimen326
 \l_EQ_displaywidth_dim=\dimen327
 \l_EQ_temp_linewidth_dim=\dimen328
 \l_EQ_linewidth_dim=\dimen329
 \EmphEqdelimitershortfall=\dimen330
-\EmphEqdelimiterfactor=\count358
+\EmphEqdelimiterfactor=\count359
 \g_EQ_toptag_height_dim=\dimen331
 \g_EQ_bottomtag_depth_dim=\dimen332
 \g_EQ_toprow_height_dim=\dimen333
@@ -863,10 +864,10 @@ Package: empheq 2017/03/31 v2.15 Emphasizing equations
 \g_EQ_widesttag_dim=\dimen335
 \EQ_mathdisplay_box=\box115
 \EQ_tag_box=\box116
-\g_EQ_temprow_int=\count359
+\g_EQ_temprow_int=\count360
 ) (/usr/share/texlive/texmf-dist/tex/latex/polynom/polynom.sty
 Package: polynom 2017/07/17 0.19 (CH,HA)
-\pld@currstage=\count360
+\pld@currstage=\count361
 ) (/usr/share/texlive/texmf-dist/tex/latex/exercise/exercise.sty
 Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
  (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -891,28 +892,28 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \QuestionIndent=\skip153
 \subQuestionIndent=\skip154
 \subsubQuestionIndent=\skip155
-\c@Exercise=\count361
-\c@Answer=\count362
-\c@ExePart=\count363
-\c@Question=\count364
-\c@subQuestion=\count365
-\c@subsubQuestion=\count366
-\c@savedQuestion=\count367
-\c@savedsubQuestion=\count368
-\c@savedsubsubQuestion=\count369
-\@QuestionLevel=\count370
+\c@Exercise=\count362
+\c@Answer=\count363
+\c@ExePart=\count364
+\c@Question=\count365
+\c@subQuestion=\count366
+\c@subsubQuestion=\count367
+\c@savedQuestion=\count368
+\c@savedsubQuestion=\count369
+\c@savedsubsubQuestion=\count370
+\@QuestionLevel=\count371
 \@Exercisebox=\box117
 \all@Exercisebox=\box118
 \temp@Exercisebox=\box119
 \all@Answerbox=\box120
 \temp@Answerbox=\box121
-\ExerciseDifficulty=\count371
-\QuestionDifficulty=\count372
-\subQuestionDifficulty=\count373
-\subsubQuestionDifficulty=\count374
-\ExePartDifficulty=\count375
+\ExerciseDifficulty=\count372
+\QuestionDifficulty=\count373
+\subQuestionDifficulty=\count374
+\subsubQuestionDifficulty=\count375
+\ExePartDifficulty=\count376
 \@Answerbox=\box122
-\colonnesLevel=\count376
+\colonnesLevel=\count377
 \tempskipa=\skip156
 \tempskipb=\skip157
 \@savedmathindent=\skip158
@@ -974,16 +975,16 @@ LaTeX Font Info:    ... okay on input line 10.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count377
+\scratchcounter=\count378
 \scratchdimen=\dimen336
 \scratchbox=\box123
-\nofMPsegments=\count378
-\nofMParguments=\count379
+\nofMPsegments=\count379
+\nofMParguments=\count380
 \everyMPshowfont=\toks54
-\MPscratchCnt=\count380
+\MPscratchCnt=\count381
 \MPscratchDim=\dimen337
-\MPnumerator=\count381
-\makeMPintoPDFobject=\count382
+\MPnumerator=\count382
+\makeMPintoPDFobject=\count383
 \everyMPtoPDFconversion=\toks55
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -991,7 +992,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count383
+\c@lstlisting=\count384
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
@@ -999,33 +1000,42 @@ Package pgfplots notification 'compat/show suggested version=true': document has
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
-\Hy@linkcounter=\count384
+\Hy@linkcounter=\count385
  (./src/group.tex
 Chapter 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2] (./main.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+Package mdframed Info: mdframed works in twoside mode on input line 307.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 307.
+ [6]
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 598.
+ [7] [8] [9]) [10] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 55946 strings out of 478287
- 1500801 string characters out of 5849289
- 2156950 words of memory out of 5000000
- 73364 multiletter control sequences out of 15000+600000
- 480262 words of font info for 55 fonts, out of 8000000 for 9000
+ 56051 strings out of 478287
+ 1502817 string characters out of 5849289
+ 2192787 words of memory out of 5000000
+ 73460 multiletter control sequences out of 15000+600000
+ 485804 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,11n,118p,782b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on main.pdf (2 pages, 171186 bytes).
+ 114i,13n,118p,788b,1022s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on main.pdf (10 pages, 278488 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 171 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

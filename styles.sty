@@ -70,6 +70,15 @@ numbered=no
   colframe={red!55!black},
 }
 
+\newtheoremstyle{break}{0pt}{0pt}{\normalfont}{0pt}{\bfseries}{}{\newline}{\thmname{#1} \thmnumber{#2} \quad \thmnote{\textbf#3}}
+\declaretheorem[numberwithin=chapter,style=break,name=Lemma]{lemma}
+
+\tcolorboxenvironment{lemma}{ 
+  breakable,
+  colback=orange!5,
+  colframe={orange!55!black},
+}
+
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
