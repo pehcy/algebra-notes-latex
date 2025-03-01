@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1740856615 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1740856616
+["pdflatex"] 1740856930 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1740856931
   "/etc/texmf/web2c/texmf.cnf" 1737194600 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pehcy/github/algebra-notes-latex/main.tex" 1740818849 332 b58d41e9066a0bbe08b4a159cb05c8a5 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -325,9 +325,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1737195196 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1737195220 2799331 109c9e931f50376ed63513351d2a7425 ""
-  "main.aux" 1740856616 12472 d581de4e823c7241385ed4f32ccc39dc "pdflatex"
+  "main.aux" 1740856931 12472 d581de4e823c7241385ed4f32ccc39dc "pdflatex"
   "main.tex" 1740818849 332 b58d41e9066a0bbe08b4a159cb05c8a5 ""
-  "src/group.tex" 1740856615 32344 574f4ac549db97fd27d901c38b40e82b ""
+  "src/group.tex" 1740856930 32356 71a46895081a2681f43124a32f181596 ""
   "styles.sty" 1740832152 4546 779886da60925229b6f89473c7c81cbf ""
   (generated)
   "main.aux"
