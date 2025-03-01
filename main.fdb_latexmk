@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1740828321 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1740828322
+["pdflatex"] 1740851820 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1740851821
   "/etc/texmf/web2c/texmf.cnf" 1737194600 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pehcy/github/algebra-notes-latex/main.tex" 1740818849 332 b58d41e9066a0bbe08b4a159cb05c8a5 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -42,6 +42,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -311,16 +312,17 @@
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb" 1737194607 135942 859a90cad7494a1e79c94baf546d7de5 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb" 1737194607 140194 627cc7f36c05b80e25d178974ccb3442 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb" 1737194607 135938 299ac3a69892db3b7674a8b2543b0a77 ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb" 1737194607 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb" 1636152094 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb" 1737194607 145929 f25e56369a345c4ff583b067cd87ce8e ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb" 1737194608 196446 8fbbe4b97b83e5182def6d29a44e57fb ""
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1737195196 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1737195220 2799331 109c9e931f50376ed63513351d2a7425 ""
-  "main.aux" 1740828322 10435 fe38c631c9243ee97cbd63f0ddacc7ed "pdflatex"
+  "main.aux" 1740851821 11594 ece31858b1e26c8f5b120b04dade6fe5 "pdflatex"
   "main.tex" 1740818849 332 b58d41e9066a0bbe08b4a159cb05c8a5 ""
-  "src/group.tex" 1740828320 23174 9d66805329719d8e6cdf89f997fcc643 ""
-  "styles.sty" 1740816953 4546 779886da60925229b6f89473c7c81cbf ""
+  "src/group.tex" 1740851819 27816 518c82ac1473c4e2c5a2ebd692d16f84 ""
+  "styles.sty" 1740832152 4546 779886da60925229b6f89473c7c81cbf ""
   (generated)
   "main.aux"
   "main.log"
