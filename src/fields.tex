@@ -1,0 +1,119 @@
+\chapter{Fields}
+
+\section{Extenstion Fields}
+
+\begin{definition}[Extension field]
+    An extension field $K$ of a field $F$ is said to be an algebraic extension of $F$ if every element 
+    of $K$ is algebraic over $F$.
+\end{definition}
+
+\begin{example}
+    $\mathbb{C}$ is an algebraic extension of $\mathbb{R}$. $\forall a+bi \in \mathbb{C}$, where 
+    $a,b \in \mathbb{R}$ and $i = \sqrt{-1}$. We have 
+    \[
+        (x+a+bi)(x+a-bi) = x^2 +2ax + a^2 + b^2.
+    \]
+    Thus $a+bi$ is a root of $x^2 +2ax + a^2 + b^2 = 0$.
+\end{example}
+
+\begin{theorem}
+    If $K$ is a finite-dimensional extension field of $F$, then $K$ is an algebraic extension of $F$.
+\end{theorem}
+\begin{proof}
+    Let $\{ V_1, V_2, \ldots, V_n \}$ be the basis of $K$ over $F$. For all $u \in K$, 
+    $\{ 1, u, u^2, \ldots, u^n \}$ is linearly dependent. That is, 
+    \[
+        \exists u^k \in K \> s.t. \> u^k = \text{Span} \{1, u, u^2, \ldots, u^n\} = c_0 + c_1 u + c_2 u^2 +
+        \cdots + c_{k-1} u^{k-1} (k \geq 1).
+    \]
+    Thus $u$ is a root of $f(x) = x^k - c_{k-1} u^{k-1} - \cdots - c_0$, this implies $K$ is an algebraic extension.
+\end{proof}
+
+\hrule
+\vspace{10pt}
+
+In fact, a simple extension is an algebraic extension if $u$ is algebraic. If extension field $K$ contains a 
+transcental element $u$, then $K$ must be infinite dimensional over $F$.
+\[
+    \textsf{Non algebraic} \Longrightarrow \textsf{Infinite dimension}
+\]
+Note that $F(u)$ denote the intersection of all subfields of $K$ that contains both $F$ and $u$. It said to be a simple 
+extension of $F$.
+
+\section{Fundamental Theorem of Galois theory}
+
+\begin{definition}[Galois correspondence]
+    Let $K$ be a finite-dimensionalextension field of $F$, and let 
+    $S$ be the set of all intermediate fields. Again we let 
+    $T$ be the set of all subgroups of the Galois group $\gal_F K$.
+
+    Define a map $\phi : T \to S$ by this rule. For each intermediate field $E$,
+    \begin{equation}
+        \phi(E) = \gal_E K.
+    \end{equation} 
+    This function $\phi$ is called the Galois correspondence.
+
+    \begin{center}
+        $\begin{tikzcd}
+            \gal_K K \arrow[r] 
+            & K \arrow[d, "S"] \\
+            \gal_F K \arrow[u,"T"] \arrow[r]
+            & F
+            \end{tikzcd}
+        $
+    \end{center}
+\end{definition}
+
+\begin{example}
+    \[
+        \mathbb{Q} \rightarrow \gal_\mathbb{Q} \mathbb{Q}(\sqrt{3}, \sqrt{5}) = \{i, \tau, \alpha, \beta \}
+    \]
+\end{example}
+
+\begin{lemma}
+    Let $K$ be a finite-dimensional extension field of $F$. If $H$ is a subgroup of the Galois group 
+    $\gal_F K$ and $E$ is the \bgold{fixed field} of $H$, then $K$ is 
+    \textit{simple, normal, separable extension} of $E$.
+
+    \begin{center}
+        $\begin{tikzcd}
+            \gal_F K  
+            & K \arrow[dash]{d} \\
+            H \arrow[dash]{u} \arrow[r]
+            & E_H
+            \end{tikzcd}
+        $
+    \end{center}
+\end{lemma}
+\begin{proof}
+    Since $K$ is finite-dimensional extension field, so $K$ is algebraic over $F$. Let $\mathfrak{U} \in K$ and 
+    $p(x) \in E[x]$ be minimal polynomial of $\mathfrak{U}$, and $\forall \sigma \in H$, $\sigma(\mathfrak{U})$ is 
+    some root of $p(x)$.
+
+    Therefore, $\mathfrak{U}$ has a finite number of distinct images under automorphisms in $H$, said 
+    \[
+        \mathfrak{U} = u_1, u_2, \ldots, u_t \in K, \quad \text{where } t \leq \deg\, p(x)
+    \]
+    If $\sigma \in H$ and $u_i = \tau(\mathfrak{U})$ with $\tau \in H$, then $\sigma(u_i) = \sigma \circ \tau (\mathfrak{U})$.
+
+    Since $\sigma$ is injective, so 
+    \[
+        \mathfrak{U} \xhookrightarrow{H} \{ u_1, u_2, \ldots, u_t \}
+    \]
+    which $\{ u_1, u_2, \ldots u_t\}$ is image of $\mathfrak{U}$. And $u_i = \tau(\mathfrak{U})$ for some $\tau \in H$.
+    is injective 
+    \[
+        \{ u_1, u_2, \ldots, u_t \} \xhookrightarrow[\text{permutation } \sigma]{} \{ u_1, u_2, \ldots, u_t \}
+    \]
+    Every automorphism in $H$ permutes $u_1, u_2, \ldots, u_t$. Let 
+    \[
+        f(x) = (x-u_1)(x-u_2)\ldots(x-u_t)
+    \]
+    Since all $u_i$'s are distinct, $f(x)$ is separable.
+
+    Now we claim that $f(x) \in E[x]$. Note that $\sigma f(x) = f(x)$ for all $\sigma \in H$. All coefficients of 
+    $f(x)$ is fixed by $\sigma \in H$. Thus $f(x) \in E[x]$. Since $u = u_1$ is a root of $f(x) \in E[x]$, $u$ is separable over 
+    $E. \Longrightarrow \> K$ is separable extension of $E$.
+
+    We state that $K = E(V)$ for some $V \in K$. 
+\end{proof}

@@ -1,0 +1,297 @@
+\chapter{Rings}
+
+\section{Polynomial rings}
+
+\begin{definition}
+    Let $R$ be a commutative ring. We define 
+    \begin{equation}
+        R[x] = \{ r_nx^n + r_{n-1}x^{n-1} + \cdots + r_1 x + r_0 \> | \> r_i \in R \}.
+    \end{equation}
+\end{definition}
+
+The letter $x$ here can be thought of a variable or just a placeholder. Either way the familiar structure 
+allows us to add, subtract and multiply these as we do traditional polynomials even if the ring 
+were some strange abstract entity.
+
+\section{Factorization of polynomials}
+
+\begin{theorem}[Division algorithm]
+    Let $R$ be a ring with identity and $f(x),g(x) \in R[x]$ with 
+    $g(x) \neq 0$. Then there exists unique polynomials 
+    $q(x)$ and $r(x)$ in $R[x]$ such that 
+    \begin{equation}
+        f(x) = q(x) g(x) + r(x)
+    \end{equation}
+    and $\text{deg}(r) < \text{deg}(g)$. $r(x) = 0$ if there is no remainder.
+\end{theorem}
+
+\begin{proof}
+    The basic idea is to formalize the process of long division in an inductive sense. We omit the details here. 
+    They're boring here.
+\end{proof}
+
+\begin{example}
+    In $\mathbb{Z}_3$ we can divide $2x^2 + 1$ into $x^4 + 2x^3 + 2x + 1$. Then we have 
+    \[
+        x^4 + 2x^3 + 2x + 1 = (2x^2 + 1)(2x^2 + x + 2)
+    \]
+\end{example}
+
+\begin{theorem}[Factor theorem]
+    Let $F$ be a field, $a \in F$ and $f(x) \in F[x]$. Then $a$ is a \bgreen{root} (or \bgreen{zero}) of 
+    $f(x)$ if and only if $x - a$ is a factor of $f(x)$.
+\end{theorem}
+\begin{proof}
+    $(\Rightarrow)$ Assume that $a \in F$ is a zero of $f(x) \in F[x]$. We wish to show that 
+    $x - a$ is a factor of $f(x)$. To do so, apply the division algorithm. By division algorithm, 
+    $\exists \,$ unique polynomials $q(x)$ and $r(x)$ such that 
+    \[
+        f(x) = (x-a)q(x) + r(x)
+    \]
+    and the $deg(r) < deg(x-a) = 1$, so $r(x) = c \in F$, where $c$ is a constant. Also, the fact that 
+    $a$ is a zero of $f(x)$ implies $f(a) = 0$. So 
+    \[
+        f(x) = (x-a)q(x) + c \> \Longrightarrow 0 = f(a) = (a-a)q(a) + c.
+    \]
+    Thus $c = 0$, and $x - a$ is a factor of $f(x)$.
+
+    $(\Leftarrow)$ On the other way, we want to show 
+\end{proof}
+
+\begin{definition}[Algebraically closed]
+    Given $F$ a field, we call $F$ \bred{algebraically closed} if every $f \in F[x]$ such that 
+    $deg(F) > 0$ has a root in $F$.
+\end{definition}
+
+\begin{example}
+    Show that $x^2 + 3x - 4 \in \mathbb{Z}_{12}[x]$ has 4 roots.
+\end{example}
+\begin{solution}
+    We list down all the values of $f(x) = x^2 + 3x - 4$ for $x = 0, 1, \ldots, 11$.
+
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $x$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\
+            \hline
+            $x^2+3x-4\> (\text{mod } 12)$ & 8 & {\color{red} 0} & 6 & 2 & {\color{red} 0} & {\color{red} 0} & 
+            2 & 6 & {\color{red} 0} & 8 & 6 & 6\\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    which now we can see: $x^2 + 3x - 4$ has 4 zeros in $\mathbb{Z}_{12}[x]$. Thus, a polynomial of degree $n$ can have more than $n$ roots 
+    in a ring. The problem is that $\mathbb{Z}_{12}$ is not a domain: $(x+4)(x-1) = 0$ 
+    does not imply one of the factors must be zero.
+\end{solution}
+
+\begin{example}
+    Show that the polynomial $2x^3 + 3x^2 -7x - 5$ can be factored into linear factors in $Z_{11}[x]$.
+\end{example}
+\begin{solution}
+    We can use synthetic division,
+
+    \begin{center}
+        \begin{tabular}{cccc|c}
+            $2$ & $3 = -8$ & $-7=4$ & $6$ & \\
+            & $-2$ & $-10$ & $-6$ & $-1$\\
+            \cmidrule{1-4}
+            $2$ & $-10 = 1$ & $-6$ & & \\
+            & $-4$ & $6$ & & $-2$\\
+            \cmidrule{1-4}
+            $2$ & $-3$ &  & & \\
+        \end{tabular}
+    \end{center}
+
+    Thus, $2x^3 + 3x^2 -7x - 5 = (x+1)(x+2)(2x-3)$ in $\mathbb{Z}_{11}[x]$.
+\end{solution}
+
+\subsection{Irreducibility tests}
+
+\begin{theorem}[Mod $p$ Irreducibility test]
+    Let $p$ be a prime and let $f(x) \in \mathbb{Z}[x]$ with degree 1 or greater. Let 
+    $\overline{f} \in \mathbb{Z}_p[x]$ obtained by reducing all of $f(x)$'s coefficients 
+    mod $p$. Then if 
+    \begin{equation}
+        deg(\overline{f}) = deg(f)
+    \end{equation}
+    and $\overline{f}$ is irreducible over $\mathbb{Z}_p$ then $f(x)$ is irreducible over 
+    $\mathbb{Q}$.
+\end{theorem}
+
+\begin{theorem}[Eisenstein's criterion]
+    Let $f(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n \in \mathbb{Z}[x] \setminus \{ 0 \}$. 
+    If there is a prime number $p$ such that 
+    $p \nmid a_n$, but $p | a_{n-1}, \ldots p | a_{2}$ and $p^2 | a_0$. Then $f(x)$ is 
+    irreducible over $\mathbb{Q}$.
+\end{theorem}
+
+\begin{theorem}
+    Let $F$ be a field and let $p(x) \in F[x]$. Then $\langle p(x) \rangle$ is a maximal ideal in $F[x]$
+    \textit{if and only if} $p(x)$ is irreducible over $F$.
+\end{theorem}
+\begin{proof}
+    Suppose $\langle p(x) \rangle$ is a maximal ideal in $F[x]$. We know that $p(x) \neq 0$ and 
+    $p(x)$ is not a unit since neither $\{ 0 \}$ nor $\langle 1_F \rangle = F[x]$ is a 
+    maximal ideal in $F[x]$. Let 
+    \[
+        p(x) = g(x) h(x)
+    \]
+    be a factorization. Then $\langle p(x) \rangle \subseteq \langle g(x) \rangle 
+    \subseteq \langle F[x] \rangle$ and since $\langle p(x) \rangle$ is maximal we either have 
+    $\langle g(x) \rangle = \langle p(x) \rangle$ or $\langle g(x) \rangle = F[x]$. In the 
+    first case we get 
+\end{proof}
+
+\section{Integral Domains}
+
+Let $R$ be a commutative ring. A \bred{zero divisor} is a nonzero element $a \in R$ such that 
+\begin{equation}
+    ab=0
+\end{equation}
+for some nonzero $b \in R$. The most familiar integral domain is $\mathbb{Z}$. It is a 
+commutative ring with unity one. If $a, b \in \mathbb{Z}$ and $ab=0$, then either $a=0$ or 
+$b=0$.
+
+\begin{definition}
+    A ring with unity $1$ having no zero divisors is an integral domain.
+\end{definition}
+
+\begin{lemma}
+    Fields are integral domain
+\end{lemma}
+\begin{proof}
+    Let $F$ be a field. We want to show that $F$ has no zero divisors. Suppose $ab =0$ and 
+    $a \neq 0$. Then $a$ must has an inverse $a^{-1}$ such that $a^{-1}\, a b = a^{-1} \cdot 0 \Longrightarrow b = 0$.
+    Therefore, $F$ has no zero divisors, and so $F$ is an integral domain.
+\end{proof}
+
+\begin{definition}
+    If $F$ is a field, then the only ideals are $\{0\}$ and $F$ itself.
+\end{definition}
+\begin{proof}
+    Let $F$ be a field, and let $I \subset F$ be an ideal. Assume $I \neq \{0 \}$, and find $x \neq 0 \in I$. 
+    Since  $F$ is a field, $x$ is invertible; Since $I$ is an ideal, $1 = x^{-1} \cdot x \in I$. Therefore $I = F$.
+\end{proof}
+
+\begin{example}
+    The extended ring
+    \[
+        \mathbb{Q}[\sqrt{2}] = \{ a+b\sqrt{2} \> | \> a,b \in \mathbb{Q} \}
+    \]
+    is a field and that every nonzero element has a multiplicative inverse.
+\end{example}
+\begin{solution}
+    This is clearly a ring. To show that every nonzero element has a multiplicative inverse. 
+    Consider $a + b\sqrt{2} \neq 0 \in \mathbb{Q}[\sqrt{2}]$. The multiplicative inverse is 
+    \[
+        \frac{1}{a + b\sqrt{2}}
+    \]
+    Then multiplying top and bottom by conjugate, we have 
+    \[
+        \frac{a - b\sqrt{2}}{(a + b\sqrt{2})(a - b\sqrt{2})} = \frac{a - b\sqrt{2}}{a^2 - 2b^2}.
+    \]
+    Now we want to show $a^2 - 2b^2 \neq 0$.
+
+    If $a = 0$ and $b \neq 0$ or if $a \neq 0$ and $b=0$, then $a^2 - 2b^2 \neq 0$. Since 
+    $a^2 - 2b^2 \neq 0$, the only other possibility is $a, b \neq 0$.
+\end{solution}
+
+\begin{theorem}
+    A finite integral domain is a field
+\end{theorem}
+\begin{proof}
+    Let $R$ be a finite domain. For instance,
+    \[
+        R =\{ r_1, r_2, \ldots, r_n \}.
+    \]
+    We want to show that every nonzero element is invertible. Let $r \in R, r \neq 0$.
+
+    Consider the products $rr_1, rr_2, \ldots, rr_n$. If $rr_i = rr_j$, then $r_i = r_j$ by 
+    left cancellation rule. Therefore, the $rr_i$ are distinct. Since there are $n$ of them, 
+    they must be exactly all the elements of $R$:
+    \[
+        R = \{ rr_1, rr_2, \ldots, rr_n \}.
+    \]
+    Then $1 \in R$ equals $rr_i$ for some integer $i$, so $r$ is invertible.
+\end{proof}
+
+\section{Principal Ideal Domain}
+
+\begin{definition}
+    An integral domain $R$ is called a \bred{principal ideal domain} (or \bred{PID}) if every ideal in $R$ is principal.
+\end{definition}
+
+\begin{example}
+    The integers $\mathbb{Z}$ and polynomial rings over fields are principal ideal domains.
+\end{example}
+
+\begin{theorem}
+    If $F$ is a field then $F[x]$ is a PID.
+\end{theorem}
+\begin{proof}
+    We know $F[x]$ is integral domain since $F$ is an integral domain. Let $I$ be an ideal of 
+    $F[x]$.
+
+    \textbf{Case 1}: If $I = \{ 0 \}$ then $I = \langle 0 \rangle$ and we are done.
+
+    \textbf{Case 2}: If $I \neq \{ 0 \}$ let $g(x)$ be a nonzero polynomial of minimal degree in 
+    $I$ (which exists by well-ordering). If $g(x)$ is constant then $g(x) = \alpha \in F$ and then 
+    $I = F = \langle \alpha \rangle$ because for any $r \in F$ we have 
+    \[
+        r = r\alpha^{-1} \alpha \in \langle \alpha \rangle.
+    \]
+    Suppose then that $g(x)$ is not constant, we claim $I = \langle g(x) \rangle$. Since 
+    $g(x) \in I$ we have $\langle g(x) \rangle \subseteq I$. We claim $I \subseteq \langle g(x) \rangle$. 
+    Let $f(x) \in I$. By the \textit{division alogrithm}, we can write 
+    \[
+        f(x) = q(x)g(x) + r(x)
+    \]
+    with $0 \leq deg(r(x)) < deg(g(x))$. Since 
+    \[
+        r(x) = f(x) - q(x)\, g(x)
+    \]
+    we have $r(x) \in I$ and the fact that $g(x)$ is a nonzero polynomial of minimal degree implies 
+    that $r(x) = 0$ and so $f(x) = q(x)\, g(x) \Longrightarrow  f(x) \in \langle g(x) \rangle$.
+\end{proof}
+
+\section{Unique Factorization Domain}
+
+\begin{definition}
+    An integral domain $D$ is a \bred{unique factorization domain} (\bred{UFD} in short) 
+    if 
+    \begin{enumerate}
+        \item Every nonzero element of $D$ that is not a unit can be written as a product of 
+        irreducibles of $D$, and
+        \item The factorization into irreducibles is unique up to associates and the order in which 
+        the factors appear. 
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    Every PID is a UFD.
+\end{theorem}
+\begin{proof}
+    Let $R$ be a PID and suppose that a nonzero element $a$ of $R$ can be express in two different ways 
+    as a product of irreducibles. Suppose
+    \[
+        a = p_1 p_2 \cdots p_r \quad \text{and } a = q_1 q_2 \cdots q_s 
+    \]
+    where each $p_i$ and $q_j$ is irreducible in $R$, and $s \geq r$. Then $p_1$ divides the 
+    product $q_1, q_2, \cdots, q_s $ and so $p_1 | q_j$ for some $j$, as $p_1$ is prime. 
+    After reordering the $q_j$ we can consider $p_1|q_1$. Then $q_1 = u_1\, p_1$ for some unit $u_1$ of $R$,
+    since $q_1$ and $p_1$ are both irreducible. Thus
+    \[
+        p_1 p_2 \cdots p_r = u_1 p_1 q_2 \cdots q_s
+    \]
+    and cancelling $p_1$ on both side
+    \[
+        p_2 \cdots p_r = u_1 q_2 \cdots q_s.
+    \]
+    Continuing this process we reach
+    \[
+        1 = u_1 u_2 \ldots u_r\, q_{r+1} \ldots q_s.
+    \]
+    Since none of the $q_j$ is a unit, this means that $r=s$ and $p_1 p_2 \cdots p_r$ are associates of 
+    $q_1 q_2 \cdots q_r$ in some order. Thus $R$ is a unique factorization domain.
+\end{proof}

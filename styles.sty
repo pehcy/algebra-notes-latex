@@ -1,57 +1,66 @@
-
-\usepackage{amsmath}
+\ProvidesPackage{styles}
+\usepackage{amsmath, nccmath}
 \usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
 \usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{mdframed}
+\usepackage{mathtools, cuted}
+\usepackage{actuarialsymbol}
+\usepackage{tabularx}
+\usepackage{xcolor,colortbl}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \usepackage{array}
 \usepackage[most]{tcolorbox}
-\usepackage{thmtools}
-\usepackage{mathtools}
-\usepackage{mdframed}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+\usepackage{cmupint}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareRobustCommand{\bxseries}{\fontseries{bx}\selectfont}
+\DeclareTextFontCommand{\textbx}{\fontseries{bx}}
+\DeclareTextFontCommand{\bred}{\color{fireEngRed}\bfseries}
+\DeclareTextFontCommand{\bgreen}{\color{extinctGreen}\bfseries}
+\DeclareTextFontCommand{\bgold}{\color{darkGoldrod}\bfseries}
+%\usepackage{mathrsfs}
+%\usepackage{titletoc}
 
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{every picture}+=[remember picture]
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+\makeatletter
+\usepackage{tikz-cd}
 
-\fancyhf{} % clear the headers
-\fancyhead[R]{%
-   % We want italics
-   \itshape
-   % The chapter number only if it's greater than 0
-   \small \normalfont \ifnum\value{chapter}>0 \chaptername\ \thechapter. \fi
-   % The chapter title
-   \leftmark}
-\fancyfoot[C]{\thepage}
+\usepackage{enumerate}
+\usepackage[inline]{enumitem}
+\usepackage{setspace}
+\singlespacing
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.5em}
 
-\fancypagestyle{plain}{
-  \renewcommand{\headrulewidth}{0pt}
-  \fancyhf{}
-  \fancyfoot[C]{\thepage}
-}
+\usepackage{fancybox}
+\usepackage{framed}
+\usepackage{ragged2e}
 
-\setlength{\headheight}{14.5pt}
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{axiom}{Axiom}[section]
+\newtheorem*{remark}{Remark}
+%\newmdtheoremenv{definition}{Definition}[section]
 
-\declaretheoremstyle[
-spaceabove=6pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
-notefont=\mdseries, notebraces={(}{)},
-bodyfont=\normalfont,
-postheadspace=1em,
-numberwithin=section
-]{exstyle}
-\declaretheoremstyle[
-spaceabove=6pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
-notefont=\mdseries, notebraces={(}{)},
-bodyfont=\normalfont,
-postheadspace=1em,
-headpunct={},
-qed=$\blacktriangleleft$,
-numbered=no
-]{solstyle}
-\declaretheorem[style=exstyle]{example}
-\declaretheorem[style=solstyle]{solution}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
 
-	
 \newtheoremstyle{break}{0pt}{0pt}{\normalfont}{0pt}{\bfseries}{}{\newline}{\thmname{#1} \thmnumber{#2} \quad \thmnote{\textbf#3}}
 \declaretheorem[numberwithin=chapter,style=break,name=Theorem]{theorem}
 
@@ -79,73 +88,105 @@ numbered=no
   colframe={orange!55!black},
 }
 
+\usepackage{thmtools}
 
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=1em,
+numberwithin=section
+]{exstyle}
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=1em,
+headpunct={},
+qed=$\blacktriangleleft$,
+numbered=no
+]{solstyle}
+\declaretheorem[style=exstyle]{example}
+\declaretheorem[style=solstyle]{solution}
 
-\newtheorem{corollary}{Corollary}[theorem]
-
-\usepackage{pgfplots}
-\pgfplotsset{compat = newest}
-\usetikzlibrary{positioning, arrows.meta, graphs}
-\usetikzlibrary{arrows,shapes,positioning,calc}
-\usetikzlibrary{decorations.markings}
-\usepgfplotslibrary{fillbetween}
-\usepackage[siunitx]{circuitikz}
-
-\usepackage{empheq}
-
-\usepackage{polynom}
-\makeatletter
-\def\pld@CF@loop#1+{%
-    \ifx\relax#1\else
-        \begingroup
-          \pld@AccuSetX11%
-          \def\pld@frac{{}{}}\let\pld@symbols\@empty\let\pld@vars\@empty
-          \pld@false
-          #1%
-          \let\pld@temp\@empty
-          \pld@AccuIfOne{}{\pld@AccuGet\pld@temp
-                            \edef\pld@temp{\noexpand\pld@R\pld@temp}}%
-           \pld@if \pld@Extend\pld@temp{\expandafter\pld@F\pld@frac}\fi
-           \expandafter\pld@CF@loop@\pld@symbols\relax\@empty
-           \expandafter\pld@CF@loop@\pld@vars\relax\@empty
-           \ifx\@empty\pld@temp
-               \def\pld@temp{\pld@R11}%
-           \fi
-          \global\let\@gtempa\pld@temp
-        \endgroup
-        \ifx\@empty\@gtempa\else
-            \pld@ExtendPoly\pld@tempoly\@gtempa
-        \fi
-        \expandafter\pld@CF@loop
-    \fi}
-\def\pld@CMAddToTempoly{%
-    \pld@AccuGet\pld@temp\edef\pld@temp{\noexpand\pld@R\pld@temp}%
-    \pld@CondenseMonomials\pld@false\pld@symbols
-    \ifx\pld@symbols\@empty \else
-        \pld@ExtendPoly\pld@temp\pld@symbols
-    \fi
-    \ifx\pld@temp\@empty \else
-        \pld@if
-            \expandafter\pld@IfSum\expandafter{\pld@temp}%
-                {\expandafter\def\expandafter\pld@temp\expandafter
-                    {\expandafter\pld@F\expandafter{\pld@temp}{}}}%
-                {}%
-        \fi
-        \pld@ExtendPoly\pld@tempoly\pld@temp
-        \pld@Extend\pld@tempoly{\pld@monom}%
-    \fi}
-\makeatother
-
-\newcommand\Mydiv[2]{%
-$\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
-        \overline{\enspace\strut#2}$}
+%\usepackage[most]{tcolorbox}
+%\newtcbtheorem{policy}{Policy Type}{enhanced,frame empty,interior empty,colframe=ForestGreen!50!white,coltitle=ForestGreen!50!black,fonttitle=\bfseries,colbacktitle=ForestGreen!15!white,borderline={0.5mm}{0mm}{ForestGreen!15!white},borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed},attach boxed title to top center={yshift=-2mm},boxed title style={boxrule=0.4pt},varwidth boxed title}{th}
+%\newtcbtheorem{policy}{Policy Type}{fonttitle=\bfseries\upshape,fontupper=\itshape,colframe=blue!0!black,colback=white!99,colbacktitle=blue!20!white,coltitle=blue!75!black}{th}
 
 \usepackage[lastexercise,answerdelayed]{exercise}
 \counterwithin{Exercise}{section}
 \counterwithin{Answer}{section}
-\newcommand{\AtBeginExerciseHeader}{\hspace{-0.25cm}}
+\newcommand{\AtBeginExerciseHeader}{\hspace{-0.75cm}}
 \renewcommand{\ExerciseHeader}{\AtBeginExerciseHeader \textbf{\ExerciseHeaderDifficulty \ExerciseName~\ExerciseHeaderNB} \quad }
 %\renewcommand{\ExerciseHeader}{\textbf{\ExerciseName~\ExerciseHeaderNB}\quad}
 \renewcommand{\AnswerHeader}{\AtBeginExerciseHeader \textbf{\AnswerName~\ExerciseHeaderNB}\smallskip\newline}
+
+\titleformat{\chapter}[display]
+  {\sffamily\bfseries\filright}
+  {\hrule height 0pt \Huge\color{fireEngRed}\thechapter\hrule}
+  {-\baselineskip}
+  {\Huge\strut}
+\titlespacing*{\chapter}
+  {0pt}
+  {-\topskip}
+  {2\normalbaselineskip}
+
+%\titleformat{\chapter}
+%  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+%\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+% \usepackage{txfonts}
+\usepackage{tgpagella}
+%\usepackage{mathptmx, newtxmath}
+%\usepackage{libertine}
+%\usepackage[T1]{fontenc}
+%\usepackage[libertine]{newtxmath}
+
+% \usepackage[scaled=0.85]{DejaVuSansMono}
+\usepackage{minted}
+
+%% Section/Subsection Font Family
+\titleformat{\section}
+  {\fontfamily{qhv}\selectfont\bfseries\Large}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}
+  {\fontfamily{qhv}\selectfont\bfseries\large}
+  {\thesubsection}
+  {1em}
+  {}
+
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{minted,skins}
+
+\newtcblisting{pycode}[1][]{
+  listing engine=minted,
+  colback=pybg,
+  colframe=white,
+  listing only,
+  minted style=manni,
+  minted language=python,
+  minted options={linenos=true,numbersep=3mm,texcl=true,baselinestretch=1.1, #1}
+}
+
+\newtcblisting{rcode}{
+  listing engine=minted,
+  colback=codeblockbg,
+  colframe=black!50,
+  listing only,
+  minted style=pastie,
+  minted language=r,
+  minted options={linenos=true,numbersep=3mm,texcl=true,baselinestretch=1.1},
+  left=5mm,enhanced,
+  overlay={\begin{tcbclipinterior}\fill[black!25] (frame.south west)
+            rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}
+}
+
+\definecolor{codeblockbg}{rgb}{0.97,0.97,0.97}
+
+\definecolor{pybg}{rgb}{0.98,0.98,0.98}
+%\newminted{pycon}{bgcolor=pybg, linenos=true, tabsize=4}
+%\usemintedstyle{vs}
