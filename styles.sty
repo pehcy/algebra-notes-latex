@@ -88,6 +88,15 @@
   colframe={orange!55!black},
 }
 
+\newtheoremstyle{break}{0pt}{0pt}{\normalfont}{0pt}{\bfseries}{}{\newline}{\thmname{#1} \thmnumber{#2} \quad \thmnote{\textbf#3}}
+\declaretheorem[numberwithin=chapter,style=break,name=Corollary]{corollary}
+
+\tcolorboxenvironment{corollary}{ 
+  breakable,
+  colback=blue!5,
+  colframe={blue!55!black},
+}
+
 \usepackage{thmtools}
 
 \declaretheoremstyle[

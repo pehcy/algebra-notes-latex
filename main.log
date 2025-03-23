@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  23 MAR 2025 01:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  24 MAR 2025 02:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -928,19 +928,20 @@ Package: ragged2e 2021/12/15 v3.1 ragged2e Package
 \c@theorem=\count351
 \c@definition=\count352
 \c@lemma=\count353
+\c@corollary=\count354
 Package thmtools Info: Key `numberwithin' (with value `section')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=exstyle' on input line 100.
+(thmtools)             that uses `style=exstyle' on input line 109.
 Package thmtools Info: Key `qed' (with value `$\blacktriangleleft $')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 110.
+(thmtools)             that uses `style=solstyle' on input line 119.
 Package thmtools Info: Key `numbered' (with value `no')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 110.
-\c@example=\count354
+(thmtools)             that uses `style=solstyle' on input line 119.
+\c@example=\count355
  (/usr/share/texlive/texmf-dist/tex/latex/exercise/exercise.sty
 Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
 \ExerciseSkipBefore=\skip155
@@ -962,28 +963,28 @@ Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
 \QuestionIndent=\skip171
 \subQuestionIndent=\skip172
 \subsubQuestionIndent=\skip173
-\c@Exercise=\count355
-\c@Answer=\count356
-\c@ExePart=\count357
-\c@Question=\count358
-\c@subQuestion=\count359
-\c@subsubQuestion=\count360
-\c@savedQuestion=\count361
-\c@savedsubQuestion=\count362
-\c@savedsubsubQuestion=\count363
-\@QuestionLevel=\count364
+\c@Exercise=\count356
+\c@Answer=\count357
+\c@ExePart=\count358
+\c@Question=\count359
+\c@subQuestion=\count360
+\c@subsubQuestion=\count361
+\c@savedQuestion=\count362
+\c@savedsubQuestion=\count363
+\c@savedsubsubQuestion=\count364
+\@QuestionLevel=\count365
 \@Exercisebox=\box102
 \all@Exercisebox=\box103
 \temp@Exercisebox=\box104
 \all@Answerbox=\box105
 \temp@Answerbox=\box106
-\ExerciseDifficulty=\count365
-\QuestionDifficulty=\count366
-\subQuestionDifficulty=\count367
-\subsubQuestionDifficulty=\count368
-\ExePartDifficulty=\count369
+\ExerciseDifficulty=\count366
+\QuestionDifficulty=\count367
+\subQuestionDifficulty=\count368
+\subsubQuestionDifficulty=\count369
+\ExePartDifficulty=\count370
 \@Answerbox=\box107
-\colonnesLevel=\count370
+\colonnesLevel=\count371
 \tempskipa=\skip174
 \tempskipb=\skip175
 \@savedmathindent=\skip176
@@ -995,52 +996,52 @@ Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
 Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
  (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
-\FV@CodeLineNo=\count371
+\FV@CodeLineNo=\count372
 \FV@InFile=\read5
 \FV@TabBox=\box108
-\c@FancyVerbLine=\count372
-\FV@StepNumber=\count373
+\c@FancyVerbLine=\count373
+\FV@StepNumber=\count374
 \FV@OutFile=\write5
 LaTeX Info: Redefining \UseVerb on input line 1241.
 ) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 ) (/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count374
+\linenopenalty=\count375
 \output=\toks70
-\linenoprevgraf=\count375
+\linenoprevgraf=\count376
 \linenumbersep=\dimen360
 \linenumberwidth=\dimen361
-\c@linenumber=\count376
-\c@pagewiselinenumber=\count377
-\c@LN@truepage=\count378
-\c@internallinenumber=\count379
-\c@internallinenumbers=\count380
+\c@linenumber=\count377
+\c@pagewiselinenumber=\count378
+\c@LN@truepage=\count379
+\c@internallinenumber=\count380
+\c@internallinenumbers=\count381
 \quotelinenumbersep=\dimen362
 \bframerule=\dimen363
 \bframesep=\dimen364
 \bframebox=\box109
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count381
-\c@FV@TrueTabCounter=\count382
+\c@FV@TrueTabGroupLevel=\count382
+\c@FV@TrueTabCounter=\count383
 \FV@TabBox@Group=\box110
 \FV@TmpLength=\skip177
-\c@FV@HighlightLinesStart=\count383
-\c@FV@HighlightLinesStop=\count384
-\FV@LoopCount=\count385
+\c@FV@HighlightLinesStart=\count384
+\c@FV@HighlightLinesStop=\count385
+\FV@LoopCount=\count386
 \FV@NCharsBox=\box111
 \FV@BreakIndent=\dimen365
-\FV@BreakIndentNChars=\count386
+\FV@BreakIndentNChars=\count387
 \FV@BreakSymbolSepLeft=\dimen366
-\FV@BreakSymbolSepLeftNChars=\count387
+\FV@BreakSymbolSepLeftNChars=\count388
 \FV@BreakSymbolSepRight=\dimen367
-\FV@BreakSymbolSepRightNChars=\count388
+\FV@BreakSymbolSepRightNChars=\count389
 \FV@BreakSymbolIndentLeft=\dimen368
-\FV@BreakSymbolIndentLeftNChars=\count389
+\FV@BreakSymbolIndentLeftNChars=\count390
 \FV@BreakSymbolIndentRight=\dimen369
-\FV@BreakSymbolIndentRightNChars=\count390
-\c@FancyVerbLineBreakLast=\count391
+\FV@BreakSymbolIndentRightNChars=\count391
+\c@FancyVerbLineBreakLast=\count392
 \FV@LineBox=\box112
 \FV@LineIndentBox=\box113
 \FV@LineWidth=\dimen370
@@ -1057,18 +1058,18 @@ runsystem(uname -s > "main.w18")...executed.
 runsystem(rm -- "main.w18")...executed.
 
 ) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count392
-\decimalpart=\count393
+\integerpart=\count393
+\decimalpart=\count394
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 )
 \minted@appexistsfile=\read6
 \minted@bgbox=\box114
 \minted@code=\write6
-\c@minted@FancyVerbLineTemp=\count394
-\c@minted@pygmentizecounter=\count395
+\c@minted@FancyVerbLineTemp=\count395
+\c@minted@pygmentizecounter=\count396
 \@float@every@listing=\toks71
-\c@listing=\count396
+\c@listing=\count397
 )
 runsystem(mkdir -p _minted-main)...executed.
 
@@ -1153,16 +1154,16 @@ LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count397
+\scratchcounter=\count398
 \scratchdimen=\dimen371
 \scratchbox=\box115
-\nofMPsegments=\count398
-\nofMParguments=\count399
+\nofMPsegments=\count399
+\nofMParguments=\count400
 \everyMPshowfont=\toks72
-\MPscratchCnt=\count400
+\MPscratchCnt=\count401
 \MPscratchDim=\dimen372
-\MPnumerator=\count401
-\makeMPintoPDFobject=\count402
+\MPnumerator=\count402
+\makeMPintoPDFobject=\count403
 \everyMPtoPDFconversion=\toks73
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1172,7 +1173,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
-\c@lstlisting=\count403
+\c@lstlisting=\count404
  (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks74
@@ -1266,20 +1267,20 @@ LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 
 [24
 
-]) [25] (./main.aux) ) 
+] [25] [26]) [27] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 43374 strings out of 478287
- 1042163 string characters out of 5849289
- 1503490 words of memory out of 5000000
- 60729 multiletter control sequences out of 15000+600000
+ 43445 strings out of 478287
+ 1043858 string characters out of 5849289
+ 1504206 words of memory out of 5000000
+ 60800 multiletter control sequences out of 15000+600000
  511799 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,17n,113p,784b,1307s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 105i,17n,113p,784b,1305s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on main.pdf (25 pages, 536687 bytes).
+Output written on main.pdf (27 pages, 545565 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
+ 287 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 

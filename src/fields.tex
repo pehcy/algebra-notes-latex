@@ -38,7 +38,91 @@ transcental element $u$, then $K$ must be infinite dimensional over $F$.
     \textsf{Non algebraic} \Longrightarrow \textsf{Infinite dimension}
 \]
 Note that $F(u)$ denote the intersection of all subfields of $K$ that contains both $F$ and $u$. It said to be a simple 
-extension of $F$.
+extension of $F$. If $u_1, u_2, \ldots, u_n$ are elements of an extension field $K$ of $F$. Let 
+$F(u_1, \ldots, u_n)$ denote the intersection of all the subfields of $K$ that contain $F$ and every $u$ (known as 
+generalized simple extension); $F(u, u_1, \ldots, u_n)$ is said to be a finitely generated extension of $F$.
+
+\begin{corollary}
+    If $L$ is algebraic extension of $K$ and $K$ is an algebraic extension of $L$. Then 
+    $L$ is an algebraic extension field of $F$.
+\end{corollary}
+\begin{proof}
+    $\forall \omega \in L, \> \exists f(x) \in K[x] \quad s.t. \> f(\omega) = a_0 + a_1 \omega 
+    + \cdots + a_n \omega^n$. 
+
+    Note that $F(a_0, a_1, \ldots, a_n)$ is finitely generated extension of $F$ and all $a_i$'s
+    \\are algebraic. Thus it is finite dimensional algebraic extension of $F$. Since 
+    $\omega$ is algebraic over $F(a_0, a_1, \ldots, a_n)$. So $F(a_0, a_1, \ldots, a_n)$ is finite 
+    dimensional extension of $F \Longrightarrow \omega$ is algebraic over $F$.
+    Thus $L$ is an algebraic extension of $F$.
+\end{proof}
+
+\begin{remark}
+    Algebraic subfield $E$ of $\mathbb{C}$ over $\mathbb{Q}$ is called the \textbf{field of algebraic numbers}. 
+    Where $E$ is an finite-dimensional algebraic extension over $K$.
+    \[
+        \begin{tikzcd}[row sep=tiny]
+            \mathbb{C} &\\
+             & E  \arrow[dash]{ul}
+            \\
+            \mathbb{Q} \arrow[uu, "\pi"] \arrow[ur, "\mu"]&\\
+        \end{tikzcd}
+    \]
+
+    \begin{itemize}
+        \item $\mu$ denote algebraic extension over $\mathbb{Q}$, e.g.: $\sqrt{2}, \sqrt{3}, i, \ldots$.
+        \item $\pi$ denote non-algebraic extension.
+    \end{itemize}
+\end{remark}
+
+\begin{corollary}
+    Let $K$ be an extension field of $F$ and let $E$ be the set of all elements of 
+\end{corollary}
+
+
+\begin{example}
+    \[
+        \mathbb{Q}(i, -i) = \mathbb{Q}(i)
+    \]
+\end{example}
+
+\begin{example}
+    $$\mathbb{Q}(\sqrt{3}, i) = \mathbb{Q}(\sqrt{3})(i)$$
+\end{example}
+\begin{solution}
+    \begin{align*}
+        [\mathbb{Q}(\sqrt{3}, i)] &= [\mathbb{Q}(\sqrt{3})(i): \mathbb{Q}]\\
+        &= [\mathbb{Q}(\sqrt{3})(i): \mathbb{Q}(\sqrt{3})]\, [\mathbb{Q}(\sqrt{3}): \mathbb{Q}]\\
+        &= 2 \cdot 2\\
+        &= 4
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    Every finite-dimensional extension is also finitely generated. If $\{ u_1, u_2, \ldots, u_n \}$ 
+    is a basis of $K$ over $F$. This implies $F(u_1, u_2, \ldots, u_n) \subseteq K$ and 
+    $K \subseteq F(u_1, u_2, \ldots, u_n)$. 
+    Thus,
+    \[
+        K = F(u_1, u_2, \ldots, u_n) = \text{Span}\{ u_1, u_2, \ldots, u_n \}.
+    \]
+\end{example}
+
+\begin{example}[Non-example]
+     $$\mathbb{Q}(\sqrt{3}, \sqrt{5}) \neq \mathbb{Q}(\sqrt{3})$$
+\end{example}
+\begin{solution}
+    For the sake of contradiction, consider $\mathbb{Q}(\sqrt{3}, \sqrt{5}) = \mathbb{Q}(\sqrt{3})$, then 
+    \[
+        \sqrt{5} = a+ b\sqrt{3}, \quad \forall a,b \in \mathbb{Q}
+    \]
+    Altering this equation by moving $a$ to left-hand side, then squaring both sides. We obtain
+    \begin{align*}
+        (\sqrt{5} - a)^2 = (b\sqrt{3})^2 \quad &\Rightarrow 5 - 2\sqrt{5}a + a^2 = 3b^2\\
+        &\Rightarrow \frac{5 + a^2 - 3b^2}{2a} = \sqrt{5} \quad (a\neq 0)
+    \end{align*}
+    However, when $a=0$, we have $5 = 3b^2$. Which is a contradiction.
+\end{solution}
 
 \section{Fundamental Theorem of Galois theory}
 
