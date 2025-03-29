@@ -2,9 +2,70 @@
 
 \section{Extenstion Fields}
 
-\begin{definition}[Extension field]
+\subsection{Simple Extension}
+
+\begin{example}
+    $\mathbb{Q}[\sqrt{3}]$ is isomorphic to $\mathbb{Q}[\sqrt{3}]/\langle x^2 - 3 \rangle$
+\end{example}
+
+Let $\sigma: F \to E$ be an isomorphism then we again define 
+$\olsi{\sigma} : F[x] \to E[x]$ by for $a_0 + a_1x + \cdots + a_n x^n \in F[x]$. We can write 
+\begin{equation}
+    \sigma (a_0 + a_1x + \cdots + a_n x^n) = \sigma(a_0) + \sigma(a_1x) + \cdots + \sigma(a_n x^n)
+\end{equation}
+and $\olsi{\sigma}$ is also isomorphism.
+
+\begin{corollary}
+    Let $\sigma : F \to E$ be an isomorphism of fields. Let $u$ be an algebraic element in 
+    "some" extension field of $F$ with minimal polynomial $p(x) \in F[x]$. Again we let 
+    $v$ be an algebraic element in some extension field of $E$ with minimal polynomial 
+    $\sigma p(x) \in E[x]$. Then $\sigma$ extends to an isomorphism of fields 
+    $\olsi{\sigma} : F(u) \to E(v)$ such that 
+    \[
+        \olsi{\sigma}(u) = v \> \text{ and } \> \olsi{\sigma}(c) = \sigma(c) \quad \forall c \in F.
+    \]
+\end{corollary}
+\begin{proof}
+    By previous theorem, $\varphi:F[x]/\left( p(x) \right) \to F(u)$ and
+    $\olsi{\varphi}:E[x]/\left( \sigma p(x) \right) \to E(v)$ are isomorphism where 
+    $\varphi(|f(x)|) = f(u)$ and $\olsi{\varphi}(|g(x)|) = g(v)$.
+
+    Furthermore, we let $\xi $ be the surjective isomorphism
+    \[
+        \olsi{\xi}: E[x] \to E[x]/(\sigma p(x))
+    \]
+    defined by $\olsi{\xi}(g(x)) = |g(x)|$.
+    
+    Note that
+    \[
+        \begin{tikzcd}[row sep=2.5em]
+            F[x] \arrow[r, "\sigma"] \arrow[dash]{d} & E[x] \arrow[r, "\olsi{\xi}"] \arrow[dash]{d} & E[x] / \left( \sigma p(x)\right) \arrow[r, "\olsi{\varphi}"] \arrow[dash]{d}& E[v] \arrow[dash]{d}\\
+            f(x) \arrow[r] & \sigma f(x) \arrow[r] & \left| \sigma f(x) \right| \arrow[r] & \sigma f(v)\\
+        \end{tikzcd}
+    \]
+    Since $\sigma, \olsi{\varphi}$ and $\olsi{xi}$ are surjective, so is the composite function.
+    \begin{align*}
+        ker\, \olsi{\phi}(\olsi{\xi}(\sigma)) &= 
+        \{ f(x) \in F[x] \> | \> \sigma f(v) = 0 \}\\
+        &= \{ f(x) \in F[x] \> | \> \sigma f(x) \in \langle \sigma f(x) \rangle \}\\
+        &= \langle p(x) \rangle
+    \end{align*}
+    By First isomorphism theorem,
+    \[
+        \begin{tikzcd}[row sep=2.5em]
+            & F \arrow[r, "\sigma"] \arrow[dash]{d} & E \arrow[dash]{d} & \\
+            & F[x] \arrow[r, "\sigma"] \arrow[d, "\xi"] & E[x] \arrow[d, "\olsi{\xi}"] & \\  
+            F(u) \arrow[r, "\varphi"] & F[x] / \langle p(x) \rangle \arrow[r, "\sigma"] & E[x] / \langle \sigma p(x)\rangle \arrow[r, "\olsi{\varphi}"] & E(v)\\
+        \end{tikzcd}
+    \]
+\end{proof}
+
+
+\subsection{Algebraic Extension}
+
+\begin{definition}[Algebraic extension]
     An extension field $K$ of a field $F$ is said to be an algebraic extension of $F$ if every element 
-    of $K$ is algebraic over $F$.
+    of $K$ is algebraic over $F$. 
 \end{definition}
 
 \begin{example}
@@ -42,6 +103,24 @@ extension of $F$. If $u_1, u_2, \ldots, u_n$ are elements of an extension field 
 $F(u_1, \ldots, u_n)$ denote the intersection of all the subfields of $K$ that contain $F$ and every $u$ (known as 
 generalized simple extension); $F(u, u_1, \ldots, u_n)$ is said to be a finitely generated extension of $F$.
 
+\begin{theorem}
+    If $K = F(u_1, u_2, \ldots, u_n)$ is a finitely generated extension field of 
+    $F$ and each $u_i$ is algebraic over $F$, then $K$ is a finite-dimensional algebraic extension of $F$.
+\end{theorem}
+\begin{proof}
+    Note that if $u, v$ is algebraic over $F$, then $v$ is algebraic over $F(u)$. Thus
+    \[
+        |F(u,v) : F(u)|\cdot |F(u) : F| < \infty \Longrightarrow 
+        |F(u,v) : F| = |F(u,v) : F(u)| \cdot |F(u) : F| < \infty.
+    \]
+    By mathematical induction, we have 
+    \[
+        |F(u_1, u_2, \ldots, u_n) : F(u_1, u_2, \ldots, u_{n-1})| \ldots 
+        |F(u_1) : F| < \infty
+    \]
+    which is also finite.
+\end{proof}
+
 \begin{corollary}
     If $L$ is algebraic extension of $K$ and $K$ is an algebraic extension of $L$. Then 
     $L$ is an algebraic extension field of $F$.
@@ -76,8 +155,15 @@ generalized simple extension); $F(u, u_1, \ldots, u_n)$ is said to be a finitely
 \end{remark}
 
 \begin{corollary}
-    Let $K$ be an extension field of $F$ and let $E$ be the set of all elements of 
+    Let $K$ be an extension field of $F$ and let $E$ be the set of all elements of $K$ that are 
+    algebraic over $F$. Then $E$ is a subfield of $K$ and an algebraic extension field of $F$.
 \end{corollary}
+\begin{proof}
+    We only need to show that $E$ is a field. Let $u,v \in F$, note that $F(u,v)$ 
+    is finitely generated extension of $F$, so $E$ is algebraic extension.
+    $E$ is closed under subtraction and multiplication. Moreover $u^{-1}$ is 
+    algebraic over $F$. Thus $E$ is a subfield of $K$.
+\end{proof}
 
 
 \begin{example}
@@ -91,8 +177,8 @@ generalized simple extension); $F(u, u_1, \ldots, u_n)$ is said to be a finitely
 \end{example}
 \begin{solution}
     \begin{align*}
-        [\mathbb{Q}(\sqrt{3}, i)] &= [\mathbb{Q}(\sqrt{3})(i): \mathbb{Q}]\\
-        &= [\mathbb{Q}(\sqrt{3})(i): \mathbb{Q}(\sqrt{3})]\, [\mathbb{Q}(\sqrt{3}): \mathbb{Q}]\\
+        |\mathbb{Q}(\sqrt{3}, i)| &= |\mathbb{Q}(\sqrt{3})(i): \mathbb{Q}|\\
+        &= |\mathbb{Q}(\sqrt{3})(i): \mathbb{Q}(\sqrt{3})| \, \cdot |\mathbb{Q}(\sqrt{3}): \mathbb{Q}|\\
         &= 2 \cdot 2\\
         &= 4
     \end{align*}
@@ -123,6 +209,142 @@ generalized simple extension); $F(u, u_1, \ldots, u_n)$ is said to be a finitely
     \end{align*}
     However, when $a=0$, we have $5 = 3b^2$. Which is a contradiction.
 \end{solution}
+
+\section{Splitting Field}
+
+In last chapter we had discussed about the integral domain. Suppose 
+polynomial $f(x)$ has degree $n$. Then $f(x)$ has at most $n$ roots in \textit{any} field. 
+Suppose that $K$ contains fewer than $n$ roots of $f(x)$. It might be possible to find an extension field of 
+$K$ that contains additional roots of $f(x)$. 
+
+\begin{definition}[Splitting field]
+    If $F$ is a field and $f(x) \in F[x]$, then an extension field $K$ of $F$ is said to 
+    be a \bred{splitting field} (or \bred{root field}) of $f(x)$ over $F$ provided that 
+    \begin{itemize}
+        \item $f(x)$ splits over $K$, say 
+        \begin{equation}
+            f(x) = c(x-u_1)\ldots (x-u_n)
+        \end{equation}
+        \item and
+        \begin{equation}
+            K = \underbrace{F(u_1, u_2, \ldots, u_n).}_{\text{smallest field}}
+        \end{equation}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    If $f(x) = x^4 - x^2 - 2 = (x^2 - 2)(x^2 + 1)$ in $\mathbb{Q}[x]$. Then 
+    \[
+        \mathbb{Q}(\sqrt{2}, -\sqrt{2}, i, -i) = \mathbb{Q}(\sqrt{2}, i)
+    \]
+    is a splitting field of $f(x)$ over $\mathbb{Q}$.
+\end{example}
+
+
+\section{Finite Fields}
+
+\begin{theorem}
+    Let $R$ be a ring with identity. Then 
+    \begin{enumerate}
+        \item The set 
+        \[
+            \mathfrak{P} = \{ k \cdot 1_R \> | \> k \in \mathbb{Z} \}
+        \]
+         is a subring of $R$.
+        \item If $R$ has characteristic $0$, then $\mathfrak{P}$ is isomorphic to $\mathbb{Z}$.
+        \item If $R$ has characteristic $n > 0$, then $\mathfrak{P}$ is isomorphic to $\mathbb{Z}_n$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    We prove each of the statements listed above.
+    \begin{enumerate}
+        \item First of all, we use subring test to check if $\mathfrak{P}$ is a subring of $R$.
+        \[
+            \begin{cases}
+                a \cdot 1_R - b \cdot 1_R = (a-b) \cdot 1_R \in \mathfrak{P}\\
+                a \cdot 1_R b \cdot 1_R = ab\, 1_R \in \mathfrak{P}
+            \end{cases}
+        \]
+        so $\mathfrak{P}$ is a subring of $R$. 
+    \end{enumerate}
+
+    We now prove (2), (3) at once, We consider a map $f : \mathbb{Z} \to \mathbb{R}$ 
+    defined by 
+    \[
+        f(n) = n \cdot 1_R \quad \forall n \in \mathbb{Z}.
+    \] 
+    Then $f$ is homomorphism because 
+    \[
+        f(n + m) = (n + m) \cdot 1_R = f(n) + f(m)
+    \]
+    and the kernel is 
+    \[
+        ker\, f = \{ n \in \mathbb{Z} \> | \> n \cdot 1_R = 0_R \}.
+    \]
+    By the first isomorphism theorem, $\mathbb{Z} / ker\, f$ is isomorphic to $\mathbb{R}$.
+    \begin{itemize}
+        \item If $R$ has a characteristic $0$, then $ker\, f = \langle 0 \rangle \Longrightarrow \mathbb{Z} \cong \mathbb{R}$.
+        \item If $R$ has a characteristic $n$, then $ker\, f = \langle n \rangle \Longrightarrow \mathbb{Z}/\langle n \rangle \cong \mathbb{R}$.
+    \end{itemize}
+\end{proof}
+
+\subsection{Order of finite field}
+
+\begin{theorem}
+    A finite field $K$ has order $p^n$, where $p$ is the characteristic of $K$ 
+    and $n = |K:\mathbb{Z}_p|$.
+\end{theorem}
+\begin{proof}
+    Let $K$ be a finite dimensional extension of $\mathbb{Z}_p$. Let $n = |K:\mathbb{Z}_p|$, then 
+    $\{ u_1, u_2, \ldots, u_n \}$ is a basis of $K$.
+
+    $\forall k \in K$, $k$ is represented uniquely be 
+    \[
+        k = c_1 u_1 + c_2 u_2 + \cdots + c_nu_n.
+    \]
+    There are precisely $p^n$ distinct linear combinations of the form. Thus 
+    $|K| = p^n$.
+\end{proof}
+
+\begin{lemma}[The Freshman's dream]
+    Let $R$ be a commutative ring with identity of characteristic $p$, where $p$ is a prime.
+    Then for every $a, b \in R$ and for all positive integer $n$ we have 
+    \begin{equation}
+        (a + b)^{p^n} = a^{p^n} + b^{p^n}.
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    We will use the induction on $n$. 
+    
+    Assume $n = 1$, we expand $(a+b)^p$ with binomial theorem.
+    \[
+        (a+b)^p = \sum^p_{k=0} {p \choose k} a^{n-k}b^k = a^p + 
+        {p \choose 1} a^{p-1}b + \cdots + {p \choose p-1} ab^{p-1} + b^p.
+    \]
+    Note that 
+    \[
+        {p \choose k} = \frac{p!}{(p-k)!\, k!}, \quad k, p-k < p \> \text{ for } 1 \leq k < p.
+    \]
+    This implies that $p$ divide ${p \choose k} \Longrightarrow 
+    {p \choose k}a^{p-k}b^k = 0 \> (\text{mod } p)$. Thus $(a+b)^p = a^p + b^p$. 
+    We are done for base case.
+
+    Assume that it holds for all less than $n$.
+    \begin{align*}
+        (a+b)^{p^n} &= \left( (a+b)^p \right)^{p^{n-1}} \\
+        &= (a^p + b^p)^{p^{n-1}}\\
+        &= (a^p)^{p^{n-1}} + (b^p)^{p^{n-1}}\\
+        &= a^{p^n} + b^{p^n}.
+    \end{align*}
+
+    Therefore the theorem is true for every positive integer $n$. Now we are done.
+\end{proof}
+
+\begin{theorem}[Existence of finite field]
+    Let $K$ be an extension field $\mathbb{Z}_p$. For all positive integer $n$, 
+    $K$ has order $p^n$ if and only if $K$ is a splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$.
+\end{theorem}
+
 
 \section{Fundamental Theorem of Galois theory}
 
