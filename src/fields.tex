@@ -4,8 +4,145 @@
 
 \subsection{Simple Extension}
 
+\begin{definition}
+    Let $E$ be an extension field of a field $F$ and let $\mathfrak{a} \in E$. We call an element 
+    $\mathfrak{a}$ \bred{algebraic} over $F$ if $\mathfrak{a}$ is the zero of some nonzero 
+    polynomial in $F[x]$. If $\mathfrak{a}$ is not algebraic over $F$, it is called 
+    \bred{transcendental} over $F$.
+\end{definition}
+
+\begin{example}
+    $\mathbb{C}$ is an extension field of $\mathbb{R}$.
+    \[
+        \begin{tikzcd}[row sep=1.0em]
+            \mathbb{C} \arrow[dash]{d}\\
+            \mathbb{R}
+        \end{tikzcd}
+    \]
+    The imaginary number $i = \sqrt{-1}$ is said to be algebraic since $x^2 + 1 = 0 \in \mathbb{R}[x]$. While 
+    $\pi$ is transcendental since it is not a zero in $\mathbb{R}[x]$.
+\end{example}
+
+\begin{theorem}
+    Let $K$ be an extension field of $F$, and $u \in K$ is an algebraic element over $F$. Then there exists 
+    a unique monic irreducible polynomial $p(x)$ in $F[x]$ that has $u$ as a root. 
+    Furthermore if $u$ is a root of $g(x) \in F[x]$, then $p(x)$ divide $g(x)$.
+\end{theorem}
+\begin{proof}
+    Notice that $u \in K$ is algebraic over $F$ \textit{if and only if} there is a nonzero polynomial 
+    $f(x) \in F[x]$ such that $f(u) = 0_K$.
+
+    Let $S$ be the set of all nonzero polynomials in $F[x]$ that have $u$ as a root, then $S$ is nonempty set.
+    By well-ordering principle, $\exists p(x) \in S$ such that $p(x)$ has the smallest degree in $S$.
+
+    Suppose that $f(x) \in F[x]$ with $f(u) = 0_K$. By division algorithm, 
+    \[
+        f(x) = p(x) q(x) + r(x)
+    \]
+    with $\deg p(x) > \deg r(x)$ or $r(x) = 0$.
+
+    If $r(x) \neq 0$, 
+    \[
+        f(x) - p(x) q(x) = r(x) \> \Longrightarrow f(u) - p(u) q(u) = r(u) = 0.
+    \]
+    This contradicting the fact that $p(x)$ is the smallest polynomial. Thus $r(x) = 0$ and 
+    $p(x)$ divide $f(x)$. And now if we let $p(x)$ and $q(x)$ be the smallest polynomial. Then, 
+    $p(x) | q(x)$ and $q(x) | p(x)$ implies that $p(x) = q(x)$.
+\end{proof}
+
+\begin{remark}
+    The $p(x)$ is called the "minimal polynomial of $u$ over $F$".
+\end{remark}
+
+\begin{example}
+    $\mathbb{R}$ is an extension field of $\mathbb{Q}$ and $\sqrt{3} \in \mathbb{R}$ is algebraic,
+    then
+    \[
+        p(x) = x^2 - 3 \in \mathbb{Q}[x]
+    \]
+\end{example}
+
+\begin{example}
+    $\mathbb{R}$ is an extension field of $\mathbb{Q}$ and $\sqrt{3} + \sqrt{5} \in \mathbb{R}$ is algebraic,
+    Then
+    \[
+        p(x) = x^4 - 16x^2 + 4 \in \mathbb{Q}[x].
+    \]
+\end{example}
+\begin{solution}
+    Let $x = \sqrt{3} + \sqrt{5} \in \mathbb{R}$, then 
+    \begin{align*}
+        x^2 = 3 + 2\sqrt{15} + 5 &\Rightarrow x^2 - 8 = 2\sqrt{15}\\
+        &\Rightarrow (x^2 - 8)^2 = 4 \cdot 15\\
+        &\Rightarrow x^4 - 16x^2 + 4 = 0
+    \end{align*}
+    Thus $p(x) = x^4 - 16x^2 + 4 \in \mathbb{Q}[x]$.
+\end{solution}
+
+\begin{theorem}
+    Let $K$ be an extension field of $F$ and $u \in K$ is an algebraic element 
+    over $F$ with minimal polynomial $p(x)$ of degree $n$, then 
+    \begin{enumerate}
+        \item $F[u]$ is a field isomorphism of $F[x]/p(x)$.
+        \item $\{ 1, u, u^2, \ldots, u^{n-1}\}$ is a basis of the 
+            vector space $F(u)$ over $F$.
+        \item $|F(u):F|=n$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Since $F(u)$ contains $F$ and $u$, so $F(u)$ contains every element of the form 
+        \[
+            b_0 + b_1u + b_2u^2 + \cdots + b_tu^t \quad \forall b_i \in F.
+        \]
+        We again define a function $\varphi : F[x] \to F(u)$ by 
+        \[
+            \varphi(f(x)) = f(u).
+        \]
+        Then $\varphi$ is ring homomorphism.
+
+        Note that $ker\, \varphi = \langle p(x) \rangle$ where $p(x)$ is the minimal polynomial 
+        of $u$ over $F$. By the first isomorphism theorem, $F[x] / p(x) \cong \Ima \varphi$.
+        Since $p(x)$ is irreducible, the quotient ring $F[x] / \langle p(x) \rangle$ is a field and 
+        $\Ima \varphi$ is also a field.
+
+        Note that $\varphi(c) = c \> \forall c \in F$ and $\varphi (x) = u$. Thus $F \subset \Ima \varphi$ and 
+        $u \in \Ima \varphi$. By definition of simple extension, $F(u) = \Ima \varphi$.
+
+        \item Since $F(u) = \Ima \varphi, \> \forall w \in F(u), \exists f(x) \in F \> s.t. \>
+        f(u) = w$. If $\deg f(x) > n$. By division algorithm, we have 
+        \[
+            f(x) = p(x) q(x) + r(x)
+        \]
+        If $r(x) = 0$, $f(u) = p(u)q(u) = 0 = w$.
+
+        Otherwise, if $r(x) \neq 0$, then 
+        \[
+            r(x) = f(x) - p(x)q(x) \Longrightarrow r(u) = f(u) - p(u)q(u) = w
+        \]
+        with $\deg r(x) < n$. Thus 
+        \[
+            F(u) = \text{Span}\{1 , u, u^2, \ldots, u^{n-1} \}.
+        \]
+        
+        \item Let $c_0 +c_1u + c_2u^2 + \cdots + c_{n-1}u^{n-1} = 0$. If 
+        $\exists c_k \in F \> s.t. \> c_k \neq 0$. Then $p(x)$ is not the minimal polynomial of 
+        $u$ over $F$. Thus $c_i = 0 \forall c_i \in F$. Hence, we can say that 
+        $\{1, u, u^2, \ldots, u^{n-1} \}$ is linearly independent and it is also 
+        a basis of $F(u)$ over $F \Longrightarrow |F(u):F| = n$.
+    \end{enumerate}
+\end{proof}
+
 \begin{example}
     $\mathbb{Q}[\sqrt{3}]$ is isomorphic to $\mathbb{Q}[\sqrt{3}]/\langle x^2 - 3 \rangle$
+\end{example}
+
+\begin{example}
+    If $u$ and $v$ have the same minimal polynomial $p(x)$ in $F[x]$, then $F(u)$ is 
+    isomorphic to $F(v)$. For instance,
+    \[
+        \mathbb{Q}[\sqrt{3}] \cong \mathbb{Q}[-\sqrt{3}].
+    \]
 \end{example}
 
 Let $\sigma: F \to E$ be an isomorphism then we again define 
@@ -28,7 +165,7 @@ and $\olsi{\sigma}$ is also isomorphism.
 \begin{proof}
     By previous theorem, $\varphi:F[x]/\left( p(x) \right) \to F(u)$ and
     $\olsi{\varphi}:E[x]/\left( \sigma p(x) \right) \to E(v)$ are isomorphism where 
-    $\varphi(|f(x)|) = f(u)$ and $\olsi{\varphi}(|g(x)|) = g(v)$.
+    $\varphi( \left[ f(x) \right]) = f(u)$ and $\olsi{\varphi}( \left[ g(x) \right]) = g(v)$.
 
     Furthermore, we let $\xi $ be the surjective isomorphism
     \[
@@ -40,7 +177,7 @@ and $\olsi{\sigma}$ is also isomorphism.
     \[
         \begin{tikzcd}[row sep=2.5em]
             F[x] \arrow[r, "\sigma"] \arrow[dash]{d} & E[x] \arrow[r, "\olsi{\xi}"] \arrow[dash]{d} & E[x] / \left( \sigma p(x)\right) \arrow[r, "\olsi{\varphi}"] \arrow[dash]{d}& E[v] \arrow[dash]{d}\\
-            f(x) \arrow[r] & \sigma f(x) \arrow[r] & \left| \sigma f(x) \right| \arrow[r] & \sigma f(v)\\
+            f(x) \arrow[r] & \sigma f(x) \arrow[r] &  \left[ \sigma f(x) \right] \arrow[r] & \sigma f(v)\\
         \end{tikzcd}
     \]
     Since $\sigma, \olsi{\varphi}$ and $\olsi{xi}$ are surjective, so is the composite function.
@@ -52,13 +189,53 @@ and $\olsi{\sigma}$ is also isomorphism.
     \end{align*}
     By First isomorphism theorem,
     \[
+        F(u) \cong F[x] / \langle p(x) \rangle \cong^{\theta} E(v)
+    \]
+    Since $\theta([f(x)]) = \sigma f(v)$. Note that 
+    \[
+        \theta([x]) = \sigma \cdot 1_F \cdot v = 1_V \cdot v = v
+    \]
+
+    so we have the following situation
+    \[
+        \begin{tikzcd}[row sep=1.0em]
+            F(u) & F[x] / \langle p(x) \rangle \arrow[l, "\varphi"] \arrow[r, "\theta"] & E(v)\\
+            f(u) & \left[ f(x) \right] \arrow[l, "\varphi"] \arrow[r, "\theta"] & \sigma f(v)\\
+            c & \left[ c \right] \arrow[l, "\varphi"] \arrow[r, "\theta"] & \sigma(c)\\
+        \end{tikzcd}
+    \]
+
+    The composite function $\theta \circ \varphi^{-1} : F(u) \to E(v)$ is an isomorphism 
+    that extends $\sigma$ and maps $u$ to $v$. 
+    \[
+        \tikz[overlay]{
+      \draw (8.5,-2.25) node[anchor=south, color=cyan!70!black] {\textsf{By First isomorphism thm.}};
+      \draw[ultra thick, cyan!70!black, fill=cyan!90!black, opacity=0.25, rounded corners] (5.35,-1.65) --
+      (10,-1.65) --  (10,0.01) --  (7.35,0.01) --  (7.35,1.225) -- (2.82,1.225) -- (2.82,0.02) -- (5.35,0.02) -- cycle;
+        }
         \begin{tikzcd}[row sep=2.5em]
-            & F \arrow[r, "\sigma"] \arrow[dash]{d} & E \arrow[dash]{d} & \\
+            & F \arrow[r, "\sigma"] \arrow[dash, "\subseteq"]{d} & E \arrow[dash, "\subseteq"]{d} & \\
             & F[x] \arrow[r, "\sigma"] \arrow[d, "\xi"] & E[x] \arrow[d, "\olsi{\xi}"] & \\  
             F(u) \arrow[r, "\varphi"] & F[x] / \langle p(x) \rangle \arrow[r, "\sigma"] & E[x] / \langle \sigma p(x)\rangle \arrow[r, "\olsi{\varphi}"] & E(v)\\
         \end{tikzcd}
     \]
 \end{proof}
+
+\begin{example}
+    $x^3 - 2$ is irreducible in $\mathbb{Q}[x]$ by Eisenstein's criterion. $\sqrt[3]{2} \in \mathbb{R}$ is a root of it.
+    Verify that $\sqrt[3]{2} \omega$ is also a root of $x^3 - 2$ in $\mathbb{C}$ where 
+    \[
+        \omega = \frac{-1 + \sqrt{3}i}{2}
+    \]
+    is a complex cube root of $1$.
+\end{example}
+\begin{solution}
+    Let $\sigma$ be the identity function from $\mathbb{Q}$ to $\mathbb{Q}$. By applying the previous corollary, we have
+    \[
+        \mathbb{Q}(\sqrt[3]{2}) \cong^\theta \mathbb{Q}(\sqrt[3]{2} \omega) 
+    \]
+    such that $\olsi{\sigma}(\sqrt[3]{2}) = \sqrt[3]{2} \omega$. And now $(\sqrt[3]{2} \omega)^3 = 2 \omega^3 = 2$.
+\end{solution}
 
 
 \subsection{Algebraic Extension}
@@ -262,7 +439,7 @@ $K$ that contains additional roots of $f(x)$.
         \[
             \begin{cases}
                 a \cdot 1_R - b \cdot 1_R = (a-b) \cdot 1_R \in \mathfrak{P}\\
-                a \cdot 1_R b \cdot 1_R = ab\, 1_R \in \mathfrak{P}
+                a \cdot 1_R \cdot b \cdot 1_R = ab\, 1_R \in \mathfrak{P}
             \end{cases}
         \]
         so $\mathfrak{P}$ is a subring of $R$. 
@@ -345,8 +522,9 @@ $K$ that contains additional roots of $f(x)$.
     $K$ has order $p^n$ if and only if $K$ is a splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$.
 \end{theorem}
 
+\section{Galois Theory}
 
-\section{Fundamental Theorem of Galois theory}
+\subsection{Fundamental Theorem of Galois theory}
 
 \begin{definition}[Galois correspondence]
     Let $K$ be a finite-dimensionalextension field of $F$, and let 
@@ -423,3 +601,63 @@ $K$ that contains additional roots of $f(x)$.
 
     We state that $K = E(V)$ for some $V \in K$. 
 \end{proof}
+
+\section{Solvability by Radicals}
+
+We shall assume that all fields have characteristic $0$. A "formula" is a specific procedure 
+that starts with coefficients of the polynomial $f(x) \in F[x]$ and arrives at the solutions of equation
+$f(x) = 0_F$ by using only the field operations $(+_F, -_F, \times_F, \div_F)$ and the extraction 
+of roots (such as $\sqrt[n]{\cdot}$).
+
+In this context, an $n$-th root of an element $c$ in field $F$ is any root of the polynomial 
+$x^n - c$ in some extension field of $F$. If that "formula" really exists, then there exists 
+an extension field $K$ of $F$ such that 
+\[
+    \begin{tikzcd}
+        F \arrow[r, blue, bend left=50, "\text{splitting field of } x^n - c"] & F' \arrow[r, red, bend left=50, "\text{splitting field of } x^{n'} - c'"]& \ldots \arrow[r, bend left=50]& K\\
+    \end{tikzcd}
+\]
+
+\begin{theorem}
+    For $n \geq 5$ the group $S_n$ is not solvable.
+\end{theorem}
+\begin{proof}
+    For the sake of contradiction, suppose that 
+    $S_n$ is solvable and that 
+    \[
+        S_n = G_0 \supseteq G_1 \supseteq \cdots \supseteq G_t = \langle 1 \rangle.
+    \] 
+    Let $(r\, s\, t)$ be any 3-cycle in $S_n$ and let $\alpha, \beta$ be any 
+    element of $\{1, 2, \ldots, n\}$ other than $r, s, t$ (they always exist since $n \geq 5$).
+    Since $S_n / G_1$ is abelian, by theorem of dihedral group,
+    \begin{align*}
+        (t\, \alpha\, s)(s\, r\, \beta)(t\, \alpha\, s)^{-1} (s\, r\, \beta)^{-1} &= 
+        (t\, \alpha\, s)(s\, r\, \beta)(t\, s\, \alpha)(s\, \beta\, r)\\
+        &= (r\, s\, t) \in G_1
+    \end{align*}
+    Note that the cycle $\langle (r\, s\, t) \rangle \subseteq G_1$, and $G_1$ definitely contains all the 3-cycles 
+    since $G_1/G_2$ is abelian, repeating upper process, $G_2$ also contains $\langle (r\, s\, t) \rangle$.
+    
+    In conclusion, $\forall i \in \{1,2,\ldots, n\}$, $G_i$ contains all the 3-cycles. This contradicting the fact 
+    that $S_n$ is solvable.
+\end{proof}
+
+\begin{definition}
+    A generator of this cyclic group of $n$-th roots of unity in $K$ is called a primitive $n$-th root of unity.
+\end{definition}
+
+This definition states that $\zeta$ is a primitive $n$-th roots of unity iff $\zeta, \zeta^2, \ldots, \zeta^n$ 
+are the $n$ distinct $n$-th roots of unity.
+
+\begin{example}
+    Consider $x^4 - 1 \in \mathbb{Q}[x]$. The 4-th roots of unity in $\mathbb{C} = \{1, -1, i, -1\} = \langle i \rangle$.
+    $i$ and $-i$ are primitive 4-th root of unity in $\mathbb{C}$.
+\end{example}
+
+\begin{example}
+    According to De Moivre's theorem,
+    \[
+        \cos \left(\frac{2 \pi}{n}\right) + i \sin \left(\frac{2 \pi}{n}\right)
+    \]
+    is a primitive $n$-th root of unity in $\mathbb{C}$.
+\end{example}

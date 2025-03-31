@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  29 MAR 2025 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  31 MAR 2025 16:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -932,15 +932,15 @@ Package: ragged2e 2021/12/15 v3.1 ragged2e Package
 Package thmtools Info: Key `numberwithin' (with value `section')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=exstyle' on input line 110.
+(thmtools)             that uses `style=exstyle' on input line 111.
 Package thmtools Info: Key `qed' (with value `$\blacktriangleleft $')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 120.
+(thmtools)             that uses `style=solstyle' on input line 121.
 Package thmtools Info: Key `numbered' (with value `no')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 120.
+(thmtools)             that uses `style=solstyle' on input line 121.
 \c@example=\count355
  (/usr/share/texlive/texmf-dist/tex/latex/exercise/exercise.sty
 Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
@@ -1265,34 +1265,28 @@ Chapter 3.
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
+[24
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24
-
-] [25] [26] [27]
-Underfull \vbox (badness 1308) has occurred while \output is active []
-
- [28]
+] [25] [26] [27] [28] [29] [30]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 321.
+(amsmath)                 on input line 498.
 
-[29] [30]) [31] (./main.aux) ) 
+[31] [32] [33]) [34] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 43626 strings out of 478287
- 1048299 string characters out of 5849289
- 1504314 words of memory out of 5000000
- 60981 multiletter control sequences out of 15000+600000
+ 43840 strings out of 478287
+ 1053381 string characters out of 5849289
+ 1504523 words of memory out of 5000000
+ 61195 multiletter control sequences out of 15000+600000
  511799 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,17n,113p,784b,1307s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on main.pdf (31 pages, 571644 bytes).
+Output written on main.pdf (34 pages, 590498 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
+ 314 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 
