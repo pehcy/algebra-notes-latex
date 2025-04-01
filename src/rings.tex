@@ -108,16 +108,73 @@ were some strange abstract entity.
 
 \subsection{Irreducibility tests}
 
+There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreducible in $\mathbb{Q}[x]$.
+
+\begin{theorem}[Rational root test]
+    Let 
+    \[ f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0 \label{eq:r2.2} \tag{{\color{orange} $\bigstar $}} \]
+    be a polynomial with integers coefficients. If $r \neq 0$ and 
+    the rational number $r/s$ (in lowest terms) is a root of $f(x)$, then 
+    $r|a_0$ and $s|a_n$.
+\end{theorem}
+\begin{proof}
+    Plug $x = r/s$ into \eqref{eq:r2.2} and equating with zero. The equation is now 
+    \[
+        a_n \left( \frac{r}{s}\right)^n + a_{n-1}\left( \frac{r}{s}\right)^{n-1} + \cdots + a_1\left( \frac{r}{s}\right) + a_0
+        = 0.
+    \]
+    Again multiplying $s^n$ on both sides
+    \[
+        a_nr^n + a_{n-1}r^{n-1}s + \cdots + a_1rs^{n-1}x + a_0s^n = 0.
+    \]
+    Factoring $r$ out and moving $a_0s^n$ to the right-hand side. We obtained 
+    \[
+        r(a_nr^{n-1} + a_{n-1}r^{n-2}s + \cdots + a_1s^{n-1}x) = -a_0s^n.
+    \]
+    Since $\gcd (r,s) = 1$, thus $r|a_0$ and similarly $s|a_n$.
+\end{proof}
+
+\begin{example}
+    The polynomial $f(x) = 2x^4 + x^3 - 21x^2 - 14x + 12$ is reducible in $\mathbb{Q}[x]$.
+\end{example}
+\begin{solution}
+    If $r/s$ is a root of $f(x)$, where $r|12$ and $s|2$. Thus the possible roots are 
+    \[
+        \pm 1,\> \pm 2,\> \pm 3,\> \pm 4,\> \pm 6,\> \pm 12,\> \pm \frac{1}{2},\> \pm \frac{3}{2}.
+    \]
+    In fact, $f(x) = (x+3) \left(x - \frac{1}{2} \right)(2x^2 - 4x - 8) \in \mathbb{Q}[x]$.
+\end{solution}
+
+\begin{example}
+    The polynomial $g(x) = x^3 + 4x^2 + x - 1$ is irreducible in $\mathbb{Q}[x]$.
+\end{example}
+\begin{solution}
+    The possible roots are $\{-1, 1\}$. However
+    \[
+        g(1) = 1 + 4 + 1 - 1 = 5 \quad \text{and }\quad g(-1) = -1 + 4 - 1 - 1 = 1
+    \]
+    So $g(x)$ has no root and $\deg g(x) = 3$. Thus $g(x)$ is irreducible over $\mathbb{Q}[x]$.
+\end{solution}
+
 \begin{theorem}[Mod $p$ Irreducibility test]
     Let $p$ be a prime and let $f(x) \in \mathbb{Z}[x]$ with degree 1 or greater. Let 
     $\overline{f} \in \mathbb{Z}_p[x]$ obtained by reducing all of $f(x)$'s coefficients 
     mod $p$. Then if 
     \begin{equation}
-        deg(\overline{f}) = deg(f)
+        \deg(\overline{f}) = \deg(f)
     \end{equation}
     and $\overline{f}$ is irreducible over $\mathbb{Z}_p$ then $f(x)$ is irreducible over 
     $\mathbb{Q}$.
 \end{theorem}
+\begin{proof}
+    Assume that $f(x) = p(x) q(x)$ in $\mathbb{Z}[x]$. Since $\phi: \mathbb{Z}[x] \to \mathbb{Z}_p[x]$
+    defined by $\phi f(x) = \overline{f}(x)$ is a ring homomorphism. So 
+    \[
+        \overline{f}(x) = \overline{p(x) q(x)} = \overline{p}(x) \overline{q}(x).
+    \]
+    If $p \nmid a_k$, then $p$ does not divide the leading coefficients of $p(x)$ and $q(x)$. Thus 
+    $\deg \overline{p}(x) = \deg p(x)$ and $\deg \overline{q}(x) = \deg q(x)$.
+\end{proof}
 
 \begin{theorem}[Eisenstein's criterion]
     Let $f(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n \in \mathbb{Z}[x] \setminus \{ 0 \}$. 
@@ -125,6 +182,49 @@ were some strange abstract entity.
     $p \nmid a_n$, but $p | a_{n-1}, \ldots p | a_{2}$ and $p^2 | a_0$. Then $f(x)$ is 
     irreducible over $\mathbb{Q}$.
 \end{theorem}
+\begin{proof}
+    Suppose that $f(x)$ is reducible over $\mathbb{Q}$ then 
+    \[
+        f(x) = g(x) h(x)
+    \] 
+    and $g(x), h(x)$ are nonconstant polynomials.
+
+    Let 
+    \[
+        f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0,
+    \]
+    \[
+        g(x) = b_rx^r + b_{r-1}x^{r-1} + \cdots + b_1x + b_0,
+    \]
+    \[
+        h(x) = c_sx^s + c_{s-1}x^{s-1} + \cdots + c_1x + c_0.
+    \]
+    Since $p|a_0 =b_0c_0 \Longrightarrow p | b_0$ or $p|c_0$, and $p^2 \nmid a_0$. This implies that 
+    $p$ divides only one of them. Assume that $p | b_0$ and $p \nmid c_0$, then 
+    \[
+        p|a_0 = b_0c_1 + b_1c_0.
+    \]
+    Since $p|b_0c_1$ and $p \nmid c_0 \Longrightarrow p|b_1$. Assume that $p|b_i \> \forall 0 \leq i < m$ 
+    for some $m \leq r$. Then 
+    \[
+        p|a_m = \sum_{\substack{i+j=m \\ j \leq s}} b_ic_j \Longrightarrow p|b_mc_0 \Longrightarrow p|b_m.
+    \]
+    By mathematical induction, $p|b_r$. Thus $p|a_n = b_rc_s$. This contradicting the fact that $f(x)$ 
+    is reducible.
+\end{proof}
+
+\begin{example}
+    $x^9 + 5$ is irreducible in $\mathbb{Q}[x]$ with $p=5$.
+\end{example}
+
+\begin{example}
+    $x^{17} + 6x^{13} - 15x^{4} + 3x^2 - 9x + 12$ is irreducible in $\mathbb{Q}[x]$ with $p=3$.
+\end{example}
+
+\begin{example}
+    $x^n + 5$ is irreducible in $\mathbb{Q}[x]$ for all $n \geq 1$. There are irreducible polynomials of 
+    every degree in $\mathbb{Q}[x]$.
+\end{example}
 
 \begin{theorem}
     Let $F$ be a field and let $p(x) \in F[x]$. Then $\langle p(x) \rangle$ is a maximal ideal in $F[x]$
@@ -141,6 +241,77 @@ were some strange abstract entity.
     \subseteq \langle F[x] \rangle$ and since $\langle p(x) \rangle$ is maximal we either have 
     $\langle g(x) \rangle = \langle p(x) \rangle$ or $\langle g(x) \rangle = F[x]$. In the 
     first case we get 
+\end{proof}
+
+\begin{theorem}[Fundamental theorem of Algebra]
+    Every nonconstant polynomial in $\mathbb{C}[x]$ has a root in $\mathbb{C}$.
+\end{theorem}
+\begin{remark}
+    The field $\mathbb{C}$ is algebraically closed.
+\end{remark}
+
+\begin{corollary}
+    A polynomial is irreducible in $\mathbb{C}[x]$ \textit{if and only if} it has a degree 1.
+\end{corollary}
+\begin{proof}
+    All linear equation with degree 1 only have one root in $\mathbb{R}$.
+\end{proof}
+
+\begin{corollary}
+    Every nonconstant polynomial $f(x)$ of degree $n$ can be written in the form 
+    \[
+        c(x-a_1)(x-a_2) \ldots (x-a_n)
+    \]
+    for some $c, a_1, a_2, \ldots, a_n \in \mathbb{C}$. This factorization is unique except for the order 
+    of the factors.
+\end{corollary}
+\begin{proof}
+    By the fundamental theorem of algebra, 
+    \begin{align*}
+        f(x) &= (r_1x + s_1)(r_2x + s_2) \ldots (r_nx + s_n)\\
+        &= r_1\, r_2 \ldots r_n (x + s_1r_1^{-1})(x + s_2r^{-1}_2) \ldots (x + s_nr^{-1}_n).
+    \end{align*}
+    Since $f(x)$ has $n$ unique roots, factorization is also unique.
+\end{proof}
+
+\begin{theorem}
+    A polynomial $f(x)$ is irreducible in $\mathbb{R}[x]$ \text{if and only if} $f(x)$ is a 
+    first-degree polynomial or $f(x) = ax^2 + bx + c$ with $b^2 - 4ac < 0$.
+\end{theorem}
+\begin{proof}
+    In $\mathbb{C}[x]$,
+    \[
+        f(x) = c(x - a_1)(x-a_2)\ldots (x-a_n).
+    \]
+    If $a_i = c + di, a_j = c-di$ for some $1 \leq j \leq n$. The product of the conjugates are 
+    \[
+        (x - a_i)(x - a_j) = (x - c -di)(x - c + di) = x^2 -2cx + c^2 + d^2 \in \mathbb{R}[x].
+    \]
+    Thus we can pair them and so $f(x)$ can be split by irreducible polynomials whose degree is either 
+    1 or 2.
+
+    Now we knew every irreducible polynomial has a degree 1 or 2. When its degree is 2, then 
+    \[
+        f(x) = ax^2 + bx + c \quad \forall a,b,c \in \mathbb{R} \label{eq:r2.1} \tag{{\color{red} $\clubsuit$}}
+    \]
+    We now continue to work on the "formula" to solve $x$. Completing the square on \eqref{eq:r2.1}
+    \begin{align*}
+        ax^2 + bx + c = 0 &\Rightarrow a \left[ x^2 + \frac{b}{a}x + \left(\frac{b}{2a} \right)^2 \right] - \left(\frac{b}{2a} \right)^2 = 0\\
+        &\Rightarrow \left(x + \frac{b}{2a} \right)^2 = \frac{b^2 - 4ac}{4a^2}\\
+        &\Rightarrow x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}\\
+        &\Rightarrow x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\\
+    \end{align*}
+    Now we can take a look on determinant $\Delta = b^2 - 4ac$. If $\Delta < 0$, the two roots 
+    will be in $\mathbb{C} \setminus \mathbb{R}$, else the two roots are in $\mathbb{R}$. (Either $\Delta > 0$ or 
+    $\Delta = 0$). Hence the first-degree polynomial or quadratic polynomial is irreducible in $\mathbb{R}[x]$.
+\end{proof}
+
+\begin{corollary}
+    Every polynomial $f(x)$ of odd degree in $\mathbb{R}[x]$ has a root in $\mathbb{C}$.
+\end{corollary}
+\begin{proof}
+    Consequently, we can tell if a polynomial in $\mathbb{R}[x]$ or $\mathbb{C}[x]$ is irreducible without any elaborate 
+    tests.
 \end{proof}
 
 \section{Integral Domains}
@@ -301,4 +472,57 @@ $b=0$.
     \]
     Since none of the $q_j$ is a unit, this means that $r=s$ and $p_1 p_2 \cdots p_r$ are associates of 
     $q_1 q_2 \cdots q_r$ in some order. Thus $R$ is a unique factorization domain.
+\end{proof}
+
+\section{Quotient rings, Ideals}
+
+\begin{definition}[Prime ideal]
+    An ideal $I$ in a commutative ring $R$ is said to be prime if $I \neq R$ and whenever 
+    $ab \in I$, then either $a \in I$ or $b \in I$.
+\end{definition}
+
+\begin{definition}[Maximal ideal]
+    An ideal $I$ in a ring $R$ is said to be maximal if $I \neq R$ and whenever $J$ is an ideal such that
+    \[
+        I \subset J \subset R
+    \]
+    then $I = J$ or $J = R$.
+\end{definition}
+
+\begin{lemma}
+    Consider $R$ is a ring with nonzero unity, and $M$ is an ideal such that $M \neq R$. If $R/M$ is a 
+    division ring, then $M$ is a maximal ideal.
+\end{lemma}
+\begin{proof}
+    Suppose $I$ is an ideal such that $M \subsetneq I \subseteq R$. Then $\exists a \in I \> s.t. \> a \notin M$. 
+    Then $a + M \neq 0 + M$ and there exists $b + M \in R/M$ such that 
+    \[
+        (a+M)(b+M) = 1_R + M \Longrightarrow (1_R - ab) \in M \Longrightarrow ab+m = 1_R
+    \]
+    for some $m \in M$. Since $ab \in I$ and $m \in M \subset I$. Also $1_R \in I \Longrightarrow I = R$. Thus $M$ is 
+    a maximal ideal.
+\end{proof}
+
+\begin{theorem}
+    Let $M$ be an ideal in a commutative ring $R$ with identity. Then $M$ is a maximal ideal \textit{if and only if}
+    the quotient ring $R/M$ is a field. 
+\end{theorem}
+\begin{proof}
+    $(\Leftarrow)$ If $R/M$ is a field, then $M$ is a maximal ideal by previous lemma.
+
+    $(\Rightarrow)$ Since $M \neq R$, $R/I$ is a commutative ring with 
+    $1_R + R \neq 0_R + M$. Take any nonzero $a + M \in R/M, a \notin M$ and put 
+    \[
+        N := Ra + M = \{ ra+m \> | \> r \in R, m \in M \}.
+    \]
+    Note that $Ra$ is an ideal and $M$ is also an ideal ($Ra = \langle a \rangle$). 
+    Thus $Ra + M$ is ideal that include $M$.
+
+    Since $M$ is maximal, this implies that $N = R \Longrightarrow 1_R \in N$. 
+    $ra + m = 1_R$ for some $r \in R, m \in M$. Compute 
+    \begin{align*}
+        ra + m = 1_R &\Rightarrow ra + M = 1_R + M & \text{Since } (ra-1_R) \in M\\
+        &\Rightarrow (a+M)(r+M) = 1_R + M.
+    \end{align*}
+    We can now see that $a+M$ is actually a unit in $R/M$. Hence $R/M$ is a field.
 \end{proof}

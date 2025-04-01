@@ -524,6 +524,19 @@ $K$ that contains additional roots of $f(x)$.
 
 \section{Galois Theory}
 
+The classical question of algebra : Whether or not there were formulas for the solution of higher degree polynomial 
+equations. There are no formula for the solution of all polynomial equations of degree $n$ when $n \geq 5$.
+
+Galois theory had a profound influence on the development of later mathematics for beyond the scope of 
+the original solvability problem. Why? Because his theory connecting the field extensions with groups.
+
+\begin{definition}[Galois group]
+    Let $K$ be an extension field of $F$. An $F$-automorphism of $K$ is an isomorphism $\sigma : K \to K$ that 
+    fixes $F$ elementwise. That is, $\sigma(c) \to c, \forall c \in F$.
+
+    The set of all $F$-automorphisms of $K$ is denoted $\gal_F K$ and is called the Galois group of $K$ over $F$.
+\end{definition}
+
 \subsection{Fundamental Theorem of Galois theory}
 
 \begin{definition}[Galois correspondence]
@@ -614,9 +627,53 @@ $x^n - c$ in some extension field of $F$. If that "formula" really exists, then 
 an extension field $K$ of $F$ such that 
 \[
     \begin{tikzcd}
-        F \arrow[r, blue, bend left=50, "\text{splitting field of } x^n - c"] & F' \arrow[r, red, bend left=50, "\text{splitting field of } x^{n'} - c'"]& \ldots \arrow[r, bend left=50]& K\\
+        F \arrow[rr, blue, bend left=50, "\text{splitting field of } x^n - c"] & \supseteq & F' \arrow[rr, red, bend left=50, "\text{splitting field of } x^{n'} - c'"] & \supseteq & \ldots \arrow[rr, bend left=50]& \supseteq & K\\
     \end{tikzcd}
 \]
+
+\begin{example}
+    The solutions of $x^3 + 3x + 2 = 0 \in \mathbb{Q}[x]$ are 
+    \[
+    \fbox{$\sqrt[3]{-1+\sqrt{2}} + \sqrt[3]{-1-\sqrt{2}}$} \quad \fbox{$\omega \sqrt[3]{-1+\sqrt{2}} + (\omega^2) \sqrt[3]{-1-\sqrt{2}}$}
+    \quad \fbox{$(\omega^2) \sqrt[3]{-1+\sqrt{2}} + \omega \sqrt[3]{-1-\sqrt{2}}$}
+    \]
+\end{example}
+
+\begin{definition}[Radical extensions]
+    A field $K$ is said to be a radical extension of a field $F$ if there is a chain of fields 
+    \[
+        F = F_0 \subseteq F_1 \subseteq \ldots \subseteq F_t = K
+    \]
+    such that for each $i = 1, 2, \ldots, t$. $F_i = F_{i - 1}(u_i)$ and 
+    some power of $u_i$ is in $F_{i-1}$ ($u_i^{K_{i}} \in F_{i-1}$). 
+    
+    The equation $f(x) = 0_F$ is said to be solvable by radicals if there is a radical extension of $F$ that contains 
+    a splitting field of $f(x)$.
+    If not, then $f(x)$ is not solvable by radical.
+\end{definition}
+
+\begin{definition}[Solvable groups]
+    A group $G$ is said to be solvable if it has a "chain" of subgroups 
+    \[
+        G = G_0 \triangleright G_1 \triangleright \ldots \triangleright G_{n-1} \triangleright G_n 
+        = \langle e \rangle
+    \]
+    and $G_{i-1} / G_i$ is abelian.
+\end{definition}
+
+\begin{example}
+    Every abelian group $G$ is solvable. $G \supseteq \langle e \rangle$ and $G/\langle e \rangle \cong G$ 
+    is abelian.
+\end{example}
+\begin{solution}
+    Since $S_3 \triangleright \langle (1\, 2\, 3) \rangle$, and 
+    \[
+        (1\, 2) \, \langle (1\, 2\, 3) \rangle = \{ (1 \, 2), (1 \, 3), (2\, 3)\}
+    \]
+    \[
+        \langle (1\, 2\, 3) \rangle\, (1\, 2) = \{ (1 \, 2), (2 \, 3), (1\, 3)\}
+    \]
+\end{solution}
 
 \begin{theorem}
     For $n \geq 5$ the group $S_n$ is not solvable.
@@ -661,3 +718,29 @@ are the $n$ distinct $n$-th roots of unity.
     \]
     is a primitive $n$-th root of unity in $\mathbb{C}$.
 \end{example}
+
+\begin{theorem}
+    Every homomorphic image of a solvable group $G$ is solvable.
+\end{theorem}
+\begin{proof}
+    Let $G$ be a solvable group. Then there exists a chain of groups
+    \[
+        G = G_0 \supseteq G_1 \supseteq \ldots \supseteq G_n = \langle  e \rangle
+    \]
+    such that $G_{i-1} \triangleright G_i$ and $G_{i-1} / G_i$ is abelian $\forall i$.
+
+    Let $f$ be the homomorphism of $G$, then $f(G_i)$ is also a group. The chain of group is now 
+    \[
+        f(G) = f(G_0) \supseteq f(G_1) \supseteq \ldots \supseteq f(G_n) = \langle  e \rangle
+    \]
+    and $\forall a, b \in G_{i-1}$, we have $aba^{-1}b^{-1} \in G_i$. And 
+    \[
+        f(aba^{-1}b^{-1}) = f(a)f(b)f(a)^{-1}f(b)^{-1} \in f(G_i).
+    \]
+    And for all $c, d$ in $f(G_i)$, there exists some $a, b \in G_i$ such that $f(a) = c$ and 
+    $f(b) = d$. So 
+    \[
+        f(a)f(b)f(a)^{-1}f(b)^{-1} = cdc^{-1}d^{-1} \in f(G_i).
+    \]
+    Thus $f(G_{i-1})/f(G_i)$ is abelian. Thus $f(G)$ is solvable group.
+\end{proof}
