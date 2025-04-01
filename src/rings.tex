@@ -226,6 +226,115 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
     every degree in $\mathbb{Q}[x]$.
 \end{example}
 
+\begin{corollary}
+    For any prime $p$, the $p$-th cyclotomic polynomial
+    \[
+        \Phi_p(x) = x^{p-1} + x^{p-2} + \cdots + x + 1
+    \]
+    is irreducible over $\mathbb{Q}$.
+\end{corollary}
+\begin{proof}
+    Let $\zeta = e^{2\pi i / n}$. Then $\zeta, \zeta^2, \ldots, \zeta^n$ are the $n$-th roots of unity. They form 
+    the vertices of a regular $n$-gon in the complex plane. If $\gcd(a,n) > 1$ then $\zeta^a$ is a root of unity 
+    of order $n / \gcd(a,n) < n$, but if $\gcd(a,n) = 1$ then $\zeta$ is not a root of lower order, and in this case we call 
+    $\zeta^a$ a primitive $n$-th root of unity. We define the $n$-th cyclotomic polynomial $\Phi_n(x)$ to be the monic polynomial
+    of degree $\phi(n)$ whose roots are the primitive $n$-th root of unity: 
+    \begin{equation}
+        \Phi_n(x) = \prod_{\substack{a = 1\\ \gcd(a,n)=1}}^{n}(x - \zeta^a).
+    \end{equation}
+
+    The first few cyclotomic polynomials are as follows:
+
+    \begin{center}
+        \begin{tabular}{c|c}
+            $n = $ & \\
+            \hline
+                $1$ & $\Phi_1(x) = x-1$\\[0.225em]
+                $2$ & $\Phi_2(x) = x + 1$\\[0.225em]
+                $3$ & $\Phi_3(x) = x^2 + x + 1$\\[0.225em]
+                $4$ & $\Phi_4(x) = x^2 + 1$\\[0.225em]
+                $5$ & $\Phi_5(x) = x^4 + x^3 + x^2 + x + 1$\\[0.225em]
+                $6$ & $\Phi_6(x) = x^2 - x + 1$\\[0.225em]
+                $7$ & $\Phi_7(x) = x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$\\[0.225em]
+                $8$ & $\Phi_8(x) = x^4 + 1$\\[0.225em]
+                $9$ & $\Phi_9(x) = x^6 + x^3 + 1$\\[0.225em]
+                $10$ & $\Phi_{10}(x) = x^4 - x^3 + x^2 - x + 1$\\[0.225em]
+                $11$ & $\Phi_{11}(x) = x^{10} + x^9 + x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$\\[0.225em]
+                $12$ & $\Phi_{12}(x) = x^4 - x^2 + 1$\\[0.225em]
+                $13$ & $\Phi_{13}(x) = x^{12} + x^{11} + x^{10} + x^9 + x^8 + x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$\\[0.225em]
+                $14$ & $\Phi_{14}(x) = x^6 - x^5 + x^4 - x^3 + x^2 -x + 1$\\[0.225em]
+                $15$ & $\Phi_{15}(x) = x^8 - x^7 + x^5 - x^4 + x^3 -x + 1$\\[0.225em]
+                $16$ & $\Phi_{16}(x) = x^8 + 1$\\[0.225em]
+        \end{tabular}
+    \end{center}
+
+    Let $p$ denote a given prime number. For any polynomial $f(x)$ with integral coefficients let 
+    $\overline{f}(x)$ be the polynomial whose coefficients are the residue classes (mod $p$) determined by the coefficients
+    of $f(x)$. Thus the assertion $\overline{f} = \overline{g}$ means that there is a polynomial $h(x)$ with 
+    integral coefficients such that $f(x) = ph(x)$.
+
+    \begin{lemma}
+        (Sch\"{o}nemann, 1846) Let $A(x)$ be a monic polynomial with integral coefficients, for instance
+        \[
+            A(x) = x^n + a_{n-1}x^{n-1} + \cdots + a_0 = \prod^{n}_{i = 1} (x - \alpha_i).
+        \]
+        Let $p$ be a prime, and put 
+        \[
+            C(x) = \prod_{i=1}^{n} (x - \alpha^p_i).
+        \]
+        Then $\overline{C} = \overline{A}$.
+    \end{lemma}
+    \begin{proof}
+        Let $\sigma_k(\alpha)$ denote the $k$-th symmetric function of $\alpha_i$. When $\sigma_k(\alpha)^p$ is expanded 
+        by the multinomial theorem, all coefficients except the extreme ones are divisible by $p$. That is,
+        \[
+            \frac{\sigma_k(\alpha_1, \alpha_2, \ldots, \alpha_n)^p - \sigma_k(\alpha^p_1, \alpha^p_2, \ldots, \alpha_n^p)}{p}
+        \]
+        is a symmetric polynomial in the $\alpha$, with integral coefficients, and hence by the symmetric function theorem the 
+        quantity must be a rational integer.
+    \end{proof}
+
+    \begin{lemma}
+        Put $f(x) = x^n - 1$. Then $\overline{f}$ is a squarefree if and only if $p \nmid n$.
+    \end{lemma}
+    \begin{proof}
+        By previous lemma we can see that if $p \nmid n$. Then $\gcd(\overline{f}, \overline{f}') = 1$, and hence 
+        that $\overline{f}$ is squarefree. On the other hand, if $p|n$, say $n = mp$ for some integer $m$, then 
+        \[
+            \overline{f} = \overline{(x^m - 1)^p}
+        \]
+        and hence $\overline{f}$ is not squarefree.
+
+        Let $\Phi_n(x)$ denote the $n$-th cyclotomic polynomial. Since $\Phi_n | f$, it follows from the above 
+        that if $p \nmid n$, then $\overline{\Phi_n}$ is also squarefree.
+    \end{proof}
+
+    \begin{theorem}
+        (Kronecker, 1854) The polynomial $\Phi_n(x)$ is irreducible over $\mathbb{Q}$.
+    \end{theorem}
+    \begin{proof}
+        Suppose that $A$ and $B$ are monic polynomials with rational coefficients such that
+        $\Phi_n = AB$, and suppose also that $\deg A > 0$. We know that A and B
+        have integral coefficients. Let $Z$ denote the roots of $A$. Let $C$ be the monic polynomial
+        whose roots are the numbers $\zeta^p$ for $\zeta \in Z$. Here $p$ is an arbitrary prime not dividing $n$.
+        Our first step is to show that $A = C$. 
+        
+        Since the map $\zeta \mapsto \zeta^p$ merely permutes the roots of
+        $\Phi_n$, we know that $C|\Phi_n$. Let $G = \gcd(B,C)$. Then $\overline{G}|B$ and $\overline{G}|C$. But $\overline{A} = \overline{C}$ by previous lemma,
+        and hence $\overline{G}^2 | \olsi{A} \olsi{B}$. But $\Phi_n$ is squarefree, by previous lemma. Hence $G = \olsi{1}$, so $G = 1$,
+        and consequently $C |A$. But $C$ and $A$ have the same degree, so in fact $A = C$.
+        
+        Now let $\zeta$ be a root of $A$, and $\zeta'$ a root of $\Phi_n$. Then there exists a positive integer $a$,
+        $\gcd(a, n) = 1$, such that $\zeta' = \zeta^a$. We factor $a$, $a = p_1p_2 \ldots p_k$. Since $\zeta$ is a root of $A$, it follows
+        from the argument above that $\zeta^{p_1}$ is also a root of A. Then by a second application of
+        the above argument, we see that $\zeta^{p_1p_2}$ is also a root of $A$. Continuing in this manner, we
+        deduce that $\zeta'$ is a root of $A$. Since this is valid for every root $\zeta'$ of $\Phi_n$, we conclude that
+        $A = \Phi_n$. Hence $\Phi_n$ is irreducible.
+    \end{proof}
+\end{proof}
+
+
+
 \begin{theorem}
     Let $F$ be a field and let $p(x) \in F[x]$. Then $\langle p(x) \rangle$ is a maximal ideal in $F[x]$
     \textit{if and only if} $p(x)$ is irreducible over $F$.
@@ -243,7 +352,7 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
     first case we get 
 \end{proof}
 
-\begin{theorem}[Fundamental theorem of Algebra]
+\begin{theorem}[Fundamental Theorem of Algebra]
     Every nonconstant polynomial in $\mathbb{C}[x]$ has a root in $\mathbb{C}$.
 \end{theorem}
 \begin{remark}
@@ -272,6 +381,24 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
         &= r_1\, r_2 \ldots r_n (x + s_1r_1^{-1})(x + s_2r^{-1}_2) \ldots (x + s_nr^{-1}_n).
     \end{align*}
     Since $f(x)$ has $n$ unique roots, factorization is also unique.
+\end{proof}
+
+\begin{lemma}
+    If $f(x)$ is a polynomial in $\mathbb{R}[x]$ and $a + bi$ is a root of $f(x)$ in $\mathbb{C}$, 
+    then $a - bi$ is also a root of $f(x)$.
+\end{lemma}
+\begin{proof}
+    Let $z = a+bi$ and the conjugate $\olsi{z} = a - bi$. Define a map 
+    $\varphi: \mathbb{C}[x] \to \mathbb{C}[x]$ by $\varphi f(x) = \olsi{f}$. 
+    Bijective is trivial in $\varphi$, e.g.
+        $\varphi(f + g) = \olsi{f} + \olsi{g}$
+    and $\varphi(fg)= \olsi{f} \, \olsi{g}$ since 
+    \[
+        \overline{(a+bi)(c+di)} = \overline{(a+bi)}\> \overline{(c+di)}.
+    \]
+    If $f(x)$ has a root $z$ then $\olsi{f}(x)$ will has a root $\olsi{z}$. 
+    If coefficients of $f(x)$ are all real numbers, then $f(x) = \olsi{f}(x)$. 
+    Thus $f(x)$ has a root $\olsi{z}$.
 \end{proof}
 
 \begin{theorem}
