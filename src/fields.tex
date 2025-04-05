@@ -537,6 +537,234 @@ the original solvability problem. Why? Because his theory connecting the field e
     The set of all $F$-automorphisms of $K$ is denoted $\gal_F K$ and is called the Galois group of $K$ over $F$.
 \end{definition}
 
+\begin{theorem}
+    If $K$ is an extension field of $F$, then $\gal_F K$ is a group under the operation 
+    of composition of functions.
+\end{theorem}
+\begin{proof}
+    We need to show that the function composition from a group:
+
+    [Closedness]: $\forall \sigma, \tau \in \gal_F K, \quad \sigma \circ \tau (c) = c \> \forall c \in F$.
+    
+    [Associativity]: Associativity holds because of function composition's property.
+    
+    [Existence of identity]: $\forall \sigma \in \gal_F K$, $\sigma \circ \tau = \tau \circ \sigma = \sigma$.
+
+    [Existence of inverse]: $\forall \sigma \in \gal_F K$, $\sigma^{-1}(c) = c \> \forall c \in F$. So 
+    $\sigma^{-1}$ is the inverse in $\gal_F K$.
+\end{proof}
+
+\begin{theorem}
+    Let $K$ be an extension field of $F$ and $f(x) \in F[x]$. If $u \in K$ is a root of $f(x)$ and $\sigma \in \gal_F K$, 
+    then $\sigma(u)$ is also a root of $f(x)$.
+\end{theorem}
+\begin{proof}
+    Take a $u \in K$, $f(u) = 0 \Longrightarrow \sigma(f(u)) = \sigma(0) = 0$. 
+
+    Since $\sigma \in \gal_F K, \sigma \left( f(u) \right) = f\left( \sigma(u) \right) = 0$.
+\end{proof}
+
+\begin{remark}
+    Every root of $p(x)$ in $K$ is the image of $u$ under some automorphism of $\gal_F K$.
+\end{remark}
+
+\begin{theorem}
+    Let $K$ be the splitting field of some polynomial over $F$ and $u,v \in K$. Then there exists an $\sigma \in \gal_F K$ 
+    such that $\sigma(u) = v$ \textit{if and only if} $u$ and $v$ have the same minimal polynomial. 
+\end{theorem}
+\begin{proof}
+    $(\Rightarrow)$ Note that if $K$ is splitting field of $f(x)$ with $\deg f = n$. Then 
+    \[
+        |K:F| \leq n! \Longrightarrow K \textsf{ is algebraic over } F.
+    \]
+    So $u$ has a minimal polynomial $q(x)$ over $F$.
+
+    By previous theorem, $p(v) = 0$ and $q(u) = 0$. These imply $p(x) | q(x)$ and 
+    $q(x) | p(x)$ and hence $p(x) = q(x)$. We are done for this direction.
+
+    $(\Leftarrow)$ On the other hand, in simple extension, we can extend an isomorphism 
+    $\sigma: F \to F$ to $\olsi{\sigma}: \olsi{F} \to \olsi{F}$ such that 
+    $\olsi{\sigma}(u) = v$ and $\olsi{\sigma}(c) = c$ for all constant $c \in F$. 
+
+    Since $K$ is splitting field of some polynomial over $F$, which is also a splitting field of 
+    $F(u)$ and $F(v)$. We can extend an isomorphism $\olsi{\sigma}$ to an isomorphism 
+    $\tilde{\sigma}: K \to K$. If $\sigma = 1$, then $\tilde{\sigma} \in \gal_F K$.
+\end{proof}
+
+\begin{example}
+    Given that $\sigma \in \gal_\mathbb{R} \mathbb{C}$, find $\sigma(i)$.
+\end{example}
+\begin{solution}
+    By previous theorem,
+    \[
+        \sigma(i) = \{ i, - i \}.
+    \]
+    Thus $\gal_F K = \{1, \sigma \}$ is a group of order 2 and hence $\gal_\mathbb{R} \mathbb{C}$ 
+    is isomorphic to $\mathbb{Z}_2$.
+\end{solution}
+
+\begin{theorem}[Galois group of finitely generated extension]
+    Let $K = F(u_1, u_2, \ldots, u_n)$ be an algebraic extension field of $F$. If 
+    $\sigma \circ \tau \in \gal_F K $ and $\sigma(u_i) = \tau(u_i)$ for each $i = 1,2,\ldots, n$.
+    Then $\sigma = \tau$.
+
+    In other words, an automorphism in $\gal_F K$ is completely determined by its action 
+    on $u_1, u_2, \ldots u_n$.
+\end{theorem}
+\begin{proof}
+    Let $\beta = \sigma^{-1} \circ \tau$, then 
+    \[
+        \sigma^{-1} \circ \tau (u_i) = \sigma^{-1} \circ \sigma(u_i) = u_i.
+    \]
+    Let $v \in F(u_i)$, then there exists a constant $c_i \in F$ such that 
+    \[
+        c_0 + c_1u_1 + \cdots + c_{n-1}u^{n-1}_1 = w \Longrightarrow \beta(v) = v.
+    \]
+    Again we let $w \in F(u_1, u_2)$, then there exists a constant $c_i \in F$ such that 
+    \[
+        c_0 + c_1u_2 + \cdots + c_{n-1}u^{n-1}_2 = w \Longrightarrow \beta(w) = w.
+    \]
+    Repeating this process, we conclude that for all $v \in K$, $\beta(v) = v \Longrightarrow \beta = 1$.
+    Thus $\tau = \sigma$.
+\end{proof}
+
+\begin{example}
+    Consider $\sigma \in \gal_\mathbb{Q} \mathbb{Q}[\sqrt{3}, \sqrt{5}]$. We let two actions
+    \[
+        \tau(\sqrt{3}) = -\sqrt{3}, \quad \tau(\sqrt{5}) = \sqrt{5}
+    \]
+    and
+    \[
+        \alpha(\sqrt{3}) = \sqrt{3}, \quad \alpha(\sqrt{5}) = -\sqrt{5}
+    \]
+    and defined $\beta = \alpha \circ \tau$.
+
+    Then $\gal_\mathbb{Q} \mathbb{Q}[\sqrt{3}, \sqrt{5}] = \{ 1, \tau, \alpha, \beta \}$
+    such that
+
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            & $1$ & $\tau$ & $\alpha$ & $\beta$\\
+            \hline
+            $\sqrt{3}$ & $\sqrt{3}$ & $-\sqrt{3}$ & $\sqrt{3}$ & $-\sqrt{3}$\\[0.225em]
+            \hline
+            $\sqrt{5}$ & $\sqrt{5}$ & $\sqrt{5}$ & $-\sqrt{5}$ & $-\sqrt{5}$\\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Note that $\tau, \alpha, \beta$ both have an order 2. Thus $\gal_\mathbb{Q} \mathbb{Q}[\sqrt{3}, \sqrt{5}] \cong 
+    \mathbb{Z}_2 \times \mathbb{Z}_2$.
+\end{example}
+
+\begin{corollary}
+    If $K$ is splitting field of a separable polynomial $f(x)$ of degree $n$ in $F[x]$, then $\gal_F K$ is isomorphic 
+    to a subgroup of $S_n$.
+\end{corollary}
+\begin{proof}
+    Let $u_1, u_2, \ldots, u_n$ be distinct roots of $f(x)$. Then $K = F(u_1, u_2, \ldots, u_n)$ and let 
+    \[\mathcal{U} = \{ u_1, u_2, \ldots, u_n \}.\] For all permutation $\sigma \in \gal_F K$, $\forall 1 \leq i \leq n$, 
+    $\sigma(u_i) = u_j$ for some $j$.
+
+    Now define a function $\theta : \gal_F K \to S_n$ defined by $\theta: \sigma \mapsto \sigma \circ 1_\mathcal{U}$. $\theta$ 
+    is well defined. Note that 
+    \[
+        \sigma \circ 1_\mathcal{U} = \tau \circ 1_\mathcal{U} \Longrightarrow \sigma = \tau
+    \]
+    by previous theorem. Thus $\theta$ is injective, and $\theta$ is homomorphism.
+
+    By the first isomorphism theorem, we say that 
+    \[
+      \gal_F K \cong \Ima \theta = \textsf{a subgroup of } S_n.
+    \]
+\end{proof}
+
+\begin{definition}[Intermediate field]
+    Let $K$ be an extension field of $F$. A field $E$ such that
+    \[
+        F \subseteq E \subseteq K
+    \]
+    is called an \bred{intermediate field} of the extension. Clearly 
+    that $\gal_E K \cong \gal_F K$.
+\end{definition}
+
+\begin{theorem}
+    Let $K$ be an extension field of $F$. If $H$ is a subgroup of $\gal_F K$, let 
+    \[
+        E_H = \{ k \in K \> | \> \sigma(k)=k \textsf{ for every } \sigma \in H \}.
+    \]
+    Then $E_H$ is an intermediate field of the extension $K$. The field $E_H$ is called 
+    the "fixed field" of subgroup $H$.
+\end{theorem}
+\begin{proof}
+    It is clear that $F \subseteq E_H \subseteq K$. So we only want to show that $E_H$ is a subfield.
+
+    Let $a,b \in H$. For all $\sigma \in H$, we have 
+    \[
+        \sigma(a + b) = \sigma(a) + \sigma(b) = a+b
+    \]
+    \[
+        \sigma(ab) = \sigma(a) \sigma(b) = ab
+    \]
+    \[
+        \sigma(0_K) = 0_K, \sigma(1_K) = 1_K
+    \]
+    \[
+        \sigma(-a) = - \sigma(a) = -a
+    \]
+    \[
+        \sigma(a^{-1}) =\left( \sigma(a)\right)^{-1} = a^{-1}
+    \]
+    Thus $E_H$ is a subfield of $K$.
+\end{proof}
+
+\begin{example}
+    From previous example,
+    \[
+        \mathbb{Q} \subseteq \mathbb{Q}[\sqrt{3}] \subseteq \mathbb{Q}[\sqrt{3}, \sqrt{5}].
+    \]
+    And $\gal_{\mathbb{Q}[\sqrt{3}]} \mathbb{Q}[\sqrt{3}, \sqrt{5}] = \{ 1, \alpha \}$, 
+    and $\gal_{\mathbb{Q}} \mathbb{Q}[\sqrt{3}, \sqrt{5}] = \{1, \tau, \alpha, \beta \}$.
+\end{example}
+
+\begin{example}
+    $\gal_{\mathbb{Q}[\sqrt{3}]} \mathbb{Q}[\sqrt{3}, \sqrt{5}] = \{ 1, \alpha \}$ is the fixed 
+    field of $\mathbb{Q}[\sqrt{3}] = \{ 1, \alpha \}$, where 
+    \[
+        \alpha(\sqrt{3}) = \sqrt{3}, \alpha(\sqrt{5}) = -\sqrt{5}.
+    \]
+\end{example}
+\begin{solution}
+    For all $a_i \in \mathbb{Q}$. Compute
+    \begin{align*}
+        &\alpha (a_0 + a_1 \sqrt{3} + a_2 \sqrt{5} + a_3 \sqrt{15}) = a_0 + a_1 \sqrt{3} + a_2 \sqrt{5} + a_3 \sqrt{15}\\
+        &\Longleftrightarrow \> a_0 + a_1 \sqrt{3} - a_2 \sqrt{5} - a_3 \sqrt{15} = a_0 + a_1 \sqrt{3} + a_2 \sqrt{5} + a_3 \sqrt{15}\\
+        &\Longleftrightarrow \> a_2 \sqrt{5} + a_3 \sqrt{15} = 0\\
+        &\Longleftrightarrow \> a_2 + a_3 \sqrt{3} = 0\\
+    \end{align*}
+    
+    Since $a_2a^{-1}_3 \in \mathbb{Q} \Longrightarrow -\sqrt{3} \in \mathbb{Q}$, which is a contradiction. 
+\end{solution}
+
+\begin{example}
+    $\gal_{\mathbb{R}} \mathbb{C} = \{ 1, \alpha \}$, and $\alpha(a + bi) \Longrightarrow a - bi = a+ bi \Longrightarrow b =0$. 
+    Thus fixed field of $\gal_{\mathbb{R}} \mathbb{C}$ is the field $\mathbb{R}$.
+\end{example}
+
+\begin{remark}
+    The ground field $F$ need not always be the fixed field of the group $\gal_F K$.
+\end{remark}
+
+\begin{example}
+    $\sqrt[3]{2}$ is the root of $x^3 - 2 = 0$. So $\sqrt[3]{2} \mapsto \{ \sqrt[3]{2}, \sqrt[3]{2} \omega, \sqrt[3]{2} \omega^2 \}$, 
+    where $\omega$ is the cube root of unity.
+
+    However, $\sqrt[3]{2} \omega, \sqrt[3]{2} \omega^2 \notin \mathbb{Q}[\sqrt[3]{2}]$. $\forall \sigma \in \gal_\mathbb{Q} \mathbb{Q}[\sqrt[3]{2}]$,
+    $\sigma(\sqrt[3]{2}) = \sqrt[3]{2}$. Thus $\sigma = 1$. The fixed field of $\gal_\mathbb{Q} \mathbb{Q}[\sqrt[3]{2}]$ is 
+    $\mathbb{Q}[\sqrt[3]{2}]$.
+\end{example}
+
 \subsection{Fundamental Theorem of Galois theory}
 
 \begin{definition}[Galois correspondence]
@@ -563,7 +791,7 @@ the original solvability problem. Why? Because his theory connecting the field e
 
 \begin{example}
     \[
-        \mathbb{Q} \rightarrow \gal_\mathbb{Q} \mathbb{Q}(\sqrt{3}, \sqrt{5}) = \{i, \tau, \alpha, \beta \}
+        \mathbb{Q} \rightarrow \gal_\mathbb{Q} \mathbb{Q}(\sqrt{3}, \sqrt{5}) = \{1, \tau, \alpha, \beta \}
     \]
 \end{example}
 
@@ -612,8 +840,144 @@ the original solvability problem. Why? Because his theory connecting the field e
     $f(x)$ is fixed by $\sigma \in H$. Thus $f(x) \in E[x]$. Since $u = u_1$ is a root of $f(x) \in E[x]$, $u$ is separable over 
     $E. \Longrightarrow \> K$ is separable extension of $E$.
 
-    We state that $K = E(V)$ for some $V \in K$. 
+    From the previous theorem, $K = E(V)$ for some $V \in K$. Let $g(x) = (x - v)(x - v_2) \ldots (x - v_s)$ 
+    where $\{ v_1 = v, v_2, \ldots, v_s \}$ are images of $\sigma \in H$. Similarly, $g(x) \in E[x]$ and 
+    $K = E(v)$ is splitting field of $g(x)$. Therefore $K$ is normal extension of $E$.
 \end{proof}
+
+\begin{definition}[Galois extension]
+    If $K$ is a finite dimensional, normal, separable extension field of the field $F$, we say that 
+    $K$ is a Galois extension of $F$ or that $K$ is Galois over $F$.
+\end{definition}
+
+\begin{corollary}
+    Let $K$ be a finite dimensional extension field of $F$. Then $K$ is Galois over $F$ \textit{if and only if}
+    $F$ is fixed field of the Galois group over $F$.
+\end{corollary}
+\begin{proof}
+    $(\Rightarrow)$ By previous theorem, $E = F$. Thus $F$ is fixed field of the Galois group over $F$.
+
+    $(\Leftarrow)$ By lemma, $K$ is simple, normal, separable extension of $F$.
+\end{proof}
+
+\begin{theorem}[Fundamental theorem of Galois Theory]
+    If $K$ is a Galois extension field of $F$, 
+    \begin{enumerate}
+        \item There is a bijection between the set $S$ of all the intermediate fields of the extension and 
+            the set $T$ of all subgroups of the Galois group $\gal_F K$, given by assigning each intermediate 
+            field $E$ to the subgroup $\gal_E K$. Furthermore
+            \[
+                |K:E| = |\gal_E K|
+            \]
+            and 
+            \[
+                |E:F| = |\gal_F K : \gal_E K|.
+            \]
+        
+        \item An intermediate field $E$ is normal extension of $F$ \textit{if and only if} the 
+            corresponding group $\gal_E K$ is a normal subgroup of $\gal_F K$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item By theorem, fixed field of $\gal_E K$ is $E$. By theorem we have 
+        \[
+            |\gal_E K| = |K:E|.
+        \]
+        Similarly,
+        \[
+            |\gal_F K| = |K:F|.
+        \]
+        In fact $|K:F| = |K:E|\,|E:F|$. Thus 
+        \[
+            |\gal_F K| = |\gal_E K| \cdot |E:F| \Longrightarrow |E:F| = |\gal_F K: \gal_E K|. 
+        \]
+
+        \item $(\Leftarrow)$ Assume first that $\gal_E K$ is a normal subgroup of $\gal_F K$. If $p(x)$ 
+        is an irreducible polynomial in $F[x]$ with a root $u \in E$, we must show that $p(x)$ splits in $E[x]$.
+
+        Since $K$ is normal over $F$. We know that $p(x)$ splits in $K[x]$. So we know that $p(x)$ also splits 
+        in $K[x]$. So we need to show that each root $v$ of $p(x)$ in $K$ is actually in $E$. There is an automorphism 
+        $\sigma \in \gal_F K$ such that $\sigma(u) = v$ by theorem. So $\gal_F K = |K:F| = E$.
+
+        \[
+            \begin{tikzcd}[row sep=2.5em]
+                K=F(u) \arrow[r, "\sigma"] \arrow[dash]{d} & F(u) = K \arrow[dash]{d}\\
+                F \arrow[r, "1"] & F
+            \end{tikzcd}
+        \]
+
+        Now if $\tau$ is any element of $\gal_E K$, then normality implies 
+        \[
+            \tau \circ \sigma = \sigma \circ \tau' \quad \textsf{ for some } \tau' \in \gal_E K.
+        \]
+        Since $u \in E$, we have 
+        \begin{align*}
+            \tau(v) &= \tau \left( \sigma(u) \right)\\
+            &= \sigma \left( \tau'(u) \right)\\
+            &= \sigma(u)\\ 
+            &= v.
+        \end{align*}
+        So $\gal_E K$ fixes other roots for all $v \in E$. Thus $E$ is normal extension of $F$.
+
+        $(\Rightarrow)$ Assume that $E$ is normal subgroup of $F$. Then there exists a surjective 
+        homomorphism of groups $\theta: \gal_F K \to \gal_F E$ whose kernel is 
+        $\gal_E K$. Then $\gal_E K$ is normal subgroup of $\gal_F K$. 
+
+        Therefore by First isomorphism theorem, $\gal_F E \cong \gal_F K / \gal_E K$.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    Let $K$ be a finite-dimensional normal extension field of $F$ and $E$ an intermediate field 
+    which is normal over $F$. Then there is a surjective homomorphism of groups
+    \[
+        \theta : \gal_F K \to \gal_F E
+    \]
+    where kernel of $\theta$ is $\gal_E K$.
+\end{lemma}
+\begin{proof}
+    Let $\sigma \in \gal_F K$ and an $u \in E$. Then $u$ is algebraic over $F$ with minimal polynomial 
+    $p(x)$.
+
+    Since $E$ is normal, all roots of $p(x)$ are in $E$. Since $\sigma(u)$ is also 
+    root of $p(x)$, $\sigma(u) \in E$. Therefore
+    \[
+        \sigma(E) \subseteq E \quad \forall \sigma \in \gal_F K.
+    \]
+    Thus we can restrict $\sigma$ to $E$ and $\sigma \circ 1_E$ is an $F$-isomorphism 
+    that is $E \cong \sigma(E)$. Hence,
+    \[
+        |E:F| = |\sigma(E):F|.
+    \]
+
+    Since $K$ is splitting field over $F$, $K$ is also splitting field over $E$. $\forall \sigma \in \gal_F E$. 
+    $\sigma$ can be extended to an $F$-automorphism in $\gal_F K$. Its kernel consists of the automorphisms of $K$
+    whose restriction to $E$ is the identity map as $\gal_E K$.
+\end{proof}
+
+\begin{example}
+    Let $K$ be the splitting field of $x^3 - 2$. Note that 
+    \[
+        \mathbb{Q} \subseteq \mathbb{Q}[\sqrt[3]{2}] \subseteq K
+    \]
+    and $|\mathbb{Q}[\sqrt[3]{2}]: \mathbb{Q}| = 3$. $K$ is Galois extension of $\mathbb{Q}$ 
+    such that 
+    \[
+    | \gal_\mathbb{Q} K| = |K:\mathbb{Q}|
+    \]
+    and $\gal_\mathbb{Q} K$ is isomorphic to a subgroup of $S_3$.
+
+    \begin{align*}
+        3 < |K:\mathbb{Q}| \leq 6 &\Longrightarrow 3 < |K: \mathbb{Q}[\sqrt[3]{2}]| \cdot |\mathbb{Q}[\sqrt[3]{2}] : \mathbb{Q}| \leq 6\\
+        &\Longrightarrow 3 < 3\, |K: \mathbb{Q}[\sqrt[3]{2}] | \leq 6\\
+        &\Longrightarrow 1 < |K: \mathbb{Q}[\sqrt[3]{2}] | \leq 2.
+    \end{align*}
+    We must have $|K: \mathbb{Q}| = 6$ and $\gal_\mathbb{Q} K \cong S_3$.
+
+    $\mathbb{Q}[\omega]$ is the splitting field of $x^2 + x + 1$ and hence $\mathbb{Q}[\omega]$ is 
+    normal and separable. Thus $K$ is Galois over $\mathbb{Q}$.
+\end{example}
 
 \section{Solvability by Radicals}
 

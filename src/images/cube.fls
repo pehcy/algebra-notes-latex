@@ -1,0 +1,7 @@
+PWD /home/pehcy/github/algebra-notes-latex/src/images
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/pehcy/github/algebra-notes-latex/src/images/cube.tex
+OUTPUT cube.log

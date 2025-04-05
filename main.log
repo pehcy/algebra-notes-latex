@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  1 APR 2025 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  6 APR 2025 01:40
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -857,24 +857,72 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 File: tikzlibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychains.code.tex
-File: tikzlibrarychains.code.tex 2021/05/15 v3.1.9a (3.1.9a)
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodepartlowerbox=\box99
+\pgfnodeparttwobox=\box100
+\pgfnodepartthreebox=\box101
+\pgfnodepartfourbox=\box102
+\pgfnodeparttwentybox=\box103
+\pgfnodepartnineteenbox=\box104
+\pgfnodeparteighteenbox=\box105
+\pgfnodepartseventeenbox=\box106
+\pgfnodepartsixteenbox=\box107
+\pgfnodepartfifteenbox=\box108
+\pgfnodepartfourteenbox=\box109
+\pgfnodepartthirteenbox=\box110
+\pgfnodeparttwelvebox=\box111
+\pgfnodepartelevenbox=\box112
+\pgfnodeparttenbox=\box113
+\pgfnodepartninebox=\box114
+\pgfnodeparteightbox=\box115
+\pgfnodepartsevenbox=\box116
+\pgfnodepartsixbox=\box117
+\pgfnodepartfivebox=\box118
+))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychains.code.tex
+File: tikzlibrarychains.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryscopes.code.tex
 File: tikzlibraryscopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/share/texlive/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
-Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
- (/usr/share/texlive/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
-File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfarrowinset=\dimen350
 \pgfarrowlength=\dimen351
 \pgfarrowwidth=\dimen352
 \pgfarrowlinewidth=\dimen353
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/graphs/tikzlibrarygraphs.code.tex
+File: tikzlibrarygraphs.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\tikz@lib@auto@number=\count349
+\tikz@qnode@count=\count350
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/share/texlive/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
+ (/usr/share/texlive/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks64
@@ -883,18 +931,18 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip139
 \enit@outerparindent=\dimen354
 \enit@toks=\toks65
-\enit@inbox=\box99
-\enit@count@id=\count349
-\enitdp@description=\count350
+\enit@inbox=\box119
+\enit@count@id=\count351
+\enitdp@description=\count352
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (/usr/share/texlive/texmf-dist/tex/latex/fancybox/fancybox.sty
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box100
+\@fancybox=\box120
 \shadowsize=\dimen355
-\@Sbox=\box101
+\@Sbox=\box121
 \do@VerbBox=\toks66
 \the@fancyput=\toks67
 \this@fancyput=\toks68
@@ -925,23 +973,23 @@ Package: ragged2e 2021/12/15 v3.1 ragged2e Package
 \RaggedRightParindent=\skip153
 \JustifyingParindent=\skip154
 )
-\c@theorem=\count351
-\c@definition=\count352
-\c@lemma=\count353
-\c@corollary=\count354
+\c@theorem=\count353
+\c@definition=\count354
+\c@lemma=\count355
+\c@corollary=\count356
 Package thmtools Info: Key `numberwithin' (with value `section')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=exstyle' on input line 111.
+(thmtools)             that uses `style=exstyle' on input line 118.
 Package thmtools Info: Key `qed' (with value `$\blacktriangleleft $')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 121.
+(thmtools)             that uses `style=solstyle' on input line 128.
 Package thmtools Info: Key `numbered' (with value `no')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 121.
-\c@example=\count355
+(thmtools)             that uses `style=solstyle' on input line 128.
+\c@example=\count357
  (/usr/share/texlive/texmf-dist/tex/latex/exercise/exercise.sty
 Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
 \ExerciseSkipBefore=\skip155
@@ -963,28 +1011,28 @@ Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
 \QuestionIndent=\skip171
 \subQuestionIndent=\skip172
 \subsubQuestionIndent=\skip173
-\c@Exercise=\count356
-\c@Answer=\count357
-\c@ExePart=\count358
-\c@Question=\count359
-\c@subQuestion=\count360
-\c@subsubQuestion=\count361
-\c@savedQuestion=\count362
-\c@savedsubQuestion=\count363
-\c@savedsubsubQuestion=\count364
-\@QuestionLevel=\count365
-\@Exercisebox=\box102
-\all@Exercisebox=\box103
-\temp@Exercisebox=\box104
-\all@Answerbox=\box105
-\temp@Answerbox=\box106
-\ExerciseDifficulty=\count366
-\QuestionDifficulty=\count367
-\subQuestionDifficulty=\count368
-\subsubQuestionDifficulty=\count369
-\ExePartDifficulty=\count370
-\@Answerbox=\box107
-\colonnesLevel=\count371
+\c@Exercise=\count358
+\c@Answer=\count359
+\c@ExePart=\count360
+\c@Question=\count361
+\c@subQuestion=\count362
+\c@subsubQuestion=\count363
+\c@savedQuestion=\count364
+\c@savedsubQuestion=\count365
+\c@savedsubsubQuestion=\count366
+\@QuestionLevel=\count367
+\@Exercisebox=\box122
+\all@Exercisebox=\box123
+\temp@Exercisebox=\box124
+\all@Answerbox=\box125
+\temp@Answerbox=\box126
+\ExerciseDifficulty=\count368
+\QuestionDifficulty=\count369
+\subQuestionDifficulty=\count370
+\subsubQuestionDifficulty=\count371
+\ExePartDifficulty=\count372
+\@Answerbox=\box127
+\colonnesLevel=\count373
 \tempskipa=\skip174
 \tempskipb=\skip175
 \@savedmathindent=\skip176
@@ -996,54 +1044,54 @@ Package: minted 2021/12/24 v2.6 Yet another Pygments shim for LaTeX
 Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
  (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2021/12/21 4.1b verbatim text (tvz,hv)
-\FV@CodeLineNo=\count372
+\FV@CodeLineNo=\count374
 \FV@InFile=\read5
-\FV@TabBox=\box108
-\c@FancyVerbLine=\count373
-\FV@StepNumber=\count374
+\FV@TabBox=\box128
+\c@FancyVerbLine=\count375
+\FV@StepNumber=\count376
 \FV@OutFile=\write5
 LaTeX Info: Redefining \UseVerb on input line 1241.
 ) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 ) (/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count375
+\linenopenalty=\count377
 \output=\toks70
-\linenoprevgraf=\count376
+\linenoprevgraf=\count378
 \linenumbersep=\dimen360
 \linenumberwidth=\dimen361
-\c@linenumber=\count377
-\c@pagewiselinenumber=\count378
-\c@LN@truepage=\count379
-\c@internallinenumber=\count380
-\c@internallinenumbers=\count381
+\c@linenumber=\count379
+\c@pagewiselinenumber=\count380
+\c@LN@truepage=\count381
+\c@internallinenumber=\count382
+\c@internallinenumbers=\count383
 \quotelinenumbersep=\dimen362
 \bframerule=\dimen363
 \bframesep=\dimen364
-\bframebox=\box109
+\bframebox=\box129
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count382
-\c@FV@TrueTabCounter=\count383
-\FV@TabBox@Group=\box110
+\c@FV@TrueTabGroupLevel=\count384
+\c@FV@TrueTabCounter=\count385
+\FV@TabBox@Group=\box130
 \FV@TmpLength=\skip177
-\c@FV@HighlightLinesStart=\count384
-\c@FV@HighlightLinesStop=\count385
-\FV@LoopCount=\count386
-\FV@NCharsBox=\box111
+\c@FV@HighlightLinesStart=\count386
+\c@FV@HighlightLinesStop=\count387
+\FV@LoopCount=\count388
+\FV@NCharsBox=\box131
 \FV@BreakIndent=\dimen365
-\FV@BreakIndentNChars=\count387
+\FV@BreakIndentNChars=\count389
 \FV@BreakSymbolSepLeft=\dimen366
-\FV@BreakSymbolSepLeftNChars=\count388
+\FV@BreakSymbolSepLeftNChars=\count390
 \FV@BreakSymbolSepRight=\dimen367
-\FV@BreakSymbolSepRightNChars=\count389
+\FV@BreakSymbolSepRightNChars=\count391
 \FV@BreakSymbolIndentLeft=\dimen368
-\FV@BreakSymbolIndentLeftNChars=\count390
+\FV@BreakSymbolIndentLeftNChars=\count392
 \FV@BreakSymbolIndentRight=\dimen369
-\FV@BreakSymbolIndentRightNChars=\count391
-\c@FancyVerbLineBreakLast=\count392
-\FV@LineBox=\box112
-\FV@LineIndentBox=\box113
+\FV@BreakSymbolIndentRightNChars=\count393
+\c@FancyVerbLineBreakLast=\count394
+\FV@LineBox=\box132
+\FV@LineIndentBox=\box133
 \FV@LineWidth=\dimen370
 ) (/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
 Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
@@ -1058,18 +1106,18 @@ runsystem(uname -s > "main.w18")...executed.
 runsystem(rm -- "main.w18")...executed.
 
 ) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count393
-\decimalpart=\count394
+\integerpart=\count395
+\decimalpart=\count396
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 )
 \minted@appexistsfile=\read6
-\minted@bgbox=\box114
+\minted@bgbox=\box134
 \minted@code=\write6
-\c@minted@FancyVerbLineTemp=\count395
-\c@minted@pygmentizecounter=\count396
+\c@minted@FancyVerbLineTemp=\count397
+\c@minted@pygmentizecounter=\count398
 \@float@every@listing=\toks71
-\c@listing=\count397
+\c@listing=\count399
 )
 runsystem(mkdir -p _minted-main)...executed.
 
@@ -1154,16 +1202,16 @@ LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count398
+\scratchcounter=\count400
 \scratchdimen=\dimen371
-\scratchbox=\box115
-\nofMPsegments=\count399
-\nofMParguments=\count400
+\scratchbox=\box135
+\nofMPsegments=\count401
+\nofMParguments=\count402
 \everyMPshowfont=\toks72
-\MPscratchCnt=\count401
+\MPscratchCnt=\count403
 \MPscratchDim=\dimen372
-\MPnumerator=\count402
-\makeMPintoPDFobject=\count403
+\MPnumerator=\count404
+\makeMPintoPDFobject=\count405
 \everyMPtoPDFconversion=\toks73
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1173,7 +1221,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
-\c@lstlisting=\count404
+\c@lstlisting=\count406
  (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks74
@@ -1233,75 +1281,79 @@ pdfTeX warning: pdflatex (file ./src//./images/Dihedral3.pdf): PDF inclusion: mu
 >] [10] [11]
 Underfull \vbox (badness 1675) has occurred while \output is active []
 
- [12]
-Package mdframed Info: mdframed works in twoside mode on input line 705.
+ [12] [13] [14]
+Package mdframed Info: mdframed works in twoside mode on input line 781.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 705.
- [13]
-Package mdframed Info: Not enough space on this page on input line 1006.
- [14]
+(mdframed)              on input line 781.
+ [15] [16]
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 1006.
- [15]
+(mdframed)              on input line 1082.
+ [17]
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 1006.
- [16] [17]) (./src/rings.tex [18]
+(mdframed)              on input line 1082.
+ [18] [19]) (./src/rings.tex [20]
 Chapter 2.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[19
+[21
 
-] [20] [21]
-Underfull \vbox (badness 7344) has occurred while \output is active []
+] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
+Underfull \vbox (badness 1831) has occurred while \output is active []
 
- [22] [23] [24] [25] [26]
+ [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27] [28] [29]) (./src/fields.tex [30]
+ [33] [34]) (./src/fields.tex [35]
 Chapter 3.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[31
+[36
 
 ]
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
- [32]
+ [37]
 Underfull \vbox (badness 4328) has occurred while \output is active []
 
- [33]
+ [38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34] [35] [36]
+ [39] [40] [41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37] [38]
+ [42] [43]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 498.
 
-[39] [40] [41] [42]) [43] (./main.aux) ) 
+[44] [45] [46] [47]
+Underfull \vbox (badness 2213) has occurred while \output is active []
+
+ [48] [49] [50] [51]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [52]) [53] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 43908 strings out of 478287
- 1054870 string characters out of 5849289
- 1504573 words of memory out of 5000000
- 61263 multiletter control sequences out of 15000+600000
+ 46677 strings out of 478287
+ 1135777 string characters out of 5849289
+ 1623469 words of memory out of 5000000
+ 63979 multiletter control sequences out of 15000+600000
  511799 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,17n,113p,784b,1305s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on main.pdf (43 pages, 624219 bytes).
+Output written on main.pdf (53 pages, 659710 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
+ 377 PDF objects out of 1000 (max. 8388607)
+ 238 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 

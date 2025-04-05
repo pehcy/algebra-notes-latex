@@ -1,0 +1,62 @@
+\begin{tikzpicture}
+
+\begin{scope}
+\begin{scope}[scale=3,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
+    \coordinate (O) at (0, 0, 0);
+
+    \draw[  very thick,Bcolor, dashed ] (0,0,1)--(0,0,-1);
+    \draw[  very thick,Bcolor ] (0,0,-1.4)--(0,0,-1);
+    \draw[  very thick,Bcolor ] (0,0,1.4)--(0,0,1);
+
+    \draw[dotted, very thick,medgrey] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
+    \draw[dotted, very thick,medgrey] (-1,1,-1)--(-1,1,1);
+
+    \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
+    \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
+    \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
+
+  \end{scope}
+  \node[inner sep = 0cm,text width=7cm, align=center] at (0,-6.5)   () {One of three possible axes of rotation through the centers of opposite faces.\\ Each rotation could be $0^\circ$, $90^\circ$, $180^\circ$, or $270^\circ$, for a total of $3\cdot 4 = 12$ rotations of this type. But three in this count are the trivial identity rotation, which we only count once, so there are really 10 unique rotations along these axes. };
+\end{scope}
+
+\begin{scope}[xshift=10cm]
+\begin{scope}[scale=3,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
+    \coordinate (O) at (0, 0, 0);
+
+    \draw[  very thick,Bcolor, dashed ] (-1,1,1)--(1,-1,-1);
+    \draw[  very thick,Bcolor ] (1.2,-1.2,-1.2)--(1,-1,-1);
+    \draw[  very thick,Bcolor ] (-1.2,1.2,1.2)--(-1,1,1);
+
+
+    \draw[  dotted, very thick,medgrey ] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
+    \draw[dotted, very thick ,medgrey] (-1,1,-1)--(-1,1,1);
+
+    \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
+    \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
+    \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
+
+  \end{scope}
+  \node[inner sep = 0cm,text width=5cm, align=center] at (0,-6.5)   () {One of four possible axes of rotation through opposite vertices. Each could be either $120^\circ$ or $240^\circ$, so there are $4 \cdot 2 = 8$ rotations of this type.};
+\end{scope}
+
+\begin{scope}[xshift=20cm]
+\begin{scope}[scale=3,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
+    \coordinate (O) at (0, 0, 0);
+
+    \draw[  very thick,Bcolor, dashed ] (0,1,1)--(0,-1,-1);
+    \draw[  very thick,Bcolor ] (0,-1.2,-1.2)--(0,-1,-1);
+    \draw[  very thick,Bcolor ] (0,1.2,1.2)--(0,1,1);
+
+    \draw[  dotted, very thick,medgrey ] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
+    \draw[dotted, very thick ,medgrey] (-1,1,-1)--(-1,1,1);
+
+      \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
+      \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
+      \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
+
+  \end{scope}
+  \node[inner sep = 0cm,text width=7cm, align=center] at (0,-4.5)   () {One of six possible axes of rotation through the centers of opposite edges. Only a $180^\circ$ rotation around these axes would preserve the shape, so we have only 6 rotations possible.};
+\end{scope}
+
+\node[inner sep = 0cm,text width=20cm, align=center] at (10,6)   () {\Huge{The Symmetries of a Cube}};
+\end{tikzpicture}

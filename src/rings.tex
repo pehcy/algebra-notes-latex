@@ -176,6 +176,39 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
     $\deg \overline{p}(x) = \deg p(x)$ and $\deg \overline{q}(x) = \deg q(x)$.
 \end{proof}
 
+\begin{example}
+    The polynomial $f(x) = x^5 + 8x^4 + 3x^2 + 4x + 7$ is irreducible in $\mathbb{Q}$.
+\end{example}
+\begin{solution}
+    We define
+    \[
+        \olsi{f}(x) = x^5 + x^2 + 1 \in \mathbb{Z}_2[x].
+    \]
+    By rational root test, the only possible root is $0.1$ from $\mathbb{R}$ but it is not an inetger.
+    There are several quadratic polynomials in $\mathbb{Z}_2[x]$ such as 
+    \[
+        x^2 + x + 1, \quad x^2 + 1,\quad x^2 + x, \quad x^2.
+    \]
+    Since $x^2 + 1, x^2 + x, x^2$ both have roots, they cannot be factor of $\olsi{f}$. The only possible 
+    factor of $\olsi{f}$ is $x^2 + x + 1$. Thus 
+    \[
+        x^5 + x^2 + 1 = (x^2 + x+ 1)(x^3 + ax^2 + bx + c).
+    \]
+    Equating coefficients of both sides, we have 
+    \[
+        \begin{cases}
+            1 + a = 0\\
+            1 + a + b = 0\\
+            a + b + c = 0\\
+            b + c = 0\\
+            c = 1
+        \end{cases}.
+    \]
+    On solving yields $a = -1 = 1 (\text{mod } 2)$,\> $b = 0$ and $c = 1$ but $b + c \neq 0$ and is contradiction.
+    So $f(x)$ does not has a quadratic factor. It means that $f(x)$ is irreducible in both 
+    $\mathbb{Z}_2[x]$ and $\mathbb{Z}$. So $f(x)$ is also irreducible in $\mathbb{Q}[x]$. 
+\end{solution}
+
 \begin{theorem}[Eisenstein's criterion]
     Let $f(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n \in \mathbb{Z}[x] \setminus \{ 0 \}$. 
     If there is a prime number $p$ such that 
@@ -424,9 +457,9 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
     We now continue to work on the "formula" to solve $x$. Completing the square on \eqref{eq:r2.1}
     \begin{align*}
         ax^2 + bx + c = 0 &\Rightarrow a \left[ x^2 + \frac{b}{a}x + \left(\frac{b}{2a} \right)^2 \right] - \left(\frac{b}{2a} \right)^2 = 0\\
-        &\Rightarrow \left(x + \frac{b}{2a} \right)^2 = \frac{b^2 - 4ac}{4a^2}\\
-        &\Rightarrow x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}\\
-        &\Rightarrow x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\\
+        &\Rightarrow \left(x + \frac{b}{2a} \right)^2 = \frac{b^2 - 4ac}{4a^2}\\[0.35em]
+        &\Rightarrow x + \frac{b}{2a} = \pm \frac{\sqrt{b^2 - 4ac}}{2a}\\[0.35em]
+        &\Rightarrow x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \quad a \neq 0\\
     \end{align*}
     Now we can take a look on determinant $\Delta = b^2 - 4ac$. If $\Delta < 0$, the two roots 
     will be in $\mathbb{C} \setminus \mathbb{R}$, else the two roots are in $\mathbb{R}$. (Either $\Delta > 0$ or 
@@ -602,6 +635,136 @@ $b=0$.
 \end{proof}
 
 \section{Quotient rings, Ideals}
+
+\subsection{Quotient Rings}
+
+\begin{theorem}
+    Let $R$ be a ring and let $A$ be a subring of $R$. The set of cosets 
+    \[
+        R/A = \{ r+A \> | \> r \in A \}
+    \]
+    is a ring under the operations 
+    \begin{itemize}
+        \item $(s+A) + (t+A) = s + t + A$
+        \item $(s+A)(t+A) = st + A$
+    \end{itemize}
+    if and only if $A$ is an ideal of $R$.
+\end{theorem}
+\begin{proof}
+    Let $R$ to be a ring, and let $A \trianglelefteq R$. For all $s+A, t+A$ in $R/A$ we define 
+    addition as 
+    \[
+        \oplus(s+A, t+A) := (s+A) \oplus (t + A) = s+t+A
+    \]
+    and multiplication as 
+    \[
+        \odot(s+A, t+A) := (s+A) \odot (t + A) = st+A.
+    \]
+    We want to show $(R/A, \oplus, \odot)$ is a ring.
+
+    [Closureness] Suppose that $s + A = s' + A$ and $t+A = t' + A$ for all $s, s', t, t' \in \mathbb{R}$. First we 
+    need to show 
+    \[
+        (s+t) + A = (s' + t')+A. 
+    \]
+    We are going to express $s, t$ in term of $s', t'$ respectively.
+    \begin{align*}
+        s + A = s' + A \> &\Rightarrow s - s' \in A\\
+        &\Rightarrow s - s' = a_1 \in A\\
+        &\Rightarrow \fbox{$s = a_1 + s'$}\>, \quad a_1 \in A. \label{eq:r2.31} \tag{{\color{red} $\heartsuit$}}
+    \end{align*}
+    and 
+    \begin{align*}
+        t + A = t' + A \> &\Rightarrow t - t' \in A\\
+        &\Rightarrow t - t' = a_2 \in A\\
+        &\Rightarrow \fbox{$t = a_2 + t'$}\>, \quad a_2 \in A. \label{eq:r2.32} \tag{{\color{gray} $\clubsuit $}}
+    \end{align*}
+
+    Summing up \eqref{eq:r2.31} together with \eqref{eq:r2.32} we have 
+    \[
+        s + t = (a_1 + s') + (a_2 + t') = a_1 + a_2 + s' + t', \quad a_1 + a_2 \in A.
+    \]
+    Subtracting $s'+t'$ on both side of the equation yields 
+    \[
+        s+t-(s'+t') = a_1 + a_2, \Longrightarrow s+t-(s'+t') \in A.
+    \]
+
+    We have shown $R/A$ closed under addition $\oplus$, we continue to proof 
+    \[
+        st+A = s't' + A.
+    \]
+    Which is equivalent to show $R/A$ closed under the multiplication $\odot$. Applying 
+    the results that we found from \eqref{eq:r2.31}, \eqref{eq:r2.32} we have 
+    \[
+        st -s't' = a_1 a_2 + a_1t' + s'a_2
+    \]
+    Is $a_1t'$ in $A$? Of course, since $a_1 \in A, t' \in R \Longrightarrow a_1t' \in A \triangleleft R$.
+    So as $s'a_2 \in A \triangleleft R$.
+
+    [Existence of additive identity] For all $s+A \in R/A$, there exists $e+A \in R/A$ such that 
+    \begin{align*}
+        (s + A) \oplus (e+A) = s + A &\Rightarrow (s+e) + A = 0 + s + A\\
+        &\Rightarrow s+e = s\\
+        &\Rightarrow e = 0_A.
+    \end{align*}
+    Thus the additive identity is $0_A + A$.
+    
+    [Existence of additive inverse] For all $s+A \in R/A$, there exists $r+A \in R/A$ such that 
+    \begin{align*}
+        (s + A) \oplus (r+A) = 0 + A &\Rightarrow (s+r) + A = 0 + A\\
+        &\Rightarrow s+r = 0\\
+        &\Rightarrow r =-s.
+    \end{align*}
+    Thus the additive inverse of $s+A$ is $-s+A$ in $R/A$.
+
+    [Associativity in multiplication] For all $s+A, t+A, u+A$ in $R/A$, compute 
+    \begin{align*}
+        (s+A) \odot [(t+A) \odot (u+A)] &= (s+A) \odot (tu + A)\\
+        &= s(tu) +A\\
+        &= (st)u + A\\
+        &= [(st)+A] \odot (u+A)\\
+        &= [(s+A) \odot (t+A)] \odot (u+A).
+    \end{align*}
+    Associativity in $\odot$ holds.
+
+    [Existence in multiplicative inverse] For all $s+A \in R/A$, there exists $r+A \in R/A$ such that 
+    \begin{align*}
+        (s + A) \odot (r+A) = 1_A + A &\Rightarrow sr+A = 1_A + A\\
+        &\Rightarrow sr = 1_A\\
+        &\Rightarrow r = s^{-1}.
+    \end{align*}
+    The multiplicative inverse of $s+A$ is $s^{-1} + A$ in $R/A$.
+
+    [Distributive Law]  For all $s+A, t+A, u+A$ in $R/A$, compute 
+    \begin{align*}
+        (s+A) \odot [(t+A) \oplus (u+A)] &= (s+A) \odot [(t+u) + A]\\
+        &= s(t+u) + A\\
+        &= st + su + A\\
+        &= (st + A) + (su + A)\\
+        &= (st+A) \oplus (su+A)\\
+        &= (s+A) \odot (t+A) \oplus (s+A) \odot (u+A)
+    \end{align*}
+    Distributive law holds in $(R/A, \oplus, \odot)$.
+
+    Therefore $(R/A, \oplus, \odot)$ is a ring.
+\end{proof}
+
+\begin{example}
+    $\mathbb{Z}/4\mathbb{Z} = \{ 4\mathbb{Z},\>  1 + 4\mathbb{Z},\>  2+4\mathbb{Z},\> 3+4\mathbb{Z} \}$
+\end{example}
+\begin{solution}
+    The integers with multiple of $4$ is 
+    \[
+        4\mathbb{Z} = \{\ldots, -8, -4, 0, 4, 8, 12, \ldots \}.
+    \]
+    The left ideals are 
+    \begin{align*}
+        1+_4 4\mathbb{Z} &= \{ \ldots, -7, -3, 1, 5, 9, 13, \ldots \}\\
+        2+_4 4\mathbb{Z} &= \{ \ldots, -6, -2, 2, 6, 10, 14, \ldots \}\\
+        3+_4 4\mathbb{Z} &= \{ \ldots, -5, -1, 3, 7, 11, 15, \ldots \}\\
+        4+_4 4\mathbb{Z} &= \{ \ldots, -4, 0, 4, 8, 12, 16, \ldots \} = 4\mathbb{Z}
+    \end{align*}
+\end{solution}
 
 \begin{definition}[Prime ideal]
     An ideal $I$ in a commutative ring $R$ is said to be prime if $I \neq R$ and whenever 
