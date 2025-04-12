@@ -135,72 +135,73 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     \]
     We want to show $(R/A, \boxplus, \odot)$ is a ring.
 
-    [Closureness] Suppose that $s + A = s' + A$ and $t+A = t' + A$ for all $s, s', t, t' \in \mathbb{R}$. First we 
-    need to show 
-    \[
-        (s+t) + A = (s' + t')+A. 
-    \]
-    We are going to express $s, t$ in term of $s', t'$ respectively.
-    \begin{align*}
-        s + A = s' + A \> &\Rightarrow s - s' \in A\\
-        &\Rightarrow s - s' = a_1 \in A\\
-        &\Rightarrow \fbox{$s = a_1 + s'$}\>, \quad a_1 \in A. \label{eq:r2.31} \tag{{\color{red} $\heartsuit$}}
-    \end{align*}
-    and 
-    \begin{align*}
-        t + A = t' + A \> &\Rightarrow t - t' \in A\\
-        &\Rightarrow t - t' = a_2 \in A\\
-        &\Rightarrow \fbox{$t = a_2 + t'$}\>, \quad a_2 \in A. \label{eq:r2.32} \tag{{\color{gray} $\clubsuit $}}
-    \end{align*}
-
-    Summing up \eqref{eq:r2.31} together with \eqref{eq:r2.32} we have 
-    \[
-        s + t = (a_1 + s') + (a_2 + t') = a_1 + a_2 + s' + t', \quad a_1 + a_2 \in A.
-    \]
-    Subtracting $s'+t'$ on both side of the equation yields 
-    \[
-        s+t-(s'+t') = a_1 + a_2, \Longrightarrow s+t-(s'+t') \in A.
-    \]
-
-    We have shown $R/A$ closed under addition $\boxplus$, we continue to proof 
-    \[
-        st+A = s't' + A.
-    \]
-    Which is equivalent to show $R/A$ closed under the multiplication $\odot$. Applying 
-    the results that we found from \eqref{eq:r2.31}, \eqref{eq:r2.32} we have 
-    \[
-        st -s't' = a_1 a_2 + a_1t' + s'a_2
-    \]
-    Is $a_1t'$ in $A$? Of course, since $a_1 \in A, t' \in R \Longrightarrow a_1t' \in A \triangleleft R$.
-    So as $s'a_2 \in A \triangleleft R$.
-
-    [Existence of additive identity] For all $s+A \in R/A$, there exists $e+A \in R/A$ such that 
-    \begin{align*}
-        (s + A) \boxplus (e+A) = s + A &\Rightarrow (s+e) + A = 0 + s + A\\
-        &\Rightarrow s+e = s\\
-        &\Rightarrow e = 0_A.
-    \end{align*}
-    Thus the additive identity is $0_A + A$.
+    \begin{enumerate}
+        \item (Closureness) Suppose that $s + A = s' + A$ and $t+A = t' + A$ for all $s, s', t, t' \in \mathbb{R}$. First we 
+        need to show 
+        \[
+            (s+t) + A = (s' + t')+A. 
+        \]
+        We are going to express $s, t$ in term of $s', t'$ respectively.
+        \begin{align*}
+            s + A = s' + A \> &\Rightarrow s - s' \in A\\
+            &\Rightarrow s - s' = a_1 \in A\\
+            &\Rightarrow \fbox{$s = a_1 + s'$}\>, \quad a_1 \in A. \label{eq:r2.31} \tag{{\color{red} $\heartsuit$}}
+        \end{align*}
+        and 
+        \begin{align*}
+            t + A = t' + A \> &\Rightarrow t - t' \in A\\
+            &\Rightarrow t - t' = a_2 \in A\\
+            &\Rightarrow \fbox{$t = a_2 + t'$}\>, \quad a_2 \in A. \label{eq:r2.32} \tag{{\color{gray} $\clubsuit $}}
+        \end{align*}
     
-    [Existence of additive inverse] For all $s+A \in R/A$, there exists $r+A \in R/A$ such that 
-    \begin{align*}
-        (s + A) \boxplus (r+A) = 0 + A &\Rightarrow (s+r) + A = 0 + A\\
-        &\Rightarrow s+r = 0\\
-        &\Rightarrow r =-s.
-    \end{align*}
-    Thus the additive inverse of $s+A$ is $-s+A$ in $R/A$.
+        Summing up \eqref{eq:r2.31} together with \eqref{eq:r2.32} we have 
+        \[
+            s + t = (a_1 + s') + (a_2 + t') = a_1 + a_2 + s' + t', \quad a_1 + a_2 \in A.
+        \]
+        Subtracting $s'+t'$ on both side of the equation yields 
+        \[
+            s+t-(s'+t') = a_1 + a_2, \Longrightarrow s+t-(s'+t') \in A.
+        \]
+    
+        We have shown $R/A$ closed under addition $\boxplus$, we continue to proof 
+        \[
+            st+A = s't' + A.
+        \]
+        Which is equivalent to show $R/A$ closed under the multiplication $\odot$. Applying 
+        the results that we found from \eqref{eq:r2.31}, \eqref{eq:r2.32} we have 
+        \[
+            st -s't' = a_1 a_2 + a_1t' + s'a_2
+        \]
+        Is $a_1t'$ in $A$? Of course, since $a_1 \in A, t' \in R \Longrightarrow a_1t' \in A \triangleleft R$.
+        So as $s'a_2 \in A \triangleleft R$.
 
-    [Associativity of multiplication] For all $s+A, t+A, u+A$ in $R/A$, compute 
-    \begin{align*}
-        (s+A) \odot [(t+A) \odot (u+A)] &= (s+A) \odot (tu + A)\\
-        &= s(tu) +A\\
-        &= (st)u + A\\
-        &= [(st)+A] \odot (u+A)\\
-        &= [(s+A) \odot (t+A)] \odot (u+A).
-    \end{align*}
-    Associativity in $\odot$ holds.
+        \item (Existence of additive identity) For all $s+A \in R/A$, there exists $e+A \in R/A$ such that 
+        \begin{align*}
+            (s + A) \boxplus (e+A) = s + A &\Rightarrow (s+e) + A = 0 + s + A\\
+            &\Rightarrow s+e = s\\
+            &\Rightarrow e = 0_A.
+        \end{align*}
+        Thus the additive identity is $0_A + A$.
 
-    [Existence of unity] For all $s+A \in R/A$, there exists $e'+A \in R/A$ such that 
+        \item (Existence of additive inverse) For all $s+A \in R/A$, there exists $r+A \in R/A$ such that 
+        \begin{align*}
+            (s + A) \boxplus (r+A) = 0 + A &\Rightarrow (s+r) + A = 0 + A\\
+            &\Rightarrow s+r = 0\\
+            &\Rightarrow r =-s.
+        \end{align*}
+        Thus the additive inverse of $s+A$ is $-s+A$ in $R/A$.
+
+        \item (Associativity of multiplication) For all $s+A, t+A, u+A$ in $R/A$, compute 
+        \begin{align*}
+            (s+A) \odot [(t+A) \odot (u+A)] &= (s+A) \odot (tu + A)\\
+            &= s(tu) +A\\
+            &= (st)u + A\\
+            &= [(st)+A] \odot (u+A)\\
+            &= [(s+A) \odot (t+A)] \odot (u+A).
+        \end{align*}
+        Associativity in $\odot$ holds.
+
+        \item (Existence of unity) For all $s+A \in R/A$, there exists $e'+A \in R/A$ such that 
     \begin{align*}
         (s + A) \odot (e'+A) = s + A &\Rightarrow se'+A = s + A\\
         &\Rightarrow se' = s\\
@@ -208,7 +209,7 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     \end{align*}
     The multiplicative identity is $1_A + A$ in $R/A$.
 
-    [Existence of multiplicative inverse] For all $s+A \in R/A$, there exists $r+A \in R/A$ such that 
+    \item (Existence of multiplicative inverse) For all $s+A \in R/A$, there exists $r+A \in R/A$ such that 
     \begin{align*}
         (s + A) \odot (r+A) = 1_A + A &\Rightarrow sr+A = 1_A + A\\
         &\Rightarrow sr = 1_A\\
@@ -216,7 +217,7 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     \end{align*}
     The multiplicative inverse of $s+A$ is $s^{-1} + A$ in $R/A$, provided $s^{-1}$ exists in $R$.
 
-    [Distributive Law]  For all $s+A, t+A, u+A$ in $R/A$, compute 
+    \item (Distributive Law)  For all $s+A, t+A, u+A$ in $R/A$, compute 
     \begin{align*}
         (s+A) \odot [(t+A) \boxplus (u+A)] &= (s+A) \odot [(t+u) + A]\\
         &= s(t+u) + A\\
@@ -226,6 +227,7 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
         &= (s+A) \odot (t+A) \boxplus (s+A) \odot (u+A)
     \end{align*}
     Distributive law holds in $(R/A, \boxplus, \odot)$.
+    \end{enumerate}
 
     Therefore $(R/A, \boxplus, \odot)$ is a ring.
 \end{proof}

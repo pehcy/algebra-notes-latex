@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1744462781 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1744462783
-  "/dev/null" 1744440007 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1744476340 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1744476342
+  "/dev/null" 1744470564 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1737194600 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/pehcy/github/algebra-notes-latex/main.tex" 1743233347 916 b96a40db223c1b93ef985258686d28b3 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -364,14 +364,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1737195196 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1737195220 2799331 109c9e931f50376ed63513351d2a7425 ""
-  "main.aux" 1744462783 45760 e75800dcfd0b657b31792d3a5ca998b2 "pdflatex"
+  "main.aux" 1744476342 46700 9b604da7f2c3dca1738e46a86b844c2b "pdflatex"
   "main.tex" 1743233347 916 b96a40db223c1b93ef985258686d28b3 ""
   "src//./images/Dihedral2.pdf" 1742630017 24209 b0ae2544334b07f1bc9ad7a51aa3eeef ""
   "src//./images/Dihedral3.pdf" 1742649636 47424 986265c2d03e3e92c3d88602a1d9eeb2 ""
   "src/fields.tex" 1743858321 44759 3683e0126b416427d433b8d53d6bd456 ""
-  "src/group.tex" 1744462781 58359 a48c95cb09c6ed55801761e86a41ef87 ""
-  "src/rings.tex" 1744386843 43246 b984e76a538bb2df71d70a83e705543f ""
-  "styles.sty" 1744454553 8424 8e38c879b404b05292f6bb4ee5cc71a3 ""
+  "src/group.tex" 1744476340 63755 681ebb2226c8a65c0ebea4963473791d ""
+  "src/rings.tex" 1744476045 43574 c3721e78adb590d9e7a72852452bf1ee ""
+  "styles.sty" 1744474588 8524 40dfd1facbf599d7822fdf762edd08c1 ""
   (generated)
   "main.aux"
   "main.log"

@@ -705,93 +705,6 @@ G/H = \{ gH \> | \> g \in H \}
     \end{align*}
 \end{solution}
 
-\begin{theorem}[Orbit-Stabilizer theorem]
-    For any group action $\phi : G \to \text{Permutation}(S)$, and for any $s \in S$,
-    \begin{equation}
-        |\text{Orb}(s)| \cdot |\text{Stab}(s)| = |G|.
-    \end{equation}
-\end{theorem}
-
-\newpage 
-\begin{theorem}
-    The group of rotations of a cube is isomorphic to $S_4$.
-\end{theorem}
-\begin{proof}
-    We can proof it by visualizing the cube rigid motions.
-    \begin{figure}[ht]
-        \centering
-        \begin{tikzpicture}
-            \begin{scope}[scale=2,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
-                \coordinate (O) at (0, 0, 0);
-            
-                \draw[  very thick,Bcolor, dashed ] (0,0,1)--(0,0,-1);
-                \draw[  very thick,Bcolor ] (0,0,-1.4)--(0,0,-1);
-                \draw[  very thick,Bcolor ] (0,0,1.4)--(0,0,1);
-            
-                \draw[dotted, very thick,medgrey] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
-                \draw[dotted, very thick,medgrey] (-1,1,-1)--(-1,1,1);
-            
-                \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
-                \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
-                \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
-            
-              \end{scope}
-              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of three possible axes of rotation through the centers of opposite faces.\\ Each rotation could be $0^\circ$, $90^\circ$, $180^\circ$, or $270^\circ$, for a total of $3\times 4 = 12$ rotations of this type. But three in this count are the trivial identity rotation, which we only count once, so there are really 10 unique rotations along these axes. };
-        \end{tikzpicture}
-    \end{figure}
-
-    \begin{figure}[ht]
-        \centering
-        \begin{tikzpicture}
-            \begin{scope}[scale=2,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
-                \coordinate (O) at (0, 0, 0);
-            
-                \draw[  very thick,Bcolor, dashed ] (-1,1,1)--(1,-1,-1);
-                \draw[  very thick,Bcolor ] (1.2,-1.2,-1.2)--(1,-1,-1);
-                \draw[  very thick,Bcolor ] (-1.2,1.2,1.2)--(-1,1,1);
-            
-            
-                \draw[  dotted, very thick,medgrey ] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
-                \draw[dotted, very thick ,medgrey] (-1,1,-1)--(-1,1,1);
-            
-                \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
-                \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
-                \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
-            
-              \end{scope}
-              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of four possible axes of rotation through opposite vertices. Each could be either $120^\circ$ or $240^\circ$, so there are $4 \times 2 = 8$ rotations of this type.};
-        \end{tikzpicture}
-    \end{figure}
-
-    \newpage
-    \begin{figure}[ht]
-        \centering
-        \begin{tikzpicture}
-            \begin{scope}[scale=2,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
-                \coordinate (O) at (0, 0, 0);
-            
-                \draw[  very thick,Bcolor, dashed ] (0,1,1)--(0,-1,-1);
-                \draw[  very thick,Bcolor ] (0,-1.2,-1.2)--(0,-1,-1);
-                \draw[  very thick,Bcolor ] (0,1.2,1.2)--(0,1,1);
-            
-                \draw[  dotted, very thick,medgrey ] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
-                \draw[dotted, very thick ,medgrey] (-1,1,-1)--(-1,1,1);
-            
-                  \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
-                  \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
-                  \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
-            
-              \end{scope}
-              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-4.5)   () {One of six possible axes of rotation through the centers of opposite edges. Only a $180^\circ$ rotation around these axes would preserve the shape, so we have only 6 rotations possible.};
-        \end{tikzpicture}
-    \end{figure}
-
-    There are $10 + 8 + 6 = 24$ possible ways to rotate a cube, this is equal to the order of $S_4$. The order of $S_4$ is
-    \[
-        |S_4| = 4! = 4 \times 3 \times 2 \times 1 = 24.
-    \]
-\end{proof}
-
 \section{Group homomorphisms}
 
 \begin{definition}
@@ -800,6 +713,18 @@ G/H = \{ gH \> | \> g \in H \}
         f(a) \> {\color{cyan} \bullet}_H \> f(b) = f(a \> {\color{red} \diamond}_G \> b) \quad \forall a, b \in G
     \end{equation}
 \end{definition}
+
+\begin{theorem}[Properties of homomorphism]
+    Let $\phi$ be a homomorphism from a group $G$ to a group $G'$ and let $g$ be an element of $G$. Then
+    \begin{enumerate}
+        \item $\phi$ carries the identity of $G$ to the identity of $G'$.
+        \item $\phi(g^n) = \left( \phi(g) \right)^n$ for all $n \in \mathbb{Z}$.
+        \item If $\ord(g)$ is finite, then $\ord(\phi(g))$ divides $\ord(g)$.
+        \item $ker(\phi)$ is a subgroup of $G$.
+        \item $\phi(a) = \phi(b)$ if and only if $a\, ker(\phi) = b\, ker(\phi)$.
+        \item If $\phi(g)= g'$, then $\phi^{-1}(g') = \{ x \in G \> | \> \phi(x) = g' \} = g\, ker(\phi)$.
+    \end{enumerate}
+\end{theorem}
 
 \section{Isomorphism}
 \begin{definition}[Group isomorphisms]
@@ -972,6 +897,193 @@ is an isomorphism.
 
 \end{proof}
 
+\begin{definition}[Group stabilizer]
+    If $G$ is a group of permutations on the set $S$ and $s \in S$ then we define the \bred{stabilizer} 
+    of $s$ to be the set 
+    \[
+    \stab_G(s) = \{ \phi \in G \> | \> \phi(s) = s \}.
+    \]
+\end{definition}
+
+\begin{lemma}
+    If $G$ is a group of permutations of the set $S$ and $s \in S$. Then $\stab_G(s)$ is a subgroup of $G$.
+\end{lemma}
+\begin{proof}
+    Using two-step subgroup test to verify:
+    \begin{enumerate}
+        \item $\exists \phi: S \to S \in \stab_G(s) \> s.t. \> \phi(x) = x$. Thus $\stab_G(s) \neq \varnothing$.
+        \item For all $\phi_1, \phi_2 \in \stab_G(s)$, we have 
+        \[
+            (\phi_1 \circ \phi_2)(s) = \phi_1 \left( \phi_2(s) \right)
+            = \phi_1(s) = s \in S
+        \]
+        Therefore $\phi_1 \circ \phi_2 \in \stab_G(s)$.
+
+        \item For all $\phi \in \stab_G(s)$, 
+        \begin{align*}
+            \phi(s) = s &\Rightarrow \phi^{-1} \left( \phi (s) \right) = \phi^{-1}(s)\\
+            &\Rightarrow \phi^{-1}(s) = s \in S
+        \end{align*}
+        So $\phi^{-1}$ is also in $\stab_G(s)$.
+    \end{enumerate}
+
+    Therefore $\stab_G(s)$ is a subgroup of $G$.
+\end{proof}
+
+\begin{definition}[Group orbit]
+    If $G$ is a group of permutations of the set $S$ and $s \in S$. We define the \bred{orbit} to be the set
+    \[
+        \orb_G(s) = \{ \phi(s) \> | \> \phi \in G \}.
+    \]
+\end{definition}
+
+\begin{theorem}[Orbit-Stabilizer theorem]
+    For any group action $\phi : G \to \text{Permutation}(S)$, and for any $s \in S$,
+    \begin{equation}
+        |\orb_G(s)| \cdot |\stab_G(s)| = |G|.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    We define a mapping $f: G/\stab_G(s) \to \orb_G(s)$ such that 
+    \[
+        f\left( \phi \stab_G(s) \right) = \phi(s).
+    \]
+    $f$ is a well defined function and is one-to-one and onto. 
+    \begin{enumerate}
+        \item (One-to-one) For all $\phi_1, \phi_2 \in \stab_G(s)$, we have
+    \end{enumerate}
+\end{proof}
+
+\newpage 
+\begin{theorem}
+    The group of rotations of a cube is isomorphic to $S_4$.
+\end{theorem}
+\begin{proof}
+    We can proof it by visualizing the cube rigid motions.
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}[scale=2,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
+                \coordinate (O) at (0, 0, 0);
+            
+                \draw[  very thick,Bcolor, dashed ] (0,0,1)--(0,0,-1);
+                \draw[  very thick,Bcolor ] (0,0,-1.4)--(0,0,-1);
+                \draw[  very thick,Bcolor ] (0,0,1.4)--(0,0,1);
+            
+                \draw[dotted, very thick,medgrey] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
+                \draw[dotted, very thick,medgrey] (-1,1,-1)--(-1,1,1);
+            
+                \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
+                \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
+                \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
+            
+              \end{scope}
+              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of three possible axes of rotation through the centers of opposite faces.\\ Each rotation could be $0^\circ$, $90^\circ$, $180^\circ$, or $270^\circ$, for a total of $3\times 4 = 12$ rotations of this type. But three in this count are the trivial identity rotation, which we only count once, so there are really 10 unique rotations along these axes. };
+        \end{tikzpicture}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}[scale=2,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
+                \coordinate (O) at (0, 0, 0);
+            
+                \draw[  very thick,Bcolor, dashed ] (-1,1,1)--(1,-1,-1);
+                \draw[  very thick,Bcolor ] (1.2,-1.2,-1.2)--(1,-1,-1);
+                \draw[  very thick,Bcolor ] (-1.2,1.2,1.2)--(-1,1,1);
+            
+            
+                \draw[  dotted, very thick,medgrey ] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
+                \draw[dotted, very thick ,medgrey] (-1,1,-1)--(-1,1,1);
+            
+                \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
+                \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
+                \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
+            
+              \end{scope}
+              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of four possible axes of rotation through opposite vertices. Each could be either $120^\circ$ or $240^\circ$, so there are $4 \times 2 = 8$ rotations of this type.};
+        \end{tikzpicture}
+    \end{figure}
+
+    \newpage
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}[scale=2,y={(0.2cm,0.3cm)},x={(1cm,0cm)}, z={(0cm,1cm)}]
+                \coordinate (O) at (0, 0, 0);
+            
+                \draw[  very thick,Bcolor, dashed ] (0,1,1)--(0,-1,-1);
+                \draw[  very thick,Bcolor ] (0,-1.2,-1.2)--(0,-1,-1);
+                \draw[  very thick,Bcolor ] (0,1.2,1.2)--(0,1,1);
+            
+                \draw[  dotted, very thick,medgrey ] (1,1,-1)--(-1,1,-1)--(-1,-1,-1);
+                \draw[dotted, very thick ,medgrey] (-1,1,-1)--(-1,1,1);
+            
+                  \draw[thick,opacity=0.2,fill=Ccolor]  (1,1,1)--(1,-1,1)--(-1,-1,1)--(-1,1,1)--cycle; % top
+                  \draw[thick,opacity=0.2,fill=Ccolor] (1,-1,1)--(1,-1,-1)--(-1,-1,-1)--(-1,-1,1)--cycle; % front
+                  \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
+            
+              \end{scope}
+              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-4.5)   () {One of six possible axes of rotation through the centers of opposite edges. Only a $180^\circ$ rotation around these axes would preserve the shape, so we have only 6 rotations possible.};
+        \end{tikzpicture}
+    \end{figure}
+
+    There are $10 + 8 + 6 = 24$ possible ways to rotate a cube, this is equal to the order of $S_4$. The order of $S_4$ is
+    \[
+        |S_4| = 4! = 4 \times 3 \times 2 \times 1 = 24.
+    \]
+\end{proof}
+
+\begin{theorem}[Properties of isomorphisms]
+    Suppose that $\phi$ is an isomorphism from a group $G$ onto a group $G'$. Then 
+    \begin{enumerate}
+        \item $\phi$ carries the identity of $G$ to the identity of $G'$.
+        \item For every integer $n$ and for every group element $a$ in $G$,
+        \[
+            \phi(a^n) = \phi(a)^n.
+        \]
+        \item For any elements $a$ and $b$ of $G$, $a$ and $b$ commute if and only if $\phi(a)$ and $\phi(b)$ commute.
+        \item $G = \langle a \rangle$ if and only if $G' = \langle \phi(a) \rangle$.
+        \item $\ord(a) = \ord(\phi(a))$ for all $a \in G$.
+        \item For a fixed integer $k$ and fixed group element $b \in G$, the equation $x^k = b$ has the same number of solutions 
+        in $G$ as does the equation $x^k = \phi(b) \in G'$.
+        \item If $G$ is finite, then $G$ and $G'$ have exactly the same number of elements of every order.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Work with $G$, we know $e = g^n g^{-n}$, so 
+        \begin{align*}
+            \phi(e) = \phi(g^ng^{-n})&\Rightarrow e' = \phi(g^n) \phi(g^{-n})\\
+            &\Rightarrow e' = \phi(\underbrace{g * g * \cdots * g}_{n \text{ times}})\> \phi(\underbrace{g^{-1} * g^{-1} * \cdots * g^{-1}}_{n \text{ times}})\\
+            &\Rightarrow e' = \underbrace{\phi(g) * \phi(g) * \cdots * \phi(g)}_{n \text{ times}}\> \underbrace{\phi(g^{-1}) * \phi(g^{-1}) * \cdots * \phi(g^{-1})}_{n \text{ times}}\\
+        \end{align*}
+
+        \item Using the similar technique, we have 
+            \[
+                \phi(g^n) = \phi(\underbrace{g * g * \cdots * g}_{n \text{ times}}) = \underbrace{\phi(g) * \phi(g) * \cdots * \phi(g)}_{n \text{ times}} = \phi(g)^n.
+            \]
+        
+        \item For all $a,b \in G$, $a$ and $b$ commute if and only if 
+            \begin{align*}
+                ab = ba &\Longleftrightarrow \phi(ab) = \phi(ba) \\
+                &\Longleftrightarrow \phi(a) \phi(b) = \phi(b) \phi(a) \\
+                &\Longleftrightarrow \phi(a) \textsf{ and } \phi(b) \textsf{ commute}\\
+                &\Longleftrightarrow G' \textsf{ is abelian}.
+            \end{align*}
+        
+        \item For all $a \in G$, 
+            \begin{align*}
+                G = \langle a \rangle &\Longleftrightarrow \phi(a^n) = \phi(e) \\
+                &\Longleftrightarrow \phi(a^n) = e' \\
+                &\Longleftrightarrow \phi(a)^n = e'\\
+                &\Longleftrightarrow G' = \langle \phi(a) \rangle.
+            \end{align*}
+    \end{enumerate}
+
+    (5, 6, 7) Left as tutorial.
+\end{proof}
+
 \section{Lagrange Theorem}
 
 \begin{example}
@@ -1072,8 +1184,13 @@ Here are the procedure to find all the possible abelian group of order $p^n$. No
     \[
         p^k \leq |G|/|G_{i-1}|
     \]
-    and none of $a_i, a_i^{p}, a_i^{p^2}, \ldots, a_i^{p^{k-1}}$ is in
+    and none of $a_i, a_i^{p}, a_i^{p^2}, \ldots, a_i^{p^{k-1}}$ is in $G_{i-1}$, and define $G_i = G_{i-1} \times \langle a_i \rangle$.
+    \item Return to step 3.
 \end{enumerate}
+
+In the general case where $|G| = p_1^{n_1}\, p_2^{n_2}\, \ldots p_k^{n_k}$, we simply use the algorithm to build 
+up a direct product of order $p_1^{n_1}$, then another of order $p_2^{n_2}$, and so on.  The direct 
+product of all these pieces is the desired factorization of $G$.
 
 \begin{algorithm}[ht]
     \caption{Greedy algorithm for an Abelian group of order $p^n$}
@@ -1144,7 +1261,7 @@ Here are the procedure to find all the possible abelian group of order $p^n$. No
         \begin{enumerate}
             \item Let $*$ defined on $G = \mathbb{R}$ by letting $a * b = ab \quad \forall a, b \in \mathbb{R}$.
             \item Let $*$ defined on $G = 2\mathbb{Z}$ by letting $a * b = a + b \quad \forall a, b \in 2\mathbb{Z}$.
-            \item Let $*$ defined on $G = \mathbb{R}^\times$ by letting $a * b = \sqrt{ab} \quad \forall a, b \in \mathbb{R}^\times$.
+            \item Let $*$ defined on $G = \mathbb{R}^*$ by letting $a * b = \sqrt{ab} \quad \forall a, b \in \mathbb{R}^*$.
             \item Let $*$ defined on $G = \mathbb{Z}$ by letting $a * b = \max \{a,b\} \quad \forall a, b \in \mathbb{Z}$.
         \end{enumerate}
     \end{Exercise}
