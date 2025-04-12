@@ -15,8 +15,9 @@
 \usepackage{xcolor,colortbl}
 \usepackage{booktabs}
 \usepackage{titlesec}
-\usepackage{algorithm}
-\usepackage{algorithmic}
+%\usepackage{algorithm2e}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
 \usepackage{array}
 \usepackage[most]{tcolorbox}
 \usepackage{cmupint}
@@ -25,6 +26,9 @@
 \DeclareMathOperator{\aut}{Aut}
 \DeclareMathOperator{\gal}{Gal}
 \DeclareMathOperator{\Ima}{Im}
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
 \DeclareRobustCommand{\bxseries}{\fontseries{bx}\selectfont}
 \DeclareTextFontCommand{\textbx}{\fontseries{bx}}
 \DeclareTextFontCommand{\bred}{\color{fireEngRed}\bfseries}
@@ -35,9 +39,46 @@
 \definecolor{Bcolor}{RGB}{227,118,59}
 \definecolor{Ccolor}{RGB}{169,183,209}
 \definecolor{medgrey}{RGB}{150,150,150}
+
+\definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
+\colorlet{codegreen}{green!20}
+\colorlet{codeyellow}{yellow!60}
+\colorlet{codered}{red!30}
+
 \newcommand{\olsi}[1]{\,\overline{\!{#1}}} % overline short italic
 %\usepackage{mathrsfs}
 %\usepackage{titletoc}
+
+% pseudocode formatting
+\usepackage{setspace}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\renewcommand{\KwSty}[1]{\textnormal{\textcolor{amaranth!90!black}{\bfseries #1}}\unskip}
+\renewcommand{\ArgSty}[1]{\textnormal{\ttfamily #1}\unskip}
+\SetKwComment{Comment}{\color{codegreen!80!black!190}// }{}
+\renewcommand{\CommentSty}[1]{\textnormal{\ttfamily\color{codegreen!80!black!190}#1}\unskip}
+\newcommand{\var}{\texttt}
+\newcommand{\FuncCall}[2]{\texttt{\bfseries #1(#2)}}
+\SetKwProg{Function}{function}{}{}
+\SetKw{Continue}{continue}
+\renewcommand{\ProgSty}[1]{\texttt{\bfseries #1}}
+\DontPrintSemicolon
+\SetAlFnt{\small}
+\SetAlgorithmName{Pseudocode}{algorithmautorefname}
+
+% pseudocode highlighting
+\usepackage{tikz}
+\usetikzlibrary{fit,calc}
+% two slightly different boxit commands, to ensure the inner boxes end at the same spot
+\newcommand{\boxit}[2]{
+    \tikz[remember picture,overlay] \node (A) {};\ignorespaces
+    \tikz[remember picture,overlay]{\node[yshift=3pt,fill=#1,opacity=.25,fit={($(A)+(0,0.15\baselineskip)$)($(A)+(.9\linewidth,-{#2}\baselineskip - 0.25\baselineskip)$)}] {};}\ignorespaces
+}
+\newcommand{\boxitt}[2]{
+    \tikz[remember picture,overlay] \node (A) {};\ignorespaces
+    \tikz[remember picture,overlay]{\node[yshift=3pt,fill=#1,opacity=.25,fit={($(A)+(0,0.15\baselineskip)$)($(A)+(.858\linewidth,-{#2}\baselineskip - 0.25\baselineskip)$)}] {};}\ignorespaces
+}
+
+\usepackage{algpseudocode}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows}

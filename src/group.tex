@@ -483,6 +483,25 @@ which these reflection lines runs from one of the vertices to the center of the 
     Dihedral group $D_3$ is isomorphic to $S_3$.
 \end{lemma}
 
+\begin{example}
+    Let 
+    \[
+        G = SL_2(\mathbb{Z}_3) = \left\{ \begin{bmatrix}
+        a & b\\ c & d
+        \end{bmatrix} \bigg \vert \> ad-bc \neq 0; a, b, c, d \in \mathbb{Z}_3 \right\}.
+    \]
+    Show that $|G| = 48$.
+\end{example}
+\begin{solution}
+    From the first row, for all $(a,b) \in \mathbb{Z}_3 \times \mathbb{Z}_3 \setminus \{ (0,0)\}$. There are 
+    $(\perm[3]{1} \times \perm[3]{1}) - 1 = 8$ possibilities.
+
+    For the second row, for all $(c,d) \in \mathbb{Z}_3 \times \mathbb{Z}_3 \setminus (a\mathbb{Z}_3, b\mathbb{Z}_3)$.
+    There are $(\perm[3]{1} \times \perm[3]{1}) - 3 = 6$ possibilities.
+
+    Thus the order of group $G$ is the product of the number of possibilities of these two rows. $|G| = 8 \times 6 = 48$.
+\end{solution}
+
 \section{Sylow's theorem}
 
 \begin{theorem}
@@ -492,16 +511,6 @@ which these reflection lines runs from one of the vertices to the center of the 
     From the \textit{Third Sylow's theorem}, the number of Sylow 5-groups divides 2 and is $1 (mod 5)$, so there is only one Sylow 5-group.
     And there is a normal subgroup $K \trianglelefteq G$ such that $|K| = 5$.
 \end{proof}
-
-\section{Isomorphism}
-
-\begin{example}
-    The group $U(10)$ is not isomorphic to $U(12)$.
-\end{example}
-
-\begin{theorem}[Cayley's theorem]
-    Every group is isomorphism to a group of permutation.
-\end{theorem}
 
 \section{Automorphisms}
 
@@ -628,22 +637,22 @@ which these reflection lines runs from one of the vertices to the center of the 
 \begin{example}
     Consider $G = \mathbb{Z}_9 = \{ 0, 1, 2, \ldots, 8 \} (\text{mod} \, 9)$. We take a cyclic subgroup 
     \[H = \langle 3 \rangle = \{0, 3, 6\}\] 
-    which came from $(G, \oplus)$. All \textbf{left cosets} of $G$ with respect to $H$ are $\{ H, 1 \oplus H, 2 \oplus H \}$ where
+    which came from $(G, +_9)$. All \textbf{left cosets} of $G$ with respect to $H$ are $\{ H, 1 +_9 H, 2 +_9 H \}$ where
     \begin{align*}
-        &0 \oplus H = \{0 + 0, 0+ 3, 0 + 6\} (\text{mod} \, 9) = \{0, 3, 6\} = H\\
-        &1H = 1 \oplus H = \{1 + 0, 1 + 3, 1 + 6\} (\text{mod} \, 9) = \{1, 4, 7\}\\
-        &2H = 2 \oplus H = \{2 + 0, 2 + 3, 2 + 6\} (\text{mod} \, 9) = \{2, 5, 8\}\\
-        &3H = 3 \oplus H = \{3 + 0, 3 + 3, 3 + 6\} (\text{mod} \, 9) = \{3, 6, 0\} = H
+        &0 +_9 H = \{0 + 0, 0+ 3, 0 + 6\} \> (\text{mod} \, 9) = \{0, 3, 6\} = H\\
+        &1H = 1 +_9 H = \{1 + 0, 1 + 3, 1 + 6\} \> (\text{mod} \, 9) = \{1, 4, 7\}\\
+        &2H = 2 +_9 H = \{2 + 0, 2 + 3, 2 + 6\} \> (\text{mod} \, 9) = \{2, 5, 8\}\\
+        &3H = 3 +_9 H = \{3 + 0, 3 + 3, 3 + 6\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
     \end{align*}
 
-    As for the right cosets of $G$ with respect to $H$ are $\{ H, H \oplus 1, H \oplus 2 \}$. Pay attention that now the element of coset are being 
+    As for the right cosets of $G$ with respect to $H$ are $\{ H, H +_9 1, H +_9 2 \}$. Pay attention that now the element of coset are being 
     added to right-hand side instead of from left side.
 
     \begin{align*}
-        &0 \oplus H = \{0 + 0, 0+ 3, 0 + 6\} (\text{mod} \, 9) = \{0, 3, 6\} = H\\
-        &H1 = H \oplus 1 = \{0 + 1, 3 + 1, 6 + 1\} (\text{mod} \, 9) = \{1, 4, 7\}\\
-        &H2 = H \oplus 2 = \{0 + 2, 3 + 2, 6 + 2\} (\text{mod} \, 9) = \{2, 5, 8\}\\
-        &H3 = H \oplus 3 = \{0 + 3, 3 + 3, 6 + 3\} (\text{mod} \, 9) = \{3, 6, 0\} = H
+        &0 +_9 H = \{0 + 0, 0+ 3, 0 + 6\} \> (\text{mod} \, 9) = \{0, 3, 6\} = H\\
+        &H1 = H +_9 1 = \{0 + 1, 3 + 1, 6 + 1\} \> (\text{mod} \, 9) = \{1, 4, 7\}\\
+        &H2 = H +_9 2 = \{0 + 2, 3 + 2, 6 + 2\} \> (\text{mod} \, 9) = \{2, 5, 8\}\\
+        &H3 = H +_9 3 = \{0 + 3, 3 + 3, 6 + 3\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
     \end{align*}
 \end{example}
 
@@ -672,12 +681,29 @@ right coset is equal to left a coset, it is not an equality elementwise.
     $\mathbb{R}[x]$ to itself. The kernel of the derivative mapping is the set of all constant polynomials $f(x) = c$.
 \end{example}
 
-Now suppose we have a group $(G, cdot)$, and $H$ is a normal subgroup of $G$, just said $H \vartriangleleft G$. The set $G/H$ is defined by 
+Now suppose we have a group $(G, \cdot)$, and $H$ is a normal subgroup of $G$, just said $H \vartriangleleft G$. The set $G/H$ is defined by 
 \[
 G/H = \{ gH \> | \> g \in H \}
 \]
 
-
+\begin{example}
+    Show that if $H$ and $K$ are normal subgroups of a group $G$ such that $H \cap K = \{ e \}$, then 
+    $hk = kh$ for all $h \in H$ and $k \in K$.
+\end{example}
+\begin{solution}
+    We knew that $H \unlhd G$ and $K \unlhd G$, these conditions imply
+    \[
+        gHg^{-1} \subseteq H,\quad gKg^{-1} \subseteq K \quad \forall g \in G.
+    \]
+    Since $khk^{-1} \in kHk^{-1} \subseteq kHk^{-1}\subseteq H$. 
+    We want to show $hk = kh$ for all $h \in H$ and $k \in K$. Compute 
+    \begin{align*}
+        h(kh^{-1}k^{-1}) = e &\Rightarrow hkh^{-1}k^{-1} = e\\
+        &\Rightarrow hkh^{-1} = ke\\
+        &\Rightarrow hkh^{-1} = khh^{-1}\\
+        &\Rightarrow hk = kh.
+    \end{align*}
+\end{solution}
 
 \begin{theorem}[Orbit-Stabilizer theorem]
     For any group action $\phi : G \to \text{Permutation}(S)$, and for any $s \in S$,
@@ -710,7 +736,7 @@ G/H = \{ gH \> | \> g \in H \}
                 \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
             
               \end{scope}
-              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of three possible axes of rotation through the centers of opposite faces.\\ Each rotation could be $0^\circ$, $90^\circ$, $180^\circ$, or $270^\circ$, for a total of $3\cdot 4 = 12$ rotations of this type. But three in this count are the trivial identity rotation, which we only count once, so there are really 10 unique rotations along these axes. };
+              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of three possible axes of rotation through the centers of opposite faces.\\ Each rotation could be $0^\circ$, $90^\circ$, $180^\circ$, or $270^\circ$, for a total of $3\times 4 = 12$ rotations of this type. But three in this count are the trivial identity rotation, which we only count once, so there are really 10 unique rotations along these axes. };
         \end{tikzpicture}
     \end{figure}
 
@@ -733,7 +759,7 @@ G/H = \{ gH \> | \> g \in H \}
                 \draw[thick,opacity=0.2,fill=Acolor] (1,1,-1)--(1,1,1)--(1,-1,1)--(1,-1,-1)--cycle;
             
               \end{scope}
-              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of four possible axes of rotation through opposite vertices. Each could be either $120^\circ$ or $240^\circ$, so there are $4 \cdot 2 = 8$ rotations of this type.};
+              \node[inner sep = 0cm,text width=\linewidth, align=center] at (0,-5.5)   () {One of four possible axes of rotation through opposite vertices. Each could be either $120^\circ$ or $240^\circ$, so there are $4 \times 2 = 8$ rotations of this type.};
         \end{tikzpicture}
     \end{figure}
 
@@ -775,7 +801,323 @@ G/H = \{ gH \> | \> g \in H \}
     \end{equation}
 \end{definition}
 
-\section{Tutorials}
+\section{Isomorphism}
+\begin{definition}[Group isomorphisms]
+    An isomorphism $\phi$ from a group $G$ to a group $G'$ is a one-to-one 
+mapping from $G$ onto $G'$ that preserves the group operation. That is, 
+\[
+    \phi(a) \> {\color{cyan} \bullet}_G \> \phi(b) = \phi(a \> {\color{red} \diamond}_{G'} \> b)
+\]
+for all $a,b \in G$. If there is an isomorphism from $G \to G'$, we say that $G$ and $G'$ are isomorphic 
+and write as $G \cong G'$.
+\end{definition}
+
+There are four separate steps involved in proving that a group $G$ is isomorphic to another group $G'$.
+\begin{enumerate}
+    \item Define a candidate for the isomorphism; that is, assume that $\phi(a) = \phi(b)$ and hence prove that 
+        $a=b$.
+    \item Prove that $\phi$ is one-to-one; that is, assume that $\phi(a) = \phi(b)$ and hence 
+    prove that $a=b$.
+    \item  Prove that $\phi$ is onto; that is, for any element $g' \in G'$, find an element $g \in G$
+    such that $\phi(g) = g'$.
+    \item Prove that $\phi$ is operation-preserving; that is, show that 
+    \[
+        \phi(a) \> {\color{cyan} \bullet}_G \> \phi(b) = \phi(a \> {\color{red} \diamond}_{G'} \> b)
+    \]
+    for all $a, b \in G$. 
+\end{enumerate}
+
+\begin{example}
+    Let $G=SL(2, \mathbb{R})$, the group of $2 \times 2$ real matrices with determinant 1. Let $M$ be 
+any $2\times 2$ matrix with determinant 1. The mapping $\phi_M$ from $G \to G$ defined by
+\[
+    \phi_M(A) = MAM^{-1}
+\]
+is an isomorphism.
+\end{example}
+\begin{solution}
+    \begin{enumerate}
+        \item First we are going to show that $\phi_M$ is one-to-one; that is,
+        for any $A_1, A_2 \in G$, if $\phi_M(A_1) = \phi_M(A_2)$, then $A_1 = A_2$.
+
+        \begin{align*}
+            \phi_M(A_1) = \phi_M(A_2) &\Rightarrow MA_1M^{-1} = MA_2M^{-1} \\
+            &\Rightarrow {\color{red} M^{-1}} MA_1M^{-1} {\color{red} M}= {\color{red} M^{-1}} MA_2M^{-1} {\color{red} M}\\
+            &\Rightarrow IA_1I = IA_2I \\
+            &\Rightarrow A_1 = A_2.
+        \end{align*}
+
+        \item Show $\phi_M$ is onto. For all $A_2 \in G$, we need to find $A_1 \in G$ such that 
+            \[
+                \phi_M(A_1) = A_2.
+            \]
+            We find an equation for $A_1$,
+            \begin{align*}
+                \phi_M(A_1) = A_2 &\Rightarrow MA_1M^{-1} = A_2\\
+                &\Rightarrow A_1 = M^{-1}A_2M
+            \end{align*}
+            Now we verify that $\phi_M(A_1) = A_2.$. Compute
+            \begin{align*}
+                \phi_M(A_1) &= \phi_M(M^{-1}A_2M)\\
+                &= M\, (M^{-1}A_2M) \, M^{-1}\\
+                &= IA_2I\\
+                &= A_2.
+            \end{align*}
+        
+        \item At last we are going to show $\phi_M$ is a homomorphism. That is,
+            \[
+                \forall A_1, A_2 \in G, \quad \phi_M(A_1\, A_2) = \phi_M(A_1)\phi_M(A_2).
+            \]
+            We start from LHS,
+            \begin{align*}
+                \phi_M(A_1\, A_2) &\Rightarrow MA_1\, A_2 M^{-1}\\
+                &\Rightarrow MA_1\, {\color{red} I}\, A_2 M^{-1}\\
+                &\Rightarrow MA_1\, {\color{red} (M^{-1} M)}\, A_2 M^{-1}\\
+                &\Rightarrow (MA_1\,{\color{red}  M^{-1}}) ({\color{red} M} A_2\, M^{-1})\\
+                &\Rightarrow \phi_M(A_1)\phi_M(A_2).
+            \end{align*}
+    \end{enumerate}
+
+    Therefore $\phi_M$ is an isomorphism.
+\end{solution}
+
+\begin{example}
+    The group $U(10)$ is not isomorphic to $U(12)$.
+\end{example}
+
+\begin{theorem}[Cayley's theorem]
+    Every group is isomorphism to a group of permutation.
+\end{theorem}
+\begin{proof}
+    Let $G$ be a multiplication group. From group $G$, we need to construct a permutation group $\olsi{G}$ that is 
+    isomorphic to $G$.
+
+    \subsubsection*{Step 1: construct permutation group $\olsi{G}$}
+
+    Given $G$, for all $g \in G$. We define a map $T_g : G \to G$ such that 
+    \[
+        T_g(x) = gx.
+    \]
+    Let $\olsi{G} = \{T_g \> | \> g \in G \}$. We need to show that $\olsi{G}$ under function composition is a 
+    group.
+
+    \begin{enumerate}
+        \item (Closureness) For all $T_g, T_h \in \olsi{G}$, we want to show $T_g \circ T_h \in \olsi{G}$.
+            \begin{align*}
+                T_g \circ T_h &= T_g \left( T_h (x)\right)\\
+                &= T_g(hx)\\
+                &= g(hx)\\
+                &= (gh)x\\
+                &= T_{gh}(x) \in \olsi{G}.
+            \end{align*}
+        
+        \item (Associativity) For all $T_g, T_h, T_k \in \olsi{G}$, we have 
+        \[
+            T_g \circ (T_h \circ T_k) = T_{g(hk)} = T_{(gh)k} = (T_g \circ T_h) \circ T_k.
+        \]
+        The asscoiativity holds in $\olsi{G}$.
+
+        \item (Existence of identity) For all $T_g \in \olsi{G}$, there exists an $T_{g'} \in \olsi{G}$ such that 
+        \begin{align*}
+            T_g \circ T_{g'} = T_g &\Rightarrow T_{gg'} = T_g\\
+            &\Rightarrow gg' = g\\
+            &\Rightarrow g' = 1
+        \end{align*}
+        so that $g'(x) = 1 \cdot x = x$.
+
+        \item (Existence of inverse) For all $T_g \in \olsi{G}$, the inverse of $T_g$ is 
+        \[
+            T_{g^{-1}}(x) = g^{-1} x \quad \forall g \in G. 
+        \]
+    \end{enumerate}
+    Therefore $\olsi{G}$ is a group under function composition. In the next step we are going to prove that 
+    the mapping from $G$ to $\olsi{G}$ is an isomorphism.
+
+    \subsubsection*{Step 2: show that $\phi: G \to \olsi{G}$ is isomorphism}
+
+    We now define a mapping $\phi: G \to \olsi{G}$, where 
+    \[
+        \phi(g) = T_g(x) = gx \quad \forall g \in G.
+    \]
+    We perform the 3 steps to check $\phi(g)$ is an isomorphism.
+
+    \begin{enumerate}
+        \item ($\phi$ is one-to-one) For all $g, h \in G$, 
+        \begin{align*}
+            \phi(g) = \phi(h) &\Rightarrow T_g = T_h\\
+            &\Rightarrow T_g(x) = T_h(x) \quad \forall x \in G\\
+            &\Rightarrow gx = hx \quad \forall x \in G\\
+            &\Rightarrow g = h.
+        \end{align*}
+
+        \item ($\phi$ is onto) For all $T_{g'} \in \olsi{G}$, we need to find an $g \in G$ such that $\phi(g) = T_{g'}$.
+        \begin{align*}
+            \phi(g) = T_{g'} &\Rightarrow T_g(x) = T_{g'}(x)\\
+            &\Rightarrow gx = g'x\\
+            &\Rightarrow g = g'.
+        \end{align*}
+
+        \item ($\phi$ is homomorphism) To show that $\phi$ is homomorphism, it is equivalent to show that  
+        \[
+            \phi(g \circ h) = \phi(g)\, \phi(h).
+        \]
+        From LHS, 
+        \begin{align*}
+            \phi(g \circ h) = T_{gh} &= T_{gh}(x)\\
+            &= (g \circ h)x\\
+            &= gx \cdot hx\\
+            &= \phi(g)\, \phi(h).
+        \end{align*}
+    \end{enumerate}
+
+\end{proof}
+
+\section{Lagrange Theorem}
+
+\begin{example}
+    Given $G$ is a group of order 6. Find all possible subgroups of $G$.
+\end{example}
+\begin{solution}
+    Suppose $H$ is a subgroup of $G$, $H \leq G$, and so by Lagrange's theorem we have 
+    \[
+        |H| \> \big \vert \> |G| = 6
+    \]
+    which implies $|H| \in \{1, 2, 3, 6\}$.
+
+    If the order of $H$ is one, then $H = \langle e \rangle = \{ e \}$.
+
+    On the other hand, when $|H| = 6$ which means $|H| = |G| = 6$ and $H = G$; that is, $H$ is trivial subgroup.
+
+    \[
+        \begin{tikzcd}[row sep=2.5em]
+            & \mathbb{Z}_6 \arrow[dash, "\leq"]{dl} \arrow[dash, "\leq"]{dr} & \\
+            \langle 3 \rangle \arrow[dash, "\leq"]{dr}&  & \langle 2 \rangle \arrow[dash, "\leq"]{dl}\\
+            & \{ 0 \} &\\
+        \end{tikzcd}
+    \]
+\end{solution}
+
+\begin{theorem}
+    If $G$ is a group of order $p$, where $p$ is a prime. Then $G$ is cyclic.
+\end{theorem}
+\begin{proof}
+    Suppose $H$ is a subgroup of $G$ and we apply Lagrange's theorem, which we have 
+    \[
+        |H| \> \big \vert \> |G| = p.
+    \]
+    Assume $H \neq \{ e \}$ and the order of $H$ is greater than one, implies $|H| = p$ and so $|G| = |H| = p$.
+
+    Hence, since $H \neq \{ e \}$, then there exists $a \neq e$ and $a \in H$. So using $a$ to generate we obtained
+    \[
+        H = G = \langle a \rangle
+    \]
+    implies that $H$ and $G$ are both cyclic.
+\end{proof}
+
+\section{Finite Abelian groups}
+
+\begin{theorem}[Fundamental theorem of Finite Abelian groups]
+    Every finite Abelian group is a direct product of cyclic groups of 
+prime-power order. Moreover, the number of terms in the product and the orders of 
+the cyclic groups are uniquely determined by the group.
+
+Since a cyclic group of order n is isomorphic to $\mathbb{Z}_n$. Then every finite Abelian group 
+$G$ is isomorphic to a group of the form
+\[
+    \mathbb{Z}_{p_1^{n_1}} \oplus \mathbb{Z}_{p_2^{n_2}} \oplus \cdots \oplus \mathbb{Z}_{p_k^{n_k}}
+\]
+where $i$'s are not necessarily distinct primes and the prime powers $p_1^{n_1}, p_2^{n_2}, \ldots, p_k^{n_k}$ are uniquely 
+determined by $G$.
+\end{theorem}
+
+ 
+Look at groups whose orders have the form $p_k$, where $p$ is prime and $j \leq 4$. There is 
+one group of order $p_k$ for each set of positive integers whose sum is $k$ (such a set is 
+called a partition of $k$); that is, if $k$ can be written as $k = n_1 + n_2 + \cdots + n_t$, where 
+each $n_i$ is a positive integer, then $\mathbb{Z}_{p_1^{n_1}} \oplus \mathbb{Z}_{p_2^{n_2}} \oplus \cdots \oplus \mathbb{Z}_{p_t^{n_t}}
+$ is an Abelian group 
+of order $p^k$.
+
+\begin{center}
+    \begin{tabular}{c|c|c}
+        Order of $G$ & Partitions of $k$ & Possible direct products of $G$\\[0.3em]
+        \hline
+        $p$ & $1$ & $\mathbb{Z}_p$\\[0.3em]
+        \hline
+        $p^2$ & $2$ & $\mathbb{Z}_{p^2}$\\[0.3em]
+        & $1+1$ & $\mathbb{Z}_p \oplus \mathbb{Z}_p$\\[0.3em]
+        \hline
+        $p^3$ & $3$ & $\mathbb{Z}_{p^3}$\\[0.3em]
+        & $1+2$ & $\mathbb{Z}_p \oplus \mathbb{Z}_{p^2}$\\[0.3em]
+        & $1+1+1$ & $\mathbb{Z}_p \oplus \mathbb{Z}_p \oplus \mathbb{Z}_p$\\[0.3em]
+        \hline
+        $p^4$ & $4$ & $\mathbb{Z}_{p^4}$\\[0.3em]
+        & $1+3$ & $\mathbb{Z}_p \oplus \mathbb{Z}_{p^3}$\\[0.3em]
+        & $2+2$ & $\mathbb{Z}_{p^2} \oplus \mathbb{Z}_{p^2}$\\[0.3em]
+        & $1+1+2$ & $\mathbb{Z}_p \oplus \mathbb{Z}_p \oplus \mathbb{Z}_{p^2}$\\[0.3em]
+        & $1+1+1+1$ & $\mathbb{Z}_p \oplus \mathbb{Z}_p \oplus \mathbb{Z}_p \oplus \mathbb{Z}_p$\\[0.3em]
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Greedy algorithm for an Abelian group of order $p^n$}
+
+\begin{algorithm}
+    \caption{find\_best\_split}
+    \tcp{Main body of greedy algorithm for finding Abelian group of order $p^k$.}
+    \Function{Main\_greedy\_algorithm($G$: FiniteGroup) $\to$ Product of CyclicGroups}{
+        \boxit{codegreen}{13}
+        $\olsi{a} \gets $ \var{find\_element\_with\_max\_order$(G)$}\;
+        \tcp{Generated subgroup with first element $\olsi{a}_1$ from $\olsi{a}$.}
+        $H \gets \langle \olsi{a}_1 \rangle$\;
+        $i \gets 1$\;
+
+        \boxit{codeyellow}{6.5}
+        \While(\Comment{Greedy search for all cyclic groups}){$|H| \neq |G|$}{
+
+            $\var{max\_cyclic\_order} = |G| / |H|$\; 
+            $\langle a_i \rangle = [\>]$\;
+            
+            \boxit{codered}{2.5}
+            \While(){$p^k \leq \var{max\_cyclic\_order}$}{
+                $\langle a_i \rangle$.push($\olsi{a}^{p^k}_i$)\;
+                $k \gets k+1$\;
+            }
+            $H \gets H \times \langle a_i \rangle$\;
+            $i \gets i + 1$\;
+        }
+        \Return{$H$}\;
+    }
+
+    \tcp{Compute the orders for all elements in group $G$.}
+    \Function{compute\_orders($G$: FiniteGroup) $\to orders$}{
+        \boxit{codegreen}{9}
+        $orders = [\>]$\;
+            \For(\Comment{elements in X}){$a_i \in G$} {
+                \boxitt{codered}{6.5}
+                \eIf (\Comment{params.use\_decay}) {$a_i == $ identity$(G)$}{
+                    return 1   \Comment{The order of identity element is one.}
+                }{
+                    $j \gets 1$\;
+                    \While{$a^j_i \neq e$}{ 
+                        $j \gets j + 1$   \Comment{Find the order of each element.}
+                    }
+                    $orders$.push($j$)
+                }
+            }
+        \Return{$orders$}\;
+    }
+
+    \tcp{Filter out $a_i$ with maximum order, return a list of tuple $(a_i, |\langle a_i \rangle|)$.}
+    \Function{find\_element\_with\_max\_order($G$: FiniteGroup) $\to$ Array<tuple(element, order)>}{
+        \boxit{codegreen}{2}
+        $orders \gets $ compute\_orders($G$)\;
+        \Return{zip($G$, $orders$).filter($(\_, o) \to o == $ Max($orders$))}\;
+    }
+\end{algorithm}
+
+
+\section*{Tutorials}
 
 \begin{mdframed}
     \vspace{-0.25cm}
