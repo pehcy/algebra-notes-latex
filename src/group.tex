@@ -1062,25 +1062,42 @@ of order $p^k$.
 
 \subsection{Greedy algorithm for an Abelian group of order $p^n$}
 
-\begin{algorithm}
-    \caption{find\_best\_split}
+Here are the procedure to find all the possible abelian group of order $p^n$. Note that $p$ is prime.
+
+\begin{enumerate}
+    \item Compute the orders of the elements of the group $G$.
+    \item Select an $a_1$ of maximum order and define $G_1 = \langle a_1 \rangle$. Set $i = 1$.
+    \item If $|G| = |G_i|$, stop. Otherwise, replace $i$ by $i + 1$.
+    \item Select an element $a_i$ of maximum order $p^k$ such that 
+    \[
+        p^k \leq |G|/|G_{i-1}|
+    \]
+    and none of $a_i, a_i^{p}, a_i^{p^2}, \ldots, a_i^{p^{k-1}}$ is in
+\end{enumerate}
+
+\begin{algorithm}[ht]
+    \caption{Greedy algorithm for an Abelian group of order $p^n$}
     \tcp{Main body of greedy algorithm for finding Abelian group of order $p^k$.}
     \Function{Main\_greedy\_algorithm($G$: FiniteGroup) $\to$ Product of CyclicGroups}{
-        \boxit{codegreen}{13}
+        \boxit{codegreen}{16.5}
         $\olsi{a} \gets $ \var{find\_element\_with\_max\_order$(G)$}\;
         \tcp{Generated subgroup with first element $\olsi{a}_1$ from $\olsi{a}$.}
         $H \gets \langle \olsi{a}_1 \rangle$\;
         $i \gets 1$\;
 
-        \boxit{codeyellow}{6.5}
+        \boxit{codeyellow}{11.5}
         \While(\Comment{Greedy search for all cyclic groups}){$|H| \neq |G|$}{
 
             $\var{max\_cyclic\_order} = |G| / |H|$\; 
             $\langle a_i \rangle = [\>]$\;
             
-            \boxit{codered}{2.5}
+            \boxit{codered}{6}
             \While(){$p^k \leq \var{max\_cyclic\_order}$}{
-                $\langle a_i \rangle$.push($\olsi{a}^{p^k}_i$)\;
+                \eIf (\Comment{Check if $\olsi{a}^{p^{k-1}}_i$ already in previous $H$}){$\olsi{a}^{p^{k-1}}_i \notin H$}{
+                    $\langle a_i \rangle$.push($\olsi{a}^{p^{k-1}}_i$)\;
+                }{
+                    \Continue
+                }
                 $k \gets k+1$\;
             }
             $H \gets H \times \langle a_i \rangle$\;
@@ -1095,7 +1112,7 @@ of order $p^k$.
         $orders = [\>]$\;
             \For(\Comment{elements in X}){$a_i \in G$} {
                 \boxitt{codered}{6.5}
-                \eIf (\Comment{params.use\_decay}) {$a_i == $ identity$(G)$}{
+                \eIf () {$a_i == $ identity$(G)$}{
                     return 1   \Comment{The order of identity element is one.}
                 }{
                     $j \gets 1$\;
@@ -1111,7 +1128,7 @@ of order $p^k$.
     \tcp{Filter out $a_i$ with maximum order, return a list of tuple $(a_i, |\langle a_i \rangle|)$.}
     \Function{find\_element\_with\_max\_order($G$: FiniteGroup) $\to$ Array<tuple(element, order)>}{
         \boxit{codegreen}{2}
-        $orders \gets $ compute\_orders($G$)\;
+        $orders \gets \var{max\_cyclic\_order}(G)$\;
         \Return{zip($G$, $orders$).filter($(\_, o) \to o == $ Max($orders$))}\;
     }
 \end{algorithm}

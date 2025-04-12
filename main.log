@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  12 APR 2025 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  12 APR 2025 20:59
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1342,95 +1342,102 @@ Underfull \vbox (badness 2913) has occurred while \output is active []
  [20]
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 1091.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 1108.
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1091.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1108.
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 1110.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 1127.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 1117.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 1134.
 
-[21]
-Package mdframed Info: mdframed works in twoside mode on input line 1123.
+Package mdframed Info: mdframed works in twoside mode on input line 1140.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1123.
+(mdframed)              on input line 1140.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 1424.
- [22] [23] [24] [25]) (./src/rings.tex [26]
+(mdframed)              on input line 1441.
+[21] [22] [23] [24]
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 1441.
+ [25]
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 1441.
+ [26]) (./src/rings.tex [27]
 Chapter 2.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[27
+[28
 
-] [28] [29]
+] [29] [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30] [31] [32] [33]
+ [31] [32] [33] [34]
 Underfull \vbox (badness 1577) has occurred while \output is active []
 
- [34] [35] [36]
+ [35] [36] [37]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
+ [38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [38] [39] [40] [41] [42] [43]
+ [39] [40] [41] [42] [43] [44]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 993.
- [44]) (./src/fields.tex [45]
+ [45]) (./src/fields.tex [46]
 Chapter 3.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[46
+[47
 
 ]
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
- [47]
+ [48]
 Underfull \vbox (badness 4328) has occurred while \output is active []
 
- [48]
+ [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49] [50] [51]
+ [50] [51] [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52] [53]
+ [53] [54]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 498.
 
-[54] [55] [56] [57]
+[55] [56] [57] [58]
 Underfull \vbox (badness 2213) has occurred while \output is active []
 
- [58] [59] [60] [61]
+ [59] [60] [61] [62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]) [63] (./main.aux) ) 
+ [63]) [64] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 48162 strings out of 478287
- 1161248 string characters out of 5849289
- 1665441 words of memory out of 5000000
- 65442 multiletter control sequences out of 15000+600000
+ 48165 strings out of 478287
+ 1161305 string characters out of 5849289
+ 1681695 words of memory out of 5000000
+ 65445 multiletter control sequences out of 15000+600000
  538164 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,21n,113p,784b,1305s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on main.pdf (63 pages, 750190 bytes).
+ 105i,23n,113p,784b,1305s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on main.pdf (64 pages, 767871 bytes).
 PDF statistics:
- 439 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
+ 452 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 
