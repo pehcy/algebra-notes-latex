@@ -1,8 +1,22 @@
 \chapter{Groups}
 
-\begin{definition}
-    A group $(G, *)$ is a set $G$, together with a binary operator $*$ such that 
+\begin{definition}[Closure]
+    Let $G$ be a set. A binary operation on $G$ is a function that assigns each ordered pair of elements of $G$ an element of $G$.
+    This condition is called \bred{closure}.
 \end{definition}
+
+The most familiar binary operations are ordinary addition, subtraction and 
+multiplication of integers. However, the division of integers is not a binary operation
+on the integers. 
+
+\begin{definition}[Binary operation]
+    Let $G$ be a group. A \bred{binary operation} is a map of sets:
+    \[
+        * : G \times G \to G.
+    \]
+\end{definition}
+For ease of notation we write $*(a,b) = a * b \quad \forall a,b \in G$. Any binary operation on $G$ gives a way of 
+combining elements. As we have seen, if $G =\mathbb{Z}$ then $+$ and $\times$ are natural example of binary operations. 
 
 \begin{center}
     {
@@ -53,6 +67,261 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
     \item Ring with unity: 1-6, with 8, 11, and 12
     \item Field: 1-12
 \end{itemize}
+
+\begin{axiom}[Groups]
+    Let $G$ be a set together with a \textit{binary operation} that assigns to each ordered pair $(a,b)$ of elements of $G$ an element in 
+    $G$ denoted by $a * b$. We say that $(G, *)$ is a group under this operation if the following 
+    properties are satisfies.
+    \begin{enumerate}
+        \item \textbf{(Closure)} $\forall a, b \in G, \quad a * b \in G$.
+        \item \textbf{(Associativity)} $\forall a, b, c \in G, \quad a * (b * c) = (a * b) * c \in G$.
+        \item \textbf{(Existence of Identity)} $\forall a \in G, \exists e \in G \> s.t. \> a * e = a = e * a \in G$.
+        \item \textbf{(Existence of Inverse)} $\forall a \in G, \exists a^{-1} \in G \> s.t. \> a * a^{-1} = e = a^{-1} * a \in G$.
+    \end{enumerate}
+\end{axiom}
+
+\begin{example}
+    The set of integers $\mathbb{Z}$, the set of rational numbers $\mathbb{Q}$ and the set of real numbers $\mathbb{R}$ are all groups under 
+    normal addition.
+\end{example}
+
+\begin{example}
+    The set 
+    \[
+        GL(2, \mathbb{R}) = \left\{ \begin{bmatrix}
+        a & b \\ c & d
+        \end{bmatrix} \bigg \vert \> a,b,c,d \in \mathbb{R}, ad - bc \neq 0 \right\}
+    \]
+    is a non-abelian group under matrix multiplication.
+\end{example}
+\begin{solution}
+    Check if $GL(2, \mathbb{R})$ is closure,asscoiative, has identity and has inverse.
+
+    \begin{enumerate}
+        \item (Closureness) For all $\begin{bmatrix}
+            a_1 & b_1 \\ c_1 & d_1
+        \end{bmatrix}, \begin{bmatrix}
+            a_2 & b_2 \\ c_2 & d_2
+        \end{bmatrix}$ in $GL(2, \mathbb{R})$, with $a_1d_1 - b_1c_1 \neq 0$ and $a_2d_2 - b_2c_2 \neq 0$.
+        \begin{align*}
+            \begin{bmatrix}
+                a_1 & b_1 \\ c_1 & d_1
+            \end{bmatrix}
+            \begin{bmatrix}
+                a_2 & b_2 \\ c_2 & d_2
+            \end{bmatrix}
+            &= \begin{bmatrix}
+                a_1a_2 + b_1c_2 & a_1b_2 + b_1d_2 \\ c_1a_2 + d_1c_1 & c_1b_2 + d_1d_2
+            \end{bmatrix} \in GL(2, \mathbb{R})\\
+            &= (a_1a_2 + b_1c_2)(c_1b_2 + d_1d_2) - (a_1b_2 + b_1d_2)(c_1a_2 + d_1c_1)\\
+            &= a_1a_2c_1b_2 + a_1a_2d_1d_2 + b_1b_2c_1c_2 + b_1c_2d_1d_2 \\
+            &\quad - a_1a_2b_2c_1 - a_2b_2c_2d_1 - a_2b_1c_1d_2 - b_1c_2d_1d_2\\[0.3em]
+            &= (a_1d_1 - b_1c_1)(a_2d_2 - c_2b_2) \neq 0 \in GL(2, \mathbb{R}).
+        \end{align*}
+        Matrix multiplication is closed under $GL(2, \mathbb{R})$.
+
+        \item (Associativity) For all $\begin{bmatrix}
+            a_1 & b_1 \\ c_1 & d_1
+        \end{bmatrix}, \begin{bmatrix}
+            a_2 & b_2 \\ c_2 & d_2
+        \end{bmatrix}, \begin{bmatrix}
+            a_3 & b_3 \\ c_3 & d_3
+        \end{bmatrix}$ in $GL(2, \mathbb{R})$, we have
+        \[
+            \begin{bmatrix}
+                a_1 & b_1 \\ c_1 & d_1
+            \end{bmatrix} \left( \begin{bmatrix}
+                a_2 & b_2 \\ c_2 & d_2
+            \end{bmatrix} \begin{bmatrix}
+                a_3 & b_3 \\ c_3 & d_3
+            \end{bmatrix} \right)
+            = 
+            \left( \begin{bmatrix}
+                a_1 & b_1 \\ c_1 & d_1
+            \end{bmatrix}  \begin{bmatrix}
+                a_2 & b_2 \\ c_2 & d_2
+            \end{bmatrix} \right) \begin{bmatrix}
+                a_3 & b_3 \\ c_3 & d_3
+            \end{bmatrix}.
+        \]
+        Matrix multiplication in $GL(2, \mathbb{R})$ is asscoiative.
+
+        \item (Existence of identity) $\forall \begin{bmatrix}
+            a & b\\ c & d
+        \end{bmatrix} \in GL(2, \mathbb{R}), \quad \exists \begin{bmatrix}
+            1 & 0\\0 & 1
+        \end{bmatrix}\in GL(2, \mathbb{R}) \> s.t$.
+        \[
+            \begin{bmatrix}
+                a & b\\ c & d
+            \end{bmatrix}
+            \begin{bmatrix}
+                1 & 0\\0 & 1
+            \end{bmatrix}
+            = \begin{bmatrix}
+                1 & 0\\0 & 1
+            \end{bmatrix}
+            \begin{bmatrix}
+                a & b\\c & d
+            \end{bmatrix}
+            = \begin{bmatrix}
+                a & b\\c & d
+            \end{bmatrix}
+        \]
+
+        \item (Existence of inverse) $\forall \begin{bmatrix}
+            a & b\\ c & d
+        \end{bmatrix} \in GL(2, \mathbb{R}), \quad \exists\,  \displaystyle \frac{1}{ad-bc} \begin{bmatrix}
+            d & -b\\-c & a
+        \end{bmatrix}\in GL(2, \mathbb{R}) \> s.t$.
+        \begin{align*}
+            \begin{bmatrix}
+                a & b\\ c & d
+            \end{bmatrix}\, 
+            \frac{1}{ad-bc} \begin{bmatrix}
+                d & -b\\-c & a
+            \end{bmatrix} &= 
+            \frac{1}{ad-bc}\begin{bmatrix}
+                a & b\\ c & d
+            \end{bmatrix}
+            \begin{bmatrix}
+                d & -b\\-c & a
+            \end{bmatrix}\\
+            &= \frac{1}{ad-bc} \begin{bmatrix}
+                ad-bc & -ab+ba\\ cd-cd & -bc+ad
+            \end{bmatrix}\\
+            &= \begin{bmatrix}
+                1 & 0\\ 0& 1
+            \end{bmatrix}.
+        \end{align*}
+        Similarly, we can verify that 
+            \[
+                \frac{1}{ad-bc} \begin{bmatrix}
+                    d & -b\\-c & a
+                \end{bmatrix} \in GL(2, \mathbb{R})
+            \]
+            since 
+            \[
+                \frac{1}{ad-bc} \det\, \begin{bmatrix}
+                    d & -b\\-c & a
+                \end{bmatrix} = \frac{1}{ad-bc}(da-bc) = 1 \neq 0.
+            \]
+
+            The inverse does exists whenever $a, b, c, d$ in $\mathbb{R}$.
+    \end{enumerate}
+\end{solution}
+
+\begin{example}[Non-example]
+    The set $\mathbb{Z}_4 = \{ 0, 1, 2, 3 \}$ is not a group under multiplication modulo 4.
+\end{example}
+\begin{solution}
+    Because $\gcd(2,4) = 2 \neq 1$, which means $2^{-1}$ does not exists in $\mathbb{Z}_4$. Each elements 
+    in the group should have its unique inverse.
+    Thus $(\mathbb{Z}_4, \cdot)$ is not a group.
+\end{solution}
+
+\begin{example}[Non-example]
+    The set of integers under subtraction is not a group.
+\end{example}
+\begin{solution}
+    For all $a, b, c \in \mathbb{Z}$, 
+    \[
+        a - (b - c) = a - b + c \neq (a - b) - c.
+    \]
+    Which viloates the asscoiative property. So the subtraction in the set of integers is not a group.
+\end{solution}
+
+\begin{example}
+    The set $\mathbb{Q}^{+}$ of positive rationals is a group under ordinary multiplication.
+\end{example}
+
+\begin{example}
+    For a fixed point $(a,b)$ in 2-dimensional cartesian plane $\mathbb{R}^2$, we define the geometrical translation $T_{a,b} : \mathbb{R}^2 \to \mathbb{R}^2$
+    by 
+    \[
+        T_{a,b} = (x+a, y+b).
+    \]
+    The set $G = \{ T_{a,b} \> | \> a,b \in \mathbb{R}\}$ is a group under function composition.
+\end{example}
+\begin{solution}
+    \begin{enumerate}
+        \item (Closureness) We want to show:
+            \[
+                \forall T_{a,b}, T_{c,d} \in G, \quad T_{a,b} \circ T_{c,d} \in G
+            \]
+        We compute the composition 
+        \begin{align*}
+            (T_{a,b} \circ T_{c,d})(x,y) &= T_{a,b}(T_{c,d}(x,y))\\
+            &= T_{a,b}(x+c, y+d)\\
+            &= (x+a+c,y+b+d)\\
+            &= (x+(a+c), y+(b+d)) & \text{asscoiativity of ordinary addition}\\
+            &= T_{a+c,\, b+d}(x,y)
+        \end{align*}
+        which closed under $G$.
+
+        \item (Associativity) For all $T_{a,b}, T_{c,d}, T_{g,h} \in G$, we have 
+        \begin{align*}
+            T_{a,b} \circ (T_{c,d} \circ T_{g,h}) &= T_{a,b} \circ T_{c+g, d+h}\\
+            &= T_{a+(c+g), b+(d+h)}\\
+            &= T_{(a+c)+g, (b+d)+h}\\
+            &= T_{a+c, b+d} \circ T_{g,h}\\
+            &= (T_{a,b} \circ T_{c,d}) \circ T_{g,h}
+        \end{align*}
+        so the translation closed under the function composition.
+
+        \item (Existence of identity) $\forall T_{a,b} \in G, \exists T_{e_1, e_2} \in G$ such that 
+        \[
+            T_{a,b} \circ T_{e_1, e_2} = T_{a,b} = T_{e_1, e_2} \circ T_{a,b}.
+        \]
+        We need to find the value of $e_1$ and $e_2$. 
+        \begin{align*}
+            T_{a,b} \circ T_{e_1, e_2} = T_{a,b} &\Rightarrow T_{a+e_1, b+e_2} = T_{a,b}\\
+            &\Rightarrow a + e_1 = a \quad \textsf{ and } \quad b + e_2 = b
+        \end{align*}
+        On solving, we have $e_1 = e_2 = 0$. Thus $T_{0,0} \in G$ is the identity.
+
+        \item (Existence of inverse) $\forall T_{a,b} \in G, \exists T_{\alpha, \beta} \in G$ such that 
+        \[
+            T_{a,b} \circ T_{\alpha, \beta} = T_{0,0} = T_{\alpha, \beta} \circ T_{a,b}. 
+        \]
+        Compute 
+        \begin{align*}
+            T_{a,b} \circ T_{\alpha, \beta} = T_{0,0} &\Rightarrow T_{a + \alpha, b + \beta} = T_{0,0}\\
+            &\Rightarrow a + \alpha = 0 \quad \textsf{ and } \quad b + \beta = 0
+        \end{align*}
+        solving equations give us $\alpha = - a$ and $\beta = -b$. The inverse of $T_{a,b}$ in $G$ is $T_{-a, -b}$.
+    \end{enumerate}
+\end{solution}
+
+\begin{definition}[Multiplicative group modulo $n$]
+    The multiplicative group of integers modulo $n$, denoted $\mathbb{Z}^*_n$ or $U(n)$, is the group 
+    \[
+        U(n) := \{ k \in \mathbb{Z}_n \> | \> \gcd(n,k) = 1 \}
+    \]
+    where the binary operation is multiplication, modulo $n$.
+\end{definition}
+
+\begin{example}
+    The set 
+    \[
+        U(n) = \{ x \in \mathbb{Z}^+ \> | \> x < n, \gcd(x,n) = 1 \}
+    \]
+    is a group under multiplication modulo $n$.
+\end{example}
+\begin{solution}
+    \begin{enumerate}
+        \item (Closureness) For all $x, y \in U(n)$, where $x,y < n$ and $\gcd(x,n) = \gcd(y,n) = 1$, then 
+        $xy \in U(n)$ since $\gcd(xy,n) = \gcd(x,n)\, \gcd(y,n) = 1$.
+
+        \item (Associativity) Associative holds since $x(yz) = (xy)z$ whenever $x,y,z$ in $U(n)$.
+        \item (Existence of identity) $\forall x \in U(n), \exists 1 \in U(n) \> s.t. \> x \cdot 1 = x = 1 \cdot x$.
+        \item (Existence of inverse) For all $x \in U(n)$, since $\gcd(x,n) = 1$. Then by \textit{extended Euclidean algorithm} we have 
+        \[
+            ax + bn = 1 \quad \textsf{ for some } a,b \in U(n) \label{eq:g1.0} \tag{{\color{red} $\heartsuit$}}
+        \]
+        taking modulo $n$ on \eqref{eq:g1.0} yields $ax = 1 \Longrightarrow x^{-1} = a$. Thus the inverse of $x$ does exists.
+    \end{enumerate}
+\end{solution}
 
 \begin{lemma}[Uniqueness of group identity]
     In a group $G$, there is one and only one identity element $e$.
@@ -124,58 +393,21 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
     E.g. matrix multiplication $AB \neq BA$.
 \end{remark}
 
-\begin{example}
-    Consider $(a,b)$ to be a fixed point on the 2-dimensional cartesian plane $\mathbb{R}^2$, we define a translation map
-    $T_{a,b} : \mathbb{R}^2 \to \mathbb{R}^2$ such that 
-    \[
-        T_{a,b}(x,y) = (x+a, y+b)
-    \]
-    we again define $G = \{T_{a,b} \> | \> a, b \in \mathbb{R}\}$. Show that $(G, \circ)$ is a group under function composition.
-\end{example}
-\begin{solution}
-    \begin{enumerate}
-        \item (Closure) We want to show:
-            \[
-                \forall T_{a,b}, T_{c,d} \in G, \quad T_{a,b} \circ T_{c,d} \in G
-            \]
-        We compute the composition 
-        \begin{align*}
-            (T_{a,b} \circ T_{c,d})(x,y) &= T_{a,b}(T_{c,d}(x,y))\\
-            &= T_{a,b}(x+c, y+d)\\
-            &= (x+a+c,y+b+d)\\
-            &= (x+(a+c), y+(b+d)) & \text{asscoiativity of ordinary addition}\\
-            &= T_{a+c,\, b+d}(x,y)
-        \end{align*}
-        which closed under $G$.
-
-        \item ()
-    \end{enumerate}
-\end{solution}
-
-\begin{theorem}
-    The following statements are equivalent.
-
-    \begin{enumerate}
-        \item Every subgroup of a cyclic group (multiplicative group) is cyclic.
-        \item If $|\langle a \rangle| = n$, then the order of any subgroup of $\langle a \rangle$ is a divisor of $n$.
-        \item For each positive divisor $k | n$, $\langle a \rangle$ has exactly one subgroup of order $k$. 
-        $\langle a^{n/k} \rangle$ if multiplicative group, $\langle \frac{n}{k}a \rangle$ if additive group.
-    \end{enumerate}
-\end{theorem}
-\begin{proof}
-    Let $G$ be a cyclic group and $H$ be a subgroup of $G$. We need to show that $H$ is also cyclic.
-    Example: $H = \langle a^m \rangle$ s.t. $m$ is the least positive integer.
-
-    By randomly pick integer $b \in H$, $b = a^k, k \in \mathbb{Z}^+$. By division algorithm, $k = qm + r$, where $0 \leq r < m$.
-
-    \begin{align*}
-        b = a^k = a^{qm+r} = (a^m)^{q}a^r &\Rightarrow a^r = (a^m)^{-q} b \in H\\
-        &\Rightarrow a^r \in H, \quad 0 \leq r < m\\
-        &\Rightarrow r = 0
-    \end{align*}
-\end{proof}
-
 \section{Finite groups and Subgroups}
+
+\begin{definition}[Order of group]
+    The number of elements of a group (finite or infinite) is called its order. We 
+    will use $|G|$ to denote the order of $G$.
+\end{definition}
+
+The order of an element $g$ in $G$ is the \textbf{smallest positive integer} $n$ such that 
+$g^n = e$ (In additive notation, this would be $ng = 0$). If no such integer exists, we said that 
+$g$ has infinite order. The order of an element $g \in G$ is denoted 
+by $\ord(g)$.
+
+\begin{definition}
+    If a subset $H$ of a group $G$ is itself a group under the same operation of $G$, we say that $H$ is a subgroup of $G$.
+\end{definition}
 
 \begin{remark}
     We use the notation $H \leq G$ to mean that $H$ is a subgroup of $G$. We use the notation $H < G$ to denote that 
@@ -228,6 +460,14 @@ $\{ e \}$ is called a nontrivial subgroup of $G$.
     Let $G$ be an abelian group with identity $e$. Then 
     \[
         H = \{ x \in G \> | \> x^2 = e \}
+    \]
+    is a subgroup of $G$.
+\end{example}
+
+\begin{example}
+    Let $G$ be an abelian group under multiplication with identity $e$. Then 
+    \[
+        H = \{ x^2  \> | \> x \in G \}
     \]
     is a subgroup of $G$.
 \end{example}
@@ -422,7 +662,7 @@ element is a multiple of some fixed element. For instance,
     Now the final part is to show $\mathfrak{a}^i = \mathfrak{a}^j$ iff $n|i-j$, we are going to proof on two directions.
 
     $(\Rightarrow)$ If $\mathfrak{a}^i = \mathfrak{a}^j$, we need to show that $n$ is divisible by $i - j$. Again we 
-    applying the division algorithm, 
+    applying the \textit{division algorithm}, 
     \[
         i - j = nq + r, \quad 0 \leq r < n
     \]
@@ -451,17 +691,265 @@ element is a multiple of some fixed element. For instance,
     and we are done.
 \end{proof}
 
+\begin{corollary}
+    For any group element $\mathfrak{a}$, $\ord(a) = |\langle a \rangle|$.
+\end{corollary}
+\begin{proof}
+    By previous theorem, $\langle a \rangle = \{e, a, a^2, \ldots, a^{n-1}\}$ has $n$ elements. Thus 
+    $|\langle a \rangle| = \ord(a) = n$. 
+\end{proof}
+
+\begin{theorem}
+    Let $\mathfrak{a}$ be an element of order $n$ in a group and let $k$ be a positive integer. Then 
+    \[
+        \langle \mathfrak{a}^k \rangle = \langle \mathfrak{a}^{\gcd(n,k) } \rangle
+    \]
+    and 
+    \[
+        \ord(\mathfrak{a}) = \frac{n}{\gcd(n,k)}.
+    \]
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item To show that $\langle \mathfrak{a}^k \rangle = \langle \mathfrak{a}^{\gcd(n,k) } \rangle$ is equivalent of showing 
+        $\langle \mathfrak{a}^k \rangle \subseteq \langle \mathfrak{a}^{\gcd(n,k) } \rangle$.
+    
+        Consider $\mathfrak{a}^k \in \langle \mathfrak{a}^k \rangle$, and let $d = \gcd(n,k)$. This implies that $d$ divide $k$ and 
+        $k = dr$ for some integer $r$. Thus 
+        \[
+            \mathfrak{a}^k = \mathfrak{a}^{dr} = (\mathfrak{a}^d)^r
+            \in \langle \mathfrak{a}^d \rangle = \langle \mathfrak{a}^{\gcd(n,k)} \rangle.
+        \]
+    
+        On the other hand, we want to show $\langle \mathfrak{a}^k \rangle \supseteq \langle \mathfrak{a}^{\gcd(n,k) } \rangle$, which is equivalent 
+        to show $\langle \mathfrak{a}^d \rangle \subseteq \langle \mathfrak{a}^k \rangle$. Consider $\mathfrak{a}^d \in \langle \mathfrak{a}^d \rangle$.
+        By extended Euclidean algorithm,
+        \begin{align*}
+            \mathfrak{a}^d &= \mathfrak{a}^{\gcd(n,k)}\\
+            &= \mathfrak{a}^{nt+ks} & \textsf{for some integers }k,s\\
+            &= (\mathfrak{a}^n)^t (\mathfrak{a}^k)^s\\
+            &= e^t (\mathfrak{a}^k)^s\\
+            &= (\mathfrak{a}^k)^s \in \langle \mathfrak{a}^k \rangle.
+        \end{align*}
+
+        \item Certainly, 
+        \begin{align*}
+            \ord(\mathfrak{a}^k) &= |\langle \mathfrak{a}^k \rangle|\\
+            &= |\langle \mathfrak{a}^d \rangle|\\
+            &= \ord(\mathfrak{a}^d)\\
+            &= \frac{n}{d}\\
+            &= \frac{n}{\gcd(n,k)}.
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Fundamental theorem of cyclic groups]
+    Suppose $G = \langle g \rangle$ is cyclic.
+    \begin{enumerate}
+        \item Every subgroup of $G$ is cyclic.
+        \item If $|G|=n$, then the order of any subgroup of $G$ divides $n$.
+        \item If $|G|=n$, then for any positive integer $k,n$ the subgroup $\langle g^{n/k} \rangle$ 
+        is the unique subgroup of order $k$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Let $H$ is a subgroup of $G$, if $H = \{ e \}$ then we are done. 
+        
+        Assume that $H \neq \{ e\}$, choose $g^m \in H$ with minimal $m \in \mathbb{Z}^+$ by well-ordering.
+        Clearly $\langle g^m \rangle \subseteq H$. If some $g^k \in H$ then by \textit{division algorithm} we have 
+        \[
+            k = qm + r \Longrightarrow r = k - qm \quad 0 \leq r < m
+        \] 
+        and then $g^r = g^k\, (g^m)^{-q} \in H$ and so $r = 0$ by minimality of $m$ and so 
+        $g^k = (g^m)^q$ and hence $g^k \in \langle g^m \rangle$.
+
+        \item Take a subgroup $H \leq G$. From (1) we know $H$ is cyclic and $H =\langle g^m \rangle$ with minimal positive integer $m$.
+        Again we apply \textit{division algorithm} and write 
+        \[
+            n = qm + r \Longrightarrow r = n - qm \quad 0 \leq r < m
+        \]
+        and $g^r = g^n\, (g^m)^{-q} \in H$ and so $r = 0$, and then 
+        \[
+            |H| = |\langle g^m \rangle| = \ord(g^m) = \frac{n}{\gcd(n,m)} = \frac{n}{m}
+        \]
+        and thus $m|H| = n$ and $|H|$ divide $n$.
+
+        \item Observe first that $k | n$ we have 
+        \[
+            |\langle g^{n/k} \rangle| = |g^{n/k}| = \frac{n}{\gcd(n, n/k)} = \frac{n}{n/k} = k.
+        \]
+        Thus certainly $\langle g^{n/k} \rangle$ is a subgroup of order $k$. We must show that it is unique. Let 
+        $H$ be a subgroup of $G$ such that $|H| = k | n$. Since $H \leq G$ by (1) and (2) we have $H =\langle g^m \rangle$ 
+        with $m|n$. Then we have 
+        \[
+            k = |H| = |\langle g^m \rangle| = \ord(g^m) = \frac{n}{\gcd(n,m)} = \frac{n}{m}
+        \]
+        Thus $m = \frac{n}{k}$ and so $H = \langle g^m \rangle = \fbox{$\langle g^{n/k} \rangle$}$. 
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    In $\mathbb{Z}_{12} = \{0, 1, 2, \ldots, 11\}$ the complete list of generators is $U(12) = \{1, 5, 7, 11\}$. So for example 
+
+    \begin{align*}
+        \langle 5 \rangle &= \{ 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 \} \> (\text{mod } 12)\\ 
+        &= \{ 0, 5, 10, 3, 8, 1, 6, 11, 4, 9, 2, 7\}
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Consider $U(50)$: its order is $\phi(50) = 20$, and its elements are 
+    \[
+        \{ 1, 3, 7, 9, 11, 13, 17, 19, 21, 23, 27, 29, 31, 33, 37, 39, 41, 43, 47, 49\}.
+    \]
+    Given that $U(50) = \langle 3 \rangle$. Find all generators of $U(50)$.
+\end{example}
+\begin{solution}
+    Since $\langle 3^k \rangle = \langle 3 \rangle \Leftrightarrow \gcd(20, k) = 1 \Leftrightarrow k \in U(20)$. Since 
+    \[
+        U(20) = \{ 1, 3, 7, 9, 11, 13, 17, 19 \},
+    \]
+    the generators of $U(50)$ are 
+    \[
+        \{3, 3^3, 3^7, 3^9, 3^{11}, 3^{13}, 3^{17}, 3^{19} \} \textsf{ or }
+        \{3, 27, 37, 33, 47, 23, 13, 17\}.
+    \]
+\end{solution}
+
+\begin{example}
+    Find all the subgroups of $\mathbb{Z}_{42}$.
+\end{example}
+\begin{solution}
+    Listed out all the possible divisors of $42$ we have 
+
+    \begin{center}
+        \begin{tabular}{c|c|c}
+            $k$ & $42/k$ & subgroup order $k$, $\langle (42/k) \rangle$ with $k|42$.\\
+            \hline
+            $1$ & $42$ & $\langle 42 \rangle = \{0\}$\\[0.3em]
+            \hline
+            $2$ & $21$ & $\langle 21 \rangle = \{0, 21\}$\\[0.3em]
+            \hline
+            $3$ & $14$ & $\langle 14 \rangle = \{0, 14, 18\}$\\[0.3em]
+            \hline
+            $6$ & $7$ & $\langle 7 \rangle = \{0, 7, 14, 21, 28, 35 \}$\\[0.3em]
+            \hline
+            $7$ & $6$ & $\langle 6 \rangle = \{0, 6, 12, 18, 24, 30, 36 \}$\\[0.3em]
+            \hline
+            $14$ & $3$ & $\langle 3 \rangle = \{0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39 \}$\\[0.3em]
+            \hline
+            $21$ & $2$ & $\langle 2 \rangle$ is set of all even numbers in $\mathbb{Z}_{42}$\\[0.3em]
+            \hline 
+            $42$ & $1$ & $\langle 1 \rangle = \mathbb{Z}_{42}$
+        \end{tabular}
+    \end{center}
+\end{solution}
+
 \section{Permutation}
 
 \begin{definition}
-    A permutation of a set $A$ is a function from $A$ to $A$ that is both one-to
-one and onto. A permutation group of a set $A$ is the set of permutations of $A$ that 
+    A permutation of a set $\mathcal{A}$ is a function from $\mathcal{A}$ to $\mathcal{A}$ that is both one-to
+one and onto. A permutation group of a set $\mathcal{A}$ is the set of permutations of $\mathcal{A}$ that 
 forms a group under function composition
 \end{definition}
 
-\subsection{Dihedral Group}
+\begin{example}
+    Let $S_3$ denote the set of all one-to-one functions from $\{1, 2, 3\}$ to itself. The 
+    $S_3$ under function composition, is a group with six elements.
+    \begin{align*}
+        S_3 &= \{ 1, (1\> 2), (1 \> 3), (2 \> 3), (1 \> 2 \> 3), (1 \> 3 \> 2) \} \\ 
+        &= \{ 1, (1\> 2), (1 \> 3), (2 \> 3), (1 \> 3)(1 \> 2), (1 \> 2) (1 \> 3)\} \\
+    \end{align*}
+\end{example}
+
+\begin{lemma}
+    Every permutation of a finite set can be written as a cycle or as a product of disjoint cycles.
+\end{lemma}
+
+\begin{theorem}
+    If the pair of cycles $\alpha = (a_1, a_2, \ldots, a_m)$ and $\beta = (b_1, b_2, \ldots, b_m)$ have no 
+    entries in common, then $\alpha \beta = \beta \alpha$. In other words, any two disjoint cycles commute.
+\end{theorem}
+\begin{proof}
+    Let $\alpha = (a_1, a_2, \ldots, a_m)$ and $\beta = (b_1, b_2, \ldots, b_m)$ be two disjoint cycles. These cycles 
+    are defined on the set 
+    \[
+        \mathcal{A} = \{ a_1, a_2, \ldots, a_t, b_1, b_2, \ldots, b_s, \underbrace{c_1, c_2, \ldots, c_r}_{\text{Fixed points}} \}.
+    \]
+    and so $\alpha, \beta \in S_{t+s+r}$. We want to show that $\alpha \circ \beta = \beta \circ \alpha$ is equivalent 
+    to show 
+    \[
+        (\alpha \circ \beta)(x) = (\beta \circ \alpha)(x) \quad \forall x \in \mathcal{A}.
+    \]
+    We are considering three possible cases:
+
+    Case 1: Suppose that $x = a_i$, where $1 \leq i \leq t$. On LHS
+    \begin{align*}
+        (\alpha \circ \beta)(a_i) &= \alpha( \beta(a_i))\\
+        &= \alpha(a_i)\\
+        &= a_{i+1}.
+    \end{align*}
+
+    and on RHS
+    \begin{align*}
+        (\beta \circ \alpha)(a_i) &= \beta( \alpha(a_i))\\
+        &= \beta(a_{i+1})\\
+        &= a_{i+1}.
+    \end{align*}
+
+    Thus, LHS = RHS for first case.
+
+    Case 2: Suppose that $x = b_j$, where $1 \leq j \leq s$. On LHS
+
+    \begin{align*}
+        (\alpha \circ \beta)(b_j) &= \alpha( \beta(b_j))\\
+        &= \alpha(b_{j+1})\\
+        &= b_{j+1}.
+    \end{align*}
+
+    and on RHS
+    \begin{align*}
+        (\beta \circ \alpha)(a_i) &= \beta( \alpha(b_j))\\
+        &= \beta(b_{j})\\
+        &= b_{j+1}.
+    \end{align*}
+
+    
+    Thus, LHS = RHS for second case.
+
+    Case 3: At last, suppose that $x = c_k$, where $1 \leq k \leq r$. Each $c_k$ are fixed points and 
+    they always stay in the same value whenever any cycles.
+
+    \[
+        (\alpha \circ \beta)(c_k) = c_k = (\beta \circ \alpha)(c_k).
+    \]
+
+    Hence, we conclude that any disjoint cycles are commute.
+\end{proof}
+
+\begin{definition}
+    A permutation that can be expressed as a product of an even (or odd) number of 2-cycles is called an even (or odd) 
+    permutation.
+\end{definition}
+
+\begin{definition}[Alternating group]
+    The group of even permutations of $n$ symbols is denoted by $A_n$ and is called the \bred{alternating group} of 
+    degree $n$.
+\end{definition}
+
+\begin{theorem}
+    For $n > 1$, $A_n$ has order $n!/2$.
+\end{theorem}
+
+\section{Dihedral Group}
 
 Dihedral groups are an essential class in group theory that arise naturally in geometry and other areas of mathematics.
+
+For $n \geq 3$, the dihedral group $D_n$ is described as the rigid motions taking a regular 
+$n$-gon back to itself, with the operations 
+
+
 
 \begin{figure}[ht]
     \centering
@@ -479,9 +967,64 @@ which these reflection lines runs from one of the vertices to the center of the 
     \caption{The composition of $120\deg$ rotation with horizontal reflection form another reflection line at vertice}
 \end{figure}
 
-\begin{lemma}
-    Dihedral group $D_3$ is isomorphic to $S_3$.
-\end{lemma}
+\begin{theorem}
+    Let the $n$-degree dihedral group  
+    \[
+        D_n = \langle r, s \> | \> r^n = e, s^2 = e, srs = r^{-1} \rangle.
+    \]
+    Then 
+    \begin{enumerate}
+        \item $r^ks = sr^{-k}$.
+        \item The order of $r^k$ is $\displaystyle \frac{n}{\gcd(n,k)}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Compute 
+        \begin{align*}
+            r^ks &= er^ks \\
+            &= s^2 r^k s \\ 
+            &= ssr^k s \\
+            &= \fbox{$sr^{-k}$}.
+        \end{align*}
+        and we are done.
+
+        \item We will first show that $r^k = e$ if and only if $n|k$. 
+        
+        $(\Rightarrow)$ Consider $e = r^k$, then by 
+        \textit{division algorithm} we have 
+        \[
+            k = na+b \quad \textsf{ where } 0 \leq b < n.
+        \]
+        Thus 
+        \[
+            e = r^k = r^{na+b} = (r^n)^a\,r^b= e^ar^b = r^b.
+        \]
+        Since the smallest possible integer $m$ by well-ordering, such that $r^m = e$, is $n, b =0$.
+
+        $(\Leftarrow)$ Conversely, if $n$ divide $k$, then $k = ns$ for some integer $s$. Hence 
+        \[
+            r^k = r^{ns} = (r^n)^s = e^s = e.
+        \]
+
+        Thus $r^k = e \Longleftrightarrow  n |k$. 
+        
+        Now let $b = r^k \in D_n$, since $r$ is a generator of $D_n$. We shall show that the smallest integer $m$ such that 
+        $r^k = e$ is $n/k$. Let $d = \gcd(n,k)$. Consider
+        \[
+            e = b^m = r^{km}.
+        \]
+        Since this is the smallest integer $m$ such that $n|km$. Thus $\frac{n}{d}$ divide $\frac{mk}{d}$. Because $d$ 
+        is the greatest common divisor of $n$ and $k$, implies $\frac{n}{d}$ and $\frac{k}{d}$ are relatively prime. Hence 
+        \[
+            \frac{n}{d} \bigg \vert \frac{mk}{d} \Longrightarrow \frac{n}{d} \bigg \vert m
+        \]
+        The smallest such $m$ is $\frac{n}{d}$. Thus 
+        \[
+            \ord(r^k) = \frac{n}{\gcd(n,k)}.
+        \]
+    \end{enumerate}
+\end{proof}
 
 \begin{example}
     Let 
@@ -948,10 +1491,26 @@ is an isomorphism.
     \[
         f\left( \phi \stab_G(s) \right) = \phi(s).
     \]
-    $f$ is a well defined function and is one-to-one and onto. 
+    $f$ is a homomorphism, and we want to show $f$ is one-to-one and onto. 
     \begin{enumerate}
         \item (One-to-one) For all $\phi_1, \phi_2 \in \stab_G(s)$, we have
+        \begin{align*}
+            \phi_1 \stab_G(s) = \phi_2 \stab_G(s) &\Rightarrow (\phi_1^{-1} \circ \phi_2) \in \stab_G(s)\\
+            &\Rightarrow (\phi_1^{-1} \circ \phi_2)(s) = s\\
+            &\Rightarrow \phi^{-1} \left( \phi_2(s) \right) = s\\
+            &\Rightarrow \phi_2(s) = \phi_1(s)\\
+        \end{align*}
+
+        \item (Onto) We again want to show $f$ is onto. For all $\phi \in \orb_G(s)$, we have
+        \[
+            f\left( \phi \stab_G(s) \right) = \phi(s).
+        \]
     \end{enumerate}
+    So $f$ is both one-to-one and onto. Which means 
+    \begin{align*}
+        |G/\stab_G(s)| = |\orb_G(s)| &\Longrightarrow \frac{|G|}{|\stab_G(s)|} = |\orb_G(s)|\\[0.5em]
+        &\Longrightarrow |\orb_G(s)| \cdot |\stab_G(s)| = |G|.
+    \end{align*}
 \end{proof}
 
 \newpage 
@@ -959,7 +1518,7 @@ is an isomorphism.
     The group of rotations of a cube is isomorphic to $S_4$.
 \end{theorem}
 \begin{proof}
-    We can proof it by visualizing the cube rigid motions.
+    We can proof it by visualizing the rigid motions of a cube rotated along the possible axes.
     \begin{figure}[ht]
         \centering
         \begin{tikzpicture}
@@ -1081,10 +1640,81 @@ is an isomorphism.
             \end{align*}
     \end{enumerate}
 
-    (5, 6, 7) Left as tutorial.
+    (5, 6, 7) leave as tutorial.
+\end{proof}
+
+\subsection{Isomorphism theorems}
+
+\begin{theorem}[Second Isomorphism Theorem]
+    Let $K$ be a proper subgroup of $G$, and $N \triangleleft G$. Then 
+    \begin{enumerate}
+        \item $NK = \{ nk \> | \> n\in N, k \in K \}$ is a proper subgroup of $G$, write $NK < G$.
+        \item $N \triangleleft NK$ and $K \cap N \triangleleft K$.
+        \item $K/(K \cap N)$ is isomorphism to $NK/N$.
+    \end{enumerate}
+
+    \[
+        \begin{tikzcd}[row sep=2.0em]
+            & G \arrow[dash, "\leq"]{d} & \\
+            & NK \arrow[dash]{dl} \arrow[dr, "\triangleright"] & \\
+            K \arrow[dr, "\triangleright"] & & N \arrow[dash]{dl} \\
+            & K \cap N & \\
+        \end{tikzcd}
+    \]
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Clearly $NK \subset G$. By using two-step subgroup test. For all $nk, n'k' \in NK$
+        \[
+            nkn'k' = (nn')(kk') \in NK.
+        \]
+        and 
+        \[
+            nk = e \Longrightarrow nkk^{-1}n^{-1} = e \Longrightarrow (nk)^{-1} = k^{-1} n^{-1} \in NK.
+        \]
+        Thus $NK < G$.
+
+        \item Clearly $N \triangleleft NK < G$, since $aN = Na$ whenever $a$ in $NK$. $N \triangleleft G$ 
+        implies that the mapping $\pi: G \to G/N$ that maps $a \to Na$ is a surjective homomorphism. We 
+        define $f:K \to G/N$ which $k \mapsto Nk$ whenever $k$ in $K$. Apparently $f$ is also 
+        homomorphism.
+
+        The kernel of $f$ is
+        \begin{align*}
+            ker\, f &= \{ k \in K \> | \> f(k) = Ne \}\\
+            &= \{ k \in K \> | \> Nk = Ne \}\\
+            &= \{ k \in K \> | \> k \in N \}\\
+            &= K \cap N.
+        \end{align*}
+
+        Thus $K \cap N \triangleleft K$.
+
+        \item Find the image of $f$,
+        \begin{align*}
+            \Ima f &= \{ Nk \in G/N \> | \> k \in K \}\\
+            &= \{ Nnk \in G/N \> | \> n \in N, k \in K \}\\
+            &= \{ Nnk \in G/N \> | \> nk \in NK \}\\
+            &= NK/N.
+        \end{align*}
+
+        By First Isomorphism Theorem, we now have $K/(K \cap N)$ is isomorphism to $NK/N$.
+    \end{enumerate}
 \end{proof}
 
 \section{Lagrange Theorem}
+
+\begin{theorem}[Lagrange theorem]
+    If $G$ is a finite group and $H$ is a subgroup of $G$, then $|H|$ divides $|G|$.
+\end{theorem}
+\begin{proof}
+    Let $a_1H, a_2H, \ldots, a_rH$ denote the distinct left cosets and right cosets of $H$ in $G$. 
+    For all $a \in G, \exists i \> s.t. \> aH =a_iH$ and $a \subseteq aH$. Thus we can say that each members in $G$ 
+    belongs to the one of the cosets of $a_iH$. Since $|a_iH| = |H|$, so
+    \[
+        G = \bigcup^r_{k=1} a_kH \Longrightarrow |G| = \sum^{r}_{k=1} |a_kH| = \sum^{r}_{k=1} |H| = r(|H|).
+    \]
+    Thus $|H|$ divides $|G|$
+\end{proof}
 
 \begin{example}
     Given $G$ is a group of order 6. Find all possible subgroups of $G$.
@@ -1125,6 +1755,36 @@ is an isomorphism.
     \]
     implies that $H$ and $G$ are both cyclic.
 \end{proof}
+
+\section{External Direct Product}
+
+\begin{definition}[External direct product]
+    Given groups $(G, *)$ and $(H, +)$, the external direct product of 
+    $G, H$ written as $G \oplus H$, is the set of all ordered pairs $(g,h)$ for which the 
+    the binary operation on $G \oplus H$ is defined component-wise:
+    \[
+        (g_1, h_1) \oplus (g_2, h_2) = (g_1 * g_2, h_1 + h_2).
+    \]
+\end{definition}
+
+The resulting algebraic object satisfies the axioms for a group.
+
+\begin{example}
+    Find $U(8) \oplus U(10)$.
+\end{example}
+\begin{solution}
+    \begin{center}
+        \begin{tabular}{c|cccc}
+            & 1 & 3 & 7 & 9\\
+        \end{tabular}
+    \end{center}
+\end{solution}
+
+\section{Internal Direct Product}
+
+\begin{definition}
+    Let $(G, *) be a group and let $
+\end{definition}
 
 \section{Finite Abelian groups}
 
@@ -1250,6 +1910,37 @@ product of all these pieces is the desired factorization of $G$.
     }
 \end{algorithm}
 
+\begin{example}
+    Let $G =\{1, 8, 12, 14, 18, 21, 31, 34, 38, 44, 47, 51, 52, 57, 64 \}$ under multiplication modulo $65$. 
+    Show that $G$ is isomorphic to $\mathbb{Z}_4 \oplus \mathbb{Z}_4$.
+\end{example}
+\begin{solution}
+    Since $G$ has order 16, we have 
+    \begin{align*}
+        G &\cong \mathbb{Z}_{16}\\
+        &\cong \mathbb{Z}_{2^4} & \text{take } p=2, k = 4\\
+        &\cong \mathbb{Z}_{2} \oplus \mathbb{Z}_{2^3} & \text{Partitions of } k = 1 + 3\\
+        &\cong \mathbb{Z}_{2^2} \oplus \mathbb{Z}_{2^2} & \text{Partitions of } k = 2 + 2\\
+        &\cong \mathbb{Z}_{4} \oplus \mathbb{Z}_{4}
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    Let $G =\{1, 8, 17, 19, 26, 28, 37, 44, 46, 53, 62, 64, 71, 73, 82, 89,\\ 91, 98, 107,
+    109, 116, 118, 127, 134 \}$ under multiplication modulo $135$. 
+    Show that $G$ is isomorphic to $\mathbb{Z}_{12} \oplus \mathbb{Z}_2$.
+\end{example}
+\begin{solution}
+    Since $G$ has order 24, and the prime factorization of $24 = 3 \cdot 2^3$. We have 
+    \begin{align*}
+        G &\cong \mathbb{Z}_{24}\\
+        &\cong \mathbb{Z}_{3} \oplus \mathbb{Z}_{2^3}\\
+        &\cong \mathbb{Z}_{3} \oplus \mathbb{Z}_{2^2} \oplus \mathbb{Z}_2\\
+        &\cong \mathbb{Z}_{3} \oplus \mathbb{Z}_{4} \oplus \mathbb{Z}_2\\
+        &\cong \mathbb{Z}_{3 \times 4} \oplus \mathbb{Z}_2 & \text{Since } \mathbb{Z}_p \oplus \mathbb{Z}_q \cong \mathbb{Z}_{pq} \\
+        &\cong \mathbb{Z}_{12} \oplus \mathbb{Z}_2
+    \end{align*}
+\end{solution}
 
 \section*{Tutorials}
 
@@ -1381,8 +2072,8 @@ product of all these pieces is the desired factorization of $G$.
         Find all subgroups of the following groups and draw the subgroups diagram for the subgroups. 
         Hence, list all orders of the subgroups of the given groups.
         \begin{enumerate}
-            \item $\mathbf{Z}_{36}$
-            \item $\mathbf{Z}_{60}$
+            \item $\mathbb{Z}_{36}$
+            \item $\mathbb{Z}_{60}$
         \end{enumerate} 
     \end{Exercise}
 

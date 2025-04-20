@@ -12,6 +12,7 @@
 \usepackage{mathtools, cuted}
 \usepackage{actuarialsymbol}
 \usepackage{tabularx}
+\usepackage{tabu}
 \usepackage{xcolor,colortbl}
 \usepackage{booktabs}
 \usepackage{titlesec}
@@ -136,6 +137,15 @@
 \declaretheorem[numberwithin=chapter,style=break,name=Lemma]{lemma}
 
 \tcolorboxenvironment{lemma}{ 
+  breakable,
+  colback=orange!5,
+  colframe={orange!55!black},
+}
+
+\newtheoremstyle{break}{0pt}{0pt}{\normalfont}{0pt}{\bfseries}{}{\newline}{\thmname{#1} \thmnumber{#2} \quad \thmnote{\textbf#3}}
+\declaretheorem[numberwithin=chapter,style=break,name=Axiom]{axiom}
+
+\tcolorboxenvironment{axiom}{ 
   breakable,
   colback=orange!5,
   colframe={orange!55!black},
