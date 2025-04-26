@@ -92,6 +92,44 @@ Here are a few things you should take notes:
     $R$ has characteristic 0. The characteristic of $R$ is denoted by $\text{char}(R)$.
 \end{definition}
 
+\begin{example}
+    $S = \{ 0, 2, 4 \}$ is a subring of $\mathbb{Z}_6$.
+\end{example}
+\begin{solution}
+    Using subring test, the subtraction and multiplication form a group in $S$.
+
+    \begin{center}
+        \begin{minipage}{.25\textwidth}
+            {
+            \arrayrulewidth=1pt
+            \renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{c|*{3}{>{\columncolor{white}}c}}
+              $-$ & \cellcolor{myred}0 & \cellcolor{mygreen}2 & \cellcolor{mypurple}4 \\
+              \hline
+              \cellcolor{myred}0 & \cellcolor{myred}0 & \cellcolor{mypurple}4 & \cellcolor{mygreen}2 \\
+              \cellcolor{mygreen}2 & \cellcolor{mygreen}2 & \cellcolor{myred}0 & \cellcolor{mypurple}4\\
+              \cellcolor{mypurple}4 & \cellcolor{mypurple}4 & \cellcolor{mygreen}2 & \cellcolor{myred}0\\
+            \end{tabular}
+            }
+          \end{minipage}% This must go next to `\end{minipage}`
+          \begin{minipage}{.25\textwidth}
+            {
+            \arrayrulewidth=1pt
+            \renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{c|*{3}{>{\columncolor{white}}c}}
+              $\cdot$ & \cellcolor{myred}0 & \cellcolor{mygreen}2 & \cellcolor{mypurple}4 \\
+              \hline
+              \cellcolor{myred}0 & \cellcolor{myred}0 & \cellcolor{myred}0 & \cellcolor{myred}0 \\
+              \cellcolor{mygreen}2 & \cellcolor{myred}0 & \cellcolor{mypurple}4 & \cellcolor{mygreen}2\\
+              \cellcolor{mypurple}4 & \cellcolor{myred}0 & \cellcolor{mygreen}2 & \cellcolor{mypurple}4\\
+            \end{tabular}
+            }
+          \end{minipage}
+    \end{center}
+
+    Thus $S \leq \mathbb{Z}_6$.
+\end{solution}
+
 \section{Quotient rings, Ideals}
 
 \subsection{Ideals}
@@ -1172,6 +1210,20 @@ $b=0$.
     Therefore, $F$ has no zero divisors, and so $F$ is an integral domain.
 \end{proof}
 
+\begin{lemma}
+    If $R$ is an integral domain, then the characteristic of $R$ is either $0$ or a positive prime.
+\end{lemma}
+\begin{solution}
+    Suppose not, suppose $R$ has characteristic $n=ab$ with $1 < a < b < n$. Then 
+    \[
+        (\underbrace{1_R + \cdots + 1_R}_{a \text{ times}})(\underbrace{1_R + \cdots + 1_R}_{b \text{ times}}) 
+        = ab1_R = n1_R = 0.
+    \]
+    Since $R$ is an integral domain, it is either $a \cdot 1_R = 0$ or $b \cdot 1_R = 0$. This is contradicts 
+    with our assumption that $n$ is not prime.
+\end{solution}
+
+
 \begin{definition}
     If $F$ is a field, then the only ideals are $\{0\}$ and $F$ itself.
 \end{definition}
@@ -1348,6 +1400,70 @@ $b=0$.
     \]
     Since none of the $q_j$ is a unit, this means that $r=s$ and $p_1 p_2 \cdots p_r$ are associates of 
     $q_1 q_2 \cdots q_r$ in some order. Thus $R$ is a unique factorization domain.
+\end{proof}
+
+\begin{theorem}
+    Every field is a UFD.
+\end{theorem}
+\begin{proof}
+    Every field $F$ is a UFD because it is PID $\Rightarrow$ it is an integral domain and every nonzero 
+    is a unit, and it contains no prime.
+\end{proof}
+
+\section{Euclidean Domains}
+
+\begin{definition}
+    An integral domain $D$ is called a \bred{Euclidean Domain} if there is a function $d$ 
+    (called the measure) from the nonzero elements of $D$ to the positive integers such that 
+
+    \begin{enumerate}
+        \item $d(a) \leq d(ab)$ for all nonzero $a,b \in D$; and 
+        \item If $a,b \in D, b \neq 0$, then there exists elements $q, r \in D$ such that 
+        \[
+            a = bq + r
+        \]
+        where $r = 0$ or $d(r) < d(b)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    The ring $\mathbb{Z}$ is a Euclidean domain with $d(a) = |a|$.
+\end{example}
+
+\begin{example}
+    Let $F$ be a field. Then $F[x]$ is a Euclidean domain with $d(f(x)) = \deg\, f(x)$.
+\end{example}
+
+\begin{example}
+    Gaussian integers $\mathbb{Z}[i]$ is a Euclidean domain with
+    \[
+        d(a+bi) = a^2 + b^2.
+    \]
+\end{example}
+
+\begin{theorem}
+    Every Euclidean domain is a PID.
+\end{theorem}
+\begin{proof}
+    Let $E$ be a Euclidean domain. Consider an ideal $I$ of $E$. If $I = \{ 0 \}$, then 
+    $I = \langle 0 \rangle$.
+
+    Let $I \neq \{ 0 \}$. Then $N = \{ d(x) \> | \> x \in I, x \neq 0 \}$ is a nonempty 
+    set of nonnegative integers; and so, by the well-ordering principle 
+    it has the least element.
+
+    Let $a \in I, a \neq 0$ such that $d(a)$ is the least element of $N$. i.e. $d(a) \leq d(x)$ for all 
+    nonzero $x$ in $I$. We want to show $I = Ea$. Since $a \in I$, it follows that 
+    \[
+        Ea \subseteq I.
+    \]
+    Let $b \in I$. Since $E$ is a Euclidean domain, there exist $q, r \in E$ such that 
+    \[
+        b = aq+r, \quad \text{where } r = 0 \text{ or } d(r) < d(a).
+    \]
+    If $r \neq 0$, then $r = b - aq \in I$ shows that $d(r) \in N$; and since 
+    $d(r) < d(a)$, this contradicts the minimality of $d(a)$ in $N$. Therefore, $r = 0$ and so $b = aq \in Ea$.
+    Thus $I \subseteq Ea$ and hence $I = Ea$.
 \end{proof}
 
 \section*{Tutorials}

@@ -417,7 +417,7 @@ $K$ that contains additional roots of $f(x)$.
     is a splitting field of $f(x)$ over $\mathbb{Q}$.
 \end{example}
 
-
+\newpage
 \section{Finite Fields}
 
 \begin{theorem}
@@ -464,6 +464,26 @@ $K$ that contains additional roots of $f(x)$.
         \item If $R$ has a characteristic $n$, then $ker\, f = \langle n \rangle \Longrightarrow \mathbb{Z}/\langle n \rangle \cong \mathbb{R}$.
     \end{itemize}
 \end{proof}
+
+\begin{corollary}
+    Every finite field has characteristic $p$ for some prime $p$.
+\end{corollary}
+\begin{proof}
+    Since finite field is integral domain, it must has characteristic prime $p$.
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item The converse of it is false. There are infinite fields of characteristic $p$ (i.e. $\mathbb{Z}_p[x]$). 
+        \[
+            \mathfrak{P} = \{ k \cdot 1_R \> | \> k \in \mathbb{Z} \}
+        \]
+        is called the prime subfield of $K$ and is contained in every subfield of $K$. Which means 
+        every field of characteristic $p$ must contains $\mathbb{Z}_p$.
+
+        \item The number of elements in a finite field $K$ is called the order of $K$.
+    \end{enumerate}
+\end{remark}
 
 \subsection{Order of finite field}
 
@@ -521,6 +541,53 @@ $K$ that contains additional roots of $f(x)$.
     Let $K$ be an extension field $\mathbb{Z}_p$. For all positive integer $n$, 
     $K$ has order $p^n$ if and only if $K$ is a splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$.
 \end{theorem}
+\begin{proof}
+    $(\Rightarrow)$ Let $f(x) = x^{p^n} - x$ over $\mathbb{Z}_p$. Then 
+    \[
+        f(x) = p^n x^{p^n - 1} - 1 = -1 
+    \]
+    and so $f(x)$ and $f'(x)$ are relatively prime $\Longrightarrow f(x)$ is separable.
+    Then $f(x)$ has $p^n$ distinct roots in splitting field. Let $c$ be any nonzero 
+    element of $K$. Let $\{c_1, c_2, \ldots, c_{p^n - 1}\}$ be all the nonzero elements of 
+    $K$ and let 
+    \[
+        u = c_1 c_2 \cdots c_k.
+    \]
+
+    Note that $\{cc_1, cc_2, \ldots, cc_k\}$ are all distinct and nonzero elements of $K$. Thus 
+    \[
+        \{cc_1, cc_2, \ldots, cc_k\} = \{c_1, c_2, \ldots, c_{p^n - 1}\}
+    \]
+    and 
+    \[
+        cc_1 \cdot cc_2 \cdots cc_{p^n - 1} = c_1 \cdot c_2 \cdots c_{p^n - 1} \Rightarrow 
+        c^{p^n - 1} = 1_K \Rightarrow c^{p^n} - c = 0.
+    \]
+    So all nonzero elements of $K$ consisting of the $p^n$ distinct roots of $x^{p^n} - x$ over 
+    $\mathbb{Z}_p$.
+
+    $(\Leftarrow)$ On the other hand, let $E$ be the subset of $K$ consisting of the 
+    $p^n$ distinct roots of $x^{p^n} - x$. We want to show $E$ is a subfield of $K$. 
+
+    For all $a,b$ in $E$, $a^{p^n} = a$ and $b^{p^n} = b$. So
+    \[
+        (a+b)^{p^n} = a^{p^n} + b^{p^n} = a+b \Rightarrow a+b\in E
+    \]
+    \[
+        (ab)^{p^n} = a^{p^n}\, b^{p^n} = ab \Rightarrow ab\in E
+    \]
+    \[
+        (-a)^{p^n} = (-1)^{p^n}\, a^{p^n} = -a \Rightarrow a\in E 
+    \]
+    and 
+    \[
+        (a^{-1})^{p^n} = (a^{p^n})^{-1} = a^{-1}.
+    \]
+
+    Clearly $0,1 \in E$. Since $K$ is a field, the rest of axioms are true. 
+    Since $K$ is splitting field of $x^{p^n} - x, K \subseteq E$. Hence 
+    $K = E$ and $|K| = |E| = p^n$.
+\end{proof}
 
 \section{Galois Theory}
 
@@ -1157,11 +1224,28 @@ are the $n$ distinct $n$-th roots of unity.
 \begin{solution}
     Consider $f(x) = 2x^5 - 10x + 5 \in \mathbb{Q}[x]$. We check the zeros of the derivatives.
     \[
-        f'(x) = \frac{d}{dx} 2x^5 - 10x + 5 = 10x^4 - 10 \Longrightarrow \textsf{roots are } \pm 1, \pm i
+        f'(x) = \frac{d}{dx} 2x^5 - 10x + 5 = 10x^4 - 10 \quad \Longrightarrow \textsf{roots are } \pm 1, \pm i
     \]
     \[
-        f''(x) = \frac{d}{dx} 10x^4 - 10 = 40x^3 \Longrightarrow \textsf{the root is } 0.
+        f''(x) = \frac{d^2}{dx^2} 2x^5 - 10x + 5 = 40x^3 \quad \Longrightarrow \textsf{the only root is } 0.
     \]
+
+    \begin{figure}[ht]
+        \pgfplotsset{compat=1.16}
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[xmin=-2, xmax=2, ymin=-15, ymax=19, axis x line=middle, axis y line=middle, legend pos=outer north east]
+                \addplot[domain=-2:2, color=red, samples=200, line width=0.75pt]{2*x^5-10*x+5};
+                %\node[left,red] at (1.65,15) {$2x^5-10x+5$}; 
+                \legend{\(2x^5 - 10x +5\)};
+                \addplot[color=red, mark=*] coordinates {(-1.601,0)};
+                \addplot[color=red, mark=*] coordinates {(0,5)};
+                \addplot[color=red, mark=*] coordinates {(0.507,0)};
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \caption{By graph, $f(x) = 2x^5 - 10x + 5$ has 3 real roots.}
+    \end{figure}
 
     Note that by Eisenstein's criterion, $5|10$, $5|4$, but $5 \nmid 2$ and $5^2 \nmid 5$. So $f(x)$ 
     is irreducible in $\mathbb{Q}[x]$. 
@@ -1174,8 +1258,33 @@ are the $n$ distinct $n$-th roots of unity.
 
     If $r$ is any root of $f(x)$, then 
     \[
-        |K:\mathbb{Q}| = |K: \mathbb{Q}[r]| \cdot |\mathbb{Q}[r] : \mathbb{Q}| = 5 |K: \mathbb{Q}[r]|.
+        |K:\mathbb{Q}| = |K: \mathbb{Q}(r)| \cdot |\mathbb{Q}(r) : \mathbb{Q}| = 5\, |K: \mathbb{Q}(r)|.
     \]
-    Thus $|K : \mathbb{Q}|$ is divisible by $5$. By Cauchy's theorem, 
+    Thus $|K : \mathbb{Q}|$ is divisible by $5$. By Cauchy's theorem, there exists $sigma \in \gal_\mathbb{Q} K$ with 
+    $\ord(\sigma) = 5$. Note that $\gal_\mathbb{Q} K \subseteq S_5$ and the only elements of order 
+    $5$ are (5-cycles), the 5-cycle is in $\gal_\mathbb{Q} K$. The complex conjugation $a + bi \mapsto a -bi$ 
+    induces an automorphism on $K$ since $\sigma \in \gal_\mathbb{Q} \mathbb{C}, \sigma \vert_K \in \gal_\mathbb{Q} K$.
+    
+    Since $\sigma \vert_K$ interchanges the two nonreal roots of $f(x)$, implies that 
+    $\gal_{\mathbb{Q}} K$ contains a transposition (2-cyle). Note that the only 
+    subgroup of $S_5$ that contains both a 5-cycle and a transposition is $S_5$ itself.
+    So $\gal_\mathbb{Q} K = S_5 \Longrightarrow f(x)$ is not solvable by radicals. 
 
 \end{solution}
+
+\section*{Tutorials}
+
+\begin{mdframed}
+    \vspace{-0.25cm}
+    \hspace{-0.25cm}
+    \begin{Exercise}
+        Let $E$ be an extension field of a field $F$ and let $\alpha \in E$ be transcendental over $F$. Show that every element of $F(\alpha)$ is not in $F$ 
+        is also transcendental over $F$. 
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $F$ be a finite field of characteristic $p$. Show that every element of $F$ is algebraic over the 
+    prime field $\mathbb{Z}_p \leq F$.
+    \end{Exercise}
+\end{mdframed}

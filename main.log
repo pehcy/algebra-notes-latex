@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  26 APR 2025 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  27 APR 2025 04:26
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -889,12 +889,14 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip159
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
+File: tikzlibrary3d.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \arrowsize=\dimen350
-)) (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+))) (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks59
@@ -993,7 +995,23 @@ File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: tikzlibrarygraphs.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@lib@auto@number=\count361
 \tikz@qnode@count=\count362
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/share/texlive/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgftransformnonlinearflatness=\dimen369
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@curvilinear@time@a=\dimen370
+\pgf@curvilinear@length@a=\dimen371
+\pgf@curvilinear@length@b=\dimen372
+\pgf@curvilinear@length@c=\dimen373
+\pgf@curvilinear@length@d=\dimen374
+)
+\pgf@arrows@the@rigidity=\dimen375
+)) (/usr/share/texlive/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (/usr/share/texlive/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -1003,7 +1021,7 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip160
-\enit@outerparindent=\dimen369
+\enit@outerparindent=\dimen376
 \enit@toks=\toks64
 \enit@inbox=\box129
 \enit@count@id=\count363
@@ -1013,7 +1031,7 @@ Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 \@fancybox=\box130
-\shadowsize=\dimen370
+\shadowsize=\dimen377
 \@Sbox=\box131
 \do@VerbBox=\toks65
 \the@fancyput=\toks66
@@ -1024,10 +1042,10 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip161
-\fb@frw=\dimen371
-\fb@frh=\dimen372
-\FrameRule=\dimen373
-\FrameSep=\dimen374
+\fb@frw=\dimen378
+\fb@frh=\dimen379
+\FrameRule=\dimen380
+\FrameSep=\dimen381
 ) (/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2021/12/15 v3.1 ragged2e Package
 \CenteringLeftskip=\skip162
@@ -1053,15 +1071,15 @@ Package: ragged2e 2021/12/15 v3.1 ragged2e Package
 Package thmtools Info: Key `numberwithin' (with value `section')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=exstyle' on input line 219.
+(thmtools)             that uses `style=exstyle' on input line 220.
 Package thmtools Info: Key `qed' (with value `$\blacktriangleleft $')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 229.
+(thmtools)             that uses `style=solstyle' on input line 230.
 Package thmtools Info: Key `numbered' (with value `no')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=solstyle' on input line 229.
+(thmtools)             that uses `style=solstyle' on input line 230.
 \c@example=\count370
  (/usr/share/texlive/texmf-dist/tex/latex/exercise/exercise.sty
 Package: exercise 2014/10/20 v1.6 Exercise package (P.Pichaureau)
@@ -1131,16 +1149,16 @@ Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count390
 \output=\toks69
 \linenoprevgraf=\count391
-\linenumbersep=\dimen375
-\linenumberwidth=\dimen376
+\linenumbersep=\dimen382
+\linenumberwidth=\dimen383
 \c@linenumber=\count392
 \c@pagewiselinenumber=\count393
 \c@LN@truepage=\count394
 \c@internallinenumber=\count395
 \c@internallinenumbers=\count396
-\quotelinenumbersep=\dimen377
-\bframerule=\dimen378
-\bframesep=\dimen379
+\quotelinenumbersep=\dimen384
+\bframerule=\dimen385
+\bframesep=\dimen386
 \bframebox=\box139
 LaTeX Info: Redefining \\ on input line 3056.
 )
@@ -1152,20 +1170,20 @@ LaTeX Info: Redefining \\ on input line 3056.
 \c@FV@HighlightLinesStop=\count400
 \FV@LoopCount=\count401
 \FV@NCharsBox=\box141
-\FV@BreakIndent=\dimen380
+\FV@BreakIndent=\dimen387
 \FV@BreakIndentNChars=\count402
-\FV@BreakSymbolSepLeft=\dimen381
+\FV@BreakSymbolSepLeft=\dimen388
 \FV@BreakSymbolSepLeftNChars=\count403
-\FV@BreakSymbolSepRight=\dimen382
+\FV@BreakSymbolSepRight=\dimen389
 \FV@BreakSymbolSepRightNChars=\count404
-\FV@BreakSymbolIndentLeft=\dimen383
+\FV@BreakSymbolIndentLeft=\dimen390
 \FV@BreakSymbolIndentLeftNChars=\count405
-\FV@BreakSymbolIndentRight=\dimen384
+\FV@BreakSymbolIndentRight=\dimen391
 \FV@BreakSymbolIndentRightNChars=\count406
 \c@FancyVerbLineBreakLast=\count407
 \FV@LineBox=\box142
 \FV@LineIndentBox=\box143
-\FV@LineWidth=\dimen385
+\FV@LineWidth=\dimen392
 ) (/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
 Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
  (/usr/share/texlive/texmf-dist/tex/generic/catchfile/catchfile.sty
@@ -1283,13 +1301,13 @@ LaTeX Font Info:    ... okay on input line 22.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count414
-\scratchdimen=\dimen386
+\scratchdimen=\dimen393
 \scratchbox=\box147
 \nofMPsegments=\count415
 \nofMParguments=\count416
 \everyMPshowfont=\toks73
 \MPscratchCnt=\count417
-\MPscratchDim=\dimen387
+\MPscratchDim=\dimen394
 \MPnumerator=\count418
 \makeMPintoPDFobject=\count419
 \everyMPtoPDFconversion=\toks74
@@ -1350,175 +1368,194 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [11] [12] [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14] [15] [16]
-<src//./images/Dihedral2_120.pdf, id=112, 613.29124pt x 173.64874pt>
+ [14] [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16] [17]
+<src//./images/Dihedral2_120.pdf, id=115, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2_120.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2_120.pdf>
-Package pdftex.def Info: src//./images/Dihedral2_120.pdf  used on input line 1020.
+Package pdftex.def Info: src//./images/Dihedral2_120.pdf  used on input line 1115.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral2_240.pdf, id=113, 613.29124pt x 173.64874pt>
+<src//./images/Dihedral2_240.pdf, id=116, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2_240.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2_240.pdf>
-Package pdftex.def Info: src//./images/Dihedral2_240.pdf  used on input line 1024.
+Package pdftex.def Info: src//./images/Dihedral2_240.pdf  used on input line 1119.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral2_360.pdf, id=114, 613.29124pt x 173.64874pt>
+<src//./images/Dihedral2_360.pdf, id=117, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2_360.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2_360.pdf>
-Package pdftex.def Info: src//./images/Dihedral2_360.pdf  used on input line 1028.
+Package pdftex.def Info: src//./images/Dihedral2_360.pdf  used on input line 1123.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral2.pdf, id=115, 613.29124pt x 173.64874pt>
+<src//./images/Dihedral2.pdf, id=118, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2.pdf>
-Package pdftex.def Info: src//./images/Dihedral2.pdf  used on input line 1034.
+Package pdftex.def Info: src//./images/Dihedral2.pdf  used on input line 1129.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral3.pdf, id=116, 697.60625pt x 348.30125pt>
+<src//./images/Dihedral3.pdf, id=119, 697.60625pt x 348.30125pt>
 File: src//./images/Dihedral3.pdf Graphic file (type pdf)
 <use src//./images/Dihedral3.pdf>
-Package pdftex.def Info: src//./images/Dihedral3.pdf  used on input line 1040.
+Package pdftex.def Info: src//./images/Dihedral3.pdf  used on input line 1135.
 (pdftex.def)             Requested size: 478.00812pt x 238.65932pt.
- [17 <./src//./images/Dihedral2_120.pdf> <./src//./images/Dihedral2_240.pdf
+
+Underfull \vbox (badness 1331) has occurred while \output is active []
+
+ [18] [19 <./src//./images/Dihedral2_120.pdf> <./src//./images/Dihedral2_240.pdf
 
 pdfTeX warning: pdflatex (file ./src//./images/Dihedral2_240.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [18 <./src//./images/Dihedral2_360.pdf> <./src//./images/Dihedral2.pdf
+>]
+Underfull \vbox (badness 2293) has occurred while \output is active []
+
+ [20 <./src//./images/Dihedral2_360.pdf> <./src//./images/Dihedral2.pdf
 
 pdfTeX warning: pdflatex (file ./src//./images/Dihedral2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-Underfull \vbox (badness 1406) has occurred while \output is active []
+Underfull \vbox (badness 2707) has occurred while \output is active []
 
- [19 <./src//./images/Dihedral3.pdf>]
+ [21 <./src//./images/Dihedral3.pdf>]
+Underfull \vbox (badness 1655) has occurred while \output is active []
+
+ [22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20] [21] [22] [23]
-Underfull \vbox (badness 1509) has occurred while \output is active []
+ [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+Underfull \vbox (badness 1715) has occurred while \output is active []
 
- [24] [25] [26] [27]
-Underfull \vbox (badness 4543) has occurred while \output is active []
+ [35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28] [29]
-Underfull \vbox (badness 1881) has occurred while \output is active []
+ [36] [37] [38]
+Underfull \vbox (badness 2503) has occurred while \output is active []
 
- [30] [31] [32] [33] [34]
-<src//./images/first_iso.pdf, id=321, 373.395pt x 232.87pt>
-File: src//./images/first_iso.pdf Graphic file (type pdf)
-<use src//./images/first_iso.pdf>
-Package pdftex.def Info: src//./images/first_iso.pdf  used on input line 2238.
-(pdftex.def)             Requested size: 268.87671pt x 167.69469pt.
- [35 <./src//./images/first_iso.pdf>] [36]
-<src//./images/second_iso.pdf, id=347, 373.395pt x 232.87pt>
+ [39] [40]
+<src//./images/second_iso.pdf, id=340, 373.395pt x 232.87pt>
 File: src//./images/second_iso.pdf Graphic file (type pdf)
 <use src//./images/second_iso.pdf>
-Package pdftex.def Info: src//./images/second_iso.pdf  used on input line 2340.
+Package pdftex.def Info: src//./images/second_iso.pdf  used on input line 2629.
 (pdftex.def)             Requested size: 328.63115pt x 204.96175pt.
- [37 <./src//./images/second_iso.pdf>] [38] [39] [40] [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [41 <./src//./images/second_iso.pdf>] [42] [43] [44]
+Underfull \vbox (badness 1418) has occurred while \output is active []
 
- [42]
+ [45] [46]
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 2705.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 2994.
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2705.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2994.
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 2724.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 3013.
 
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
-(Font)              using `OT1/cmtt/bx/n' instead on input line 2731.
+(Font)              using `OT1/cmtt/bx/n' instead on input line 3020.
 
-[43]
-Underfull \vbox (badness 7631) has occurred while \output is active []
 
- [44]
-Package mdframed Info: mdframed works in twoside mode on input line 2768.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+Package mdframed Info: mdframed works in twoside mode on input line 3057.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2768.
+(mdframed)              on input line 3057.
+ [48] [49]
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 3069.
- [45] [46] [47] [48]) (./src/rings.tex [49]
+(mdframed)              on input line 3358.
+ [50] [51] [52]) (./src/rings.tex [53]
 Chapter 2.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[50
+[54
 
-] [51] [52] [53] [54] [55] [56] [57]
+] [55] [56] [57] [58] [59] [60] [61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58]
+ [62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59] [60]
+ [63] [64]
+Underfull \vbox (badness 3039) has occurred while \output is active []
+
+ [65] [66] [67]
+Underfull \vbox (badness 3838) has occurred while \output is active []
+
+ [68]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61] [62] [63]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [69]
+Underfull \vbox (badness 1466) has occurred while \output is active []
 
- [64]
-Underfull \vbox (badness 4543) has occurred while \output is active []
-
- [65] [66] [67] [68] [69] [70]
+ [70] [71] [72] [73] [74]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 1270.
- [71]
-Package mdframed Info: mdframed works in twoside mode on input line 1356.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 1322.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [75]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76] [77]
+Package mdframed Info: mdframed works in twoside mode on input line 1472.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1356.
- [72]
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 1495.
- [73] [74]) (./src/fields.tex [75]
+(mdframed)              on input line 1472.
+ [78] [79] [80]) (./src/fields.tex [81]
 Chapter 3.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[76
+[82
 
 ]
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
- [77]
+ [83]
 Underfull \vbox (badness 4328) has occurred while \output is active []
 
- [78]
+ [84]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [79] [80] [81]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [82] [83]
+ [85] [86] [87] [88] [89]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 498.
+(amsmath)                 on input line 518.
 
-[84] [85] [86] [87]
-Underfull \vbox (badness 2213) has occurred while \output is active []
+[90] [91] [92] [93]
+Underfull \vbox (badness 1168) has occurred while \output is active []
 
- [88] [89] [90] [91]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [94] [95] [96] [97]
+Underfull \vbox (badness 2762) has occurred while \output is active []
 
- [92] [93] [94]) [95] (./main.aux) ) 
+ [98]
+Underfull \vbox (badness 1521) has occurred while \output is active []
+
+ [99] [100]
+Missing character: There is no ; in font nullfont!
+[101]
+Package mdframed Info: mdframed works in twoside mode on input line 1278.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1278.
+) [102] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 49782 strings out of 478287
- 1192316 string characters out of 5849289
- 1723650 words of memory out of 5000000
- 67049 multiletter control sequences out of 15000+600000
+ 51650 strings out of 478287
+ 1235722 string characters out of 5849289
+ 1796127 words of memory out of 5000000
+ 68899 multiletter control sequences out of 15000+600000
  538164 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,23n,113p,784b,1309s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 105i,23n,113p,784b,2678s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on main.pdf (95 pages, 1042790 bytes).
+Output written on main.pdf (102 pages, 1057434 bytes).
 PDF statistics:
- 696 PDF objects out of 1000 (max. 8388607)
- 458 compressed objects within 5 object streams
+ 699 PDF objects out of 1000 (max. 8388607)
+ 459 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -344,7 +344,7 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
           \cellcolor{myblue}7 & \cellcolor{myblue}7 & \cellcolor{myred}1 & \cellcolor{mypurple}9 & \cellcolor{mygreen}3 \\
           \cellcolor{mypurple}9 & \cellcolor{mypurple}9 & \cellcolor{myblue}7 & \cellcolor{mygreen}3 & \cellcolor{myred}1 \\
         \end{tabular}
-    }
+        }
     \end{center}
 \end{solution}
 
@@ -925,6 +925,70 @@ forms a group under function composition
     \end{align*}
 \end{example}
 
+\begin{example}
+    Let $A = \{1,2,3,4\}$, and 
+    \[
+        S_4 = \{ \sigma \> | \> \sigma : A \to A \textsf{ is a permutation from } A \textsf{ onto } A \}.
+    \]
+    We defined $\sigma$ as follow:
+    \[
+        \sigma(1) \mapsto 2, \quad \sigma(2) \mapsto 3, \quad \sigma(3) \mapsto 4, \quad \sigma(4)\mapsto 1.
+    \]
+    Now we can express $\sigma$ as a permutation such that 
+    \[
+        \sigma = (1 \> \sigma(1) \> \sigma^2(1) \> \sigma^3(1)) = \begin{pmatrix}
+            1 & 2 & 3 & 4\\
+            2 & 3 & 4 & 1
+        \end{pmatrix}
+    \]
+    where 
+    \begin{align*}
+        &\sigma(1) = 2\\
+        &\sigma^2(1) = \sigma(\sigma(1)) = \sigma(2) = 3\\
+        &\sigma^3(1) = \sigma(\sigma(\sigma(1))) = \sigma(\sigma(2)) = \sigma(3) = 4\\
+        &\sigma^4(1) = \sigma(\sigma(\sigma(\sigma(1)))) = \sigma(\sigma(\sigma(2))) = \sigma(\sigma(3)) = \sigma(4) = 1\\
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Given $\alpha = (2 \> 3 \> 1 \> 5 \> 4)$ and $\beta = (2 \> 1 \> 3 \>4)$ in $S_5$. Compute $\alpha \beta$, and $\beta^{-1}$.
+\end{example}
+\begin{solution}
+    Compute 
+    \begin{align*}
+        \alpha \beta &= (2 \> 3 \> 1 \> 5 \> 4)(2 \> 1 \> 3 \>4)\\
+        &= \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5\\
+            5 & 3 & 1 & 2 & 4
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5\\
+            3 & 1 & 4 & 2 & 5
+        \end{pmatrix}\\
+        &= \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5\\
+            1 & 5 & 2 & 3 & 4
+        \end{pmatrix}\\
+        &= (1)(2 \> 5 \> 4 \> 3)\\
+        &= (2 \> 5 \> 4 \> 3)
+    \end{align*}
+
+    and 
+    \begin{align*}
+        \beta^{-1} &= \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5\\
+            \uparrow & \uparrow  & \uparrow  & \uparrow  & \uparrow \\
+            3 & 1 & 4 & 2 & 5
+        \end{pmatrix}^{-1}\\
+        &= \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5\\
+            2 & 4 & 1 & 3 & 5
+        \end{pmatrix}\\
+        &= (1 \> 2 \> 4 \> 3)(5)\\
+        &= (1 \> 2 \> 4 \> 3).
+    \end{align*}
+\end{solution}
+
 \begin{lemma}
     Every permutation of a finite set can be written as a cycle or as a product of disjoint cycles.
 \end{lemma}
@@ -994,6 +1058,37 @@ forms a group under function composition
     A permutation that can be expressed as a product of an even (or odd) number of 2-cycles is called an even (or odd) 
     permutation.
 \end{definition}
+
+\begin{example}
+    Write 
+    \[
+        \sigma = \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+            3 & 7 & 4 & 1 & 2 & 5 & 8 & 6
+        \end{pmatrix} \in S_8
+    \]
+    into the product of 2-cycles.
+\end{example}
+\begin{solution}
+    We can express $\sigma$ as 
+    \begin{align*}
+        \sigma &= (1 \>3 \>4)(2 \>7 \>8 \> 6 \>5)\\
+        &= (1 \> 4)(1\> 3) (2\> 5) (2\> 6)(2\> 8)(2\> 7).
+    \end{align*}
+\end{solution}
+
+\begin{example}
+    Find the order of $\beta = (1 \> 2 \> 3 \> 4)(5\> 6\> 7)$ in $S_7$.
+\end{example}
+\begin{solution}
+    The order of a disjoint cycle is the LCM of the order of each disjoint cycles. Namely, 
+    \begin{align*}
+        \ord(\beta) &= LCM(\ord\, (1 \> 2 \> 3 \> 4), \ord\, (5\> 6\> 7))\\
+        &= LCM(4,3)\\
+        &= \frac{4 \times 3}{\gcd(4,3)}\\
+        &= 12.
+    \end{align*}
+\end{solution}
 
 \begin{definition}[Alternating group]
     The group of even permutations of $n$ symbols is denoted by $A_n$ and is called the \bred{alternating group} of 
@@ -1119,437 +1214,6 @@ which these reflection lines runs from one of the vertices to the center of the 
     Thus the order of group $G$ is the product of the number of possibilities of these two rows. $|G| = 8 \times 6 = 48$.
 \end{solution}
 
-\section{Automorphisms}
-
-\begin{definition}[Automorphisms]
-    An isomorphism from a group $G$ onto itself is called an automorphism.
-\end{definition}
-
-\begin{example}
-    Let the 2-dimensional cartesian plane
-    \[
-        \mathbb{R}^2 = \{ (a,b) | a, b \in \mathbb{R} \}.
-    \]
-    Then
-    \[
-        \phi(a,b) = (b,a)
-    \]
-    is an automorphism of the group $\mathbb{R}^2$ under componentwise addition.
-\end{example}
-
-\begin{example}
-    Compute $\text{Aut}(\mathbb{Z}_{10})$.
-\end{example}
-\begin{solution}
-    For any $\alpha \in \text{Aut}(\mathbb{Z}_{10})$ and for any $k \in \mathbb{Z}_{10}$. We define $k \mapsto k \alpha(1)$ such that 
-    \[
-        1 \mapsto \alpha_1 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_1(x) = x
-    \]
-    \[
-        3 \mapsto \alpha_3 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_3(x) = 3x
-    \]
-    \[
-        7 \mapsto \alpha_7 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_7(x) = 7x
-    \]
-    \[
-        9 \mapsto \alpha_9 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_9(x) = 9x
-    \]
-
-    In fact, $\text{Aut}(\mathbb{Z}_{10})$ is isomorphic to $U(10) = \{ 1, 3, 7, 9\}$.
-\end{solution}
-
-\begin{example}
-    The automorphisms of $D_3$ is $\text{Aut}(D_3) = \langle \alpha, \beta \rangle \cong D_3$, where 
-    \[
-        \begin{cases}
-            \alpha(r) = r\\
-            \alpha(f) = rf 
-        \end{cases}
-        \quad         
-        \begin{cases}
-            \beta(r) = r^2\\
-            \beta(f) = f 
-        \end{cases}
-    \]
-
-    All of these automorphisms are \textit{inner} (of the form $f_x : g \mapsto x^{-1}gx$). Two Cayley diagrams for $\text{Aut}(D_3)$
-    are shown below.
-
-    \vspace{-4mm}
-  
-  \tikzstyle{v-tiny} = [circle, draw, fill=grey,inner sep=0pt, minimum size=1.2mm] 
-  \tikzstyle{gg-thin} = [draw, darkgreen]
-  \tikzstyle{r-thin} = [draw, red, -stealth]
-  \tikzstyle{bb-thin} = [draw, blue]
-  \tikzstyle{o} = [draw, very thick,orange, -stealth]
-  \tikzstyle{p} = [draw, very thick,amethyst]
-  %%
-  \[
-  \hspace*{-10mm}
-  \begin{tikzpicture}[scale=.95]
-    %%%%
-    %%%%%=============================================================
-    %%%%
-    \begin{scope}[shift={(0,0)},scale=1]
-      \begin{scope}[shift={(0:1.25)},scale=.12]
-        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-        \node (f) at (0:2.5) [v-tiny] {};
-        \node (rf) at (120:2.5) [v-tiny] {};
-        \node (rrf) at (240:2.5) [v-tiny] {};
-        \node (e) at (0:5.5) [v-tiny] {};
-        \node (rr) at (240:5.5) [v-tiny] {};
-        \node (r) at (120:5.5) [v-tiny] {};
-        \draw [r-thin] (e) to [bend left] (rr);
-        \draw [r-thin] (rr) to [bend left] (r);
-        \draw [r-thin] (r) to [bend left] (e);
-        \draw [r-thin] (f) to [bend right] (rf);
-        \draw [r-thin] (rf) to [bend right] (rrf);
-        \draw [r-thin] (rrf) to [bend right] (f);
-        \draw [bb-thin] (e) to (f);
-        \draw [bb-thin] (r) to (rf);
-        \draw [bb-thin] (rr) to (rrf);
-        \node (o-in_f) at (90:4.8) {};
-        \node (o-out_f) at (270:4.8) {};
-        \node (p_f) at (0:4.8) {};
-      \end{scope}
-      %%
-      \begin{scope}[shift={(120:1.25)},scale=.12]
-        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-        \node (f) at (0:2.5) [v-tiny] {};
-        \node (rf) at (120:2.5) [v-tiny] {};
-        \node (rrf) at (240:2.5) [v-tiny] {};
-        \node (e) at (0:5.5) [v-tiny] {};
-        \node (rr) at (240:5.5) [v-tiny] {};
-        \node (r) at (120:5.5) [v-tiny] {};
-        \draw [r-thin] (e) to [bend left] (rr);
-        \draw [r-thin] (rr) to [bend left] (r);
-        \draw [r-thin] (r) to [bend left] (e);
-        \draw [r-thin] (f) to [bend right] (rf);
-        \draw [r-thin] (rf) to [bend right] (rrf);
-        \draw [r-thin] (rrf) to [bend right] (f);
-        \draw [bb-thin] (e) to [bend left] (rrf);
-        \draw [bb-thin] (rr) to [bend left] (rf);
-        \draw [bb-thin] (r) to [bend left] (f);
-        \node (o-in_rf) at (195:4.8) {};
-        \node (o-out_rf) at (30:4.8) {};
-        \node (p_rf) at (120:4.8) {};
-      \end{scope}
-      %%
-      \begin{scope}[shift={(240:1.25)},scale=.12]
-        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-        \node (f) at (0:2.5) [v-tiny] {};
-        \node (rf) at (120:2.5) [v-tiny] {};
-        \node (rrf) at (240:2.5) [v-tiny] {};
-        \node (e) at (0:5.5) [v-tiny] {};
-        \node (rr) at (240:5.5) [v-tiny] {};
-        \node (r) at (120:5.5) [v-tiny] {};
-        \draw [r-thin] (e) to [bend left] (rr);
-        \draw [r-thin] (rr) to [bend left] (r);
-        \draw [r-thin] (r) to [bend left] (e);
-        \draw [r-thin] (f) to [bend right] (rf);
-        \draw [r-thin] (rf) to [bend right] (rrf);
-        \draw [r-thin] (rrf) to [bend right] (f);
-        \draw [bb-thin] (e) to [bend right] (rf);
-        \draw [bb-thin] (r) to [bend right] (rrf);
-        \draw [bb-thin] (rr) to [bend right] (f);
-        \node (o-in_r2f) at (330:4.8) {};
-        \node (o-out_r2f) at (165:4.8) {};
-        \node (p_r2f) at (240:4.8) {};
-      \end{scope}
-      %%
-      %%----------------------------------------------------------------
-      %%
-      \begin{scope}[shift={(0:3.5)},scale=.12]
-        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-        \node (f) at (0:2.5) [v-tiny] {};
-        \node (rf) at (120:2.5) [v-tiny] {};
-        \node (rrf) at (240:2.5) [v-tiny] {};
-        \node (e) at (0:5.5) [v-tiny] {};
-        \node (rr) at (240:5.5) [v-tiny] {};
-        \node (r) at (120:5.5) [v-tiny] {};
-        \draw [r-thin] (e) to [bend right] (r);
-        \draw [r-thin] (r) to [bend right] (rr);
-        \draw [r-thin] (rr) to [bend right] (e);
-        \draw [r-thin] (f) to [bend left] (rrf);
-        \draw [r-thin] (rrf) to [bend left] (rf);
-        \draw [r-thin] (rf) to [bend left] (f);
-        \draw [bb-thin] (e) to (f);
-        \draw [bb-thin] (r) to (rf);
-        \draw [bb-thin] (rr) to (rrf);
-        \node (o-in_1) at (270:4.8) {};
-        \node (o-out_1) at (90:4.8) {};
-        \node (p_1) at (180:4.8) {};
-      \end{scope}
-      %%
-      \begin{scope}[shift={(120:3.5)},scale=.12]
-        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-        \node (f) at (0:2.5) [v-tiny] {};
-        \node (rf) at (120:2.5) [v-tiny] {};
-        \node (rrf) at (240:2.5) [v-tiny] {};
-        \node (e) at (0:5.5) [v-tiny] {};
-        \node (rr) at (240:5.5) [v-tiny] {};
-        \node (r) at (120:5.5) [v-tiny] {};
-        \draw [r-thin] (e) to [bend right] (r);
-        \draw [r-thin] (r) to [bend right] (rr);
-        \draw [r-thin] (rr) to [bend right] (e);
-        \draw [r-thin] (f) to [bend left] (rrf);
-        \draw [r-thin] (rrf) to [bend left] (rf);
-        \draw [r-thin] (rf) to [bend left] (f);
-        \draw [bb-thin] (e) to [bend right] (rf);
-        \draw [bb-thin] (r) to [bend right] (rrf);
-        \draw [bb-thin] (rr) to [bend right] (f);
-        \node (o-in_r) at (30:4.8) {};
-        \node (o-out_r) at (195:4.8) {};
-        \node (p_r) at (300:4.8) {};
-      \end{scope}
-      %%
-      \begin{scope}[shift={(240:3.5)},scale=.12]
-        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-        \node (f) at (0:2.5) [v-tiny] {};
-        \node (rf) at (120:2.5) [v-tiny] {};
-        \node (rrf) at (240:2.5) [v-tiny] {};
-        \node (e) at (0:5.5) [v-tiny] {};
-        \node (rr) at (240:5.5) [v-tiny] {};
-        \node (r) at (120:5.5) [v-tiny] {};
-        \draw [r-thin] (e) to [bend right] (r);
-        \draw [r-thin] (r) to [bend right] (rr);
-        \draw [r-thin] (rr) to [bend right] (e);
-        \draw [r-thin] (f) to [bend left] (rrf);
-        \draw [r-thin] (rrf) to [bend left] (rf);
-        \draw [r-thin] (rf) to [bend left] (f);
-        \draw [bb-thin] (e) to [bend left] (rrf);
-        \draw [bb-thin] (rr) to [bend left] (rf);
-        \draw [bb-thin] (r) to [bend left] (f);
-        \node (o-in_r2) at (165:4.8) {};
-        \node (o-out_r2) at (330:4.8) {};
-        \node (p_r2) at (60:4.8) {};
-      \end{scope}
-      \draw [o] (o-out_1) to[bend right=45] (o-in_r);
-      \draw [o] (o-out_r) to[bend right=45] (o-in_r2);
-      \draw [o] (o-out_r2) to[bend right=45] (o-in_1);
-      \draw [o] (o-out_f) to[bend left=30] (o-in_r2f);
-      \draw [o] (o-out_r2f) to[bend left=35] (o-in_rf);
-      \draw [o] (o-out_rf) to[bend left=30] (o-in_f);
-      \draw [p] (p_1) to (p_f);
-      \draw [p] (p_r) to (p_rf);
-      \draw [p] (p_r2) to (p_r2f);
-    \end{scope}
-    %%%
-    %%%%
-    %%%%%=============================================================
-    %%%%
-   \begin{scope}[shift={(10,0)}]
-    \begin{scope}[shift={(0:1.25)},scale=.12]
-      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-      \node (e) at (90:5.5) [v-tiny] {};
-      \node (rrf) at (30:5.5) [v-tiny] {};
-      \node (rr) at (-30:5.5) [v-tiny] {};
-      \node (rf) at (-90:5.5) [v-tiny] {};
-      \node (r) at (-150:5.5) [v-tiny] {};
-      \node (f) at (150:5.5) [v-tiny] {};
-      \path[gg-thin] (e) to (rf);
-      \path[bb-thin] (rf) to (r);
-      \path[gg-thin] (r) to (rrf);
-      \path[bb-thin] (rrf) to (rr);
-      \path[gg-thin] (rr) to (f);
-      \path[bb-thin] (f) to (e);
-      \node (o-in_f) at (90:4.8) {};
-      \node (o-out_f) at (270:4.8) {};
-      \node (p_f) at (0:4.8) {};
-    \end{scope}
-    %%
-    \begin{scope}[shift={(120:1.25)},scale=.12]
-      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-      \node (e) at (90:5.5) [v-tiny] {};
-      \node (rrf) at (30:5.5) [v-tiny] {};
-      \node (rr) at (-30:5.5) [v-tiny] {};
-      \node (rf) at (-90:5.5) [v-tiny] {};
-      \node (r) at (-150:5.5) [v-tiny] {};
-      \node (f) at (150:5.5) [v-tiny] {};
-      \path[bb-thin] (e) to (rrf);
-      \path[bb-thin] (r) to (f);
-      \path[bb-thin] (rr) to (rf);
-      \path[gg-thin] (e) to (f);
-      \path[gg-thin] (r) to (rf);
-      \path[gg-thin] (rr) to (rrf);
-      \node (o-in_rf) at (195:4.8) {};
-      \node (o-out_rf) at (30:4.8) {};
-      \node (p_rf) at (120:4.8) {};
-    \end{scope}
-    %%
-    \begin{scope}[shift={(240:1.25)},scale=.12]
-      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-      \node (e) at (90:5.5) [v-tiny] {};
-      \node (rrf) at (30:5.5) [v-tiny] {};
-      \node (rr) at (-30:5.5) [v-tiny] {};
-      \node (rf) at (-90:5.5) [v-tiny] {};
-      \node (r) at (-150:5.5) [v-tiny] {};
-      \node (f) at (150:5.5) [v-tiny] {};
-      \path[bb-thin] (e) to (rf);
-      \path[bb-thin] (r) to (rrf);
-      \path[bb-thin] (rr) to (f);
-      \path[gg-thin] (e) to (rrf);
-      \path[gg-thin] (r) to (f);
-      \path[gg-thin] (rr) to (rf);
-      \node (o-in_r2f) at (330:4.8) {};
-      \node (o-out_r2f) at (165:4.8) {};
-      \node (p_r2f) at (240:4.8) {};
-    \end{scope}
-    %%
-    %%----------------------------------------------------------------
-    %%
-    \begin{scope}[shift={(0:3.5)},scale=.12]
-      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-      \node at (0,0) {$e$};
-      \node (e) at (90:5.5) [v-tiny] {};
-      \node (rrf) at (30:5.5) [v-tiny] {};
-      \node (rr) at (-30:5.5) [v-tiny] {};
-      \node (rf) at (-90:5.5) [v-tiny] {};
-      \node (r) at (-150:5.5) [v-tiny] {};
-      \node (f) at (150:5.5) [v-tiny] {};
-      \path[gg-thin] (e) to (rrf);
-      \path[bb-thin] (rrf) to (rr);
-      \path[gg-thin] (rr) to (rf);
-      \path[bb-thin] (rf) to (r);
-      \path[gg-thin] (r) to (f);
-      \path[bb-thin] (f) to (e);
-      \node (o-in_1) at (270:4.8) {};
-      \node (o-out_1) at (90:4.8) {};
-       \node (p_1) at (180:4.8) {};
-    \end{scope}
-    %%
-    \begin{scope}[shift={(120:3.5)},scale=.12]
-      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-      \node (e) at (90:5.5) [v-tiny] {};
-      \node (rrf) at (30:5.5) [v-tiny] {};
-      \node (rr) at (-30:5.5) [v-tiny] {};
-      \node (rf) at (-90:5.5) [v-tiny] {};
-      \node (r) at (-150:5.5) [v-tiny] {};
-      \node (f) at (150:5.5) [v-tiny] {};
-      \path[gg-thin] (e) to (f);
-      \path[gg-thin] (r) to (rf);
-      \path[gg-thin] (rr) to (rrf);
-      \path[bb-thin] (e) to (rf);
-      \path[bb-thin] (r) to (rrf);
-      \path[bb-thin] (rr) to (f);
-       \node (o-in_r) at (30:4.8) {};
-      \node (o-out_r) at (195:4.8) {};
-       \node (p_r) at (300:4.8) {};
-    \end{scope}
-    %%
-    \begin{scope}[shift={(240:3.5)},scale=.12]
-      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
-      \node (e) at (90:5.5) [v-tiny] {};
-      \node (rrf) at (30:5.5) [v-tiny] {};
-      \node (rr) at (-30:5.5) [v-tiny] {};
-      \node (rf) at (-90:5.5) [v-tiny] {};
-      \node (r) at (-150:5.5) [v-tiny] {};
-      \node (f) at (150:5.5) [v-tiny] {};
-      \path[gg-thin] (e) to (rf);
-      \path[gg-thin] (r) to (rrf);
-      \path[gg-thin] (rr) to (f);
-      \path[bb-thin] (e) to (rrf);
-      \path[bb-thin] (r) to (f);
-      \path[bb-thin] (rr) to (rf);
-      \node (o-in_r2) at (165:4.8) {};
-      \node (o-out_r2) at (330:4.8) {};
-      \node (p_r2) at (60:4.8) {};
-    \end{scope}
-    \draw [o] (o-out_1) to[bend right=45] (o-in_r);
-    \draw [o] (o-out_r) to[bend right=45] (o-in_r2);
-    \draw [o] (o-out_r2) to[bend right=45] (o-in_1);
-    \draw [o] (o-out_f) to[bend left=30] (o-in_r2f);
-    \draw [o] (o-out_r2f) to[bend left=35] (o-in_rf);
-    \draw [o] (o-out_rf) to[bend left=30] (o-in_f);
-    \draw [p] (p_1) to (p_f);
-    \draw [p] (p_r) to (p_rf);
-    \draw [p] (p_r2) to (p_r2f);
-    \end{scope}
-  \end{tikzpicture}
-  \]
-\end{example}
-
-\begin{definition}[Inner automorphisms]
-    Let $G$ be a group, and let $a \in G$. The function $\phi_a$ defined by 
-    \[
-        \phi_a(x) = axa^{-1} \quad \text{for all } x \in G
-    \]
-    is called the inner automorphism of $G$ included by $a$.
-
-    When $G$ is a group, we use $\text{Aut}(G)$ to denote the set of all automorphisms of $G$ and 
-    $\text{Inn}(G)$ to denote the set of all inner automorphisms of $G$.
-\end{definition}
-
-\begin{theorem}
-    The set of automorphisms of a group and the set of inner automorphisms of a group are both groups under the 
-    operation of function composition.
-\end{theorem}
-\begin{proof}
-    The set of inner automorphisms of $G$ included by $a$ is 
-    \[
-        \text{Inn}(G) = \{ \phi_a | \phi_a \text{ is an inner automorphism}  \}.
-    \]
-    Then satisfied the group properties:
-    \begin{enumerate}
-        \item We want to show $\forall \phi_a, \phi_b \in \text{Inn}(G), \quad \phi_a \circ \phi_b \in \text{Inn}(G)$.  
-
-        Compute $(\phi_a \circ \phi_b)(g)$ for all $g$ in $G$,
-        \begin{align*}
-            (\phi_a \circ \phi_b)(g) &= \phi_a (\phi_b (g))\\
-            &= \phi_a(bgb^{-1}) & \text{(Defn. of inner automorphism)}\\
-            &= a(bgb^{-1})a^{-1}\\
-            &= (ab)g(b^{-1}\, a^{-1})\\
-            &= (ab)\, g\, (ab)^{-1} & \text{(Socks-shoes property)}\\
-            &= \phi_{ab}(g) \in \text{Inn}(G)
-        \end{align*}
-        
-        Thus $\text{Inn}(G)$ is closed under function composition.
-
-        \item Next we want to show the associativity in $\text{Inn}(G)$, that is, 
-        \[
-            \forall \phi_a, \phi_b, \phi_c \in \text{Inn}(G), \quad \phi_a \circ (\phi_b \circ \phi_c) = (\phi_a \circ \phi_b) \circ \phi_c 
-        \]
-
-        we compute $\phi_a \circ (\phi_b \circ \phi_c)$.
-        \begin{align*}
-            [\phi_a \circ (\phi_b \circ \phi_c)](g) &= a(bc)g(bc)^{-1}a^{-1}\\
-            &= (ab)c g \, c^{-1}\, b^{-1}\, a^{-1}\\
-            &= {\color{cyan} (ab)}{\color{red} \underline{c\, g\, c^{-1}}}\, {\color{cyan} (ab)^{-1}}\\
-            &= [{\color{cyan} (\phi_a \circ \phi_b)} \circ {\color{red} \underline{\phi_c}}](g)
-        \end{align*}
-
-        \item Suppose $e$ is the identity element of $G$, then $\phi_e(g) = ege^{-1} = g \in \text{Inn}(G)$. $\phi_e$ is the 
-        identity of $\text{Inn}(G)$.
-
-        \item For all $\phi_a \in \text{Inn}(G)$, there exists $\phi_{a^{-1}} \in \text{Inn}(G)$ such that 
-        \begin{align*}
-            \phi_a \circ \phi_{a^{-1}} &= a(a g^{-1} a^{-1})a^{-1}\\
-            &= (a\,a^{-1}) g^{-1} (a\,a^{-1})\\
-            &= g^{-1}
-        \end{align*}
-    \end{enumerate}
-
-    We have shown that the inner automorphisms are group. Is $\text{Inn}(G)$ a subgroup of $\text{Aut}(G)$? Of course it is. We 
-    are going to use one-step subgroup test to find out.
-
-    \textbf{One-step subgroup test}:
-
-    \begin{enumerate}
-        \item First of all, we want to show 
-        \[
-            \forall \phi_a, \phi_b \in \text{Inn}(G), \phi_a \circ \phi_{b^{-1}} \in \text{Inn}(G).
-        \]
-
-        we compute
-        \begin{align*}
-            (\phi_a \circ \phi_{b^{-1}})(g) &= \phi_a (b g^{-1}b^{-1})\\
-            &= a(b g^{-1}b^{-1})a^{-1}\\
-            &= (ab)g^{-1}\,(ab)^{-1}\\
-            &= \phi_{(ab)^{-1}} \in \text{Inn}(G)
-        \end{align*}
-    \end{enumerate}
-\end{proof}
-
 \section{Normal subgroups, Quotient groups}
 
 \subsection{Cosets}
@@ -1593,7 +1257,7 @@ which these reflection lines runs from one of the vertices to the center of the 
         &H3 = H + 3 = \{0 + 3, 3 + 3, 6 + 3\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
     \end{align*}
 
-    Also, we can draw Cayley table of the cosets.
+    Also, we can draw multiplication table of the cosets.
     \begin{center}
         {
         \arrayrulewidth=1pt
@@ -1607,6 +1271,67 @@ which these reflection lines runs from one of the vertices to the center of the 
         \end{tabular}
     }
     \end{center}
+
+    Two cosets can also be multiply together. For instance,
+    \[
+        (1 + H) \cdot (2+H) = (1+2)+ H = 0+H = H
+    \]
+    and 
+    \[
+        (2+H) \cdot (2+H) = (2+2)+H = 4+H = 1+H.
+    \]
+\end{example}
+
+\begin{example}
+    The reals under addition $(\mathbb{R}, +)$, the subgroup $(\mathbb{Z}, +)$ of integers. Now 
+    \[
+        \mathbb{R} / \mathbb{Z} = \{ r + \mathbb{Z} \> | \> r \in \mathbb{R} \}.
+    \]
+    The cosets are $r + \mathbb{Z}$ with $r \in [0,1)$. $\mathbb{R}/\mathbb{Z}$ is isomorphic 
+    to the circle group $\mathbb{S}^1$ of complex numbers of absolute value 1. 
+    The isomorphism is 
+    \[
+        \phi[(r + \mathbb{Z})] = e^{i2\pi r}.
+    \]
+
+    \begin{figure}[!ht]
+        \centering
+        \tdplotsetmaincoords{75}{80}
+        \begin{tikzpicture}[tdplot_main_coords,line cap=round,line join=round,
+            declare function={R=2;a=1;}]
+            \pgfmathsetmacro{\tmin}{\tdplotmainphi/360-2}
+            \draw[lightgrey,thick,-{Stealth[bend]}] plot[variable=\t,domain=\tmin+3.49:\tmin+4.1,samples=21,smooth]
+                ({R*cos(360*\t)},{R*sin(360*\t)},{a*\t});
+            \foreach \tt in {0,...,3}
+            {\draw[lightgrey,thick] plot[variable=\t,domain=\tmin+\tt:\tmin+0.51+\tt,samples=41,smooth]
+                ({R*cos(360*\t)},{R*sin(360*\t)},{a*\t});}
+            \path foreach \t in {1} 
+            {
+            ({R*cos(72*\t)},{R*sin(72*\t)},{-2*a})
+            edge[thick,red] ({R*cos(72*\t)},{R*sin(72*\t)},{3*a})};
+            \foreach \tt in {0,...,3}
+            {\draw[line cap=butt,white,double=lightgrey,double distance=0.8pt] 
+                plot[variable=\t,domain=\tmin+0.49+\tt:\tmin+1.01+\tt,samples=41,smooth]
+                ({R*cos(360*\t)},{R*sin(360*\t)},{a*\t});}
+            \path foreach \t in {0,4}     
+            {({R*cos(72*\t)},{R*sin(72*\t)},{-2*a})
+            %edge[white,double=red,double distance=0.8pt]
+            ({R*cos(72*\t)},{R*sin(72*\t)},{3*a})};
+            \node at ({R*cos(72*(-4))},{R*sin(72*(-4))},{a*(-4)/5}) [circle,fill,inner sep=1pt, label={[anchor={(Mod(-4,5)==0?135:(Mod(-4,5)==1?180:45))}]:$1$}](1){};
+            \node at ({R*cos(72*(1))},{R*sin(72*(1))},{a*(1)/5}) [circle,fill,inner sep=1pt, label={[anchor={(Mod(1,5)==0?135:(Mod(1,5)==1?180:45))}]:$2$}](1){};
+            \node at ({R*cos(72*(6))},{R*sin(72*(6))},{a*(6)/5}) [circle,fill,inner sep=1pt, label={[anchor={(Mod(6,5)==0?135:(Mod(6,5)==1?180:45))}]:$3$}](1){};
+            \node at ({R*cos(72*(11))},{R*sin(72*(11))},{a*(11)/5}) [circle,fill,inner sep=1pt, label={[anchor={(Mod(11,5)==0?135:(Mod(11,5)==1?180:45))}]:$4$}](1){};
+            %\path foreach \t in {-8,-7,...,11}
+            %{({R*cos(72*\t)},{R*sin(72*\t)},{a*\t/5})
+            %node[circle,fill,inner sep=1pt,
+            %    label={[anchor={(Mod(\t,5)==0?135:(Mod(\t,5)==1?180:45))}]:$\t$}]
+            %   (c\t){}};   
+            \draw[line cap=butt,white,double=lightgrey,double distance=0.8pt] 
+                plot[variable=\t,domain=\tmin-0.15:\tmin+0.01,samples=21,smooth]
+                ({R*cos(360*\t)},{R*sin(360*\t)},{a*\t});   
+        \end{tikzpicture}
+        \caption{The abelian group $\mathbb{R}/\mathbb{Z}$ can be generated by $e^{i2\pi r}$.}
+    \end{figure}  
 \end{example}
 
 \subsection{Normal subgroups}
@@ -2160,6 +1885,86 @@ is an isomorphism.
     (5, 6, 7) leave as tutorial.
 \end{proof}
 
+\begin{theorem}
+    Suppose that $\phi$ is an isomorphism from a group $G$ onto a group $G'$. Then 
+    \begin{enumerate}
+        \item $\phi^{-1}$ is an isomorphism from $G'$ onto $G$.
+        \item $G$ is abelian if and only if $G'$ is abelian.
+        \item $G$ is cyclic if and only if $G'$ is cyclic.
+        \item If $K$ is a subgroup of $G$, then 
+        \[
+            \phi(K) = \{ \phi(k) \> | \> k \in K \} 
+        \]
+        is a subgroup of $G'$.
+        \[
+        \begin{tikzcd}[row sep=2.0em]
+            G \arrow["\phi"]{rr} \arrow[dash, "\leq"]{dd} & & G' \\
+            \\
+            K \arrow["\phi"]{rr} & & \phi(K) \arrow[dash, "\leq"]{uu}
+        \end{tikzcd}
+        \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Given that $\phi$ is a homomorphism, then for all $a,b\in G$ we have 
+        \[
+            \phi(ab) = \phi(a) \, \phi(b).
+        \]
+        We need to prove that $\phi^{-1}$ is also a homomorphism, that is, 
+        \[
+            \forall a',b' \in G'\quad \phi^{-1}(a'b') = \phi^{-1}(a') \phi^{-1}(b').
+        \]
+        Certainly
+        \[
+            \begin{cases}
+                \phi(a) = a'\\
+                \phi(b) = b'
+            \end{cases}
+            \Longrightarrow
+            \begin{cases}
+                \phi^{-1}(a') = a\\
+                \phi^{-1}(b') = b
+            \end{cases}
+        \]
+        Since $\phi$ is homomorphism, 
+        \begin{align*}
+            \phi(ab) = \phi(a) \, \phi(b) &\Rightarrow \phi(ab) =a'b'\\
+            &\Rightarrow ab = \phi^{-1}(a'b')\\
+            &\Rightarrow \phi^{-1}(a')\, \phi^{-1}(b') = \phi^{-1}(a'b')\\
+        \end{align*}
+
+        \item Refer to property (3) of previous theorem.
+        \item Refer to property (4) of previous theorem.
+        \item Given $K$ is a subgroup of $G$, we want to show that $\phi(K) \leq G'$. The main idea is to use one-step subgroup test:
+        \[\begin{tikzcd}[row sep=2.0em]
+            G \arrow["\phi"]{rr} \arrow[dash, "\leq"]{dd} & & G' \\
+            \\
+            \phi^{-1}(N)  & & N \arrow[dash, "\leq"]{uu} \arrow["\phi^{-1}"]{ll}
+        \end{tikzcd}
+        \]
+        \begin{itemize}
+            \item Clearly, $e' = \phi(e) \in \phi(K)$. Thus $\phi(K)$ is nonempty. (Since $e \in K \neq \varnothing$ as $K \leq G$).
+            \item For all $x,y \in \phi(K)$, 
+            \[
+                x \in \phi(K) \Rightarrow x = \phi(\alpha_1)
+            \]
+            and 
+            \[
+                y \in \phi(K) \Rightarrow x = \phi(\alpha_2)
+            \]
+            where $\alpha_1, \alpha_2 \in K$. Compute 
+            \begin{align*}
+                xy^{-1} &= \phi(\alpha_1) \phi(\alpha_2)^{-1}\\
+                &= \phi(\alpha_1) \phi(\alpha_2^{-1})\\
+                &= \phi(\alpha_1 \alpha_2^{-1})
+            \end{align*}
+            Since $\alpha_1 \alpha_2^{-1} \in K$, thus $\phi(\alpha_1 \alpha_2^{-1})$ in $\phi(K) \Longrightarrow xy^{-1} \in \phi(K)$.
+
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+
 \begin{theorem}[Sylow's theorem]
     Let $G$ be a finite group such that $p^n$ divides $|G|$, where $p$ is prime. Then there exists 
     a subgroup of order $p^n$.
@@ -2224,61 +2029,545 @@ is an isomorphism.
 Historically this is a slight extension of what is called Sylow's First Theorem. There are
  two more which describe the properties of such subgroups in greater depth.
 
+ \section{Automorphisms}
+
+ \begin{definition}[Automorphisms]
+     An isomorphism from a group $G$ onto itself is called an automorphism.
+ \end{definition}
+ 
+ \begin{example}
+     Let the 2-dimensional cartesian plane
+     \[
+         \mathbb{R}^2 = \{ (a,b) | a, b \in \mathbb{R} \}.
+     \]
+     Then
+     \[
+         \phi(a,b) = (b,a)
+     \]
+     is an automorphism of the group $\mathbb{R}^2$ under componentwise addition.
+ \end{example}
+ 
+ \begin{example}
+     Compute $\text{Aut}(\mathbb{Z}_{10})$.
+ \end{example}
+ \begin{solution}
+     For any $\alpha \in \text{Aut}(\mathbb{Z}_{10})$ and for any $k \in \mathbb{Z}_{10}$. We define $k \mapsto k \alpha(1)$ such that 
+     \[
+         1 \mapsto \alpha_1 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_1(x) = x
+     \]
+     \[
+         3 \mapsto \alpha_3 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_3(x) = 3x
+     \]
+     \[
+         7 \mapsto \alpha_7 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_7(x) = 7x
+     \]
+     \[
+         9 \mapsto \alpha_9 :\quad \mathbb{Z}_{10} \to \mathbb{Z}_{10}, \quad \alpha_9(x) = 9x
+     \]
+ 
+     In fact, $\text{Aut}(\mathbb{Z}_{10})$ is isomorphic to $U(10) = \{ 1, 3, 7, 9\}$. $\text{Aut}(\mathbb{Z}_{10})$ is defined as 
+     \[
+        \text{Aut}(\mathbb{Z}_{10}) = \{\alpha : \mathbb{Z}_{10} \to \mathbb{Z}_{10} \> | \>  \alpha \textsf{ is an automorphism} \}.
+     \]
+
+     \begin{center}
+        \begin{minipage}{.25\textwidth}
+            {
+        \arrayrulewidth=1pt
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c|*{4}{>{\columncolor{white}}c}}
+          $\cdot_{10}$ & \cellcolor{myred}1 & \cellcolor{mygreen}3 & \cellcolor{myblue}7 & \cellcolor{mypurple}9 \\
+          \hline
+          \cellcolor{myred}1 & \cellcolor{myred}1 & \cellcolor{mygreen}3 & \cellcolor{myblue}7 & \cellcolor{mypurple}9 \\
+          \cellcolor{mygreen}3 & \cellcolor{mygreen}3 & \cellcolor{mypurple}9 & \cellcolor{myred}1 & \cellcolor{myblue}7 \\
+          \cellcolor{myblue}7 & \cellcolor{myblue}7 & \cellcolor{myred}1 & \cellcolor{mypurple}9 & \cellcolor{mygreen}3 \\
+          \cellcolor{mypurple}9 & \cellcolor{mypurple}9 & \cellcolor{myblue}7 & \cellcolor{mygreen}3 & \cellcolor{myred}1 \\
+        \end{tabular}
+        }
+          \end{minipage}% This must go next to `\end{minipage}`
+          \begin{minipage}{.28\textwidth}
+            {
+        \arrayrulewidth=1pt
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c|*{4}{>{\columncolor{white}}c}}
+          $\circ$ & \cellcolor{myred}$\alpha_1$ & \cellcolor{mygreen}$\alpha_3$ & \cellcolor{myblue}$\alpha_7$ & \cellcolor{mypurple}$\alpha_9$ \\
+          \hline
+          \cellcolor{myred}$\alpha_1$ & \cellcolor{myred}$\alpha_1$ & \cellcolor{mygreen}$\alpha_3$ & \cellcolor{myblue}$\alpha_7$ & \cellcolor{mypurple}$\alpha_9$ \\
+          \cellcolor{mygreen}$\alpha_3$ & \cellcolor{mygreen}$\alpha_3$ & \cellcolor{mypurple}$\alpha_9$ & \cellcolor{myred}$\alpha_1$ & \cellcolor{myblue}$\alpha_7$ \\
+          \cellcolor{myblue}$\alpha_7$ & \cellcolor{myblue}$\alpha_7$ & \cellcolor{myred}$\alpha_1$ & \cellcolor{mypurple}$\alpha_9$ & \cellcolor{mygreen}$\alpha_3$ \\
+          \cellcolor{mypurple}$\alpha_9$ & \cellcolor{mypurple}$\alpha_9$ & \cellcolor{myblue}$\alpha_7$ & \cellcolor{mygreen}$\alpha_3$ & \cellcolor{myred}$\alpha_1$ \\
+        \end{tabular}
+        }
+          \end{minipage}
+    \end{center}
+ \end{solution}
+
+ \begin{theorem}
+    For every positive integer $n$, $\text{Aut}(\mathbb{Z}_n)$ is isomorphic to $U(n)$.
+ \end{theorem}
+ 
+ \begin{example}
+     The automorphisms of $D_3$ is $\text{Aut}(D_3) = \langle \alpha, \beta \rangle \cong D_3$, where 
+     \[
+         \begin{cases}
+             \alpha(r) = r\\
+             \alpha(f) = rf 
+         \end{cases}
+         \quad         
+         \begin{cases}
+             \beta(r) = r^2\\
+             \beta(f) = f 
+         \end{cases}
+     \]
+ 
+     All of these automorphisms are \textit{inner} (of the form $f_x : g \mapsto x^{-1}gx$). Two Cayley diagrams for $\text{Aut}(D_3)$
+     are shown below.
+ 
+     \vspace{-4mm}
+   
+   \tikzstyle{v-tiny} = [circle, draw, fill=grey,inner sep=0pt, minimum size=1.2mm] 
+   \tikzstyle{gg-thin} = [draw, darkgreen]
+   \tikzstyle{r-thin} = [draw, red, -stealth]
+   \tikzstyle{bb-thin} = [draw, blue]
+   \tikzstyle{o} = [draw, very thick,orange, -stealth]
+   \tikzstyle{p} = [draw, very thick,amethyst]
+   %%
+   \[
+   \hspace*{-10mm}
+   \begin{tikzpicture}[scale=.95]
+     %%%%
+     %%%%%=============================================================
+     %%%%
+     \begin{scope}[shift={(0,0)},scale=1]
+       \begin{scope}[shift={(0:1.25)},scale=.12]
+         \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+         \node (f) at (0:2.5) [v-tiny] {};
+         \node (rf) at (120:2.5) [v-tiny] {};
+         \node (rrf) at (240:2.5) [v-tiny] {};
+         \node (e) at (0:5.5) [v-tiny] {};
+         \node (rr) at (240:5.5) [v-tiny] {};
+         \node (r) at (120:5.5) [v-tiny] {};
+         \draw [r-thin] (e) to [bend left] (rr);
+         \draw [r-thin] (rr) to [bend left] (r);
+         \draw [r-thin] (r) to [bend left] (e);
+         \draw [r-thin] (f) to [bend right] (rf);
+         \draw [r-thin] (rf) to [bend right] (rrf);
+         \draw [r-thin] (rrf) to [bend right] (f);
+         \draw [bb-thin] (e) to (f);
+         \draw [bb-thin] (r) to (rf);
+         \draw [bb-thin] (rr) to (rrf);
+         \node (o-in_f) at (90:4.8) {};
+         \node (o-out_f) at (270:4.8) {};
+         \node (p_f) at (0:4.8) {};
+       \end{scope}
+       %%
+       \begin{scope}[shift={(120:1.25)},scale=.12]
+         \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+         \node (f) at (0:2.5) [v-tiny] {};
+         \node (rf) at (120:2.5) [v-tiny] {};
+         \node (rrf) at (240:2.5) [v-tiny] {};
+         \node (e) at (0:5.5) [v-tiny] {};
+         \node (rr) at (240:5.5) [v-tiny] {};
+         \node (r) at (120:5.5) [v-tiny] {};
+         \draw [r-thin] (e) to [bend left] (rr);
+         \draw [r-thin] (rr) to [bend left] (r);
+         \draw [r-thin] (r) to [bend left] (e);
+         \draw [r-thin] (f) to [bend right] (rf);
+         \draw [r-thin] (rf) to [bend right] (rrf);
+         \draw [r-thin] (rrf) to [bend right] (f);
+         \draw [bb-thin] (e) to [bend left] (rrf);
+         \draw [bb-thin] (rr) to [bend left] (rf);
+         \draw [bb-thin] (r) to [bend left] (f);
+         \node (o-in_rf) at (195:4.8) {};
+         \node (o-out_rf) at (30:4.8) {};
+         \node (p_rf) at (120:4.8) {};
+       \end{scope}
+       %%
+       \begin{scope}[shift={(240:1.25)},scale=.12]
+         \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+         \node (f) at (0:2.5) [v-tiny] {};
+         \node (rf) at (120:2.5) [v-tiny] {};
+         \node (rrf) at (240:2.5) [v-tiny] {};
+         \node (e) at (0:5.5) [v-tiny] {};
+         \node (rr) at (240:5.5) [v-tiny] {};
+         \node (r) at (120:5.5) [v-tiny] {};
+         \draw [r-thin] (e) to [bend left] (rr);
+         \draw [r-thin] (rr) to [bend left] (r);
+         \draw [r-thin] (r) to [bend left] (e);
+         \draw [r-thin] (f) to [bend right] (rf);
+         \draw [r-thin] (rf) to [bend right] (rrf);
+         \draw [r-thin] (rrf) to [bend right] (f);
+         \draw [bb-thin] (e) to [bend right] (rf);
+         \draw [bb-thin] (r) to [bend right] (rrf);
+         \draw [bb-thin] (rr) to [bend right] (f);
+         \node (o-in_r2f) at (330:4.8) {};
+         \node (o-out_r2f) at (165:4.8) {};
+         \node (p_r2f) at (240:4.8) {};
+       \end{scope}
+       %%
+       %%----------------------------------------------------------------
+       %%
+       \begin{scope}[shift={(0:3.5)},scale=.12]
+         \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+         \node (f) at (0:2.5) [v-tiny] {};
+         \node (rf) at (120:2.5) [v-tiny] {};
+         \node (rrf) at (240:2.5) [v-tiny] {};
+         \node (e) at (0:5.5) [v-tiny] {};
+         \node (rr) at (240:5.5) [v-tiny] {};
+         \node (r) at (120:5.5) [v-tiny] {};
+         \draw [r-thin] (e) to [bend right] (r);
+         \draw [r-thin] (r) to [bend right] (rr);
+         \draw [r-thin] (rr) to [bend right] (e);
+         \draw [r-thin] (f) to [bend left] (rrf);
+         \draw [r-thin] (rrf) to [bend left] (rf);
+         \draw [r-thin] (rf) to [bend left] (f);
+         \draw [bb-thin] (e) to (f);
+         \draw [bb-thin] (r) to (rf);
+         \draw [bb-thin] (rr) to (rrf);
+         \node (o-in_1) at (270:4.8) {};
+         \node (o-out_1) at (90:4.8) {};
+         \node (p_1) at (180:4.8) {};
+       \end{scope}
+       %%
+       \begin{scope}[shift={(120:3.5)},scale=.12]
+         \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+         \node (f) at (0:2.5) [v-tiny] {};
+         \node (rf) at (120:2.5) [v-tiny] {};
+         \node (rrf) at (240:2.5) [v-tiny] {};
+         \node (e) at (0:5.5) [v-tiny] {};
+         \node (rr) at (240:5.5) [v-tiny] {};
+         \node (r) at (120:5.5) [v-tiny] {};
+         \draw [r-thin] (e) to [bend right] (r);
+         \draw [r-thin] (r) to [bend right] (rr);
+         \draw [r-thin] (rr) to [bend right] (e);
+         \draw [r-thin] (f) to [bend left] (rrf);
+         \draw [r-thin] (rrf) to [bend left] (rf);
+         \draw [r-thin] (rf) to [bend left] (f);
+         \draw [bb-thin] (e) to [bend right] (rf);
+         \draw [bb-thin] (r) to [bend right] (rrf);
+         \draw [bb-thin] (rr) to [bend right] (f);
+         \node (o-in_r) at (30:4.8) {};
+         \node (o-out_r) at (195:4.8) {};
+         \node (p_r) at (300:4.8) {};
+       \end{scope}
+       %%
+       \begin{scope}[shift={(240:3.5)},scale=.12]
+         \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+         \node (f) at (0:2.5) [v-tiny] {};
+         \node (rf) at (120:2.5) [v-tiny] {};
+         \node (rrf) at (240:2.5) [v-tiny] {};
+         \node (e) at (0:5.5) [v-tiny] {};
+         \node (rr) at (240:5.5) [v-tiny] {};
+         \node (r) at (120:5.5) [v-tiny] {};
+         \draw [r-thin] (e) to [bend right] (r);
+         \draw [r-thin] (r) to [bend right] (rr);
+         \draw [r-thin] (rr) to [bend right] (e);
+         \draw [r-thin] (f) to [bend left] (rrf);
+         \draw [r-thin] (rrf) to [bend left] (rf);
+         \draw [r-thin] (rf) to [bend left] (f);
+         \draw [bb-thin] (e) to [bend left] (rrf);
+         \draw [bb-thin] (rr) to [bend left] (rf);
+         \draw [bb-thin] (r) to [bend left] (f);
+         \node (o-in_r2) at (165:4.8) {};
+         \node (o-out_r2) at (330:4.8) {};
+         \node (p_r2) at (60:4.8) {};
+       \end{scope}
+       \draw [o] (o-out_1) to[bend right=45] (o-in_r);
+       \draw [o] (o-out_r) to[bend right=45] (o-in_r2);
+       \draw [o] (o-out_r2) to[bend right=45] (o-in_1);
+       \draw [o] (o-out_f) to[bend left=30] (o-in_r2f);
+       \draw [o] (o-out_r2f) to[bend left=35] (o-in_rf);
+       \draw [o] (o-out_rf) to[bend left=30] (o-in_f);
+       \draw [p] (p_1) to (p_f);
+       \draw [p] (p_r) to (p_rf);
+       \draw [p] (p_r2) to (p_r2f);
+     \end{scope}
+     %%%
+     %%%%
+     %%%%%=============================================================
+     %%%%
+    \begin{scope}[shift={(10,0)}]
+     \begin{scope}[shift={(0:1.25)},scale=.12]
+       \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+       \node (e) at (90:5.5) [v-tiny] {};
+       \node (rrf) at (30:5.5) [v-tiny] {};
+       \node (rr) at (-30:5.5) [v-tiny] {};
+       \node (rf) at (-90:5.5) [v-tiny] {};
+       \node (r) at (-150:5.5) [v-tiny] {};
+       \node (f) at (150:5.5) [v-tiny] {};
+       \path[gg-thin] (e) to (rf);
+       \path[bb-thin] (rf) to (r);
+       \path[gg-thin] (r) to (rrf);
+       \path[bb-thin] (rrf) to (rr);
+       \path[gg-thin] (rr) to (f);
+       \path[bb-thin] (f) to (e);
+       \node (o-in_f) at (90:4.8) {};
+       \node (o-out_f) at (270:4.8) {};
+       \node (p_f) at (0:4.8) {};
+     \end{scope}
+     %%
+     \begin{scope}[shift={(120:1.25)},scale=.12]
+       \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+       \node (e) at (90:5.5) [v-tiny] {};
+       \node (rrf) at (30:5.5) [v-tiny] {};
+       \node (rr) at (-30:5.5) [v-tiny] {};
+       \node (rf) at (-90:5.5) [v-tiny] {};
+       \node (r) at (-150:5.5) [v-tiny] {};
+       \node (f) at (150:5.5) [v-tiny] {};
+       \path[bb-thin] (e) to (rrf);
+       \path[bb-thin] (r) to (f);
+       \path[bb-thin] (rr) to (rf);
+       \path[gg-thin] (e) to (f);
+       \path[gg-thin] (r) to (rf);
+       \path[gg-thin] (rr) to (rrf);
+       \node (o-in_rf) at (195:4.8) {};
+       \node (o-out_rf) at (30:4.8) {};
+       \node (p_rf) at (120:4.8) {};
+     \end{scope}
+     %%
+     \begin{scope}[shift={(240:1.25)},scale=.12]
+       \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+       \node (e) at (90:5.5) [v-tiny] {};
+       \node (rrf) at (30:5.5) [v-tiny] {};
+       \node (rr) at (-30:5.5) [v-tiny] {};
+       \node (rf) at (-90:5.5) [v-tiny] {};
+       \node (r) at (-150:5.5) [v-tiny] {};
+       \node (f) at (150:5.5) [v-tiny] {};
+       \path[bb-thin] (e) to (rf);
+       \path[bb-thin] (r) to (rrf);
+       \path[bb-thin] (rr) to (f);
+       \path[gg-thin] (e) to (rrf);
+       \path[gg-thin] (r) to (f);
+       \path[gg-thin] (rr) to (rf);
+       \node (o-in_r2f) at (330:4.8) {};
+       \node (o-out_r2f) at (165:4.8) {};
+       \node (p_r2f) at (240:4.8) {};
+     \end{scope}
+     %%
+     %%----------------------------------------------------------------
+     %%
+     \begin{scope}[shift={(0:3.5)},scale=.12]
+       \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+       \node at (0,0) {$e$};
+       \node (e) at (90:5.5) [v-tiny] {};
+       \node (rrf) at (30:5.5) [v-tiny] {};
+       \node (rr) at (-30:5.5) [v-tiny] {};
+       \node (rf) at (-90:5.5) [v-tiny] {};
+       \node (r) at (-150:5.5) [v-tiny] {};
+       \node (f) at (150:5.5) [v-tiny] {};
+       \path[gg-thin] (e) to (rrf);
+       \path[bb-thin] (rrf) to (rr);
+       \path[gg-thin] (rr) to (rf);
+       \path[bb-thin] (rf) to (r);
+       \path[gg-thin] (r) to (f);
+       \path[bb-thin] (f) to (e);
+       \node (o-in_1) at (270:4.8) {};
+       \node (o-out_1) at (90:4.8) {};
+        \node (p_1) at (180:4.8) {};
+     \end{scope}
+     %%
+     \begin{scope}[shift={(120:3.5)},scale=.12]
+       \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+       \node (e) at (90:5.5) [v-tiny] {};
+       \node (rrf) at (30:5.5) [v-tiny] {};
+       \node (rr) at (-30:5.5) [v-tiny] {};
+       \node (rf) at (-90:5.5) [v-tiny] {};
+       \node (r) at (-150:5.5) [v-tiny] {};
+       \node (f) at (150:5.5) [v-tiny] {};
+       \path[gg-thin] (e) to (f);
+       \path[gg-thin] (r) to (rf);
+       \path[gg-thin] (rr) to (rrf);
+       \path[bb-thin] (e) to (rf);
+       \path[bb-thin] (r) to (rrf);
+       \path[bb-thin] (rr) to (f);
+        \node (o-in_r) at (30:4.8) {};
+       \node (o-out_r) at (195:4.8) {};
+        \node (p_r) at (300:4.8) {};
+     \end{scope}
+     %%
+     \begin{scope}[shift={(240:3.5)},scale=.12]
+       \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+       \node (e) at (90:5.5) [v-tiny] {};
+       \node (rrf) at (30:5.5) [v-tiny] {};
+       \node (rr) at (-30:5.5) [v-tiny] {};
+       \node (rf) at (-90:5.5) [v-tiny] {};
+       \node (r) at (-150:5.5) [v-tiny] {};
+       \node (f) at (150:5.5) [v-tiny] {};
+       \path[gg-thin] (e) to (rf);
+       \path[gg-thin] (r) to (rrf);
+       \path[gg-thin] (rr) to (f);
+       \path[bb-thin] (e) to (rrf);
+       \path[bb-thin] (r) to (f);
+       \path[bb-thin] (rr) to (rf);
+       \node (o-in_r2) at (165:4.8) {};
+       \node (o-out_r2) at (330:4.8) {};
+       \node (p_r2) at (60:4.8) {};
+     \end{scope}
+     \draw [o] (o-out_1) to[bend right=45] (o-in_r);
+     \draw [o] (o-out_r) to[bend right=45] (o-in_r2);
+     \draw [o] (o-out_r2) to[bend right=45] (o-in_1);
+     \draw [o] (o-out_f) to[bend left=30] (o-in_r2f);
+     \draw [o] (o-out_r2f) to[bend left=35] (o-in_rf);
+     \draw [o] (o-out_rf) to[bend left=30] (o-in_f);
+     \draw [p] (p_1) to (p_f);
+     \draw [p] (p_r) to (p_rf);
+     \draw [p] (p_r2) to (p_r2f);
+     \end{scope}
+   \end{tikzpicture}
+   \]
+ \end{example}
+ 
+ \begin{definition}[Inner automorphisms]
+     Let $G$ be a group, and let $a \in G$. The function $\phi_a$ defined by 
+     \[
+         \phi_a(x) = axa^{-1} \quad \text{for all } x \in G
+     \]
+     is called the inner automorphism of $G$ included by $a$.
+ 
+     When $G$ is a group, we use $\text{Aut}(G)$ to denote the set of all automorphisms of $G$ and 
+     $\text{Inn}(G)$ to denote the set of all inner automorphisms of $G$.
+ \end{definition}
+ 
+ \begin{theorem}
+     The set of automorphisms of a group and the set of inner automorphisms of a group are both groups under the 
+     operation of function composition.
+ \end{theorem}
+ \begin{proof}
+     The set of inner automorphisms of $G$ included by $a$ is 
+     \[
+         \text{Inn}(G) = \{ \phi_a | \phi_a \text{ is an inner automorphism}  \}.
+     \]
+     Then satisfied the group properties:
+     \begin{enumerate}
+         \item We want to show $\forall \phi_a, \phi_b \in \text{Inn}(G), \quad \phi_a \circ \phi_b \in \text{Inn}(G)$.  
+ 
+         Compute $(\phi_a \circ \phi_b)(g)$ for all $g$ in $G$,
+         \begin{align*}
+             (\phi_a \circ \phi_b)(g) &= \phi_a (\phi_b (g))\\
+             &= \phi_a(bgb^{-1}) & \text{(Defn. of inner automorphism)}\\
+             &= a(bgb^{-1})a^{-1}\\
+             &= (ab)g(b^{-1}\, a^{-1})\\
+             &= (ab)\, g\, (ab)^{-1} & \text{(Socks-shoes property)}\\
+             &= \phi_{ab}(g) \in \text{Inn}(G)
+         \end{align*}
+         
+         Thus $\text{Inn}(G)$ is closed under function composition.
+ 
+         \item Next we want to show the associativity in $\text{Inn}(G)$, that is, 
+         \[
+             \forall \phi_a, \phi_b, \phi_c \in \text{Inn}(G), \quad \phi_a \circ (\phi_b \circ \phi_c) = (\phi_a \circ \phi_b) \circ \phi_c 
+         \]
+ 
+         we compute $\phi_a \circ (\phi_b \circ \phi_c)$.
+         \begin{align*}
+             [\phi_a \circ (\phi_b \circ \phi_c)](g) &= a(bc)g(bc)^{-1}a^{-1}\\
+             &= (ab)c g \, c^{-1}\, b^{-1}\, a^{-1}\\
+             &= {\color{cyan} (ab)}{\color{red} \underline{c\, g\, c^{-1}}}\, {\color{cyan} (ab)^{-1}}\\
+             &= [{\color{cyan} (\phi_a \circ \phi_b)} \circ {\color{red} \underline{\phi_c}}](g)
+         \end{align*}
+ 
+         \item Suppose $e$ is the identity element of $G$, then $\phi_e(g) = ege^{-1} = g \in \text{Inn}(G)$. $\phi_e$ is the 
+         identity of $\text{Inn}(G)$.
+ 
+         \item For all $\phi_a \in \text{Inn}(G)$, there exists $\phi_{a^{-1}} \in \text{Inn}(G)$ such that 
+         \begin{align*}
+             \phi_a \circ \phi_{a^{-1}} &= a(a g^{-1} a^{-1})a^{-1}\\
+             &= (a\,a^{-1}) g^{-1} (a\,a^{-1})\\
+             &= g^{-1}
+         \end{align*}
+     \end{enumerate}
+ 
+     We have shown that the inner automorphisms are group. Is $\text{Inn}(G)$ a subgroup of $\text{Aut}(G)$? Of course it is. We 
+     are going to use one-step subgroup test to find out.
+ 
+     \textbf{One-step subgroup test}:
+ 
+     \begin{enumerate}
+         \item First of all, we want to show 
+         \[
+             \forall \phi_a, \phi_b \in \text{Inn}(G), \phi_a \circ \phi_{b^{-1}} \in \text{Inn}(G).
+         \]
+ 
+         we compute
+         \begin{align*}
+             (\phi_a \circ \phi_{b^{-1}})(g) &= \phi_a (b g^{-1}b^{-1})\\
+             &= a(b g^{-1}b^{-1})a^{-1}\\
+             &= (ab)g^{-1}\,(ab)^{-1}\\
+             &= \phi_{(ab)^{-1}} \in \text{Inn}(G)
+         \end{align*}
+     \end{enumerate}
+ \end{proof}
+
 \subsection{Isomorphism theorems}
 
 \begin{theorem}[First Isomorphism theorem]
     Let $f:G \to H$ be a homomorphism of groups with kernel $K$. Then the quotient group $G/K$ is 
     isomorphic to $\Ima f$.
 \end{theorem}
+
 \begin{proof}
-    Define $\varphi : G/N \to \Ima f$ by $\varphi(K_a) = f(a)$. 
+    \textbf{Step 1}: Check if $Ker(\phi)$ is a subgroup of $G$.
 
-    \begin{figure}[ht]
-        \centering
-        \makebox[\textwidth]{\includegraphics[width=0.45\paperwidth]{./images/first_iso.pdf}}
-    \end{figure}
-
+    The main idea is to use one-step subgroup test to check if $Ker(\phi) \leq G$:
     \begin{enumerate}
-    
-    \item Claim: $\varphi$ is well-defined.
-    
-    Suppose that $K_a = K_b$. Then by lemma we have 
-    \[
-        f(a) = f(b) \Longrightarrow \varphi(K_a) = f(a) = f(b) = \varphi(K_b).
-    \]
+        \item Since $\phi$ is a homomorphism, then $\phi(e) = e$; and so 
+        \[
+            e \in Ker(\phi) \neq \varnothing.
+        \]
+        So $Ker(\phi)$ is nonempty.
 
-    \item Claim: $\varphi$ is surjective. 
+        \item For all $g,h \in Ker(\phi)$, we need to show that 
+        \[
+            gh^{-1} \in Ker(\phi).
+        \]
+        Given that $g \in Ker(\phi)$, then $\phi(g) = e$. Also, $h \in Ker(\phi)$, then $\phi(h) = e$. Now compute 
+        \begin{align*}
+            \phi(gh^{-1}) &= \phi(g)\, \phi(h^{-1})\\
+            &= \phi(g)\, \phi(h)^{-1}\\
+            &= ee^{-1}\\
+            &= e \in Ker(\phi).
+        \end{align*}
 
-    Let $b \in Ima f$ then there exists an $a \in G$ such that $f(a) = b$. Then 
-    \[
-        \varphi(K_a) = f(a) = b.
-    \]
-
-    \item Claim: $\varphi$ is injective. 
-
-    Since 
-    \[
-        \varphi(K_a) = \varphi(K_b) \Leftrightarrow f(a) = f(b) \Leftrightarrow K_a = K_b.
-    \]
-
-    \item Claim: $\varphi$ is homomorphism.
-    
-    Because 
-    \[
-        \varphi(K_aK_b) = \varphi(K_{ab}) = f(ab) = f(a) f(b) = \varphi(K_a) \varphi(K_b).
-    \]
-    In all $\varphi$ is an homomorphism. 
-
-    Moreover, $\tau \circ \varphi \circ \pi(a) = \tau \circ \varphi(\pi(a)) = \tau \circ \varphi(N_a) = \tau \, f(a) = f(a)$.
-
+        Since $gh^{-1} \in Ker(\phi)$, thus $Ker(\phi) \leq G$.
     \end{enumerate}
+
+    \textbf{Step 2}: Check if $Ker(\phi) \unlhd G$
+
+    We want to show $aKer(\phi)a^{-1} \subseteq Ker(\phi)$ for all $a \in G$. This is equivalent to show if $y \in aKer(\phi)a^{-1}$, then $y$
+    is in $Ker(\phi)$. Using normal subgroup test and check:
+    \begin{align*}
+        y \in aKer(\phi)a^{-1} &\Rightarrow a^{-1}ya \in Ker(\phi)\\
+        &\Rightarrow \phi(a^{-1}ya) = e\\
+        &\Rightarrow \phi(a^{-1})\, \phi(y)\, \phi(a) = e\\
+        &\Rightarrow \phi(y) = \phi(a) \phi(e) \phi(a)^{-1}\\
+        &\Rightarrow \phi(y) = \phi(a) \phi(e) \phi(a^{-1})\\
+        &\Rightarrow \phi(y) = \phi(aea^{-1}) = \phi(aa^{-1}) = \phi(e) = e\\
+    \end{align*}
+    Thus $y$ is in $Ker(\phi)$. So $Ker(\phi) \unlhd G$.
+
     \[
-        \begin{tikzcd}[row sep=2.0em]
-            G \arrow["f"]{rr} \arrow[red, "\pi"]{dd} \arrow[bend right=50, red, "\text{surjective homomorphism}" description,  shift right=8ex]{dd} & & H \\
-            \\
-            G/K \arrow["\varphi"]{rr} & & \Ima f \arrow[blue, "\tau"]{uu} \arrow[bend right=50, blue, "\text{injective homomorphism}" description,  shift right=8ex]{uu}
+        \begin{tikzcd}
+            G \arrow["\phi"]{r} \arrow[dash, "\unlhd"]{d} & G' \arrow[dash, "\leq"]{d} \\
+            Ker(\phi) & \phi(G)\\
+            G/Ker(\phi) \arrow[dashed, bend left=50]{uu} \arrow["\cong"]{ur} & \\
         \end{tikzcd}
     \]
+
+    Moreover, we still need to show $\phi(G) \leq G'$. $\phi(G)$ is the image 
+    of $G$ that is define as 
+    \[
+        \phi(G) = \{ \phi(g) \> | \> g \in G \}.
+    \]
+    Again we use one-step subgroup test to check. For all $x, y \in \phi(G)$, we want to show  
+    $xy^{-1}$ is in $\phi(G)$.
+    
+    Let $x = \phi(g_1)$, and $y = \phi(g_2)$ where $g_1,g_2 \in G$. Compute 
+    \begin{align*}
+        xy^{-1} &= \phi(g_1)\, \phi(g_2^{-1})\\
+        &= \phi(g_1 g_2^{-1}) \in \phi(G)\\
+    \end{align*}
+
+    The map $T: G/Ker(\phi) \to \phi(G)$ (where $T(g Ker(\phi)) = \phi(g)$) is one-to-one and onto. So $T$ is an isomorphism.
 \end{proof}
 
 \begin{theorem}[Second Isomorphism Theorem]
