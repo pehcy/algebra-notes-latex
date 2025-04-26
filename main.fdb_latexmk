@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1745699185 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1745699188
+["pdflatex"] 1745699878 "/home/pehcy/github/algebra-notes-latex/main.tex" "main.pdf" "main" 1745699882
   "/dev/null" 1745648596 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/etc/texmf/web2c/texmf.cnf" 1737194600 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/pehcy/github/algebra-notes-latex/main.tex" 1745693789 916 b96a40db223c1b93ef985258686d28b3 ""
+  "/home/pehcy/github/algebra-notes-latex/main.tex" 1745699878 1408 0f62b5a015f5fe84c61d600a153d7526 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -28,6 +28,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1136768653 1316 b636689f1933f24d1294acdf6041daaa ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1136768653 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm" 1136768653 1296 d77f431d10d47c8ea2cc18cf45346274 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm" 1136768653 1272 e2d13f0df30bf3ad990bb9d028e37f34 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm" 1136768653 1520 ca2bb4b78ac9800bd686e30c6d19ef95 ""
@@ -52,6 +53,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1248133631 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb" 1248133631 24393 3b7eb51a67a0a62aec5849271bdb9c2e ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb" 1248133631 28902 2f5c04fd2884d1878057baa5aad22765 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb" 1248133631 25150 e0d09798d232ab9d00c5c0a8df6cc22d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -373,8 +375,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1737195196 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1737195220 2799331 109c9e931f50376ed63513351d2a7425 ""
-  "main.aux" 1745699188 71071 2499b8c119fdafa274c6936528f6cd9d "pdflatex"
-  "main.tex" 1745693789 916 b96a40db223c1b93ef985258686d28b3 ""
+  "main.aux" 1745699881 71082 e40de039b6aae8e0cd3c0d44e1658a48 "pdflatex"
+  "main.tex" 1745699878 1408 0f62b5a015f5fe84c61d600a153d7526 ""
   "src//./images/Dihedral2.pdf" 1742630017 24209 b0ae2544334b07f1bc9ad7a51aa3eeef ""
   "src//./images/Dihedral2_120.pdf" 1745596190 44193 bf3dde33c02752f065bc712db307e7f3 ""
   "src//./images/Dihedral2_240.pdf" 1745596363 44369 ceaac39a24f88745b3940f283f731854 ""
@@ -383,6 +385,7 @@
   "src//./images/second_iso.pdf" 1745663471 21679 71b2ace728a058d28e6f70a4ef04aaf7 ""
   "src/fields.tex" 1745697457 51955 28faf257eabec0dfd789fed4512ac557 ""
   "src/group.tex" 1745699182 137452 093e5f20dbf99e8010381c9ff79bdaaa ""
+  "src/images/wave.png" 1745699356 423890 4cfedd3647463c82016214089dad5d28 ""
   "src/rings.tex" 1745684109 63831 d83bd1208493154183be16da64c68de8 ""
   "styles.sty" 1745693308 10501 5d8f88b7751e93601750ebdc81a9f4a4 ""
   (generated)

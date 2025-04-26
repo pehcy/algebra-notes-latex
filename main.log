@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  27 APR 2025 04:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.1.18)  27 APR 2025 04:37
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1243,26 +1243,26 @@ runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for OT1+qpl on input line 22.
+LaTeX Font Info:    Trying to load font information for OT1+qpl on input line 23.
  (/usr/share/texmf/tex/latex/tex-gyre/ot1qpl.fd
 File: ot1qpl.fd 2009/09/25 v1.2 font definition file for OT1/qpl
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1327,7 +1327,14 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 )
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
 
-(./src/group.tex
+<./src/images/wave.png, id=41, 284.38245pt x 284.38245pt>
+File: ./src/images/wave.png Graphic file (type png)
+<use ./src/images/wave.png>
+Package pdftex.def Info: ./src/images/wave.png  used on input line 33.
+(pdftex.def)             Requested size: 328.63115pt x 328.63847pt.
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./src/images/wave.png>] (./src/group.tex
 Chapter 1.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
@@ -1344,55 +1351,54 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+cmupint on input line 4.
  (/usr/share/texlive/texmf-dist/tex/latex/cmupint/ucmupint.fd
 File: ucmupint.fd 
-) [1
+) [2
 
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+]
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 61.
  (/usr/share/texmf/tex/latex/tex-gyre/ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 )
 Underfull \vbox (badness 1895) has occurred while \output is active []
 
- [2] [3] [4] [5] [6]
+ [3] [4] [5] [6] [7]
 LaTeX Font Info:    Trying to load font information for OT1+qhv on input line 439.
  (/usr/share/texmf/tex/latex/tex-gyre/ot1qhv.fd
 File: ot1qhv.fd 2009/09/25 v1.2 font definition file for OT1/qhv
 )
 Underfull \vbox (badness 6125) has occurred while \output is active []
 
- [7] [8] [9] [10]
+ [8] [9] [10] [11]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 665.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [11] [12] [13]
+) [12] [13] [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14] [15]
+ [15] [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16] [17]
-<src//./images/Dihedral2_120.pdf, id=115, 613.29124pt x 173.64874pt>
+ [17] [18]
+<src//./images/Dihedral2_120.pdf, id=122, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2_120.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2_120.pdf>
 Package pdftex.def Info: src//./images/Dihedral2_120.pdf  used on input line 1115.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral2_240.pdf, id=116, 613.29124pt x 173.64874pt>
+<src//./images/Dihedral2_240.pdf, id=123, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2_240.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2_240.pdf>
 Package pdftex.def Info: src//./images/Dihedral2_240.pdf  used on input line 1119.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral2_360.pdf, id=117, 613.29124pt x 173.64874pt>
+<src//./images/Dihedral2_360.pdf, id=124, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2_360.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2_360.pdf>
 Package pdftex.def Info: src//./images/Dihedral2_360.pdf  used on input line 1123.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral2.pdf, id=118, 613.29124pt x 173.64874pt>
+<src//./images/Dihedral2.pdf, id=125, 613.29124pt x 173.64874pt>
 File: src//./images/Dihedral2.pdf Graphic file (type pdf)
 <use src//./images/Dihedral2.pdf>
 Package pdftex.def Info: src//./images/Dihedral2.pdf  used on input line 1129.
 (pdftex.def)             Requested size: 478.00812pt x 135.34477pt.
-<src//./images/Dihedral3.pdf, id=119, 697.60625pt x 348.30125pt>
+<src//./images/Dihedral3.pdf, id=126, 697.60625pt x 348.30125pt>
 File: src//./images/Dihedral3.pdf Graphic file (type pdf)
 <use src//./images/Dihedral3.pdf>
 Package pdftex.def Info: src//./images/Dihedral3.pdf  used on input line 1135.
@@ -1400,43 +1406,43 @@ Package pdftex.def Info: src//./images/Dihedral3.pdf  used on input line 1135.
 
 Underfull \vbox (badness 1331) has occurred while \output is active []
 
- [18] [19 <./src//./images/Dihedral2_120.pdf> <./src//./images/Dihedral2_240.pdf
+ [19] [20 <./src//./images/Dihedral2_120.pdf> <./src//./images/Dihedral2_240.pdf
 
 pdfTeX warning: pdflatex (file ./src//./images/Dihedral2_240.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 Underfull \vbox (badness 2293) has occurred while \output is active []
 
- [20 <./src//./images/Dihedral2_360.pdf> <./src//./images/Dihedral2.pdf
+ [21 <./src//./images/Dihedral2_360.pdf> <./src//./images/Dihedral2.pdf
 
 pdfTeX warning: pdflatex (file ./src//./images/Dihedral2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 Underfull \vbox (badness 2707) has occurred while \output is active []
 
- [21 <./src//./images/Dihedral3.pdf>]
+ [22 <./src//./images/Dihedral3.pdf>]
 Underfull \vbox (badness 1655) has occurred while \output is active []
 
- [22]
+ [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+ [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
 Underfull \vbox (badness 1715) has occurred while \output is active []
 
- [35]
+ [36]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36] [37] [38]
+ [37] [38] [39]
 Underfull \vbox (badness 2503) has occurred while \output is active []
 
- [39] [40]
-<src//./images/second_iso.pdf, id=340, 373.395pt x 232.87pt>
+ [40] [41]
+<src//./images/second_iso.pdf, id=348, 373.395pt x 232.87pt>
 File: src//./images/second_iso.pdf Graphic file (type pdf)
 <use src//./images/second_iso.pdf>
 Package pdftex.def Info: src//./images/second_iso.pdf  used on input line 2629.
 (pdftex.def)             Requested size: 328.63115pt x 204.96175pt.
- [41 <./src//./images/second_iso.pdf>] [42] [43] [44]
+ [42 <./src//./images/second_iso.pdf>] [43] [44] [45]
 Underfull \vbox (badness 1418) has occurred while \output is active []
 
- [45] [46]
+ [46] [47]
 
 LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
 (Font)              using `OT1/cmtt/bx/n' instead on input line 2994.
@@ -1454,108 +1460,108 @@ LaTeX Font Warning: Font shape `OT1/cmtt/b/n' undefined
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
+ [48]
 Package mdframed Info: mdframed works in twoside mode on input line 3057.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 3057.
- [48] [49]
+ [49] [50]
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
 (mdframed)              on input line 3358.
- [50] [51] [52]) (./src/rings.tex [53]
+ [51] [52] [53]) (./src/rings.tex [54]
 Chapter 2.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[54
+[55
 
-] [55] [56] [57] [58] [59] [60] [61]
+] [56] [57] [58] [59] [60] [61] [62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
+ [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63] [64]
+ [64] [65]
 Underfull \vbox (badness 3039) has occurred while \output is active []
 
- [65] [66] [67]
+ [66] [67] [68]
 Underfull \vbox (badness 3838) has occurred while \output is active []
 
- [68]
+ [69]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69]
+ [70]
 Underfull \vbox (badness 1466) has occurred while \output is active []
 
- [70] [71] [72] [73] [74]
+ [71] [72] [73] [74] [75]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 1322.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75]
+ [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [76] [77]
+ [77] [78]
 Package mdframed Info: mdframed works in twoside mode on input line 1472.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1472.
- [78] [79] [80]) (./src/fields.tex [81]
+ [79] [80] [81]) (./src/fields.tex [82]
 Chapter 3.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 1.
 
-[82
+[83
 
 ]
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
- [83]
+ [84]
 Underfull \vbox (badness 4328) has occurred while \output is active []
 
- [84]
+ [85]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85] [86] [87] [88] [89]
+ [86] [87] [88] [89] [90]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 518.
 
-[90] [91] [92] [93]
+[91] [92] [93] [94]
 Underfull \vbox (badness 1168) has occurred while \output is active []
 
- [94] [95] [96] [97]
+ [95] [96] [97] [98]
 Underfull \vbox (badness 2762) has occurred while \output is active []
 
- [98]
+ [99]
 Underfull \vbox (badness 1521) has occurred while \output is active []
 
- [99] [100]
+ [100] [101]
 Missing character: There is no ; in font nullfont!
-[101]
+[102]
 Package mdframed Info: mdframed works in twoside mode on input line 1278.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1278.
-) [102] (./main.aux) ) 
+) [103] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 51650 strings out of 478287
- 1235722 string characters out of 5849289
- 1796127 words of memory out of 5000000
- 68899 multiletter control sequences out of 15000+600000
- 538164 words of font info for 108 fonts, out of 8000000 for 9000
+ 51663 strings out of 478287
+ 1235959 string characters out of 5849289
+ 1797186 words of memory out of 5000000
+ 68908 multiletter control sequences out of 15000+600000
+ 544190 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,23n,113p,784b,2678s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on main.pdf (102 pages, 1057434 bytes).
+{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-rm.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplbi.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
+Output written on main.pdf (103 pages, 1379671 bytes).
 PDF statistics:
- 699 PDF objects out of 1000 (max. 8388607)
- 459 compressed objects within 5 object streams
+ 711 PDF objects out of 1000 (max. 8388607)
+ 466 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 
