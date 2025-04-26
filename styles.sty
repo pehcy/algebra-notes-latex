@@ -13,7 +13,9 @@
 \usepackage{actuarialsymbol}
 \usepackage{tabularx}
 \usepackage{tabu}
-\usepackage{xcolor,colortbl}
+\usepackage{colortbl}
+\usepackage{cancel}
+\usepackage[table]{xcolor}
 \usepackage{booktabs}
 \usepackage{titlesec}
 %\usepackage{algorithm2e}
@@ -32,6 +34,7 @@
 \DeclareMathOperator{\Ima}{Im}
 \newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
 \newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\newcommand{\Cancel}[2][black]{{\color{#1}\cancel{\color{black}#2}}}
 
 \DeclareRobustCommand{\bxseries}{\fontseries{bx}\selectfont}
 \DeclareTextFontCommand{\textbx}{\fontseries{bx}}
@@ -48,6 +51,49 @@
 \colorlet{codegreen}{green!20}
 \colorlet{codeyellow}{yellow!60}
 \colorlet{codered}{red!30}
+
+\definecolor{myred}{RGB}{240,150,150}
+\definecolor{mygreen}{RGB}{150,240,150}
+\definecolor{myblue}{RGB}{150,150,255}
+\definecolor{mypurple}{RGB}{210,150,255}
+\definecolor{myyellow}{RGB}{255,195,0}
+\definecolor{mygrey}{RGB}{230,230,230}
+\definecolor{lightgrey}{rgb}{.85, .85, .85}
+
+\colorlet{lightred}{red!30!white}
+\colorlet{lightblue}{blue!30!white}
+\colorlet{lightyellow}{yellow!30!white}
+\colorlet{keylime}{green!10!white}
+\colorlet{darkgreen}{green!50!black}
+\colorlet{midgreen}{green!70!black}
+\colorlet{lightgreen}{darkgreen!30!white}
+\colorlet{lightpurple}{violet!60!white}
+\colorlet{darkgrey}{black!70}
+\colorlet{midgrey}{black!50}
+\definecolor{Red}{rgb}{.9,0,0}
+\definecolor{Blue}{rgb}{0,0,.9}
+\definecolor{Green}{rgb}{0,.9,0}
+\definecolor{Gold}{rgb}{.83,.67,.08}
+
+\definecolor{conj-purple}{HTML}{E4B7FF}
+\definecolor{conj-orange}{HTML}{FFD4B7}
+
+\definecolor{grey}{rgb}{.7, .7, .7}
+\colorlet{lred}{red!50!white}
+\definecolor{lblue}{rgb}{0.60, 0.75, 1}
+\colorlet{lgreen}{green!40!white}
+\colorlet{lyellow}{yellow!30!white}
+%\definecolor{lpurple}{rgb}{0.6 0.35 0.8}
+\definecolor{lpurple}{rgb}{0.7 0.45 0.9}
+\colorlet{lorange}{orange!50!white}
+\definecolor{lightgrey}{rgb}{.85, .85, .85}
+\definecolor{faded}{rgb}{.75,.75,.75}
+\definecolor{midgrey}{rgb}{.5,.5,.5}
+%\definecolor{midgrey}{rgb}{.35, .35, .35}
+%\definecolor{amethyst}{rgb}{0.6 0.4 0.8}
+\definecolor{amethyst}{rgb}{0.54 0.17 0.89}
+\definecolor{amber}{rgb}{1.0 0.49 0.0}
+\definecolor{turq}{rgb}{0.12 0.69 0.71}
 
 \newcommand{\olsi}[1]{\,\overline{\!{#1}}} % overline short italic
 %\usepackage{mathrsfs}
@@ -92,6 +138,7 @@
 \usetikzlibrary{arrows,shapes,positioning,calc,chains,matrix,positioning,scopes}
 \usetikzlibrary{positioning, arrows.meta, graphs}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta, positioning}
 \makeatletter
 \usepackage{tikz-cd}
 

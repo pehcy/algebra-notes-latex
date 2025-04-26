@@ -29,7 +29,7 @@
     Furthermore if $u$ is a root of $g(x) \in F[x]$, then $p(x)$ divide $g(x)$.
 \end{theorem}
 \begin{proof}
-    Notice that $u \in K$ is algebraic over $F$ \textit{if and only if} there is a nonzero polynomial 
+    Notice that $u \in K$ is algebraic over $F$ if and only if there is a nonzero polynomial 
     $f(x) \in F[x]$ such that $f(u) = 0_K$.
 
     Let $S$ be the set of all nonzero polynomials in $F[x]$ that have $u$ as a root, then $S$ is nonempty set.
@@ -570,7 +570,7 @@ the original solvability problem. Why? Because his theory connecting the field e
 
 \begin{theorem}
     Let $K$ be the splitting field of some polynomial over $F$ and $u,v \in K$. Then there exists an $\sigma \in \gal_F K$ 
-    such that $\sigma(u) = v$ \textit{if and only if} $u$ and $v$ have the same minimal polynomial. 
+    such that $\sigma(u) = v$ if and only if $u$ and $v$ have the same minimal polynomial. 
 \end{theorem}
 \begin{proof}
     $(\Rightarrow)$ Note that if $K$ is splitting field of $f(x)$ with $\deg f = n$. Then 
@@ -851,7 +851,7 @@ the original solvability problem. Why? Because his theory connecting the field e
 \end{definition}
 
 \begin{corollary}
-    Let $K$ be a finite dimensional extension field of $F$. Then $K$ is Galois over $F$ \textit{if and only if}
+    Let $K$ be a finite dimensional extension field of $F$. Then $K$ is Galois over $F$ if and only if
     $F$ is fixed field of the Galois group over $F$.
 \end{corollary}
 \begin{proof}
@@ -874,7 +874,7 @@ the original solvability problem. Why? Because his theory connecting the field e
                 |E:F| = |\gal_F K : \gal_E K|.
             \]
         
-        \item An intermediate field $E$ is normal extension of $F$ \textit{if and only if} the 
+        \item An intermediate field $E$ is normal extension of $F$ if and only if the 
             corresponding group $\gal_E K$ is a normal subgroup of $\gal_F K$.
     \end{enumerate}
 \end{theorem}
@@ -1063,6 +1063,35 @@ an extension field $K$ of $F$ such that
     that $S_n$ is solvable.
 \end{proof}
 
+\begin{theorem}
+    Every homomorphic image of a solvable group $G$ is solvable.
+\end{theorem}
+\begin{proof}
+    Let $G$ be a solvable group. Then there exists a chain of groups 
+    \[
+        G = G_0 \supseteq G_1 \ldots \supseteq G_n = \langle e \rangle
+    \]
+    such that for all $i$, $G_{i-1} \triangleright G_i$ and $G_{i-1}/G_i$ is abelian.
+
+    Consider $f$ is the homomorphism of $G$. Then $f(G_i)$ is also a group, and the chain of group is now 
+    \[
+        f(G) = f(G_0) \supseteq f(G_1) \ldots \supseteq f(G_n) = \langle e \rangle
+    \]
+    and $aba^{-1}b^{-1} \in G_i$ whenever $a,b$ in $G_{i-1}$. This implies 
+    \[
+        f(aba^{-1}b^{-1}) = f(a)f(b) f(a)^{-1}f(b)^{-1} \in f(G_i) \quad \forall a,b \in G_{i-1}
+    \]
+    and 
+    \[
+        \forall c, d \in f(G_{i-1}), \exists a,b \in G_{i-1} \quad s.t. \> f(a) = c \textsf{ and } f(b) =d.
+    \]
+    So we have 
+    \[
+        f(a)f(b) f(a)^{-1}f(b)^{-1} = cdc^{-1}d^{-1} \in f(G_i).
+    \]
+    Therefore $f(G_{i-1})/f(G_i)$ is abelian. Hence $f(G)$ is solvable group.
+\end{proof}
+
 \begin{definition}
     A generator of this cyclic group of $n$-th roots of unity in $K$ is called a primitive $n$-th root of unity.
 \end{definition}
@@ -1108,3 +1137,45 @@ are the $n$ distinct $n$-th roots of unity.
     \]
     Thus $f(G_{i-1})/f(G_i)$ is abelian. Thus $f(G)$ is solvable group.
 \end{proof}
+
+\begin{lemma}
+    Let $F$ be a field and $\zeta$ a primitive $n$-th root of unity of $F$. Then $F$ contains a primity $d$-th root of unity 
+    for every positive divisor $d$ of $n$.
+\end{lemma}
+\begin{proof}
+    Because $\zeta$ is a primitive $n$-th root of unity of $F$, that is, $\zeta^n = 1_F$. If $\zeta$ 
+    has order $n$ and $n = dk$, $\zeta^k$ has order $d$.
+
+    Note that $\{ \zeta^k, \zeta^{2k}, \ldots, \zeta^{nk} \}$ are all distinct and roots of $x^d - 1_F$. Thus 
+    $\zeta^k$ is a primitive $d$-th root of unity.
+\end{proof}
+
+\begin{example}
+    There is no formula (involving only field operations and extraction of roots) for the 
+    solution of all 5th-degree polynomial equations.
+\end{example}
+\begin{solution}
+    Consider $f(x) = 2x^5 - 10x + 5 \in \mathbb{Q}[x]$. We check the zeros of the derivatives.
+    \[
+        f'(x) = \frac{d}{dx} 2x^5 - 10x + 5 = 10x^4 - 10 \Longrightarrow \textsf{roots are } \pm 1, \pm i
+    \]
+    \[
+        f''(x) = \frac{d}{dx} 10x^4 - 10 = 40x^3 \Longrightarrow \textsf{the root is } 0.
+    \]
+
+    Note that by Eisenstein's criterion, $5|10$, $5|4$, but $5 \nmid 2$ and $5^2 \nmid 5$. So $f(x)$ 
+    is irreducible in $\mathbb{Q}[x]$. 
+
+    If $K$ is splitting field of $f(x)$ in $\mathbb{C}$. Then 
+    \[
+    |\gal_\mathbb{Q} K| = [K:\mathbb{Q}]
+    \]
+    Since $K$ is Galois field of $\mathbb{Q}$.
+
+    If $r$ is any root of $f(x)$, then 
+    \[
+        |K:\mathbb{Q}| = |K: \mathbb{Q}[r]| \cdot |\mathbb{Q}[r] : \mathbb{Q}| = 5 |K: \mathbb{Q}[r]|.
+    \]
+    Thus $|K : \mathbb{Q}|$ is divisible by $5$. By Cauchy's theorem, 
+
+\end{solution}

@@ -236,10 +236,10 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
 \end{example}
 
 \begin{example}
-    For a fixed point $(a,b)$ in 2-dimensional cartesian plane $\mathbb{R}^2$, we define the geometrical translation $T_{a,b} : \mathbb{R}^2 \to \mathbb{R}^2$
+    For a fixed point $(x,y)$ in 2-dimensional cartesian plane $\mathbb{R}^2$, we define the geometrical translation $T_{a,b} : \mathbb{R}^2 \to \mathbb{R}^2$
     by 
     \[
-        T_{a,b} = (x+a, y+b).
+        T_{a,b}(x,y) = (x+a, y+b).
     \]
     The set $G = \{ T_{a,b} \> | \> a,b \in \mathbb{R}\}$ is a group under function composition.
 \end{example}
@@ -323,6 +323,31 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
     \end{enumerate}
 \end{solution}
 
+\begin{example}
+    Draw a cayley table for $U(10)$.
+\end{example}
+\begin{solution}
+    $U(10)$ contains all the integers that are coprime to $10$. That is, 
+    \[
+        U(10) = \{ 1, 3, 7,9 \}.
+    \]
+    $U(10)$ is a group under multiplication modulo $10$.
+    \begin{center}
+        {
+        \arrayrulewidth=1pt
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c|*{4}{>{\columncolor{white}}c}}
+          $\cdot_{10}$ & \cellcolor{myred}1 & \cellcolor{mygreen}3 & \cellcolor{myblue}7 & \cellcolor{mypurple}9 \\
+          \hline
+          \cellcolor{myred}1 & \cellcolor{myred}1 & \cellcolor{mygreen}3 & \cellcolor{myblue}7 & \cellcolor{mypurple}9 \\
+          \cellcolor{mygreen}3 & \cellcolor{mygreen}3 & \cellcolor{mypurple}9 & \cellcolor{myred}1 & \cellcolor{myblue}7 \\
+          \cellcolor{myblue}7 & \cellcolor{myblue}7 & \cellcolor{myred}1 & \cellcolor{mypurple}9 & \cellcolor{mygreen}3 \\
+          \cellcolor{mypurple}9 & \cellcolor{mypurple}9 & \cellcolor{myblue}7 & \cellcolor{mygreen}3 & \cellcolor{myred}1 \\
+        \end{tabular}
+    }
+    \end{center}
+\end{solution}
+
 \begin{lemma}[Uniqueness of group identity]
     In a group $G$, there is one and only one identity element $e$.
 \end{lemma}
@@ -393,6 +418,24 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
     E.g. matrix multiplication $AB \neq BA$.
 \end{remark}
 
+\begin{example}[Tutorial]
+    Show that every group with identity $e$ and $x * x = x$ for all $x \in G$ is abelian.
+\end{example}
+\begin{solution}
+    Given $(G, *)$ is a group, there is an identity $e \in G$ and for all $x \in G$, $x * x = x$. We 
+    want to show $G$ is abelian.
+
+    $\forall a, b \in G, a * a = a$ and $b * b = b$. Since $G$ is a group, so $a * b \in G$. Observe that
+    \begin{align*}
+        (a * b) * (a * b) = a * b &\Rightarrow a * (b * a) * b = (a * a) * (b * b)\\
+        &\Rightarrow a * (b * a) * b = a * a * b * b\\
+        &\Rightarrow a * (b * a) * b = a * (a * b) * b\\
+        &\Rightarrow \Cancel[red]{a} * (b * a) * \Cancel[blue]{b} = \Cancel[red]{a} * (a * b) * \Cancel[blue]{b}\\
+        &\Rightarrow \fbox{$b * a = a * b$}.
+    \end{align*}
+    Thus $*$ commute and $G$ is an abelian group.
+\end{solution}
+
 \section{Finite groups and Subgroups}
 
 \begin{definition}[Order of group]
@@ -405,7 +448,7 @@ $g^n = e$ (In additive notation, this would be $ng = 0$). If no such integer exi
 $g$ has infinite order. The order of an element $g \in G$ is denoted 
 by $\ord(g)$.
 
-\begin{definition}
+\begin{definition}[Subgroups]
     If a subset $H$ of a group $G$ is itself a group under the same operation of $G$, we say that $H$ is a subgroup of $G$.
 \end{definition}
 
@@ -430,7 +473,7 @@ $\{ e \}$ is called a nontrivial subgroup of $G$.
 \begin{proof}
     Given that $G$ is a group and $\varnothing \neq H \subseteq G$ such that for any $a, b$ in subgroup $H$, we have 
     \begin{equation*}
-        ab^{-1} \in H   \label{eq:g2} \tag{{\color{red} $\blacklozenge$}}
+        ab^{-1} \in H   \label{eq:g2} \tag{{\color{red} $\heartsuit $}}
     \end{equation*}
     Then, what we need to do is to show that $H \leq G$, which is equivalent to show that $H$ itself is a group, and $H$ 
     definitely inherits the operation of $G$. So $H$ is closed under the same operation of $G$.
@@ -846,6 +889,25 @@ element is a multiple of some fixed element. For instance,
     \end{center}
 \end{solution}
 
+\begin{example}
+    Draw a subgroup lattice of $\mathbb{Z}_{30}$.
+\end{example}
+\begin{solution}
+    By prime factorizing $30 = 2 \cdot 3 \cdot 5$. The factors of $30$ are
+    \[
+    1, 2, 3, 5, 6, 10, 15, 30
+    \]
+    The lattice diagram is 
+    \[
+        \begin{tikzcd}[row sep=2.0em]
+            & \mathbb{Z}_{30} \arrow[dash]{dl} \arrow[dash]{d} \arrow[dash]{dr}& \\
+            \langle 5 \rangle  \arrow[dash]{d}  \arrow[dash]{dr}& \langle 3 \rangle  \arrow[dash]{dl} \arrow[dash]{dr} & \langle 2 \rangle \arrow[dash]{dl} \arrow[dash]{d}\\
+            \langle 15 \rangle  \arrow[dash]{dr} & \langle 10 \rangle  \arrow[dash]{d} & \langle 6 \rangle \arrow[dash]{dl}\\
+            & \langle 0 \rangle & \\
+        \end{tikzcd}
+    \]
+\end{solution}
+
 \section{Permutation}
 
 \begin{definition}
@@ -949,17 +1011,29 @@ Dihedral groups are an essential class in group theory that arise naturally in g
 For $n \geq 3$, the dihedral group $D_n$ is described as the rigid motions taking a regular 
 $n$-gon back to itself, with the operations 
 
+We could said that the rotational symmetry group of an equilateral triangle, $C_3$, is isomorphic to
+$\mathbb{Z}_3$. We can combine the horizontal reflection and rotations and form another reflection lines, 
+which these reflection lines runs from one of the vertices to the center of the opposing side.
 
+\begin{figure}[ht]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral2_120.pdf}}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral2_240.pdf}}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral2_360.pdf}}
+    \caption{The rotation $r$ on dihedral group $D_3$ with order 6. $r$ in $D_3$ is described as rotating equilateral triangle $120$ degree.}
+\end{figure}
 
 \begin{figure}[ht]
     \centering
     \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral2.pdf}}
     \caption{The group action $f$ on dihedral group $D_3$ with order 6. $f$ is a horizontal flip.}
 \end{figure}
-
-We could said that the rotational symmetry group of an equilateral triangle, $C_3$, is isomorphic to
-$\mathbb{Z}_3$. We can combine the horizontal reflection and rotations and form another reflection lines, 
-which these reflection lines runs from one of the vertices to the center of the opposing side.
 
 \begin{figure}[ht]
     \centering
@@ -1045,19 +1119,9 @@ which these reflection lines runs from one of the vertices to the center of the 
     Thus the order of group $G$ is the product of the number of possibilities of these two rows. $|G| = 8 \times 6 = 48$.
 \end{solution}
 
-\section{Sylow's theorem}
-
-\begin{theorem}
-    $C_5 \times C_2$ and $C_{10}$ are two isomorphism classes.
-\end{theorem}
-\begin{proof}
-    From the \textit{Third Sylow's theorem}, the number of Sylow 5-groups divides 2 and is $1 (mod 5)$, so there is only one Sylow 5-group.
-    And there is a normal subgroup $K \trianglelefteq G$ such that $|K| = 5$.
-\end{proof}
-
 \section{Automorphisms}
 
-\begin{definition}
+\begin{definition}[Automorphisms]
     An isomorphism from a group $G$ onto itself is called an automorphism.
 \end{definition}
 
@@ -1093,6 +1157,317 @@ which these reflection lines runs from one of the vertices to the center of the 
 
     In fact, $\text{Aut}(\mathbb{Z}_{10})$ is isomorphic to $U(10) = \{ 1, 3, 7, 9\}$.
 \end{solution}
+
+\begin{example}
+    The automorphisms of $D_3$ is $\text{Aut}(D_3) = \langle \alpha, \beta \rangle \cong D_3$, where 
+    \[
+        \begin{cases}
+            \alpha(r) = r\\
+            \alpha(f) = rf 
+        \end{cases}
+        \quad         
+        \begin{cases}
+            \beta(r) = r^2\\
+            \beta(f) = f 
+        \end{cases}
+    \]
+
+    All of these automorphisms are \textit{inner} (of the form $f_x : g \mapsto x^{-1}gx$). Two Cayley diagrams for $\text{Aut}(D_3)$
+    are shown below.
+
+    \vspace{-4mm}
+  
+  \tikzstyle{v-tiny} = [circle, draw, fill=grey,inner sep=0pt, minimum size=1.2mm] 
+  \tikzstyle{gg-thin} = [draw, darkgreen]
+  \tikzstyle{r-thin} = [draw, red, -stealth]
+  \tikzstyle{bb-thin} = [draw, blue]
+  \tikzstyle{o} = [draw, very thick,orange, -stealth]
+  \tikzstyle{p} = [draw, very thick,amethyst]
+  %%
+  \[
+  \hspace*{-10mm}
+  \begin{tikzpicture}[scale=.95]
+    %%%%
+    %%%%%=============================================================
+    %%%%
+    \begin{scope}[shift={(0,0)},scale=1]
+      \begin{scope}[shift={(0:1.25)},scale=.12]
+        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+        \node (f) at (0:2.5) [v-tiny] {};
+        \node (rf) at (120:2.5) [v-tiny] {};
+        \node (rrf) at (240:2.5) [v-tiny] {};
+        \node (e) at (0:5.5) [v-tiny] {};
+        \node (rr) at (240:5.5) [v-tiny] {};
+        \node (r) at (120:5.5) [v-tiny] {};
+        \draw [r-thin] (e) to [bend left] (rr);
+        \draw [r-thin] (rr) to [bend left] (r);
+        \draw [r-thin] (r) to [bend left] (e);
+        \draw [r-thin] (f) to [bend right] (rf);
+        \draw [r-thin] (rf) to [bend right] (rrf);
+        \draw [r-thin] (rrf) to [bend right] (f);
+        \draw [bb-thin] (e) to (f);
+        \draw [bb-thin] (r) to (rf);
+        \draw [bb-thin] (rr) to (rrf);
+        \node (o-in_f) at (90:4.8) {};
+        \node (o-out_f) at (270:4.8) {};
+        \node (p_f) at (0:4.8) {};
+      \end{scope}
+      %%
+      \begin{scope}[shift={(120:1.25)},scale=.12]
+        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+        \node (f) at (0:2.5) [v-tiny] {};
+        \node (rf) at (120:2.5) [v-tiny] {};
+        \node (rrf) at (240:2.5) [v-tiny] {};
+        \node (e) at (0:5.5) [v-tiny] {};
+        \node (rr) at (240:5.5) [v-tiny] {};
+        \node (r) at (120:5.5) [v-tiny] {};
+        \draw [r-thin] (e) to [bend left] (rr);
+        \draw [r-thin] (rr) to [bend left] (r);
+        \draw [r-thin] (r) to [bend left] (e);
+        \draw [r-thin] (f) to [bend right] (rf);
+        \draw [r-thin] (rf) to [bend right] (rrf);
+        \draw [r-thin] (rrf) to [bend right] (f);
+        \draw [bb-thin] (e) to [bend left] (rrf);
+        \draw [bb-thin] (rr) to [bend left] (rf);
+        \draw [bb-thin] (r) to [bend left] (f);
+        \node (o-in_rf) at (195:4.8) {};
+        \node (o-out_rf) at (30:4.8) {};
+        \node (p_rf) at (120:4.8) {};
+      \end{scope}
+      %%
+      \begin{scope}[shift={(240:1.25)},scale=.12]
+        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+        \node (f) at (0:2.5) [v-tiny] {};
+        \node (rf) at (120:2.5) [v-tiny] {};
+        \node (rrf) at (240:2.5) [v-tiny] {};
+        \node (e) at (0:5.5) [v-tiny] {};
+        \node (rr) at (240:5.5) [v-tiny] {};
+        \node (r) at (120:5.5) [v-tiny] {};
+        \draw [r-thin] (e) to [bend left] (rr);
+        \draw [r-thin] (rr) to [bend left] (r);
+        \draw [r-thin] (r) to [bend left] (e);
+        \draw [r-thin] (f) to [bend right] (rf);
+        \draw [r-thin] (rf) to [bend right] (rrf);
+        \draw [r-thin] (rrf) to [bend right] (f);
+        \draw [bb-thin] (e) to [bend right] (rf);
+        \draw [bb-thin] (r) to [bend right] (rrf);
+        \draw [bb-thin] (rr) to [bend right] (f);
+        \node (o-in_r2f) at (330:4.8) {};
+        \node (o-out_r2f) at (165:4.8) {};
+        \node (p_r2f) at (240:4.8) {};
+      \end{scope}
+      %%
+      %%----------------------------------------------------------------
+      %%
+      \begin{scope}[shift={(0:3.5)},scale=.12]
+        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+        \node (f) at (0:2.5) [v-tiny] {};
+        \node (rf) at (120:2.5) [v-tiny] {};
+        \node (rrf) at (240:2.5) [v-tiny] {};
+        \node (e) at (0:5.5) [v-tiny] {};
+        \node (rr) at (240:5.5) [v-tiny] {};
+        \node (r) at (120:5.5) [v-tiny] {};
+        \draw [r-thin] (e) to [bend right] (r);
+        \draw [r-thin] (r) to [bend right] (rr);
+        \draw [r-thin] (rr) to [bend right] (e);
+        \draw [r-thin] (f) to [bend left] (rrf);
+        \draw [r-thin] (rrf) to [bend left] (rf);
+        \draw [r-thin] (rf) to [bend left] (f);
+        \draw [bb-thin] (e) to (f);
+        \draw [bb-thin] (r) to (rf);
+        \draw [bb-thin] (rr) to (rrf);
+        \node (o-in_1) at (270:4.8) {};
+        \node (o-out_1) at (90:4.8) {};
+        \node (p_1) at (180:4.8) {};
+      \end{scope}
+      %%
+      \begin{scope}[shift={(120:3.5)},scale=.12]
+        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+        \node (f) at (0:2.5) [v-tiny] {};
+        \node (rf) at (120:2.5) [v-tiny] {};
+        \node (rrf) at (240:2.5) [v-tiny] {};
+        \node (e) at (0:5.5) [v-tiny] {};
+        \node (rr) at (240:5.5) [v-tiny] {};
+        \node (r) at (120:5.5) [v-tiny] {};
+        \draw [r-thin] (e) to [bend right] (r);
+        \draw [r-thin] (r) to [bend right] (rr);
+        \draw [r-thin] (rr) to [bend right] (e);
+        \draw [r-thin] (f) to [bend left] (rrf);
+        \draw [r-thin] (rrf) to [bend left] (rf);
+        \draw [r-thin] (rf) to [bend left] (f);
+        \draw [bb-thin] (e) to [bend right] (rf);
+        \draw [bb-thin] (r) to [bend right] (rrf);
+        \draw [bb-thin] (rr) to [bend right] (f);
+        \node (o-in_r) at (30:4.8) {};
+        \node (o-out_r) at (195:4.8) {};
+        \node (p_r) at (300:4.8) {};
+      \end{scope}
+      %%
+      \begin{scope}[shift={(240:3.5)},scale=.12]
+        \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+        \node (f) at (0:2.5) [v-tiny] {};
+        \node (rf) at (120:2.5) [v-tiny] {};
+        \node (rrf) at (240:2.5) [v-tiny] {};
+        \node (e) at (0:5.5) [v-tiny] {};
+        \node (rr) at (240:5.5) [v-tiny] {};
+        \node (r) at (120:5.5) [v-tiny] {};
+        \draw [r-thin] (e) to [bend right] (r);
+        \draw [r-thin] (r) to [bend right] (rr);
+        \draw [r-thin] (rr) to [bend right] (e);
+        \draw [r-thin] (f) to [bend left] (rrf);
+        \draw [r-thin] (rrf) to [bend left] (rf);
+        \draw [r-thin] (rf) to [bend left] (f);
+        \draw [bb-thin] (e) to [bend left] (rrf);
+        \draw [bb-thin] (rr) to [bend left] (rf);
+        \draw [bb-thin] (r) to [bend left] (f);
+        \node (o-in_r2) at (165:4.8) {};
+        \node (o-out_r2) at (330:4.8) {};
+        \node (p_r2) at (60:4.8) {};
+      \end{scope}
+      \draw [o] (o-out_1) to[bend right=45] (o-in_r);
+      \draw [o] (o-out_r) to[bend right=45] (o-in_r2);
+      \draw [o] (o-out_r2) to[bend right=45] (o-in_1);
+      \draw [o] (o-out_f) to[bend left=30] (o-in_r2f);
+      \draw [o] (o-out_r2f) to[bend left=35] (o-in_rf);
+      \draw [o] (o-out_rf) to[bend left=30] (o-in_f);
+      \draw [p] (p_1) to (p_f);
+      \draw [p] (p_r) to (p_rf);
+      \draw [p] (p_r2) to (p_r2f);
+    \end{scope}
+    %%%
+    %%%%
+    %%%%%=============================================================
+    %%%%
+   \begin{scope}[shift={(10,0)}]
+    \begin{scope}[shift={(0:1.25)},scale=.12]
+      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+      \node (e) at (90:5.5) [v-tiny] {};
+      \node (rrf) at (30:5.5) [v-tiny] {};
+      \node (rr) at (-30:5.5) [v-tiny] {};
+      \node (rf) at (-90:5.5) [v-tiny] {};
+      \node (r) at (-150:5.5) [v-tiny] {};
+      \node (f) at (150:5.5) [v-tiny] {};
+      \path[gg-thin] (e) to (rf);
+      \path[bb-thin] (rf) to (r);
+      \path[gg-thin] (r) to (rrf);
+      \path[bb-thin] (rrf) to (rr);
+      \path[gg-thin] (rr) to (f);
+      \path[bb-thin] (f) to (e);
+      \node (o-in_f) at (90:4.8) {};
+      \node (o-out_f) at (270:4.8) {};
+      \node (p_f) at (0:4.8) {};
+    \end{scope}
+    %%
+    \begin{scope}[shift={(120:1.25)},scale=.12]
+      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+      \node (e) at (90:5.5) [v-tiny] {};
+      \node (rrf) at (30:5.5) [v-tiny] {};
+      \node (rr) at (-30:5.5) [v-tiny] {};
+      \node (rf) at (-90:5.5) [v-tiny] {};
+      \node (r) at (-150:5.5) [v-tiny] {};
+      \node (f) at (150:5.5) [v-tiny] {};
+      \path[bb-thin] (e) to (rrf);
+      \path[bb-thin] (r) to (f);
+      \path[bb-thin] (rr) to (rf);
+      \path[gg-thin] (e) to (f);
+      \path[gg-thin] (r) to (rf);
+      \path[gg-thin] (rr) to (rrf);
+      \node (o-in_rf) at (195:4.8) {};
+      \node (o-out_rf) at (30:4.8) {};
+      \node (p_rf) at (120:4.8) {};
+    \end{scope}
+    %%
+    \begin{scope}[shift={(240:1.25)},scale=.12]
+      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+      \node (e) at (90:5.5) [v-tiny] {};
+      \node (rrf) at (30:5.5) [v-tiny] {};
+      \node (rr) at (-30:5.5) [v-tiny] {};
+      \node (rf) at (-90:5.5) [v-tiny] {};
+      \node (r) at (-150:5.5) [v-tiny] {};
+      \node (f) at (150:5.5) [v-tiny] {};
+      \path[bb-thin] (e) to (rf);
+      \path[bb-thin] (r) to (rrf);
+      \path[bb-thin] (rr) to (f);
+      \path[gg-thin] (e) to (rrf);
+      \path[gg-thin] (r) to (f);
+      \path[gg-thin] (rr) to (rf);
+      \node (o-in_r2f) at (330:4.8) {};
+      \node (o-out_r2f) at (165:4.8) {};
+      \node (p_r2f) at (240:4.8) {};
+    \end{scope}
+    %%
+    %%----------------------------------------------------------------
+    %%
+    \begin{scope}[shift={(0:3.5)},scale=.12]
+      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+      \node at (0,0) {$e$};
+      \node (e) at (90:5.5) [v-tiny] {};
+      \node (rrf) at (30:5.5) [v-tiny] {};
+      \node (rr) at (-30:5.5) [v-tiny] {};
+      \node (rf) at (-90:5.5) [v-tiny] {};
+      \node (r) at (-150:5.5) [v-tiny] {};
+      \node (f) at (150:5.5) [v-tiny] {};
+      \path[gg-thin] (e) to (rrf);
+      \path[bb-thin] (rrf) to (rr);
+      \path[gg-thin] (rr) to (rf);
+      \path[bb-thin] (rf) to (r);
+      \path[gg-thin] (r) to (f);
+      \path[bb-thin] (f) to (e);
+      \node (o-in_1) at (270:4.8) {};
+      \node (o-out_1) at (90:4.8) {};
+       \node (p_1) at (180:4.8) {};
+    \end{scope}
+    %%
+    \begin{scope}[shift={(120:3.5)},scale=.12]
+      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+      \node (e) at (90:5.5) [v-tiny] {};
+      \node (rrf) at (30:5.5) [v-tiny] {};
+      \node (rr) at (-30:5.5) [v-tiny] {};
+      \node (rf) at (-90:5.5) [v-tiny] {};
+      \node (r) at (-150:5.5) [v-tiny] {};
+      \node (f) at (150:5.5) [v-tiny] {};
+      \path[gg-thin] (e) to (f);
+      \path[gg-thin] (r) to (rf);
+      \path[gg-thin] (rr) to (rrf);
+      \path[bb-thin] (e) to (rf);
+      \path[bb-thin] (r) to (rrf);
+      \path[bb-thin] (rr) to (f);
+       \node (o-in_r) at (30:4.8) {};
+      \node (o-out_r) at (195:4.8) {};
+       \node (p_r) at (300:4.8) {};
+    \end{scope}
+    %%
+    \begin{scope}[shift={(240:3.5)},scale=.12]
+      \draw[grey, fill=lightgrey] (0,0) circle (60mm);
+      \node (e) at (90:5.5) [v-tiny] {};
+      \node (rrf) at (30:5.5) [v-tiny] {};
+      \node (rr) at (-30:5.5) [v-tiny] {};
+      \node (rf) at (-90:5.5) [v-tiny] {};
+      \node (r) at (-150:5.5) [v-tiny] {};
+      \node (f) at (150:5.5) [v-tiny] {};
+      \path[gg-thin] (e) to (rf);
+      \path[gg-thin] (r) to (rrf);
+      \path[gg-thin] (rr) to (f);
+      \path[bb-thin] (e) to (rrf);
+      \path[bb-thin] (r) to (f);
+      \path[bb-thin] (rr) to (rf);
+      \node (o-in_r2) at (165:4.8) {};
+      \node (o-out_r2) at (330:4.8) {};
+      \node (p_r2) at (60:4.8) {};
+    \end{scope}
+    \draw [o] (o-out_1) to[bend right=45] (o-in_r);
+    \draw [o] (o-out_r) to[bend right=45] (o-in_r2);
+    \draw [o] (o-out_r2) to[bend right=45] (o-in_1);
+    \draw [o] (o-out_f) to[bend left=30] (o-in_r2f);
+    \draw [o] (o-out_r2f) to[bend left=35] (o-in_rf);
+    \draw [o] (o-out_rf) to[bend left=30] (o-in_f);
+    \draw [p] (p_1) to (p_f);
+    \draw [p] (p_r) to (p_rf);
+    \draw [p] (p_r2) to (p_r2f);
+    \end{scope}
+  \end{tikzpicture}
+  \]
+\end{example}
 
 \begin{definition}[Inner automorphisms]
     Let $G$ be a group, and let $a \in G$. The function $\phi_a$ defined by 
@@ -1175,31 +1550,64 @@ which these reflection lines runs from one of the vertices to the center of the 
     \end{enumerate}
 \end{proof}
 
-\section{Cosets}
+\section{Normal subgroups, Quotient groups}
+
+\subsection{Cosets}
+
+\begin{definition}[Cosets]
+    Let $G$ be a group and let $H$ be a subset of $G$. For any $a \in G$, the set 
+    \[
+        aH := \{ ah \> | \> h\in H\}
+    \]
+    is called the \bred{left coset} of $H$ in $G$ containing element $a$. 
+
+    Analogously, the set 
+    \[
+        Ha := \{ ha \> | \> h\in H\}
+    \]
+    is called the \bred{right coset} of $H$ in $G$ containing element $a$.
+    In this case, the element $a$ is called the \bred{coset representative} of 
+    $aH$ (or $Ha$). 
+
+    We use $|aH|$ (or $|Ha|$) to be the number of elements in the left (or right) coset.
+\end{definition}
 
 \begin{example}
     Consider $G = \mathbb{Z}_9 = \{ 0, 1, 2, \ldots, 8 \} (\text{mod} \, 9)$. We take a cyclic subgroup 
     \[H = \langle 3 \rangle = \{0, 3, 6\}\] 
     which came from $(G, +_9)$. All \textbf{left cosets} of $G$ with respect to $H$ are $\{ H, 1 +_9 H, 2 +_9 H \}$ where
     \begin{align*}
-        &0 +_9 H = \{0 + 0, 0+ 3, 0 + 6\} \> (\text{mod} \, 9) = \{0, 3, 6\} = H\\
-        &1H = 1 +_9 H = \{1 + 0, 1 + 3, 1 + 6\} \> (\text{mod} \, 9) = \{1, 4, 7\}\\
-        &2H = 2 +_9 H = \{2 + 0, 2 + 3, 2 + 6\} \> (\text{mod} \, 9) = \{2, 5, 8\}\\
-        &3H = 3 +_9 H = \{3 + 0, 3 + 3, 3 + 6\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
+        &0 + H = \{0 + 0, 0+ 3, 0 + 6\} \> (\text{mod} \, 9) = \{0, 3, 6\} = H\\
+        &1H = 1 + H = \{1 + 0, 1 + 3, 1 + 6\} \> (\text{mod} \, 9) = \{1, 4, 7\}\\
+        &2H = 2 + H = \{2 + 0, 2 + 3, 2 + 6\} \> (\text{mod} \, 9) = \{2, 5, 8\}\\
+        &3H = 3 + H = \{3 + 0, 3 + 3, 3 + 6\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
     \end{align*}
 
     As for the right cosets of $G$ with respect to $H$ are $\{ H, H +_9 1, H +_9 2 \}$. Pay attention that now the element of coset are being 
     added to right-hand side instead of from left side.
 
     \begin{align*}
-        &0 +_9 H = \{0 + 0, 0+ 3, 0 + 6\} \> (\text{mod} \, 9) = \{0, 3, 6\} = H\\
-        &H1 = H +_9 1 = \{0 + 1, 3 + 1, 6 + 1\} \> (\text{mod} \, 9) = \{1, 4, 7\}\\
-        &H2 = H +_9 2 = \{0 + 2, 3 + 2, 6 + 2\} \> (\text{mod} \, 9) = \{2, 5, 8\}\\
-        &H3 = H +_9 3 = \{0 + 3, 3 + 3, 6 + 3\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
+        &H + 0 = \{0 + 0, 0+ 3, 0 + 6\} \> (\text{mod} \, 9) = \{0, 3, 6\} = H\\
+        &H1 = H + 1 = \{0 + 1, 3 + 1, 6 + 1\} \> (\text{mod} \, 9) = \{1, 4, 7\}\\
+        &H2 = H + 2 = \{0 + 2, 3 + 2, 6 + 2\} \> (\text{mod} \, 9) = \{2, 5, 8\}\\
+        &H3 = H + 3 = \{0 + 3, 3 + 3, 6 + 3\} \> (\text{mod} \, 9) = \{3, 6, 0\} = H
     \end{align*}
-\end{example}
 
-\section{Normal subgroups, Quotient groups}
+    Also, we can draw Cayley table of the cosets.
+    \begin{center}
+        {
+        \arrayrulewidth=1pt
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{c|*{3}{>{\columncolor{white}}c}}
+            & \cellcolor{myred}$H$ & \cellcolor{mygreen}$1+H$ & \cellcolor{myyellow}$2+H$ \\
+          \hline
+          \cellcolor{myred}$H$ & \cellcolor{myred}$H$ & \cellcolor{mygreen}$1+H$ & \cellcolor{myyellow}$2+H$ \\
+          \cellcolor{mygreen}$1+H$ & \cellcolor{mygreen}$1+H$ & \cellcolor{myyellow}$2+H$ & \cellcolor{myred}$H$\\
+          \cellcolor{myyellow}$2+H$ & \cellcolor{myyellow}$2+H$ & \cellcolor{myred}$H$ & \cellcolor{mygreen}$1+H$\\
+        \end{tabular}
+    }
+    \end{center}
+\end{example}
 
 \subsection{Normal subgroups}
 
@@ -1226,8 +1634,10 @@ right coset is equal to left a coset, it is not an equality elementwise.
 
 Now suppose we have a group $(G, \cdot)$, and $H$ is a normal subgroup of $G$, just said $H \vartriangleleft G$. The set $G/H$ is defined by 
 \[
-G/H = \{ gH \> | \> g \in H \}
+G/H = \{ gH \> | \> g \in H \}.
 \]
+
+$G/H$ is known as a \textbf{quotient group}.
 
 \begin{example}
     Show that if $H$ and $K$ are normal subgroups of a group $G$ such that $H \cap K = \{ e \}$, then 
@@ -1248,9 +1658,33 @@ G/H = \{ gH \> | \> g \in H \}
     \end{align*}
 \end{solution}
 
+\subsection{Quotient group}
+
+\begin{definition}[Quotient group]
+    Let $G$ be a group, with $H$ a subgroup such that $gH = Hg$ for any $g \in G$. The set 
+    \[
+        G/H = \{ gH \> | \> g \in G \}
+    \]
+    of cosets of $H$ in $G$ is called a \bred{quotient group}.
+\end{definition}
+
+We can check that $G/H$ is indeed a group:
+\begin{itemize}
+    \item Because $gH=Hg \Longrightarrow gHg' = gg'H$ and $G/H$ is closed under the same binary operator.
+    \item Binary operation $\circ : G/H \times G/H$, $(gH, g'H) \mapsto gHg'H$ is asscoiative.
+    \item The identity element is $H$ since $H(gH) = gH$ for any $g$ in $G$.
+    \item The inverse of $gH$ is $g^{-1}H$, since 
+    \begin{align*}
+        (gH)(g^{-1}H) &= (g^{-1}H)(gH)\\
+        &= (gg^{-1})H\\
+        &= eH\\
+        &= H.
+    \end{align*}
+\end{itemize}
+
 \section{Group homomorphisms}
 
-\begin{definition}
+\begin{definition}[Group homomorphisms]
     A group homomorphism is a map $f: (G,{\color{red} \diamond}_G) \to (H, {\color{cyan} \bullet}_H)$ that respects binary operations:
     \begin{equation}
         f(a) \> {\color{cyan} \bullet}_H \> f(b) = f(a \> {\color{red} \diamond}_G \> b) \quad \forall a, b \in G
@@ -1268,6 +1702,48 @@ G/H = \{ gH \> | \> g \in H \}
         \item If $\phi(g)= g'$, then $\phi^{-1}(g') = \{ x \in G \> | \> \phi(x) = g' \} = g\, ker(\phi)$.
     \end{enumerate}
 \end{theorem}
+
+\begin{example}
+    Let $G$ be any group and let $a$ be any element of $G$. Let $\phi: \mathbb{Z} \to G$ be defined by 
+    \[
+        \phi(n) = a^n
+    \]
+    Show that $\phi$ is a homomorphism. Find the kernel of $\phi$.
+\end{example}
+\begin{solution}
+    For all $n_1, n_2$ in $\mathbb{Z}$, we want to show
+    \[
+        \phi(n_1 + n_2) = \phi(n_1)\, \phi(n_2).
+    \]
+    In fact, 
+    \[
+        \phi(n_1 + n_2) = a^{n_1 + n_2} = a^{n_1}\, a^{n_2} = \phi(n_1)\, \phi(n_2).
+    \]
+    which means $\phi$ preserves the group operation of $G$. Again we want to show $\phi$ 
+    is both \textit{one-to-one} and \textit{onto}.
+
+    \begin{enumerate}
+        \item (One-to-one) For all $x, y \in \mathbb{Z}$, 
+        \begin{align*}
+            \phi(x) = y &\Rightarrow a^x = y\\
+            &\Rightarrow x = \frac{\log y}{ \log a}, \quad a > 0    
+        \end{align*}
+
+        \item (Onto) For all $x, y \in \mathbb{Z}$, 
+        \[
+            \phi(x) = \phi(y) \Rightarrow a^x = a^y \Rightarrow x = y.
+        \]
+    \end{enumerate}
+
+    Hence, we compute the kernel of $\phi$,
+    \begin{align*}
+        Ker(\phi) &= \{ n \in \mathbb{Z} \> | \> \phi(n) = 1 \}\\
+        &= \{ n\in \mathbb{Z} \> | \> a^n = 1 \}\\
+        &= \{ n\in \mathbb{Z} \> | \> a^n = a^0 \}\\
+        &= \{ n\in \mathbb{Z} \> | \> n = 0 \}\\
+        &= \{ 0 \}.
+    \end{align*}
+\end{solution}
 
 \section{Isomorphism}
 \begin{definition}[Group isomorphisms]
@@ -1294,6 +1770,47 @@ There are four separate steps involved in proving that a group $G$ is isomorphic
     \]
     for all $a, b \in G$. 
 \end{enumerate}
+
+\begin{example}
+    Let $G$ be the real numbers under addition and $G'$ be the positive real numbers under multiplication. $G$ and $G'$
+    are isomorphic under the mapping 
+    \[
+        \phi(x) = 2^x.
+    \]
+\end{example}
+\begin{solution}
+    Define the mapping $\phi: (G=\mathbb{R}, +) \to (G'=\mathbb{R}^+, \cdot)$. For all $x, y$ in $G$, we want to show
+    \[
+        \phi(x + y) = \phi(x)\, \phi(y).
+    \]
+    In fact, 
+    \[
+        \phi(x+y) = 2^{x + y} = 2^{x}\, 2^{y} = \phi(x)\, \phi(y).
+    \]
+    which means $\phi$ is homomorphism. Again we want to show $\phi$ 
+    is both \textit{one-to-one} and \textit{onto}.
+
+    \begin{enumerate}
+        \item (One-to-one) For all $x, y \in G$, 
+        \begin{align*}
+            \phi(x) = y &\Rightarrow 2^x = y\\
+            &\Rightarrow x = \log_2 y, \quad y > 0    
+        \end{align*}
+
+        \item (Onto) For all $x, y \in G$, 
+        \[
+            \phi(x) = \phi(y) \Rightarrow 2^x = 2^y \Rightarrow x = y.
+        \]
+    \end{enumerate}
+
+    Hence, we compute the kernel of $\phi$,
+    \begin{align*}
+        Ker(\phi) &= \{ n \in \mathbb{R} \> | \> \phi(x) = 1 \}\\
+        &= \{ n\in \mathbb{R} \> | \> 2^x = 1 \}\\
+        &= \{ n\in \mathbb{R} \> | \> x = 0 \}\\
+        &= \{ 0 \}.
+    \end{align*}
+\end{solution}
 
 \begin{example}
     Let $G=SL(2, \mathbb{R})$, the group of $2 \times 2$ real matrices with determinant 1. Let $M$ be 
@@ -1643,7 +2160,126 @@ is an isomorphism.
     (5, 6, 7) leave as tutorial.
 \end{proof}
 
+\begin{theorem}[Sylow's theorem]
+    Let $G$ be a finite group such that $p^n$ divides $|G|$, where $p$ is prime. Then there exists 
+    a subgroup of order $p^n$.
+\end{theorem}
+\begin{proof}
+    Assume that $|G| = p^n m$, where $m = p^rk$ with $\gcd(p, k) = 1$. Our central strategy is to consider 
+    a cleverly chosen group action of $G$ and prove one of the stabilizer subgroups has order $p^n$. We will 
+    need to heavily exploit the orbit-stabilizer theorem.
+
+    Let $S$ be the set of all subsets of $G$ of order $p^n$. An element of $S$ is an unordered $n$-tuple 
+    of distinct elements in $G$. There is a natural action of $G$ on $S$ by term-by-term composition on the left.
+
+    Consider $\sigma \in S$. If we fix an ordering $\sigma = \{ \sigma_1, \sigma_2, \ldots, \sigma_{p^n} \} \in S$, then 
+    \[
+        g(\sigma) := \{ g * \sigma_1, g * \sigma_2, \ldots, g * \sigma_{p^n} \}.
+    \] 
+
+    We first claim that $|\stab(\sigma)| \leq p^n$. To see this we define the function
+    \[
+        f : \stab(\sigma) \to \sigma
+    \]
+    \[
+        g \to g * \sigma_1
+    \]
+    By the cancellation property for groups this is an injective map. Hence 
+    \[
+        |\stab(\sigma)| \leq |\sigma| = p^n.
+    \]
+
+    On the other hand, observe that 
+    \[
+        |S| = \begin{pmatrix}
+            p^nm \\ p^n 
+        \end{pmatrix} = \frac{p^n \, m!}{(p^n)!\, (p^nm - p^n)!}
+        = \prod^{p^n - 1}_{j=0} \frac{p^nm - j}{p^n - j}
+        = m\, \prod^{p^n - 1}_{j=1} \frac{p^nm - j}{p^n - j}.
+    \]
+    If $1 \leq j \leq p^n - 1$ then $j$ is divisible by $p$ at most $n-1$ times. This means 
+    that $p^nm - j$ and $p^n - j$ have the same number of $p$ factors, namely the number of $p$ factor 
+    of $j$. This means that 
+    \[
+        \prod^{p^n - 1}_{j=1} \frac{p^nm - j}{p^n - j}
+    \]
+    has no $p$ factors. Hence $p^r u$, where $\gcd(p, u) = 1$.
+
+    Now recall that $S$ is the disjoint union of the orbits of our action of 
+    $G$ on $S$. Hence there must be an $\sigma \in S$ such that 
+    \[
+        |\orb(\sigma)| = p^s t 
+    \]
+    where $s \leq r$ and $\gcd(p, t) = 1$. By the \textit{orbit-stabilizer theorem} we 
+    know that 
+    \[
+        |\stab(\sigma)| = \frac{p^{n+r-s} u}{t}
+    \]
+    Because $|\stab(\sigma)| \in \mathbb{N}$ and $u,t$ are coprime to $p$, 
+    we deduce that $u/t$ is natural number. Hence $|\stab(\sigma)| \geq p^n$.
+
+    For this choice of $\sigma \in S$, $\stab(\sigma)$ is thus a subgroup of size $p^n$.
+\end{proof}
+
+Historically this is a slight extension of what is called Sylow's First Theorem. There are
+ two more which describe the properties of such subgroups in greater depth.
+
 \subsection{Isomorphism theorems}
+
+\begin{theorem}[First Isomorphism theorem]
+    Let $f:G \to H$ be a homomorphism of groups with kernel $K$. Then the quotient group $G/K$ is 
+    isomorphic to $\Ima f$.
+\end{theorem}
+\begin{proof}
+    Define $\varphi : G/N \to \Ima f$ by $\varphi(K_a) = f(a)$. 
+
+    \begin{figure}[ht]
+        \centering
+        \makebox[\textwidth]{\includegraphics[width=0.45\paperwidth]{./images/first_iso.pdf}}
+    \end{figure}
+
+    \begin{enumerate}
+    
+    \item Claim: $\varphi$ is well-defined.
+    
+    Suppose that $K_a = K_b$. Then by lemma we have 
+    \[
+        f(a) = f(b) \Longrightarrow \varphi(K_a) = f(a) = f(b) = \varphi(K_b).
+    \]
+
+    \item Claim: $\varphi$ is surjective. 
+
+    Let $b \in Ima f$ then there exists an $a \in G$ such that $f(a) = b$. Then 
+    \[
+        \varphi(K_a) = f(a) = b.
+    \]
+
+    \item Claim: $\varphi$ is injective. 
+
+    Since 
+    \[
+        \varphi(K_a) = \varphi(K_b) \Leftrightarrow f(a) = f(b) \Leftrightarrow K_a = K_b.
+    \]
+
+    \item Claim: $\varphi$ is homomorphism.
+    
+    Because 
+    \[
+        \varphi(K_aK_b) = \varphi(K_{ab}) = f(ab) = f(a) f(b) = \varphi(K_a) \varphi(K_b).
+    \]
+    In all $\varphi$ is an homomorphism. 
+
+    Moreover, $\tau \circ \varphi \circ \pi(a) = \tau \circ \varphi(\pi(a)) = \tau \circ \varphi(N_a) = \tau \, f(a) = f(a)$.
+
+    \end{enumerate}
+    \[
+        \begin{tikzcd}[row sep=2.0em]
+            G \arrow["f"]{rr} \arrow[red, "\pi"]{dd} \arrow[bend right=50, red, "\text{surjective homomorphism}" description,  shift right=8ex]{dd} & & H \\
+            \\
+            G/K \arrow["\varphi"]{rr} & & \Ima f \arrow[blue, "\tau"]{uu} \arrow[bend right=50, blue, "\text{injective homomorphism}" description,  shift right=8ex]{uu}
+        \end{tikzcd}
+    \]
+\end{proof}
 
 \begin{theorem}[Second Isomorphism Theorem]
     Let $K$ be a proper subgroup of $G$, and $N \triangleleft G$. Then 
@@ -1698,7 +2334,23 @@ is an isomorphism.
         \end{align*}
 
         By First Isomorphism Theorem, we now have $K/(K \cap N)$ is isomorphism to $NK/N$.
+
+        \begin{figure}[ht]
+            \centering
+            \makebox[\textwidth]{\includegraphics[width=0.55\paperwidth]{./images/second_iso.pdf}}
+        \end{figure}
     \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Subgroup of the quotient group $G/N$]
+    Let $N \triangleleft G$, and let $N \subset K < G$. Then $K/N$ is a proper subset of $G/N$.
+\end{theorem}
+\begin{proof}
+    Clearly if $N \triangleleft K$, then 
+    \[
+        K/N = \{ N_k \> | \> k \in K \} \subset G/N =\{ N_g \> | \> g \in G \}.
+    \]
+    Thus $K/N < G/N$.
 \end{proof}
 
 \section{Lagrange Theorem}
@@ -1756,6 +2408,31 @@ is an isomorphism.
     implies that $H$ and $G$ are both cyclic.
 \end{proof}
 
+\begin{example}[Tutorial]
+    Draw a subgroup lattice of $\mathbb{Z}_{60}$.
+\end{example}
+\begin{solution}
+    Suppose $H$ is a subgroup of $\mathbb{Z}_{60}$. By Lagrange theorem, 
+    \[
+        |H| \> \big \vert \> 60 = 2^2 \cdot 3 \cdot 5.
+    \]
+    Thus, 
+    \[
+        |H| \in \{1, 2, 4, 3, 6, 12, 5, 10, 20, 15, 30, 60 \}.
+    \]
+    The lattice diagram is as follow:
+
+    \[
+        \begin{tikzcd}[row sep=2.5em]
+            & & \mathbb{Z}_{60} \arrow[dash]{dl} \arrow[dash]{d} \arrow[dash]{dr} & \\
+            & \langle 5 \rangle \arrow[dash]{dl} \arrow[dash]{d} \arrow[dash]{dr} & \langle 3\rangle \arrow[dash]{dl} \arrow[dash]{dr}& \langle 2 \rangle \arrow[dash]{dl} \arrow[dash]{d}\\
+            \langle 15 \rangle \arrow[dash]{d} \arrow[dash]{dr} & \langle 10 \rangle \arrow[dash]{dl} \arrow[dash]{dr} & \langle 6 \rangle \arrow[dash]{dl} \arrow[dash]{d} & \langle 4 \rangle \arrow[dash]{dl}\\
+            \langle 30 \rangle \arrow[dash]{dr} & \langle 20 \rangle \arrow[dash]{d} & \langle 12\rangle \arrow[dash]{dl} & \\
+            & \langle 0 \rangle & & \\
+        \end{tikzcd}
+    \]
+\end{solution}
+
 \section{External Direct Product}
 
 \begin{definition}[External direct product]
@@ -1767,7 +2444,15 @@ is an isomorphism.
     \]
 \end{definition}
 
-The resulting algebraic object satisfies the axioms for a group.
+The resulting algebraic object satisfies the axioms for a group. Specifically:
+
+\begin{itemize}
+    \item \textbf{Associativity}, the binary operation on $G \times H$ is indeed asscoiative.
+    \item \textbf{Existence of identity}, the direct product has an identity element, namely $(e_1, e_2)$, where 
+        $e_1$ is the identity element of $G$ and $e_2$ is the identity element of $H$.
+    \item \textbf{Existence of inverses}, the inverse of an element $(g,h)$ of $G \times H$ is the pair $(g^{-1}, h^{-1})$, 
+        where $g^{-1}$ is the inverse of $g \in G$, and $h^{-1}$ is the inverse of $h \in H$.
+\end{itemize}
 
 \begin{example}
     Find $U(8) \oplus U(10)$.
@@ -1780,11 +2465,146 @@ The resulting algebraic object satisfies the axioms for a group.
     \end{center}
 \end{solution}
 
+\begin{theorem}
+    The order of an element in a direct product of a finite number of finite groups is the 
+    \textit{least common multiple} of the orders of the components of the element.
+    In symbols,
+    \[
+        |(g_1, g_2, \ldots, g_n)| = LCM(\ord(g_1), \ord(g_2), \ldots, \ord(g_n)).
+    \]
+\end{theorem}
+\begin{proof}
+    First we consider the case where the direct product has two components. 
+    
+    Consider $(g_1, g_2) \in G_1 \oplus G_2$.
+    Let $s = LCM(\ord(g_1), \ord(g_2))$ and $t = |(g_1, g_2)|$. Then
+    \[
+        (g_1, g_2)^s = (g_1^s, g_2^s) = (e, e) \Longrightarrow t|s.
+    \]
+    Thus $t \leq s$. But 
+    \[
+        (g_1^t, g_2^t) = (g_1, g_2)^t = (e,e) \Longrightarrow g_1 | t \textsf{ and } g_2 | t.
+    \]
+
+    Thus $t$ is a common multiple of $\ord(g_1)$ and $\ord(g_2)$, which means $s \leq t$ since 
+    \[s = LCM(\ord(g_1), \ord(g_2)).\]
+    
+    Hence $s = t$ and $|\ord(g_1, g_2)| = LCM(\ord(g_1), \ord(g_2))$.
+
+    For the general case, suppose the result holds for 
+    \[
+        G_1 \oplus G_2 \oplus \cdots \oplus G_{n-1}.
+    \]
+    But $G_1 \oplus G_2 \oplus \cdots \oplus G_n = (G_1 \oplus G_2 \oplus \cdots \oplus G_{n-1}) \oplus G_n$. So applying 
+    the previous argument, the result holds for 
+    \[
+        G_1 \oplus G_2 \oplus \cdots \oplus G_{n}
+    \]
+    by induction.
+\end{proof}
+
 \section{Internal Direct Product}
 
 \begin{definition}
-    Let $(G, *) be a group and let $
+    Let $(G, *)$ be a group and let $(H, *)$ and $(K, *)$ be two subgroups of $G$. Then 
+    $G$ is said to be the internal direct product of $H$ and $K$ (write $G = H \times K$) if:
+    \begin{enumerate}
+        \item $G = \{ h * k \> | \> h \in H, k \in K \}$.
+        \item $H \cap K = \{e\}$ where $e$ is the identity in $G$.
+        \item $h * k = k* h$ for all $h \in H$ and for all $k \in K$.
+    \end{enumerate}
 \end{definition}
+\begin{remark}
+    If $H, K \triangleleft G$, then 
+    \[
+        H \times K \cong H \oplus K.
+    \]
+\end{remark}
+
+\begin{example}
+    Consider $H = \{ 0, 2, 4 \}$ and $K = \{0, 3\}$, show that $G = \mathbb{Z}_6$ is the internal direct product of $H$ and $K$.
+\end{example}
+\begin{solution}
+    \begin{enumerate}
+        \item We check $G = H \times K$, compute 
+        \begin{align*}
+            G &= H \times K\\
+            &= \{ 0, 2, 4 \} \times \{ 0, 3\}\\
+            &= \{ 0 +_6 0,\> 0 +_6 3,\> 2 +_6 0,\> 2 +_6 3,\> 4 +_6 0,\> 4 +_6 3\}\\
+            &= \{ 0, 3, 2, 5, 4, 1 \} = \mathbb{Z}_6.
+        \end{align*}
+        \item $H \cap K = \{ 0 \}$, $0$ is identity of $\mathbb{Z}_6$.
+        \item $\forall a \in H, b \in K, \quad a +_6 b = b+_6 a$.
+    \end{enumerate}
+    $H$ and $K$ are subgroups of $G = \mathbb{Z}_6$. Thus $G$ is the internal direct product of $H$ and $K$.
+\end{solution}
+
+\begin{example}
+    $\mathbb{Z}_6$ is internal direct product of $\mathbb{Z}_2$ and $\mathbb{Z}_3$.
+\end{example}
+\begin{solution}
+    The direct product of $\mathbb{Z}_2$ and $\mathbb{Z}_3$ form a tuple, 
+    \begin{align*}
+        \mathbb{Z}_2 \times \mathbb{Z}_3 &= \{ (x, y) \> | \> x \in \mathbb{Z}_2 \textsf{ and } y \in \mathbb{Z}_3 \}\\
+        &= \{ (0,0), (0,1), (0,2)\\ 
+        &\quad \quad (1,0), (1,1), (1,2) \}
+    \end{align*}
+
+    For all $(a_1, b_1), (a_2, b_2)$, we define the product as 
+    \[
+        (a_1, b_1) \cdot (a_2, b_2) = (a_1 +_2 a_2, b_1 +_3 b_2).
+    \]
+    For example, $(1, 0) \cdot (1, 2) = (1+0 \> \text{mod } 2, 1 + 2 \> \text{mod } 3) = (1, 0)$.
+    Compute the Cayley table for all elements in $\mathbb{Z}_2 \times \mathbb{Z}_3$ (it is actually a $6 \times 6$ \textbf{Latin square})
+    \[
+        \begin{tikzcd}[row sep=1em]
+            & \mathbb{Z}_2 \times \mathbb{Z}_3 \arrow[dash]{dl} \arrow[dash]{dr} & \\
+            \langle (1,0) \rangle \arrow[dash]{dr} & & \langle (0,1) \rangle \arrow[dash]{dl}\\
+            & \langle (0,0) \rangle &
+        \end{tikzcd}
+    \]
+    \begin{center}
+        {
+        \arrayrulewidth=1pt
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c|*{6}{>{\columncolor{white}}c}}
+          $\cdot$ & \cellcolor{myred}$(0,0)$ & \cellcolor{mygreen}$(0,1)$ & \cellcolor{myblue}$(0,2)$ & \cellcolor{mypurple}$(1,0)$ & \cellcolor{myyellow}$(1,1)$ & \cellcolor{mygrey}$(1,2)$\\
+          \hline
+          \cellcolor{myred}$(0,0)$ & \cellcolor{myred}$(0,0)$ & \cellcolor{mygreen}$(0,1)$ & \cellcolor{myblue}$(0,2)$ & \cellcolor{mypurple}$(1,0)$ & \cellcolor{myyellow}$(1,1)$ & \cellcolor{mygrey}$(1,2)$\\
+          \cellcolor{mygreen}$(0,1)$ & \cellcolor{mygreen}$(0,1)$ & \cellcolor{myblue}$(0,2)$ & \cellcolor{myred}$(0,0)$ &\cellcolor{myyellow}$(1,1)$ & \cellcolor{mygrey}$(1,2)$ & \cellcolor{mypurple}$(1,0)$\\
+          \cellcolor{myblue}$(0,2)$ & \cellcolor{myblue}$(0,2)$ & \cellcolor{myred}$(0,0)$ & \cellcolor{mygreen}$(0,1)$ & \cellcolor{mygrey}$(1,2)$ & \cellcolor{mypurple}$(1,0)$ & \cellcolor{myyellow}$(1,1)$\\
+          \cellcolor{mypurple}$(1,0)$ & \cellcolor{mypurple}$(1,0)$ & \cellcolor{myyellow}$(1,1)$ & \cellcolor{mygrey}$(1,2)$ & \cellcolor{myred}$(0,0)$ & \cellcolor{mygreen}$(0,1)$ & \cellcolor{myblue}$(0,2)$\\
+          \cellcolor{myyellow}$(1,1)$ & \cellcolor{myyellow}$(1,1)$ & \cellcolor{mygrey}$(1,2)$ & \cellcolor{mypurple}$(1,0)$ & \cellcolor{mygreen}$(0,1)$ & \cellcolor{myblue}$(0,2)$ & \cellcolor{myred}$(0,0)$\\    
+          \cellcolor{mygrey}$(1,2)$ & \cellcolor{mygrey}$(1,2)$ & \cellcolor{mypurple}$(1,0)$ & \cellcolor{myyellow}$(1,1)$ & \cellcolor{myblue}$(0,2)$ & \cellcolor{myred}$(0,0)$ & \cellcolor{mygreen}$(0,1)$\\
+        \end{tabular}
+    }
+    \end{center}
+    Which is quite matches with the Cayley table of $\mathbb{Z}_6$.
+    \[
+        \begin{tikzcd}[row sep=1em]
+            & \mathbb{Z}_6 \arrow[dash]{dl} \arrow[dash]{dr} & \\
+            \langle 3 \rangle \arrow[dash]{dr} & & \langle 2 \rangle \arrow[dash]{dl}\\
+            & \langle 0 \rangle &
+        \end{tikzcd}
+    \]
+    \begin{center}
+        {
+        \arrayrulewidth=1pt
+        \renewcommand{\arraystretch}{1}
+        \begin{tabular}{c|*{6}{>{\columncolor{white}}c}}
+          $\cdot$ & \cellcolor{myred}0 & \cellcolor{mygreen}1 & \cellcolor{myblue}2 & \cellcolor{mypurple}3 & \cellcolor{myyellow}4 & \cellcolor{mygrey}5\\
+          \hline
+          \cellcolor{myred}0 & \cellcolor{myred}0 & \cellcolor{mygreen}1 & \cellcolor{myblue}2 & \cellcolor{mypurple}3 & \cellcolor{myyellow}4 & \cellcolor{mygrey}5\\
+          \cellcolor{mygreen}1 & \cellcolor{mygreen}1 & \cellcolor{myblue}2 & \cellcolor{mypurple}3 &\cellcolor{myyellow}4 & \cellcolor{mygrey}5 & \cellcolor{myred}0\\
+          \cellcolor{myblue}2 & \cellcolor{myblue}2 & \cellcolor{mypurple}3 & \cellcolor{myyellow}4 & \cellcolor{mygrey}5 & \cellcolor{myred}0 & \cellcolor{mygreen}1\\
+          \cellcolor{mypurple}3 & \cellcolor{mypurple}3 & \cellcolor{myyellow}4 & \cellcolor{mygrey}5 & \cellcolor{myred}0 & \cellcolor{mygreen}1 & \cellcolor{myblue}2\\
+          \cellcolor{myyellow}4 & \cellcolor{myyellow}4 & \cellcolor{mygrey}5 & \cellcolor{myred}0 & \cellcolor{mygreen}1 & \cellcolor{myblue}2 & \cellcolor{mypurple}3\\    
+          \cellcolor{mygrey}5 & \cellcolor{mygrey}5 & \cellcolor{myred}0 & \cellcolor{mygreen}1 & \cellcolor{myblue}2 & \cellcolor{mypurple}3 & \cellcolor{myyellow}4\\
+        \end{tabular}
+    }
+    \end{center}
+    In fact, $\mathbb{Z}_2 \times \mathbb{Z}_3$ is isomorphic to $\mathbb{Z}_6$.
+\end{solution}
 
 \section{Finite Abelian groups}
 
@@ -1887,7 +2707,7 @@ product of all these pieces is the desired factorization of $G$.
     \Function{compute\_orders($G$: FiniteGroup) $\to orders$}{
         \boxit{codegreen}{9}
         $orders = [\>]$\;
-            \For(\Comment{elements in X}){$a_i \in G$} {
+            \For(\Comment{elements in $G$}){$a_i \in G$} {
                 \boxitt{codered}{6.5}
                 \eIf () {$a_i == $ identity$(G)$}{
                     return 1   \Comment{The order of identity element is one.}

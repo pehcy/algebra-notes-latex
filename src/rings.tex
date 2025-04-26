@@ -2,6 +2,80 @@
 
 Ring is an algebraic structure which is a set of elements with two operations: addition and multiplication.
 
+\begin{axiom}[Rings]
+    A ring $R$ is a set with two binary operation, addition (usually denoted by $+$) and multiplication 
+    (usually denoted by $ab$), such that for all $a,b,c \in R$.
+    \begin{enumerate}
+        \item Addition is commutative, $a + b = b + a$.
+        \item Associativity holds in addition, $(a + b) + c = a + (b + c)$.
+        \item There is an additive identity $0_R$. That is, there is an element $0_R \in R$ such that 
+        \[
+            a + 0_R = a = 0_R + a
+        \]
+        for all $a \in R$.
+        \item There is an additive inverse $-a \in R$ such that
+        \[
+            a + (-a) = 0_R = -a + a.
+        \]
+        \item Associativity holds in multiplication, $a(bc)=(ab)c$.
+        \item Distributive law holds in $R$, 
+        \[
+            a(b+c) = ab + ac 
+        \]
+        and 
+        \[
+            (b+c)a = ba + ca.
+        \]
+    \end{enumerate}
+\end{axiom}
+
+Here are a few things you should take notes:
+\begin{enumerate}
+    \item A ring is an Abelian group under addition, also having an associative 
+    multiplication that is left and right distributive over addition. 
+     
+    \item Note that multiplication need not be commutative. When it is, we say that the 
+    ring is commutative. 
+     
+    \item A ring need not have an identity under multiplication. A unity (or identity) in a 
+    ring is a nonzero element that is an identity under multiplication. 
+     
+    \item A nonzero element of a commutative ring with unity need not have 
+    multiplicative inverse. When it does, we say that it is a unit of the ring. Thus, 
+    $x$ is a unit if $x^{-1}$ exists.
+     
+    \item We follow the following terminology and notation. If $x$ and $y$ belong to a 
+    commutative ring $R$ and $x$ is nonzero, we say that $x$ divides $y$ and write $x | y$, 
+    if there exists an element $c$ in $R$ such that $y = xc$. 
+     
+    \item If $x$ is an element from a group under the operation of addition and $n$ is a 
+    positive integer, $nx$ means $\underbrace{x + x + \cdots + x}_{n \text{ times}}$, where there are $n$ summands. 
+\end{enumerate}
+
+\begin{example}
+    The set $\mathbb{Z}$ of integers under ordinary addition and multiplication is a commutative ring with unity $1$. The units 
+    of $\mathbb{Z}$ are $1$ and $-1$.
+\end{example}
+
+\begin{example}
+    The set $M_2(\mathbb{Z})$ of $2 \times 2$ matrices with integer entries is a noncommutative ring with unity 
+    $\begin{bmatrix}
+        1 & 0\\ 0 & 1
+    \end{bmatrix}$.
+\end{example}
+
+\begin{example}
+    The set of all continuous real-valued functions of a real variable whose graphs pass through 
+    the point $(1, 0)$ is a commutative ring without unity under the operations of pointwise addition and multiplication, that is, 
+    \[
+        (f + g)(x) = f(x) + g(x)
+    \]
+    and 
+    \[
+        (fg)(x) = f(x)g(x).
+    \]
+\end{example}
+
 \section{subrings}
 
 \begin{theorem}[Subring test]
@@ -12,6 +86,11 @@ Ring is an algebraic structure which is a set of elements with two operations: a
         \item $ab \in S \quad \forall a, b \in S$.
     \end{enumerate}
 \end{theorem}
+
+\begin{definition}[characteristic of ring]
+    The characteristic of a ring $R$ is the least positive integer $n$ such that $nx = 0$ for all $x \in R$. If no such integer exists, we say that 
+    $R$ has characteristic 0. The characteristic of $R$ is denoted by $\text{char}(R)$.
+\end{definition}
 
 \section{Quotient rings, Ideals}
 
@@ -31,6 +110,34 @@ and
     Ar = \{ ar \> | \> a \in A \} \subseteq A
 \]
 for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if $A$ is a proper subset of $R$.
+
+\begin{lemma}
+    Let $I$ be a subring of a ring $R$. Then $I$ is an ideal in $R$ if and only if multiplication 
+    \[
+        (a + I)(b + I) = (ab + I)
+    \]
+    is a well-defined operation on the cosets of $I$ in $R$.
+\end{lemma}
+\begin{proof}
+    $(\Rightarrow)$ Assume that $I$ is an ideal in $R$, and suppose 
+    that $a_1 + I = a_2 + I$ and $b_1 + I = b_2 + I$. This implies that $a_1 = a_2 + k$ and 
+    $b_1 = b_2 + j$ for some $i, j \in I$. Then we have 
+    \[
+        a_1 b_1 = a_2 b_2 + a_2 j + kb_2 + kj.
+    \]
+    Since $I$ is a subring of $R$, and therefore it closed under multiplication, as well as addition, and $kj \in I$. 
+    Since $I$ is an ideal, $a_2 j \in I$ and $kb_2 \in I$, and so $a_2 j + kb_2 + jk \in I$. 
+
+    Therefore, $a_1b_1 \in a_2b_2 + I$ and $a_1b_1 + I = a_2b_2 + I$. Thus, the multiplication on the set 
+    of cosets of $I$ is well-defined.
+
+    $(\Leftarrow)$ Assume that the indicated operation is well-defined. We need to show that for all $r \in R$, and 
+    for all $x \in I$, we have $rx \in I$ and $xr \in I$. So we have $x + I = 0 + I = I$. Hence 
+    \[
+        rx + I = (r + I)(x + I) = (r + I)(0 + I) = 0 + I = I.
+    \]
+    Again we have $xr \in I$. Thus $I$ is an ideal in $R$.
+\end{proof}
 
 \begin{theorem}[Ideal test]
     A nonempty subset $A$ of a ring $R$ is an ideal of $R$ provided
@@ -107,7 +214,6 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
         Therefore $\langle \mathfrak{a} \rangle$ is a subring of $R$.
     \end{enumerate}
 \end{solution}
-
 
 \subsection{Quotient Rings}
 
@@ -293,7 +399,7 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
 \end{proof}
 
 \begin{theorem}
-    Let $M$ be an ideal in a commutative ring $R$ with identity. Then $M$ is a maximal ideal \textit{if and only if}
+    Let $M$ be an ideal in a commutative ring $R$ with identity. Then $M$ is a maximal ideal if and only if
     the quotient ring $R/M$ is a field. 
 \end{theorem}
 \begin{proof}
@@ -339,6 +445,175 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     \end{equation*}
     A ring homomorphism that is one-to-one and onto is called the \bred{ring isomorphism}.
 \end{definition}
+
+\begin{example}
+    The map $\phi: \mathbb{Z} \to \mathbb{Z}_3$ defined by 
+    \[
+        \phi(x) = x \> (\text{mod }3) \quad \forall x \in \mathbb{Z}
+    \]
+    is a ring homomorphism.
+\end{example}
+\begin{solution}
+    Clearly, for all $x, y \in \mathbb{Z}$
+    \begin{align*}
+        \phi(x + y) = (x + y) \> (\text{mod }3) &= (x \> \text{mod }3) + (y \> (\text{mod }3))\\
+        &= \phi(x) +_3 \phi(y)
+    \end{align*}
+
+    and 
+    \begin{align*}
+        \phi(xy) = (xy) \> (\text{mod }3) &= (x \> \text{mod }3) \cdot (y \> (\text{mod }3))\\
+        &= \phi(x) \cdot_3 \phi(y)
+    \end{align*}
+
+    This is an example of a map that respects both operations.
+\end{solution}
+
+\begin{example}
+    Consider the map $\phi: \mathbb{Z}_4 \to \mathbb{Z}_6, \phi(x) = 3x$ for all $x$ in 
+    $\mathbb{Z}_4$. $\phi$ is a ring homomorphism.
+\end{example}
+\begin{solution}
+    For all $x, y \in \mathbb{Z}$, we check that
+    \begin{align*}
+        \phi(x + y) = 3(x + y) \> (\text{mod }6) &= (3x \> \text{mod }6) + (3y \> (\text{mod }6))\\
+        &= \phi(x) +_6 \phi(y)
+    \end{align*}
+
+    and 
+    \begin{align*}
+        \phi(xy) = 3(xy) \> (\text{mod }6) = 9(xy) \> (\text{mod }6) &= (3x \> \text{mod }6) \cdot (3y \> (\text{mod }6))\\
+        &= \phi(x) \cdot_6 \phi(y)
+    \end{align*}
+
+    this map preserves both operations. So $\phi$ is a ring homomorphism.
+
+    In our calculation, we can have used the fact that $3 = 9 \> (\text{mod }6)$. The jump from 3 to 9 modulo 6 
+    can be better seem in 
+    \[
+        3 \> (\text{mod }6) = \phi(1) = \phi(1 \cdot 1) = \phi(1)\, \phi(1) = 3 \cdot 3 = 9 \> (\text{mod }6).
+    \]
+\end{solution}
+
+\begin{example}
+    For $a, b \in \mathbb{R}$, let $A(a,b) = M_2(\mathbb{R})$ be defined by 
+    \[
+        A(a, b) = \begin{bmatrix}
+            a & b \\ -b & a 
+        \end{bmatrix}.
+    \]
+    Let $R = \{ A(a,b) \> | \> a, b \in \mathbb{R} \} \subseteq M_2(\mathbb{R})$. Then $R \cong \mathbb{C}$.
+\end{example}
+\begin{solution}
+    Let $\phi: R \to \mathbb{C}$ be defined by 
+    \[
+        \phi(A(a,b)) = a + bi \in \mathbb{C}.
+    \]
+    We show firstly that $\phi$ is a ring homomorphism. 
+
+    For addition, we have 
+    \begin{align*}
+        \phi(A(a,b) + A(c,d)) &= \phi \left( A(a+c, b+ d)\right) \\
+        &= (a + c) + (b+d)i\\
+        &= (a+bi) + (c + di)\\
+        &= \phi\left( A(a,b) \right) + \phi\left( A(c,d) \right).
+    \end{align*}
+
+    For multiplication, we have 
+    \begin{align*}
+        \phi(A(a,b) + A(c,d)) &= \phi \left( \begin{bmatrix}
+            a & b \\ -b & a
+        \end{bmatrix}
+        \begin{bmatrix}
+            c & d \\ -d & c
+        \end{bmatrix} \right)  \\
+        &= \phi \left( \begin{bmatrix}
+            ac-bd & ad + bc \\ -(ad+bc) & ac - bd
+        \end{bmatrix} \right)\\
+        &= \phi \left( A(ac-bd, ad + bc )\right)\\
+        &= (a+bi)(c+di)\\
+        &= \phi \left( A(a,b)\right)\, \phi \left( A(c,d)\right).
+    \end{align*}
+
+    Now, $\phi$ is one-to-one and onto since $\phi \left( A(a,b) \right) = a+bi = 0$ if and only if 
+    $a = b = 0$, and $Ker\, \phi =\{ A(0,0) \}$ is trivial.
+\end{solution}
+
+\begin{example}
+    Show that the equation $2x^3 - 5x^2 + 7x - 8 = 0$ has no solutions in $\mathbb{Z}$.
+\end{example}
+\begin{solution}
+    Let $\phi: \mathbb{Z} \to \mathbb{Z}_3$ be the natural homomorphism $\phi(x) = x \text{ mod } 3$. Suppose that there 
+    is an integer $a \in \mathbb{Z}$ such that
+    \[
+        2a^3 - 5a^2 + 7a - 8 = 0.
+    \]
+    Then 
+    \[
+        0 = \phi(0) = \phi(2a^3 - 5a^2 + 7a - 8) = 2\phi(a)^3 - 5\phi(a)^2 + 7\phi(a) - 8.
+    \]
+    Since $-5 = 7 = -8 = 1 \, (\text{mod }3)$ in $\mathbb{Z}_3$, we have 
+    \[
+        2\phi(a)^3 - 5\phi(a)^2 + 7\phi(a) - 8 \> = \> 2\phi(a)^3 + \phi(a)^2 + \phi(a) + 1
+    \]
+    and thus $2b^3 + b^2 + b + 1 = 0$, where $b = \phi(a)$ in $\mathbb{Z}_3$.
+
+    However, one can easily check that no element $b \in \{ 0, 1, 2 \}$ in $\mathbb{Z}_3$ is a solution to this equation. 
+    Therefore there is no such integer $a \in \mathbb{Z}$ to the original equation.
+\end{solution}
+
+\begin{example}[Tutorial]
+    Show that the rings $2 \mathbb{Z}$ and $3 \mathbb{Z}$ are not isomorphic.
+\end{example}
+\begin{solution}
+    Assume the contrary and let $\phi: 2 \mathbb{Z} \to 3\mathbb{Z}$ to be an isomorphism. Let us examine 
+    $\phi(2)$. Note that for some $k \in \mathbb{Z}, \phi(2) = 3k$. Since $\phi$ is a homomorphism, 
+    \[
+        \phi(k) = \phi(2 + 2) = \phi(2) + \phi(2) = 3k + 3k = 6k.
+    \]
+    But $\phi$ is a ring homomorphism and 
+    \[
+        \phi(k) = \phi(2 \cdot 2) = \phi(2)\, \phi(2) = (3k)(3k) = 9k^2.
+    \]
+    This implies that $6k = 9k^2 \Longrightarrow k = 0$ or $k = \frac{2}{3}$.
+
+    For $k = 0 \Longrightarrow \phi(x) = 0$ is not one-to-one and not onto. Also, $k = \frac{2}{3} \notin \mathbb{Z}$, and thus 
+    $\phi$ cannot be an isomorphism.
+\end{solution}
+
+\begin{example}
+    Determine all ring homomorphism from $\mathbb{Z}$ to $\mathbb{Z}_6$.
+\end{example}
+\begin{solution}
+    Since $\mathbb{Z}$ is generated from $1$ by addition and subtraction, if a ring homomorphism $f: \mathbb{Z} \to \mathbb{Z}_6$, then for any 
+    $a \in \mathbb{Z}$, we have 
+    \[
+        f(a) = am
+    \]
+    where $m = f(1)$. Then $f$ is linear, so 
+    \[
+        f(a) + f(b) = am + bm = (a+b)m = f(a+b) \quad \forall a, b \in \mathbb{Z}.
+    \]
+    So $f$ is a ring homomorphism if and only if 
+    \[
+        0 = f(ab) - f(a)f(b) = abm - (am)(bm) = ab(m - m^2)
+    \]
+    for any $a,b \in \mathbb{Z}$. 
+
+    In particular, taking $a = b = 1$, we need to find $m$ such that $0 = m - m^2 \> (\text{mod} 6)$. Working modulo 6 one by one 
+    \begin{align*}
+        0 - 0^2 = 0-0=0, &1-1^2=1-1=0, &2 - 2^2 = 2 - 4 = 4 \neq 0\\
+        3 - 3^2 = 3 - 9 = -6 = 0, &4-4^2 = 4 -16 = 0, &5 - 5^2 = 5 - 25 = 2\neq 0
+    \end{align*}
+    
+    The possible values of $m$ are $0, 1, 3$ and $4$. So the homomorphisms are as follow
+    \begin{itemize}
+        \item $f(a) = 0 \> (\text{mod} 6), \quad \forall a \in \mathbb{Z}$.
+        \item $f(a) = a \> (\text{mod} 6), \quad \forall a \in \mathbb{Z}$.
+        \item $f(a) = 3a \> (\text{mod} 6), \quad \forall a \in \mathbb{Z}$.
+        \item $f(a) = 4a \> (\text{mod} 6), \quad \forall a \in \mathbb{Z}$.
+    \end{itemize}
+\end{solution}
 
 \begin{theorem}[The first isomorphism for rings]
     Let $f$ be a ring homomorphism from ring $R$ ro $S$. Then the mapping from $R / ker(f)$ to $f(R)$, given by 
@@ -770,7 +1045,7 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
 
 \begin{theorem}
     Let $F$ be a field and let $p(x) \in F[x]$. Then $\langle p(x) \rangle$ is a maximal ideal in $F[x]$
-    \textit{if and only if} $p(x)$ is irreducible over $F$.
+    if and only if $p(x)$ is irreducible over $F$.
 \end{theorem}
 \begin{proof}
     Suppose $\langle p(x) \rangle$ is a maximal ideal in $F[x]$. We know that $p(x) \neq 0$ and 
@@ -793,7 +1068,7 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
 \end{remark}
 
 \begin{corollary}
-    A polynomial is irreducible in $\mathbb{C}[x]$ \textit{if and only if} it has a degree 1.
+    A polynomial is irreducible in $\mathbb{C}[x]$ if and only if it has a degree 1.
 \end{corollary}
 \begin{proof}
     All linear equation with degree 1 only have one root in $\mathbb{R}$.
@@ -852,7 +1127,7 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
 
     Now we knew every irreducible polynomial has a degree 1 or 2. When its degree is 2, then 
     \[
-        f(x) = ax^2 + bx + c \quad \forall a,b,c \in \mathbb{R} \label{eq:r2.1} \tag{{\color{red} $\clubsuit$}}
+        f(x) = ax^2 + bx + c \quad \forall a,b,c \in \mathbb{R} \label{eq:r2.1} \tag{{\color{myred} $\clubsuit$}}
     \]
     We now continue to work on the "formula" to solve $x$. Completing the square on \eqref{eq:r2.1}
     \begin{align*}
@@ -1074,3 +1349,147 @@ $b=0$.
     Since none of the $q_j$ is a unit, this means that $r=s$ and $p_1 p_2 \cdots p_r$ are associates of 
     $q_1 q_2 \cdots q_r$ in some order. Thus $R$ is a unique factorization domain.
 \end{proof}
+
+\section*{Tutorials}
+
+\begin{mdframed}
+    \vspace{-0.25cm}
+    \hspace{-0.25cm}
+    \begin{Exercise}
+        For each of the following, decide whether the indicated operations on the set will form a ring. If a ring is not formed, 
+        state the reason why this is the case. If a ring is formed state whether the ring is commutative, whether it has unity, 
+        and whether it is a field. 
+        \begin{enumerate}
+            \item $n\mathbb{Z}$, under the usual addition and multiplication.
+            \item $n\mathbb{R}^+$, under the usual addition and multiplication.
+            \item $n\mathbb{Z} \times \mathbb{Z}$ with addition and multiplication by components.
+            \item $n\mathbb{Z} \times 2\mathbb{Z}$ with addition and multiplication by components.
+            \item $\{ a + b\sqrt{5} \> | \> a,b \in \mathbb{Q} \}$ with the usual addition and multiplication.
+            \item $\{ ri \> | \> r \in \mathbb{R} \}$ with the usual addition and multiplication where $i^2 = -1$.
+        \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $\alpha = \sqrt[3]{5}$ and $\mathbb{Z}[\alpha] = \{ a + b\alpha + c\alpha^2 \> | \> a,b,c \in \mathbb{Z} \}$. Prove whether 
+        $\mathbb{Z}[\alpha]$ is a subring of $\mathbb{R}$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $X$ be some arbitrary set, and $P(X)$ be the set of all subsets of $X$. Define operators on $P(X)$ as follows, 
+        where $a,b$ in $P(X)$:
+        \[
+            a + b = (a \cup b) \setminus (a \cap b)
+        \]
+        and 
+        \[
+            ab = a \cap b.
+        \]
+        Show that $P(X)$ is a commutative ring.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $\mathbb{A}$ be the set $\mathbb{A} = \{ a + bi \> | \> a, b \in \mathbb{Q} \}$
+        where $i^2 = -1$. Here,
+        \[
+            (a + bi) + (c + di) = (a + c) + (b+d)i
+        \] 
+        and 
+        \[
+            (a+bi)(c+di) = (ac-bd) + (ad - bc)i.
+        \]
+        Show that $\mathbb{A}$ is a field.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that the rings $2\mathbb{Z}$ and $3\mathbb{Z}$ are not isomorphic.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that a ring $R$ has no nonzero nilpotent element if and only if $0$ is the only solution of $x^2 = 0$ in $R$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that if $R$ is a ring with unity and $N$ is an ideal of $R$ such that $N \neq R$, then $R/N$ is a ring with unity.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        If $F$ is a field, show that $(F \setminus \{0\}, \cdot)$ is a group.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that in a field $F$, the only ideals are $F$ and $\{ 0 \}$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that each homomorphism from a field to a ring is either one to one or maps everything onto 0. 
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Find the characteristic of the following rings:
+        \begin{enumerate}
+            \item $2 \mathbb{Z}$.
+            \item $\mathbb{Z}_3 \times 3 \mathbb{Z}$.
+            \item $\mathbb{Z}_5 \times \mathbb{Z}_5$.
+        \end{enumerate} 
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that the matrix $\begin{bmatrix}
+            1 & 2 \\ 2 & 4
+        \end{bmatrix}$ is a zero divisor in $M_2(\mathbb{Z})$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        An element $\mathfrak{a}$ of a ring $R$ is idempotent if $\mathfrak{a}^2 = \mathfrak{a}$. Show that a division ring 
+        contains exactly two idempotent elements.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        If $A$ and $B$ are ideals of a ring $R$, then the sum $A + B$ of $A$ and $B$ is defined by 
+        \[
+            A + B = \{ a + b \> | \> a \in A, b \in B \}.
+        \]
+        \begin{enumerate}
+            \item Show that $A + B$ is an ideal of $R$.
+            \item Show that $A \subseteq A + B$.
+        \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        If $A$ and $B$ are ideals of a ring $R$, then the product $AB$ of $A$ and $B$ is defined by 
+        \[
+            AB = \left\{ \sum^n_{i=1} a_ib_i \> \bigg | \> a_i \in A, b_i \in B, n \in \mathbb{Z}^+ \right\}.
+        \]
+        \begin{enumerate}
+            \item Show that $AB$ is an ideal of $R$.
+            \item Show that $AB \subseteq (A \cap B)$.
+        \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Find $q(x)$ and remainder $r(x)$ as described by the division algorithm so that 
+        \[
+            f(x) = g(x)q(x) + r(x)
+        \]
+        with $r(x) = 0$ or of degree less than the degree of $g(x)$.
+        \begin{enumerate}
+            \item $f(x) = x^6 + 3x^5 + 4x^2 - 3x + 2$ and $g(x) = x^2 + 2x - 3$ in $\mathbb{Z}_7[x]$.
+            \item $f(x) = x^5 - 2x^4 + 3x - 5$ and $g(x) = 2x + 1$ in $\mathbb{Z}_{11}[x]$.
+        \end{enumerate}
+    \end{Exercise}
+\end{mdframed}
