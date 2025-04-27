@@ -130,6 +130,51 @@ Here are a few things you should take notes:
     Thus $S \leq \mathbb{Z}_6$.
 \end{solution}
 
+\begin{theorem}
+    Let $a,b$ and $c$ belong to a ring $R$. Then 
+    \begin{enumerate}
+        \item $a0 = 0a = 0$.
+        \item $a(-b) = (-a)b = -(ab)$.
+        \item $(-a)(-b) = ab$.
+        \item $a(b-c) = ab - ac$ and $(b-c)a = ba-ca$.
+        \item Furthermore, if $R$ has a unity element 1, then $(-1)a = -a$.
+        \item $(-1)(-1) = (-1)^2 = 1$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    We are going to prove (1), (2) and (3).
+
+    \begin{enumerate}
+        \item \begin{align*}
+            a(0 + 0) = a0 &\Rightarrow a0 + a0 = a0\\
+            &\Rightarrow {\color{red}(-a0)} + a0 + a0 = {\color{red}(-a0)} + a0\\
+            &\Rightarrow 0 + a0 = 0\\
+            &\Rightarrow a0 = 0.
+        \end{align*}
+
+        \item \begin{align*}
+            a0 = 0 &\Rightarrow a(b + (-b)) = 0\\
+            &\Rightarrow ab + a(-b) = 0\\
+            &\Rightarrow {\color{red} -(ab)} + ab + a(-b) = {\color{red} -(ab)} + 0\\
+            &\Rightarrow a(-b) = -(ab).
+        \end{align*}
+
+        \item \begin{align*}
+            (-a)(-b) &= -(a(-b))\\
+            &= -(a(-b))\\
+            &= -(-(ab))\\
+            &= ab.
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item A ring has unique unity.
+        \item If a ring element has a multiplicative inverse, it is unique.
+    \end{enumerate}
+\end{theorem}
+
 \section{Quotient rings, Ideals}
 
 \subsection{Ideals}

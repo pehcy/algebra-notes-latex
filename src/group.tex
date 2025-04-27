@@ -239,9 +239,55 @@ Joining additive and multiplicative groups together, we form a ring with \textbf
     For a fixed point $(x,y)$ in 2-dimensional cartesian plane $\mathbb{R}^2$, we define the geometrical translation $T_{a,b} : \mathbb{R}^2 \to \mathbb{R}^2$
     by 
     \[
-        T_{a,b}(x,y) = (x+a, y+b).
+        T_{a,b}(x,y) = (x \,{\color{red}+a}, y\,{\color{blue}+b}).
     \]
     The set $G = \{ T_{a,b} \> | \> a,b \in \mathbb{R}\}$ is a group under function composition.
+
+    \begin{center}
+        \begin{tikzpicture} 
+            \def \minx {-1}
+            \def \maxx {5}
+            \def \miny {-1}
+            \def \maxy {5}
+        
+            \draw[thin,black!20] (\minx-0.1,\miny-0.1) grid (\maxx+0.1,\maxy+0.1);
+        
+            \draw[thick, latex-latex] (\minx-0.3,0)--(\maxx+0.3,0);
+            \draw[thick, latex-latex] (0,\miny-0.3)--(0,\maxy+0.3);
+            \node at (\maxx+0.5,0) {$x$};
+            \node at (0,\maxy+0.5) {$y$};
+        
+            \foreach \x in {\minx,...,-1}{
+                \draw (\x,0)--(\x,-0.1);
+                \node[below,black] at (\x,-0.05) {$\x$};
+            }
+            \foreach \x in {1,...,\maxx}{
+                \draw (\x,0)--(\x,-0.1);
+                \node[below,black] at (\x,-0.05) {$\x$};
+            }
+            \foreach \y in {\miny,...,-1}{
+                \draw (0,\y)--(-0.1,\y);
+                \node[left,black] at (-0.05,\y) {$\y$};
+            }
+            \foreach \y in {1,...,\maxy}{
+                \draw (0,\y)--(-0.1,\y);
+                \node[left,black] at (-0.05,\y) {$\y$};
+            }
+            \node[below left,black] at (0,0) {$0$};
+            \draw[very thick, dashed, red] (1,1)--(3,1);
+            \draw[very thick, dashed, blue] (3,1)--(3,4);
+            \draw[fill] (1,1) circle [radius=0.1];
+            \draw[very thick, fill=white] (3,4) circle [radius=0.1];
+            \draw[very thick] (1,1)--(3,4);
+            \node[left,black] at (2,3) {$T_{a,b}$};
+            \node[below,red] at (2,1) {$a$};
+            \node[right,blue] at (3,2.5) {$b$};
+            \node[above right] at (3,4.2) {$(x \,{\color{red}+a}, y\,{\color{blue}+b})$};
+        
+            %\draw[very thick, domain=\minx:\maxx, variable=\x, smooth, samples=300, red]  plot ({\x},{sin(\x r)}); 
+            %\draw[very thick, domain=\minx:\maxx, variable=\x, smooth, samples=300, blue]  plot ({\x},{cos(\x r)});
+        \end{tikzpicture}
+    \end{center}
 \end{example}
 \begin{solution}
     \begin{enumerate}
@@ -506,14 +552,21 @@ $\{ e \}$ is called a nontrivial subgroup of $G$.
     \]
     is a subgroup of $G$.
 \end{example}
-
-\begin{example}
-    Let $G$ be an abelian group under multiplication with identity $e$. Then 
-    \[
-        H = \{ x^2  \> | \> x \in G \}
-    \]
-    is a subgroup of $G$.
-\end{example}
+\begin{solution}
+    We can use one-step subgroup test to check:
+    \begin{enumerate}
+        \item Since $G$ is a group, then $e \in G$ and so $e = e^2 \in H \neq \varnothing$.
+        \item For all $a, b \in H$, we see that $a^2 = e$ and $b^2 = e$. Next, we compute
+        \begin{align*}
+            (ab^{-1})^2 &= (ab^{-1})(ab^{-1})\\
+            &= a^2(b^{-1})^2\\
+            &= a^2(b^2)^{-1}\\
+            &= ee^{-1}\\
+            &= e
+        \end{align*}
+        implies $ab^{-1}$ is in $H$. Thus $H \leq G$.
+    \end{enumerate}
+\end{solution}
 
 \begin{theorem}[Two-step subgroup test]
     Suppose $G$ is a multiplicative group and $H \subseteq G$. 
@@ -533,6 +586,49 @@ $\{ e \}$ is called a nontrivial subgroup of $G$.
     \end{enumerate}
 \end{theorem}
 
+\begin{example}
+    Let $G$ be an abelian group under multiplication with identity $e$. Then 
+    \[
+        H = \{ x^2  \> | \> x \in G \}
+    \]
+    is a subgroup of $G$.
+\end{example}
+\begin{solution}
+    \item Since $G$ is a group, then $e^2 = e \in G$ and $G$ is nonempty.
+    \item For all $a, b \in H$, we see that $a = x^2$ and $b = y^2 \quad \forall x,y \in G$. Next, we compute
+    \begin{align*}
+        ab^{-1} &= (x^2)(y^2)^{-1}\\
+        &= xxy^{-1}y^{-1}\\
+        &= xy^{-1}xy^{-1}\\
+        &= (xy^{-1})^2
+    \end{align*}
+    implies $ab^{-1} = (xy^{-1})^2$ is in $H$. Thus $H \leq G$.
+\end{solution}
+
+\begin{example}
+    Let $G = \mathbb{R}^* \setminus \{0\}$, $(G, \cdot)$ is a multiplicative group. And 
+    \[
+        H = \{ x \in G \> | \> x = 1 \textsf{ or } x \textsf{ is irrational} \}
+    \]
+    is not a subgroup of $G$.
+\end{example}
+\begin{solution}
+    With two-step subgroup test, step 2 is wrong.\\
+    (Counterexample) $\sqrt{2} \in H$, but $\sqrt{2} \, \sqrt{2} = 2 \notin H$.
+\end{solution}
+
+\begin{example}
+    Let $G = \mathbb{R}^* \setminus \{0\}$, $(G, \cdot)$ is a multiplicative group. And 
+    \[
+        K = \{ x \in G \> | \> x \geq 1 \}
+    \]
+    is not a subgroup of $G$.
+\end{example}
+\begin{solution}
+    With two-step subgroup test, step 3 is wrong.
+
+    (Counterexample) Take $2 \in K$, but $\displaystyle 2^{-1} = \frac{1}{2} \notin K$.
+\end{solution}
 
 \section{Cyclic groups}
 
@@ -2747,9 +2843,17 @@ The resulting algebraic object satisfies the axioms for a group. Specifically:
     Find $U(8) \oplus U(10)$.
 \end{example}
 \begin{solution}
+    We have $U(8) = \{1,3,5,7\}$ and $U(8) = \{1,3,7,9\}$. Then $U(8) \oplus U(10)$ is the cartesian
+    product of each element.
+
     \begin{center}
         \begin{tabular}{c|cccc}
             & 1 & 3 & 7 & 9\\
+            \hline
+            1 & $(1,1)$ & $(1,3)$ & $(1,7)$ & $(1,9)$\\
+            3 & $(3,1)$ & $(3,3)$ & $(3,7)$ & $(3,9)$\\
+            7 & $(7,1)$ & $(7,3)$ & $(7,7)$ & $(7,9)$\\
+            9 & $(9,1)$ & $(9,3)$ & $(9,7)$ & $(9,9)$\\
         \end{tabular}
     \end{center}
 \end{solution}
@@ -2790,6 +2894,27 @@ The resulting algebraic object satisfies the axioms for a group. Specifically:
         G_1 \oplus G_2 \oplus \cdots \oplus G_{n}
     \]
     by induction.
+\end{proof}
+
+\begin{theorem}
+    Let $G_1$ and $G_2$ be two groups. Let $H_1$ and $H_2$ be normal subgroups of
+    $G_1$ and $G_2$ respectively then 
+    \[
+        H_1 \oplus H_2 \unlhd G_1 \oplus G_2.
+    \]
+\end{theorem}
+\begin{proof}
+    Since $H_1$ is a subgroup of $G_1$ and $H_2$ is a subgroup of $G_2$, therefore
+    $H_1 \oplus H_2$ is subgroup of $G_1 \oplus G_2$.
+
+    Now let $(h_1, h_2) \in H_1 \oplus H_2$ and $(g_1, g_2) \in G_1 \oplus G_2$, then 
+    \begin{align*}
+        (g_1, g_2)(h_1, h_2)(g_1, g_2)^{-1} &= (g_1 h_1, g_2 h_2)(g^{-1}_1, g^{-1}_2)\\
+        &= (g_1 h_1 g^{-1}_1, g_2 h_2 g^{-1}_2) \in H_1 \oplus H_2.
+    \end{align*}
+
+    $g_1 h_1 g^{-1}_1 \in H_1$ and $g_2 h_2 g^{-1}_2 \in H_2$ because $H_1 \unlhd G_1$ and 
+    $H_2 \unlhd G_2$. Thus $H_1 \oplus H_2 \unlhd G_1 \oplus G_2$.
 \end{proof}
 
 \section{Internal Direct Product}
