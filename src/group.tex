@@ -494,6 +494,27 @@ $g^n = e$ (In additive notation, this would be $ng = 0$). If no such integer exi
 $g$ has infinite order. The order of an element $g \in G$ is denoted 
 by $\ord(g)$.
 
+\begin{example}
+    $(\mathbb{Z}_5, +) = \{0,1,2,3,4 \}$ is a group. The order of $G$ is $5$. 
+    We can write $|G| = 5$. 
+
+    Take an element, said $2$ in $\mathbb{Z}_5$. The order of $2$ is $\ord(2) = 5$ since 
+    \[
+        2+2+2+2+2 = 10 \equiv 0 (\text{mod } 5).
+    \]
+    It takes five iterations on the same operation to return back to the identity 0.
+
+    The order of $0$ is infinity, $\ord(0) = \infty$. No matter how many times you add on the zero, 
+    it is still zero and it is identity in $\mathbb{Z}_5$.
+\end{example}
+
+\begin{example}
+    Take an element in $U(6)$, said $5$. $\ord(5) = 2$ because 
+    \[
+        5 \cdot 5 = 5^2 = 1 \quad (\text{mod } 6).
+    \] 
+\end{example}
+
 \begin{definition}[Subgroups]
     If a subset $H$ of a group $G$ is itself a group under the same operation of $G$, we say that $H$ is a subgroup of $G$.
 \end{definition}
@@ -777,7 +798,7 @@ element is a multiple of some fixed element. For instance,
     \]
     and we are done.
 
-    On the other hand, if $\mathfrak{a}$ has finite order, just say $\textbf{ord}(\mathfrak{a}) = n$. We want to show 
+    On the other hand, if $\mathfrak{a}$ has finite order, just say $\ord(\mathfrak{a}) = n$. We want to show 
     \[
         \langle \mathfrak{a} \rangle = \{ e, \mathfrak{a}, \mathfrak{a}^2, \ldots, \mathfrak{a}^{n-1} \}.
     \]
@@ -2047,7 +2068,7 @@ is an isomorphism.
             \]
             and 
             \[
-                y \in \phi(K) \Rightarrow x = \phi(\alpha_2)
+                y \in \phi(K) \Rightarrow y = \phi(\alpha_2)
             \]
             where $\alpha_1, \alpha_2 \in K$. Compute 
             \begin{align*}

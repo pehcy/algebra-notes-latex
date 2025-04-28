@@ -76,6 +76,81 @@ Here are a few things you should take notes:
     \]
 \end{example}
 
+\begin{theorem}
+    Let $a,b$ and $c$ belong to a ring $R$. Then 
+    \begin{enumerate}
+        \item $a0 = 0a = 0$.
+        \item $a(-b) = (-a)b = -(ab)$.
+        \item $(-a)(-b) = ab$.
+        \item $a(b-c) = ab - ac$ and $(b-c)a = ba-ca$.
+        \item Furthermore, if $R$ has a unity element 1, then $(-1)a = -a$.
+        \item $(-1)(-1) = (-1)^2 = 1$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    We are going to prove each of them:
+
+    \begin{enumerate}
+        \item \begin{align*}
+            a(0 + 0) = a0 &\Rightarrow a0 + a0 = a0\\
+            &\Rightarrow {\color{red}{} (-a0)} + a0 + a0 = {\color{red}{} (-a0)} + a0\\
+            &\Rightarrow 0 + a0 = 0\\
+            &\Rightarrow a0 = 0.
+        \end{align*}
+
+        \item \begin{align*}
+            a0 = 0 &\Rightarrow a(b + (-b)) = 0\\
+            &\Rightarrow ab + a(-b) = 0\\
+            &\Rightarrow {\color{red}{} -(ab)} + ab + a(-b) = {\color{red}{} -(ab)} + 0\\
+            &\Rightarrow a(-b) = -(ab).
+        \end{align*}
+
+        \item \begin{align*}
+            (-a)(-b) &= -(a(-b))\\
+            &= -(a(-b))\\
+            &= -(-(ab))\\
+            &= ab.
+        \end{align*}
+
+        \item \[ 
+            a(b-c) = a(b+(-c)) = ab + a(-c) = ab - ac.
+        \]
+
+        \item \begin{align*}
+            0a = 0 &\Rightarrow (1+(-1))a = 0\\
+            &\Rightarrow 1a + (-1)a = 0\\
+            &\Rightarrow a + (-1)a = 0\\
+            &\Rightarrow {\color{red}{} (-a)} + a + (-1)a = {\color{red}{} (-a)} + 0\\
+            &\Rightarrow 0 + (-1)a =  {\color{red}{} (-a)}\\
+            &\Rightarrow (-1)a = -a.
+        \end{align*}
+
+        \item \[
+            (-1)(-1) = -(1(-1)) = -(-(1 \cdot 1)) = 1.
+        \]
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    If a ring has a unity, it is unique.
+\end{lemma}
+\begin{proof}
+    Suppose $1_R$ and $1'_R$ are both unity of ring $R$. Then 
+    For all $a \in R$, we must have 
+    \[
+        a \cdot 1_R = a = 1_R \cdot a
+    \]
+    and 
+    \[
+        a \cdot 1'_R = a = 1'_R \cdot a.
+    \]
+    Thus, we say that $a \cdot 1_R = a = a \cdot 1'_R$. By cancellation law this yields
+    \[
+        1_R = 1'_R.
+    \]
+    So ring $R$ has unique unity.
+\end{proof}
+
 \section{subrings}
 
 \begin{theorem}[Subring test]
@@ -86,11 +161,16 @@ Here are a few things you should take notes:
         \item $ab \in S \quad \forall a, b \in S$.
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    Since addition in $R$ is commutative and $S$ closed under subtraction, we know that by 
+    the \textit{one-step subgroup test} that $S$ is an Abelian group under addition. 
+    
+    Also, since multiplication in $R$ is asscoiative as well as distributive over addition, the 
+    same is true for multiplication in $S$.
 
-\begin{definition}[characteristic of ring]
-    The characteristic of a ring $R$ is the least positive integer $n$ such that $nx = 0$ for all $x \in R$. If no such integer exists, we say that 
-    $R$ has characteristic 0. The characteristic of $R$ is denoted by $\text{char}(R)$.
-\end{definition}
+    Therefore, the only condition remaining to be checked is that multiplication is a binary 
+    operation on $S$. But this is exactly what closure means.
+\end{proof}
 
 \begin{example}
     $S = \{ 0, 2, 4 \}$ is a subring of $\mathbb{Z}_6$.
@@ -129,51 +209,6 @@ Here are a few things you should take notes:
 
     Thus $S \leq \mathbb{Z}_6$.
 \end{solution}
-
-\begin{theorem}
-    Let $a,b$ and $c$ belong to a ring $R$. Then 
-    \begin{enumerate}
-        \item $a0 = 0a = 0$.
-        \item $a(-b) = (-a)b = -(ab)$.
-        \item $(-a)(-b) = ab$.
-        \item $a(b-c) = ab - ac$ and $(b-c)a = ba-ca$.
-        \item Furthermore, if $R$ has a unity element 1, then $(-1)a = -a$.
-        \item $(-1)(-1) = (-1)^2 = 1$.
-    \end{enumerate}
-\end{theorem}
-\begin{proof}
-    We are going to prove (1), (2) and (3).
-
-    \begin{enumerate}
-        \item \begin{align*}
-            a(0 + 0) = a0 &\Rightarrow a0 + a0 = a0\\
-            &\Rightarrow {\color{red}(-a0)} + a0 + a0 = {\color{red}(-a0)} + a0\\
-            &\Rightarrow 0 + a0 = 0\\
-            &\Rightarrow a0 = 0.
-        \end{align*}
-
-        \item \begin{align*}
-            a0 = 0 &\Rightarrow a(b + (-b)) = 0\\
-            &\Rightarrow ab + a(-b) = 0\\
-            &\Rightarrow {\color{red} -(ab)} + ab + a(-b) = {\color{red} -(ab)} + 0\\
-            &\Rightarrow a(-b) = -(ab).
-        \end{align*}
-
-        \item \begin{align*}
-            (-a)(-b) &= -(a(-b))\\
-            &= -(a(-b))\\
-            &= -(-(ab))\\
-            &= ab.
-        \end{align*}
-    \end{enumerate}
-\end{proof}
-
-\begin{theorem}
-    \begin{enumerate}
-        \item A ring has unique unity.
-        \item If a ring element has a multiplicative inverse, it is unique.
-    \end{enumerate}
-\end{theorem}
 
 \section{Quotient rings, Ideals}
 
@@ -438,6 +473,35 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     \end{align*}
 \end{solution}
 
+\begin{definition}[characteristic of ring]
+    The characteristic of a ring $R$ is the least positive integer $n$ such that $nx = 0$ for all $x \in R$. If no such integer exists, we say that 
+    $R$ has characteristic 0. The characteristic of $R$ is denoted by $\text{char}(R)$.
+\end{definition}
+
+\begin{example}
+    The characteristic of ring $\mathbb{Z}_7$ is 7.
+\end{example}
+
+\begin{example}
+    Find the characteristic of $R = \mathbb{Z}[i] / \langle 2 - i \rangle$.
+\end{example}
+\begin{solution}
+    Given that 
+    \[
+        R = \mathbb{Z}[i] / \langle 2 - i \rangle = \{ a + bi + \langle 2-i \rangle \}.
+    \]
+    Observe that 
+    \[
+        2 - i + \langle 2-i \rangle = 0 + \langle 2-i \rangle 
+    \]
+    and so we treat $2 - i$ as zero, and $i = 2$ and so 
+    \[
+        -1 = i^2 = 4 \Longrightarrow 5 = 0 \in R.
+    \]
+    Thus $R = \{ 0+\langle 2-i \rangle, 1 + \langle 2-i \rangle, 2 + \langle 2-i \rangle, 
+    3 + \langle 2-i \rangle, 4 + \langle 2-i \rangle\}$. So $\text{Char}(R) = 5$.
+\end{solution}
+
 \begin{definition}[Prime ideal]
     An ideal $I$ in a commutative ring $R$ is said to be prime if $I \neq R$ and whenever 
     $ab \in I$, then either $a \in I$ or $b \in I$.
@@ -512,6 +576,44 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     If $I$ is a maximal ideal in $R$, then $R/I$ is a field. Every field is an integral domain, so $R/I$ is 
     also an integral domain, and $I$ is a prime ideal.
 \end{proof}
+
+\begin{example}
+    The ideal $\langle x^2 + 1 \rangle$ is maximal in $\mathbb{R}[x]$.
+\end{example}
+\begin{solution}
+    Suppose that $A$ is an ideal of $\mathbb{R}[x]$ that properly 
+    contains $\langle x^2 + 1 \rangle$. We will 
+    prove that $A = \mathbb{R}[x]$ by showing that $A$ contains some nonzero real number 
+    $c$. Then 
+    \[
+        1 = \frac{1}{c} c \in A
+    \]
+    and therefore $A = \mathbb{R}[x]$.
+
+    Let a polynomial $f(x) \in A$, but $f(x) \notin \langle x^2 + 1 \rangle$. Then 
+    \[
+        f(x) = q(x) (x^2 + 1) + r(x),
+    \]
+    where $r(x) = ax + b$, where $a,b$ both are nonzero, and hence 
+    \[
+        a^2 x^2 - b^2 = (ax+b)(ax-b) \in A \textsf{ and } a^2(x^2 + 1) \in A.
+    \] 
+    So that 
+    \[
+        0 \neq a^2 + b^2 = (a^2x^2 + a^2) - (a^2x^2 - b^2) \in A.
+    \]
+\end{solution}
+
+\begin{example}
+    The ideal $\langle x^2 + 1 \rangle$ is not prime in $\mathbb{Z}_2[x]$.
+\end{example}
+\begin{solution}
+    (Counterexample) Take 
+    \[
+        (x+1)^2 = x^2 + 2x + 1 = x^2 + 1 \in \langle x^2 + 1 \rangle
+    \]
+    but $1 + x \notin \langle x^2 + 1 \rangle$.
+\end{solution}
 
 \section{Ring homomorphism}
 
@@ -1255,6 +1357,18 @@ $b=0$.
     Therefore, $F$ has no zero divisors, and so $F$ is an integral domain.
 \end{proof}
 
+\begin{corollary}
+    $\mathbb{Z}_p$ is a field.
+\end{corollary}
+\begin{proof}
+    According to previous theorem, we need only prove that $\mathbb{Z}_p$ has no zero 
+    divisors.
+
+    Suppose that $a, b \in \mathbb{Z}_p$ and $ab = 0$. Then $ab = pk$ for some 
+    integer $k$. But then we have either $p \, | \, a$ or $p p \, | \, b$ and in 
+    $\mathbb{Z}_p$ is equivalent to either $a = 0$ or $b = 0$.
+\end{proof}
+
 \begin{lemma}
     If $R$ is an integral domain, then the characteristic of $R$ is either $0$ or a positive prime.
 \end{lemma}
@@ -1267,7 +1381,6 @@ $b=0$.
     Since $R$ is an integral domain, it is either $a \cdot 1_R = 0$ or $b \cdot 1_R = 0$. This is contradicts 
     with our assumption that $n$ is not prime.
 \end{solution}
-
 
 \begin{definition}
     If $F$ is a field, then the only ideals are $\{0\}$ and $F$ itself.
@@ -1367,6 +1480,33 @@ $b=0$.
     \end{align*}
 \end{remark}
 
+\begin{theorem}
+    Let $R$ be a commutative ring with unity and let $A$ be an ideal of $R$. Then 
+    $R/A$ is an integral domain if and only if $A$ is prime.
+\end{theorem}
+\begin{proof}
+    We are going to prove in two directions:
+
+    $(\Rightarrow)$ Suppose $R/A$ is an integral domain and $ab \in A$. Then 
+    \[
+        (a + A)(b + A) = ab + A = A
+    \]
+    is the zero element of the ring $R/A$. So it is either $a + A = A$ 
+    or $b + A = A$; that is, either $a \in A$ or $b = A$. Thus $A$ is prime. 
+    
+    $(\Leftarrow)$ On the other hand, observe that $R/A$ is a commutative ring with 
+    unity for any proper ideal $A$. Thus, we only need to show that when $A$ 
+    is prime, $R/A$ has no zero divisors.
+
+    Now suppose that $A$ is prime and 
+    \[
+        (a + A) (b+A) = 0 + A = A.
+    \]
+    Then $ab \in A$, and therefore, it is either $a \in A$ or
+    $b \in A$. Thus, one of 
+    $a + A$ or $b + A$ is the zero coset in $R/A$. Now we are done. 
+\end{proof}
+
 \section{Principal Ideal Domain}
 
 \begin{definition}
@@ -1406,6 +1546,7 @@ $b=0$.
     that $r(x) = 0$ and so $f(x) = q(x)\, g(x) \Longrightarrow  f(x) \in \langle g(x) \rangle$.
 \end{proof}
 
+\newpage
 \section{Unique Factorization Domain}
 
 \begin{definition}
@@ -1509,6 +1650,29 @@ $b=0$.
     If $r \neq 0$, then $r = b - aq \in I$ shows that $d(r) \in N$; and since 
     $d(r) < d(a)$, this contradicts the minimality of $d(a)$ in $N$. Therefore, $r = 0$ and so $b = aq \in Ea$.
     Thus $I \subseteq Ea$ and hence $I = Ea$.
+\end{proof}
+
+\begin{remark}
+    If $D$ is Euclidean domain, then it is both PID and UFD.
+\end{remark}
+
+\begin{theorem}
+    If $D$ is UFD, then $D[x]$ is UFD.
+\end{theorem}
+\begin{proof}
+    Let $D$ be an Euclidean domain and $\varnothing \neq I \triangleleft D$.
+
+    Among all the nonzero elements of $I$, let $a \in I$ be such that $d(a)$ is a minimum. 
+    Then
+    \[
+        I = \langle a \rangle.
+    \]
+    For if $b \in I$, there exist some $q,r$ such that 
+    \[
+        b = aq+r,
+    \]
+    where $r=0$ or $d(r) < d(a)$. But $r = b-aq \in I$, so $d(r)$ cannot be less than $d(a)$. 
+    Thus, $r = 0$ and $b = aq \in \langle a \rangle$
 \end{proof}
 
 \section*{Tutorials}
