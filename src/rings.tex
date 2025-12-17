@@ -176,7 +176,7 @@ Here are a few things you should take notes:
     $S = \{ 0, 2, 4 \}$ is a subring of $\mathbb{Z}_6$.
 \end{example}
 \begin{solution}
-    Using subring test, the subtraction and multiplication form a group in $S$.
+    Using subring test, the subtraction is closed and the multiplication form a group in $S$.
 
     \begin{center}
         \begin{minipage}{.25\textwidth}
@@ -860,6 +860,27 @@ for all $r \in R$. An ideal $A$ of $R$ is called a \bred{proper ideal} of $R$ if
     $\mathbb{Z} \times \mathbb{Z}$.
 \end{example}
 
+\begin{definition}
+    If $I$ and $J$ are ideals of a ring $R$, then we can define the following ideals of them:
+    \begin{enumerate}
+        \item The \bred{sum} $I + J$ is
+        \begin{equation}
+            I + J = \{ i + j \> | \> i \in I, j \in J \}.
+        \end{equation}
+        If $I + J = R$ then we say that $I$ and $J$ are \textit{coprime}.
+
+        \item The \bred{intersect} of two ideals is
+        \begin{equation}
+            I \cap J = \{ r \> | \> r \in I \text{ and } r \in J \}.
+        \end{equation}
+
+        \item The \bred{product} of two ideals equals
+        \begin{equation}
+            IJ = \left\{ \sum^n_{k=1} i_k j_k \> \vert \> i_k \in I, j_k \in J \right\}.
+        \end{equation}
+    \end{enumerate}
+\end{definition}
+
 \section{Polynomial rings}
 
 \begin{definition}
@@ -909,13 +930,22 @@ were some strange abstract entity.
         f(x) = (x-a)q(x) + r(x)
     \]
     and the $deg(r) < deg(x-a) = 1$, so $r(x) = c \in F$, where $c$ is a constant. Also, the fact that 
-    $a$ is a zero of $f(x)$ implies $f(a) = 0$. So 
+    $a$ is a zero of $f(x)$ implies $f(a) = 0_F$. So 
     \[
-        f(x) = (x-a)q(x) + c \> \Longrightarrow 0 = f(a) = (a-a)q(a) + c.
+        f(x) = (x-a)q(x) + c \> \Longrightarrow 0_F = f(a) = (a-a)q(a) + c.
     \]
     Thus $c = 0$, and $x - a$ is a factor of $f(x)$.
 
-    $(\Leftarrow)$ On the other way, we want to show 
+    $(\Leftarrow)$ On the other way, we want to show that if $x - a$ is a factor of $f(x)$, then
+    $a$ is a zero of $f(x)$. If $x - a$ is a factor of $f(x)$, then $\exists q(x) \in F[x]$ such that
+    \[
+        f(x) = (x-a)q(x).
+    \]
+    Evaluating at $x = a$, we have
+    \[
+        f(a) = (a-a)q(a) = 0_Fq(a) = 0_F.
+    \]
+    Thus $a$ is a zero of $f(x)$.
 \end{proof}
 
 \begin{definition}[Algebraically closed]
@@ -1119,7 +1149,6 @@ There are various methods to check if a polynomial in $\mathbb{Z}[x]$ is irreduc
     every degree in $\mathbb{Q}[x]$.
 \end{example}
 
-\vspace*{6cm}
 \begin{corollary}
     For any prime $p$, the $p$-th cyclotomic polynomial
     \[
@@ -1345,7 +1374,15 @@ for some nonzero $b \in R$. The most familiar integral domain is $\mathbb{Z}$. I
 commutative ring with unity one. If $a, b \in \mathbb{Z}$ and $ab=0$, then either $a=0$ or 
 $b=0$.
 
-\begin{definition}
+\begin{theorem}
+    If $x \neq 0$ is not a zero divisor in a ring $R$ and $xy = xz$, then $y = z$.
+\end{theorem}
+\begin{proof}
+    Since $xy = xz$, we have $x(y-z) = 0$. Since $x \neq 0$ and is not a zero divisor, it follows that 
+    $y-z = 0 \implies y = z$.
+\end{proof}
+
+\begin{definition}[Integral Domains]
     A ring with unity $1$ having no zero divisors is an integral domain.
 \end{definition}
 
@@ -1373,7 +1410,7 @@ $b=0$.
 \begin{lemma}
     If $R$ is an integral domain, then the characteristic of $R$ is either $0$ or a positive prime.
 \end{lemma}
-\begin{solution}
+\begin{proof}
     Suppose not, suppose $R$ has characteristic $n=ab$ with $1 < a < b < n$. Then 
     \[
         (\underbrace{1_R + \cdots + 1_R}_{a \text{ times}})(\underbrace{1_R + \cdots + 1_R}_{b \text{ times}}) 
@@ -1381,14 +1418,6 @@ $b=0$.
     \]
     Since $R$ is an integral domain, it is either $a \cdot 1_R = 0$ or $b \cdot 1_R = 0$. This is contradicts 
     with our assumption that $n$ is not prime.
-\end{solution}
-
-\begin{definition}
-    If $F$ is a field, then the only ideals are $\{0\}$ and $F$ itself.
-\end{definition}
-\begin{proof}
-    Let $F$ be a field, and let $I \subset F$ be an ideal. Assume $I \neq \{0 \}$, and find $x \neq 0 \in I$. 
-    Since  $F$ is a field, $x$ is invertible; Since $I$ is an ideal, $1 = x^{-1} \cdot x \in I$. Therefore $I = F$.
 \end{proof}
 
 \begin{example}
@@ -1510,7 +1539,7 @@ $b=0$.
 
 \section{Principal Ideal Domain}
 
-\begin{definition}
+\begin{definition}[Principal Ideal Domain]
     An integral domain $R$ is called a \bred{principal ideal domain} (or \bred{PID}) if every ideal in $R$ is principal.
 \end{definition}
 
@@ -1561,6 +1590,15 @@ $b=0$.
     \end{enumerate}
 \end{definition}
 
+\begin{example}
+    $3$ is prime in $\mathbb{Z}$ but not prime in $\mathbb{Z}[\sqrt{-2}]$. Since 
+    \[
+        3 = (1 + \sqrt{-2})(1 - \sqrt{-2}),
+    \]
+    which $(1 + \sqrt{-2})$ and $(1 - \sqrt{-2})$ are two essentially different factors in 
+    $\mathbb{Z}[\sqrt{-2}]$.
+\end{example}
+
 \begin{theorem}
     Every PID is a UFD.
 \end{theorem}
@@ -1597,6 +1635,33 @@ $b=0$.
     is a unit, and it contains no prime.
 \end{proof}
 
+\begin{lemma}[Bézout's lemma]
+    Let $R$ be a PID. If $a, b \in R$, then there exists integers $s, t \in R$ such that 
+    \begin{equation}
+        \gcd(a,b) = sa + tb.
+    \end{equation}
+    In other words, the greatest common divisor of $a$ and $b$ can be expressed as a linear combination of $a$ and $b$.
+\end{lemma}
+\begin{proof}
+    Let $I = \langle a, b \rangle = \{ xa + yb \> | \> x,y \in R\}$. 
+    Then $I$ is an ideal of $R$ and so $I = \{c\}$ for some $c \in R$. Since $a, b \in I$, we have
+    \[
+        c =xa + yb \quad \text{for some } x,y \in R;\> a, b \in I.
+    \]
+    Sp $c|a$ and $c|b$. Moreover, if $d|a$ and $d|b$, then $d | (xa + yb)$ for any $x,y \in R$;
+    in particular, $a = \alpha d$ and $b = \beta d$ for some $\alpha, \beta \in R$. Thus
+    \[
+        c = x(\alpha d) + y(\beta d) = (x\alpha + y\beta) d
+    \]
+    and so $d|c$. Therefore, $c = \gcd(a,b)$.
+
+    If $q$ is another greatest common divisor of $a$ and $b$, then $q=uc$ for some unit $u \in R$;
+    \[
+    q = (ux)a + (uy)b = xa + yb.
+    \]
+    Hence greatest common divisor is unique up to multiplication by a unit.
+\end{proof}
+
 \section{Euclidean Domains}
 
 \begin{definition}
@@ -1621,12 +1686,43 @@ $b=0$.
     Let $F$ be a field. Then $F[x]$ is a Euclidean domain with $d(f(x)) = \deg\, f(x)$.
 \end{example}
 
+\begin{figure}[!ht]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.7\paperwidth]{./images/Gaussian_int.png}}
+    \caption{The distribution of Gaussian integers in the complex plane.}
+\end{figure}
+
 \begin{example}
     Gaussian integers $\mathbb{Z}[i]$ is a Euclidean domain with
-    \[
-        d(a+bi) = a^2 + b^2.
-    \]
+    \begin{equation}
+        d(a+bi) = \norm{a+bi} = a^2 + b^2.
+    \end{equation}
 \end{example}
+
+\begin{example}
+    Factorize $17 - i$ into the product of irreducibles in $\mathbb{Z}[i]$.
+\end{example}
+\begin{solution}
+    Since $d(17 - i) = 17^2 + 1^2 = 290$. The prime factors of $290$ are 
+    $2$, $5$, and $29$. This indicates that $17 - i$ contains
+    at most three irreducibles. Up to multiplication by units, the only element 
+    in $\mathbb{Z}[i]$ with norm of 2 are $1 \pm i$. Now notice that 
+    \[
+        \frac{17 - i}{1 + i} = \frac{(17 - i)(1-i)}{(1+i)(1-i)} 
+        = \frac{16 - 18i}{2} = 8-9i.
+    \]
+    Likewise, the only Gaussian integers with a norm of 5 is $1 \pm 2i$ up to units.
+    Now compute 
+    \[
+        \frac{8-9i}{1+2i} = \frac{(8-9i)(1-2i)}{(1+2i)(1-2i)} 
+        = \frac{-10-25i}{5} = -2-5i.
+    \]
+    Thus
+    \[
+        17 - i = (1+i)(8-9i)(-2-5i)
+    \]
+    and is the product of three irreducibles.
+\end{solution}
 
 \begin{theorem}
     Every Euclidean domain is a PID.
@@ -1674,6 +1770,23 @@ $b=0$.
     \]
     where $r=0$ or $d(r) < d(a)$. But $r = b-aq \in I$, so $d(r)$ cannot be less than $d(a)$. 
     Thus, $r = 0$ and $b = aq \in \langle a \rangle$
+\end{proof}
+
+\begin{theorem}
+    Let $R$ be an Euclidean Domain and $I \lhd R$. Then $I$ is PID.
+\end{theorem}
+\begin{proof}
+    If $I = 0_R$ then $I = \langle 0_R \rangle$ and we are done. 
+    
+    If not, said 
+    $\exists x \in R$ with $x \neq 0_R$ and $d(x)$ is minimal. Certainly, $\langle x \rangle \subseteq I$.
+    Conversely if $y \in I$ then there must be some $q, r \in R$ such that 
+    \[
+        y = qx + r 
+    \]
+    where $d(r) < d(x)$ or $r = 0$. As $r = y-qx \in I$ then $r = 0$ by the minimality of $d(x)$.
+    So $y = qx$ and hence $I \subseteq \langle x \rangle$.
+    Thus $I$ is principal. 
 \end{proof}
 
 \section*{Tutorials}
@@ -1736,7 +1849,74 @@ $b=0$.
 
     \vspace{0.752cm}
     \begin{Exercise}
+        Show that 
+        \[
+            a^2 - b^2 = (a+b)(a-b)
+        \]
+        for all elements $a,b$ in a ring $R$ if and only if $R$ is commutative.
+    \end{Exercise}
+    \begin{Answer}
+        $(\Rightarrow)$ Assume that $a^2 - b^2 = (a+b)(a-b)$ for all $a,b \in R$. Then
+        \begin{align*}
+            &a^2 - b^2 = (a+b)(a-b)\\
+            &\Rightarrow a^2 - b^2 = a^2 - ab + ba - b^2\\
+            &\Rightarrow 0_R = - ab + ba\\
+            &\Rightarrow ab = ba.
+        \end{align*}
+        then $R$ is commutative.
+
+        $(\Leftarrow)$ On the other hand, assume that $R$ is commutative. We start from 
+        simplifying the right hand side:
+        \begin{align*}
+            (a+b)(a-b) &= aa - ab + ba - bb\\
+            &= a^2 - ab + ab - b^2 & \text{Since } ba = ab\\
+            &= a^2 + (-ab + ab) - b^2\\
+            &= a^2 + 0_R - b^2\\
+            &= a^2 - b^2.
+        \end{align*}
+        which is what we desired.
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Suppose $x \cdot x = x$ for every element $x$ in a ring $R$. 
+        \begin{enumerate}
+            \item Show that $x = -x$.
+            \item Show that $R$ is commutative.
+        \end{enumerate}
+    \end{Exercise}
+    \begin{Answer}
+        \begin{enumerate}
+            \item Since $x \cdot x = x$, this implies that $(x + 1_R) \cdot (x + 1_R) = x + 1_R$. Continue expand the left-hand side:
+        \begin{align*}
+            &(x + 1_R) \cdot (x + 1_R) = x + 1_R\\
+            &\Rightarrow x^2 + 2x + 1_R = x + 1_R\\
+            &\Rightarrow x^2 = x + 1_R - 2x - 1_R\\
+            &\Rightarrow x^2 = -x + 0_R\\
+            &\Rightarrow \fbox{$x^2 = -x$}.
+        \end{align*}
+        Since $x^2 = x$, then from the result above we have $x = -x$.
+
+            \item For all $a, b \in R$, 
+            \begin{align*}
+                &(ab)(ab) = ab\\
+                &\Rightarrow abab = (aa)(bb)\\
+                &\Rightarrow \Cancel[red]{a}ba\Cancel[red]{b} = \Cancel[red]{a}ab\Cancel[red]{b}\\
+                &\Rightarrow ba=ab.
+            \end{align*} 
+            Thus $R$ is commutative.
+        \end{enumerate}
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
         Show that a ring $R$ has no nonzero nilpotent element if and only if $0$ is the only solution of $x^2 = 0$ in $R$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that a factor ring of a field is either the trivial ring of one element or 
+        is isomorphic to a field.
     \end{Exercise}
 
     \vspace{0.752cm}
@@ -1753,6 +1933,10 @@ $b=0$.
     \begin{Exercise}
         Show that in a field $F$, the only ideals are $F$ and $\{ 0 \}$.
     \end{Exercise}
+    \begin{Answer}
+        Let $F$ be a field, and let $I \subset F$ be an ideal. Assume $I \neq \{0 \}$, and find $x \neq 0 \in I$. 
+    Since  $F$ is a field, $x$ is invertible; Since $I$ is an ideal, $1 = x^{-1} \cdot x \in I$. Therefore $I = F$.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
@@ -1778,8 +1962,18 @@ $b=0$.
 
     \vspace{0.752cm}
     \begin{Exercise}
-        An element $\mathfrak{a}$ of a ring $R$ is idempotent if $\mathfrak{a}^2 = \mathfrak{a}$. Show that a division ring 
+        An element $a$ of a ring $R$ is idempotent if $a^2 = a$. Show that a division ring 
         contains exactly two idempotent elements.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $A = \{a_1, a_2, \ldots, a_n \}$ be a finite subset of a 
+        commutative ring $R$ with unity. Then show that the set
+        \[
+            S = Ra_1 + Ra_2 + \cdots + Ra_n = \left\{ x_1 a_1 + x_2 a_2 + \cdots + x_n a_n \> | \> x_i \in R \right\}
+        \]
+        is the smallest ideal of $R$ containing $A$.
     \end{Exercise}
 
     \vspace{0.752cm}
@@ -1808,6 +2002,15 @@ $b=0$.
 
     \vspace{0.752cm}
     \begin{Exercise}
+        If $A$ and $B$ are ideals of a commutative ring $R$, then the quotient $A \div B$ of $A$ by $B$ is defined by
+        \[
+            A \div B = \{ r \in R \> | \> rb \in A \quad \forall b \in B \}.
+        \]
+        Show that $A \div B$ is an ideal of $R$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
         Find $q(x)$ and remainder $r(x)$ as described by the division algorithm so that 
         \[
             f(x) = g(x)q(x) + r(x)
@@ -1817,5 +2020,89 @@ $b=0$.
             \item $f(x) = x^6 + 3x^5 + 4x^2 - 3x + 2$ and $g(x) = x^2 + 2x - 3$ in $\mathbb{Z}_7[x]$.
             \item $f(x) = x^5 - 2x^4 + 3x - 5$ and $g(x) = 2x + 1$ in $\mathbb{Z}_{11}[x]$.
         \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        The polynomial $x^4 + 4$ can be factored into linear factors over $\mathbb{Z}_5[x]$. Find 
+        this factorization.
+    \end{Exercise}
+    \begin{Answer}
+        Compute $x^4 + 4$ for $x = 0, 1, 2, 3, 4$ in $\mathbb{Z}_5$:
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                $x$ & 0 & 1 & 2 & 3 & 4\\
+                \hline
+                $x^4 + 4$ & 4 & 0 & 0 & 0 & 0\\
+                \hline
+            \end{tabular}
+        \end{center}
+        The zeros are $1, 2, 3, 4$. Thus the factorization is
+        \[
+            x^4 + 4 = (x-1)(x-2)(x-3)(x-4).
+        \]
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        The polynomial $x^3 + 2x^2 + 2x + 1$ can be factored into linear factors over $\mathbb{Z}_7[x]$. Find 
+        this factorization.
+    \end{Exercise}
+    \begin{Answer}
+        Compute $x^3 + 2x^2 + 2x + 1$ for $x = 0, \ldots, 6$ in $\mathbb{Z}_7$:
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                $x$ & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
+                \hline
+                $x^3 + 2x^2 + 2x + 1$ & 1 & 6 & 0 & 3 & 0 & 4 & 0\\
+                \hline
+            \end{tabular}
+        \end{center}
+        The zeros are $2,4,6$. Thus the factorization is
+        \[
+            x^3 + 2x^2 + 2x + 1 = (x-2)(x-4)(x-6).
+        \]
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $R$ be a ring that contains at least two elements. Consider for each nonzero $a \in R$, there 
+        exists a unique $b$ such that $aba = a$. 
+        \begin{enumerate}
+            \item Show that $R$ has no zero divisors.
+            \item Show that $bab = b$ is an idempotent.
+            \item Show that $R$ has unity
+            \item Show that $R$ is a division ring.
+        \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $R$ be a commutative ring and $N$ be an ideal of $R$. Show that
+        the set $\sqrt{N}$ of all elements $a$ in $R$ such that
+        $a^n \in N$ for some positive integer $n$ is an ideal of $R$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that the ring $\mathbb{Z}[\sqrt{3}]$ is an Euclidean domain.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Suppose $D$ is an integral domain, and let $a, b \in D \setminus \{0\}$. Show that $\langle a \rangle \subseteq \langle b \rangle$ if and only if $b$ divides $a$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that $N$ is a maximal ideal of a ring $R$ if and only if $R/N$ is nontrivial 
+        and has no proper nontrivial ideals.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Prove that if $F$ is a field, then every proper nontrivial prime ideal of $F[x]$ is maximal.
     \end{Exercise}
 \end{mdframed}

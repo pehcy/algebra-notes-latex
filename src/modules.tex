@@ -1,0 +1,76 @@
+\chapter{Modules and Vector Spaces}
+
+Modules are essentially the equivalent of vector spaces when the scalars come from a ring rather than a field.
+Throughout this notes we will consider only modules over Euclidean domains. 
+
+\begin{axiom}[Modules]
+    Let $R$ be a ring. A left $R$-module $M$ consists of an abelian group $(M, +)$, together 
+    with scalar multiplication $\cdot : R \times M \mapsto M$ such that 
+    \begin{itemize}
+        \item $r(m_1 + m_2) = rm_1 + rm_2$,\quad $\forall r \in R$ and $m_1, m_2 \in M$.
+        \item $(r_1 + r_2)m = r_1m + r_2m$, \quad $\forall r_1, r_2 \in R$ and $m \in M$.
+        \item $(r_1 r_2)m = r_1 (r_2 m)$, \quad $\forall r_1, r_2 \in R$ and $m \in M$. 
+        \item $1_R \cdot m = m$, \quad $\forall m \in M$.
+    \end{itemize}
+\end{axiom}
+
+If $R$ is a field, then the $R$-module is called a \textbf{vector space} over $R$.
+
+\begin{definition}[Vector Space (defn. from linear algebra)]
+    A \bred{vector space} is a nonempty set $V$ of objects, known as \textit{vectors}, on which 
+    are defined by two operations: \textit{addition} and \textit{scalar multiplication} in $\mathbb{R}^n$.
+    The properties of modules must hold for all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in V$; and for all 
+    $c, d \in \mathbb{R}^n$.
+    \begin{itemize}
+        \item $\mathbf{u}, \mathbf{v} \in V$.
+        \item $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$.
+        \item $c\mathbf{u} \in V$.
+        \item $(cd)\mathbf{u} = c(d\mathbf{u})$.
+        \item $1 \mathbf{u} = \mathbf{u}$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Let $R$ be a ring, and let $M$ be an $R$-module. 
+    \begin{enumerate}
+        \item We say that elements $x_1, \dots, x_n \in M$ are \bred{linearly independent} if the only way to express the zero element as a linear combination of these elements is with all coefficients equal to zero.
+        \item We say that elements $x_1, \dots, x_n \in M$ are a \bred{basis} for $R$-module $M$ if they are linearly independent and generate $M$.
+        \item We say that element $x_1, \dots, x_n$ of an $R$-module $M$ \bred{generate} or \bred{span} $M$ if every element of $M$ can be expressed as a linear combination of $x_1, \dots, x_n$. That is,
+        \begin{equation}
+            \overline{x} = \text{Span} \{x_1, \dots, x_n \} = r_1x_1 + r_2x_2 + \cdots + r_nx_n
+        \end{equation}
+        for some $r_1, r_2, \ldots, r_n \in R$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    A submodule of a free module is free.
+\end{theorem}
+\begin{proof}
+    Let $R$ be a PID. Suppose $P = \bigoplus_{j \in J} R_j$ be a free $R$-module with basis $J$, 
+    and suppose $M \subset P$ is a submodule.
+
+    Construct a well-ordering of the set $j$. $\forall j \in J$, we set $P_j := \bigoplus_{i \leq j} R_i$ 
+    and $\overline{R}_i$, so that $P_j = \overline{P}_j \oplus R$.
+
+    Let $\phi_i$ be the composite 
+    \begin{equation}
+        P_i \cap M\hookrightarrow P_j = \overline{P}_j \oplus R \leadsto R.
+    \end{equation}
+    The $Ker \phi_i = \overline{P}_j \cap M$, and $\Ima \phi_i \subset R$ is an ideal. Hence let 
+    \[
+        \Ima \phi_i = (\lambda_j) \quad \text{ for some } \lambda_j \in R.
+    \]
+    Pick some $c_j \in P_i \cap M$ such that $\phi(c_j) = \lambda_j$. Let
+    \begin{equation}
+        J' = \{ j \in J \> | \> \lambda_j \neq 0 \}.
+    \end{equation}
+    To complete the proof.
+
+    \textbf{[Claim]}: $\{ c_j \}_{j \in J'}$ is a basis.
+
+    Suppose that $\{ c_j \}_{j \in J'}$ is linearly independent.
+    \begin{equation}
+        \sum^n_{k=1} a_kc_{j_k} = 0
+    \end{equation}
+\end{proof}

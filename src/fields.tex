@@ -4,6 +4,13 @@
 
 \subsection{Simple Extension}
 
+\begin{definition}[Field Extension]
+    Let $F$ be a field. A \bred{field extension} $K$ of $F$ is a field 
+    that contains $F$ as subfield. We denote this by $K/F$ or $K : F$. 
+    The degree of the extension $K$ over $F$ is denoted $[K : F]$ or $\dim_F K$, and is
+    defined as the dimension of $K$ as a vector space over $F$.
+\end{definition}
+
 \begin{definition}
     Let $E$ be an extension field of a field $F$ and let $\mathfrak{a} \in E$. We call an element 
     $\mathfrak{a}$ \bred{algebraic} over $F$ if $\mathfrak{a}$ is the zero of some nonzero 
@@ -86,7 +93,7 @@
         \item $F[u]$ is a field isomorphism of $F[x]/p(x)$.
         \item $\{ 1, u, u^2, \ldots, u^{n-1}\}$ is a basis of the 
             vector space $F(u)$ over $F$.
-        \item $|F(u):F|=n$.
+        \item $[F(u):F]=n$.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -417,7 +424,83 @@ $K$ that contains additional roots of $f(x)$.
     is a splitting field of $f(x)$ over $\mathbb{Q}$.
 \end{example}
 
-\newpage
+\subsection{Separability}
+
+\begin{definition}[Separable polynomial]
+    Let $K$ to be a field. A nonzero polynomial $f(x) \in K[x]$ is 
+    \textit{separable} when it has distinct roots in a splitting field 
+    over $K$. That is, each root of $f(x)$ can only be appears one at the time. 
+    If $f(x)$ has multiple root then $f(x)$ is called \textit{inseparable}.
+\end{definition}
+
+\begin{example}
+    In $\mathbb{R}[x]$, the polynomial $f(x) = x^2 - x$ is separable since it has two distinct roots: 
+    $0$ and $1$. And $x^3 - 2$ is separable since there are three distinct roots: $\sqrt[3]{2}, \sqrt[3]{2} \omega, \sqrt[3]{2} \omega^2$ 
+    in the complex plane.
+\end{example}
+
+\begin{example}
+    In $\mathbb{F}_3[x]$ the polynomial $f(x) = x^3 - 1 = (x-1)^3 = (x+1)^3$ is inseparable since it has a multiple root $1$. 
+\end{example}
+
+\begin{theorem}
+    A nonzero polynomial $f(x) \in K[x]$ is separable if and only if it is relatively prime to its derivative $f'(x)$ 
+    in $K[x]$.
+\end{theorem}
+\begin{proof}
+    Let $f(x)$ be a nonzero polynomial in $K[x]$. 
+    
+    $(\Rightarrow)$ Suppose that $f(x)$ is separable and let
+    $\alpha$ be a root of $f(x)$ in some extension field of $K$. Then
+    \[
+        f(x) = (x - \alpha) g(x), \quad \text{with } g(\alpha) \neq 0.
+    \]
+    Since $f'(\alpha) = g(\alpha) \neq 0$, so $\alpha$ is not a root of $f'(x)$. Thus $f(x)$ and $f'(x)$ have no common roots, 
+    and hence they have no common factor in $K[x]$ --- they are relatively prime.
+    
+    $(\Leftarrow)$ If $f(x)$ is not separable, so by definition it has a repeated root $\alpha$ in some extension field of $K$. 
+    This root is also a root $f'(x)$. Thus $f(x) = (x - \alpha)^2 g(x)$ for some $g(x) \in K[x]$. By product rule, we have
+    \[
+        f'(x) = (x - \alpha)^2 g'(x) + 2(x - \alpha) g(x)
+    \]
+    So $f'(\alpha) = 0$ implies that $f(x)$ and $f'(x)$ have a common factor $(x - \alpha)$ in $K[x]$. In particular, 
+    $f(x)$ and $f'(x)$ are not relatively prime (in $K[x]$). Taking the contrapositive, 
+    if $f(x)$ and $f'(x)$ are relatively prime, then $f(x)$ is separable.
+\end{proof}
+
+\begin{example}
+    In $\mathbb{F}_3[x]$, let $f(x) = x^6 + x^5 + x^4 + 2x^3 + 2x^2 +x + 2$. Using Euclid's algorithm to verify that $f(x)$ is inseparable.
+\end{example}
+\begin{solution}
+    We first compute the derivative 
+    \[
+        f'(x) = 6x^5 + 5x^4 + 4x^3 + 6x^2 + 4x = 2x^4 + x^3 + x.
+    \] 
+    Then we apply Euclid's algorithm:
+    \[
+        f(x) = f'(x) \cdot (2x^2 + 2) + (2x^2 + 2)
+    \]
+    \[
+        f'(x) = (2x^2 + 2) \cdot (x^2 + 2x + 2) + 0.
+    \]
+    The greatest common divisor is $2x^2 + 2 \neq 1$. Thus $f(x)$ is not separable in $\mathbb{F}_3[x]$.
+\end{solution}
+
+\begin{example}
+    Let $f(x) = x^4 - 3x - 2$ in $\mathbb{Q}[x]$. Using Euclid's algorithm to verify that $f(x)$ is separable.
+\end{example}
+\begin{solution}
+    We first compute $f'(x) = 4x^3 - 3$. Then we apply Euclid's algorithm to find 
+    \[
+        f(x) = f'(x) \cdot \left( \frac{1}{4}x \right) - \frac{9}{4}x - 2
+    \]
+    \[
+        f'(x) = \left( - \frac{9}{4}x - 2 \right) \left(- \frac{16}{9}x^2 + \frac{128}{81}x - \frac{1024}{729}\right) \underbrace{- \frac{4235}{729}}_{\text{remainder}}.
+    \]
+    By inspection, we have reached a remainder that is a nonzero constant. Thus 
+    $f(x)$ and $f'(x)$ are relatively prime in $\mathbb{Q}[x]$. Hence, $f(x)$ is separable.
+\end{solution}
+
 \section{Finite Fields}
 
 \begin{theorem}
@@ -425,24 +508,24 @@ $K$ that contains additional roots of $f(x)$.
     \begin{enumerate}
         \item The set 
         \[
-            \mathfrak{P} = \{ k \cdot 1_R \> | \> k \in \mathbb{Z} \}
+            \mathfrak{G} = \{ k \cdot 1_R \> | \> k \in \mathbb{Z} \}
         \]
          is a subring of $R$.
-        \item If $R$ has characteristic $0$, then $\mathfrak{P}$ is isomorphic to $\mathbb{Z}$.
-        \item If $R$ has characteristic $n > 0$, then $\mathfrak{P}$ is isomorphic to $\mathbb{Z}_n$.
+        \item If $R$ has characteristic $0$, then $\mathfrak{G}$ is isomorphic to $\mathbb{Z}$.
+        \item If $R$ has characteristic $n > 0$, then $\mathfrak{G}$ is isomorphic to $\mathbb{Z}_n$.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
     We prove each of the statements listed above.
     \begin{enumerate}
-        \item First of all, we use subring test to check if $\mathfrak{P}$ is a subring of $R$.
+        \item First of all, we use subring test to check if $\mathfrak{G}$ is a subring of $R$.
         \[
             \begin{cases}
-                a \cdot 1_R - b \cdot 1_R = (a-b) \cdot 1_R \in \mathfrak{P}\\
-                a \cdot 1_R \cdot b \cdot 1_R = ab\, 1_R \in \mathfrak{P}
+                a \cdot 1_R - b \cdot 1_R = (a-b) \cdot 1_R \in \mathfrak{G}\\
+                a \cdot 1_R \cdot b \cdot 1_R = ab\, 1_R \in \mathfrak{G}
             \end{cases}
         \]
-        so $\mathfrak{P}$ is a subring of $R$. 
+        so $\mathfrak{G}$ is a subring of $R$. 
     \end{enumerate}
 
     We now prove (2), (3) at once, We consider a map $f : \mathbb{Z} \to \mathbb{R}$ 
@@ -476,7 +559,7 @@ $K$ that contains additional roots of $f(x)$.
     \begin{enumerate}
         \item The converse of it is false. There are infinite fields of characteristic $p$ (i.e. $\mathbb{Z}_p[x]$). 
         \[
-            \mathfrak{P} = \{ k \cdot 1_R \> | \> k \in \mathbb{Z} \}
+            \mathfrak{G} = \{ k \cdot 1_R \> | \> k \in \mathbb{Z} \}
         \]
         is called the prime subfield of $K$ and is contained in every subfield of $K$. Which means 
         every field of characteristic $p$ must contains $\mathbb{Z}_p$.
@@ -1062,6 +1145,60 @@ an extension field $K$ of $F$ such that
     \end{tikzcd}
 \]
 
+\begin{definition}[Radical extensions]
+    A field $K$ is said to be a radical extension of a field $F$ if there is a chain of fields 
+    \[
+        F = F_0 \subseteq F_1 \subseteq \ldots \subseteq F_t = K
+    \]
+    such that for each $i = 1, 2, \ldots, t$. $F_i = F_{i - 1}(u_i)$ and 
+    some power of $u_i$ is in $F_{i-1}$ ($u_i^{k_{i}} \in F_{i-1}$). 
+    
+    The equation $f(x) = 0_F$ is said to be solvable by radicals if there is a radical extension of $F$ that contains 
+    a splitting field of $f(x)$.
+    If not, then $f(x)$ is not solvable by radical.
+\end{definition}
+
+Think of this, said $K$ is a radical extension of a field $F$ if there exist nonzero elements 
+$u_1, u_2, \ldots, u_m \in K$ and positive integers $n_1, n_2, \ldots, n_m$ such that $K = F(u_1, u_2, \ldots, u_m)$, and 
+\begin{align*}
+    u^{n_1}_1 &\in F,\\
+    u^{n_2}_2 &\in F(u_1),\\
+    u^{n_3}_3 &\in F(u_1, u_2),\\
+    &\vdots\\
+    u^{n_k}_k &\in F(u_1, u_2, \ldots, u_{k-1}).\\
+\end{align*}
+The definition expresses that $u_i$ is an $n_i$-th root of some element in $F(u_1, u_2, \ldots, u_{i-1})$, so $K$ may be 
+thought of as being built by iteratively adding in $n$-th roots of elements. The picture depicted 
+as following:
+\begin{center}
+    $\begin{tikzcd}
+        K = F(u_1, u_2, \ldots, u_m) \arrow[dash]{d} \\
+        u^{n_m}_m \in F(u_1, u_2, \ldots, u_{m-1}) \arrow[dash]{d}\\
+        \vdots \arrow[dash]{d}\\
+        u^{n_2}_2 \in F(u_1) \arrow[dash]{d}\\
+        u^{n_1}_1 \in F
+        \end{tikzcd}
+    $
+\end{center}
+
+\begin{example}
+    Show that the field $\mathbb{Q}\left( \sqrt{3 + \sqrt{21}}\right)$ has degree 
+    4 over $\mathbb{Q}$ and hence find a basis.
+\end{example}
+\begin{solution}
+    We let $\alpha = \sqrt{3 + \sqrt{21}}$, and 
+    \[\alpha^2 = 3 + \sqrt{21} \implies \alpha^2 - 3 = \sqrt{21}. \]
+    Squaring both sides gives 
+    \[
+        (\alpha^2 - 3)^2 = 21 \implies x^4 - 6x^2 -12 = 0
+    \]
+    However, the polynomial $q(x) = x^4 - 6x^2 -12$ is irreducible over $\mathbb{Q}$ by Eisenstein's 
+    criterion with $p=3$. Thus, $q(x)$ must be the minimal polynomial of $\alpha$. 
+
+    Therefore, by results, we see that $[\mathbb{Q}:\mathbb{Q}(\alpha)]$ and that the basis is 
+    $\{1, \alpha, \alpha^2, \alpha^3 \}$.
+\end{solution}
+
 \begin{example}
     The solutions of $x^3 + 3x + 2 = 0 \in \mathbb{Q}[x]$ are 
     \[
@@ -1069,19 +1206,6 @@ an extension field $K$ of $F$ such that
     \quad \fbox{$(\omega^2) \sqrt[3]{-1+\sqrt{2}} + \omega \sqrt[3]{-1-\sqrt{2}}$}
     \]
 \end{example}
-
-\begin{definition}[Radical extensions]
-    A field $K$ is said to be a radical extension of a field $F$ if there is a chain of fields 
-    \[
-        F = F_0 \subseteq F_1 \subseteq \ldots \subseteq F_t = K
-    \]
-    such that for each $i = 1, 2, \ldots, t$. $F_i = F_{i - 1}(u_i)$ and 
-    some power of $u_i$ is in $F_{i-1}$ ($u_i^{K_{i}} \in F_{i-1}$). 
-    
-    The equation $f(x) = 0_F$ is said to be solvable by radicals if there is a radical extension of $F$ that contains 
-    a splitting field of $f(x)$.
-    If not, then $f(x)$ is not solvable by radical.
-\end{definition}
 
 \begin{definition}[Solvable groups]
     A group $G$ is said to be solvable if it has a "chain" of subgroups 
@@ -1105,6 +1229,76 @@ an extension field $K$ of $F$ such that
         \langle (1\, 2\, 3) \rangle\, (1\, 2) = \{ (1 \, 2), (2 \, 3), (1\, 3)\}
     \]
 \end{solution}
+
+\begin{theorem}
+    Let $K$ be a field extension of $F$. If $\text{char } K \nmid n$ and $K$ contains a 
+    primitive $n$-th root of unity, then
+    \begin{enumerate}
+        \item For $a \in K$, let $F = K(\sqrt[n]{a})$. The extension $F/K$ is cyclic 
+        of degree $d$, a divisor of $n$.
+        \item Conversely, if $F/K$ is a cyclic extension of degree $n$, then 
+        $F = K(\sqrt[n]{a})$ for some $a \in K$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item The statement hold trivially when $a = 0$. So we further assume that $a \neq 0$. Because 
+        $K \subset F$ contains a primitive $n$-th root of unity, $F$ is the splitting field of 
+        $x^n - a$ over $K$. Since $\text{char } K \nmid n$, there are $n$ distinct $n$-th roots of unity,
+        so the polynomial $x^n - a$ must have $n$ number of roots $\sqrt[n]{a} \xi^i$ for all 
+        $i = 0, 1, \ldots, n-1$, where $\xi$ is a primitive $n$-th root of unity in $K$.
+        Therefore $x^n - a$ is separable and $F/K$ is Galois extension.
+
+        Consider each $\sigma$ in $\gal_FK$ is completely determined by $\sigma(\sqrt[n]{a})$, which must 
+        equal to $\sqrt[n]{a} \xi^{i_\sigma}$. Consider the map 
+        \[
+            \gal_FK \to \mathbb{Z}_n
+        \]
+        \[
+            \sigma \mapsto i_\sigma
+        \]
+        Clearly, this map is injective homomorphism, and it is easy to check
+        \[ 
+            \tau \sigma (\sqrt[n]{a}) = \tau(\sqrt[n]{a} \xi^{i_\sigma}) = \sqrt[n]{a} \xi^{i_\sigma} \xi^{i_\tau} = \sqrt[n]{a} \xi^{i_\sigma + i_\tau}.
+        \]
+
+        \item Let $\gal_FK = \langle \sigma \rangle$ be cyclic group of order $n$. For 
+        $\alpha \in F$ and $\xi$ a primitive $n$-th root of unity, define the 
+        \textit{Lagrange resolvent} by 
+        \[
+            P(\alpha, \xi) := \alpha + \xi \sigma(\alpha) + \xi^2 \sigma^2(\alpha) + \ldots + \xi^{n-1} \sigma^{n-1}(\alpha).
+        \]
+        By corollary, $\{1, \sigma, \sigma^2, \ldots, \sigma^{n-1}\}$ are linearly independent over $F$.
+        So we have
+        \begin{equation}
+            1 + \xi \sigma + \xi^2\sigma^2 + \cdots + \xi^{n-1} \sigma^{n-1} \neq 0
+        \end{equation}
+        so there is $\alpha \in F$ such that $P(\alpha, \xi) \neq 0$. Now let $\rho := P(\alpha, \xi)$.
+        Since $\xi \in K$, we have $\sigma(\rho) = \xi^{-1} \rho$, and that 
+        \[
+            \sigma(\rho^n) = \xi^{-n} \rho^N = \rho^n.
+        \]
+        So $\rho^n \in F_{\langle \sigma \rangle} = K$. Moreover, 
+        \[
+            \sigma^i(\rho) = \xi^{-i} \rho \neq \rho \quad \forall i = 0, 1, \ldots, n-1.
+        \]
+        Thus $\sigma^i \notin \aut_{K(\rho)} F$. i.e. $|\aut_{K(\rho)} F| = 1$. Therefore it deduce to 
+        \[
+            F = K(\rho) = K(\sqrt[n]{a}),
+        \]
+        where $a = \rho^n \in K$.
+
+        \begin{center}
+        $\begin{tikzcd}
+        F \arrow[dash]{d} \\
+        K(\rho) \arrow[dash]{d}\\
+        K \\
+        \end{tikzcd}
+        $   
+        \end{center}
+        
+    \end{enumerate}
+\end{proof}
 
 \begin{theorem}
     For $n \geq 5$ the group $S_n$ is not solvable.
@@ -1224,10 +1418,10 @@ are the $n$ distinct $n$-th roots of unity.
 \begin{solution}
     Consider $f(x) = 2x^5 - 10x + 5 \in \mathbb{Q}[x]$. We check the zeros of the derivatives.
     \[
-        f'(x) = \frac{d}{dx} 2x^5 - 10x + 5 = 10x^4 - 10 \quad \Longrightarrow \textsf{roots are } \pm 1, \pm i
+        f'(x) = \odv{}{x} (2x^5 - 10x + 5) = 10x^4 - 10 \quad \Longrightarrow \textsf{roots are } \pm 1, \pm i
     \]
     \[
-        f''(x) = \frac{d^2}{dx^2} 2x^5 - 10x + 5 = 40x^3 \quad \Longrightarrow \textsf{the only root is } 0.
+        f''(x) = \odv[2]{}{x} (2x^5 - 10x + 5) = 40x^3 \quad \Longrightarrow \textsf{the only root is } 0.
     \]
 
     \begin{figure}[ht]
@@ -1258,7 +1452,7 @@ are the $n$ distinct $n$-th roots of unity.
 
     If $r$ is any root of $f(x)$, then 
     \[
-        |K:\mathbb{Q}| = |K: \mathbb{Q}(r)| \cdot |\mathbb{Q}(r) : \mathbb{Q}| = 5\, |K: \mathbb{Q}(r)|.
+        [K:\mathbb{Q}] = [K: \mathbb{Q}(r)] \cdot [\mathbb{Q}(r) : \mathbb{Q}] = 5\, [K: \mathbb{Q}(r)].
     \]
     Thus $|K : \mathbb{Q}|$ is divisible by $5$. By Cauchy's theorem, there exists $sigma \in \gal_\mathbb{Q} K$ with 
     $\ord(\sigma) = 5$. Note that $\gal_\mathbb{Q} K \subseteq S_5$ and the only elements of order 
@@ -1278,6 +1472,148 @@ are the $n$ distinct $n$-th roots of unity.
     \vspace{-0.25cm}
     \hspace{-0.25cm}
     \begin{Exercise}
+        Let $F$ be a field and $F^*$ be its multiplication group. Show that the abelian groups 
+        $(F,+)$ and $(F^*, \cdot)$ are not isomorphic.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $F$ be a finite field. Show that the product of all the nonzero elements of $F$ is $-1$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that any two finite fields of the same order are isomorphic.
+    \end{Exercise}
+    \begin{Answer}
+        \textbf{[Claim]: }Any finite field $F$ with $p^n$ elements is a splitting field of 
+        $x^{p^n} - x$ over $\mathbb{F}_p[x]$.
+
+        Let $F$ be a finite field with $p^n$ elements. Consider $F \setminus \{0\}$, the 
+        set of all nonzero elements of $F$. Since $F$ is a finite field, $F \setminus \{0\}$ form 
+        a multiplicative group of order $p^n - 1$. It follows that 
+        $F$ coincides with the set of roots of the polynomial $x^{p^n} - x$. Hence, $F$ is the splitting field of 
+        $x^{p^n} - x \in \mathbb{F}_p[x]$. This completes the proof of our claim.
+
+        Consequently, any two finite fields with $p^n$ number of elements are isomorphic. This 
+        is exactly what we wanted to show.
+
+        Let $E$ and $F$ be two finite fields with 
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        \begin{enumerate}
+            \item Prove that a finite integral domain is a field.
+            \item Prove that if $R$ is an integral domain that is finite dimensional over a subfield 
+            $F \subseteq R$, then $R$ is a field.
+        \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $F$ be a field extension of the rational numbers.
+        \begin{enumerate}
+            \item Show that $\{a+b\sqrt{2} \> | \> a, b \in F \}$ is a field.
+            \item Give necessary and sufficient conditions for $\{a+b\sqrt[3]{2} \> | \> a, b \in F \}$ 
+                to be a field.
+        \end{enumerate}
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let 
+        \[
+            f(x) = a_nx^n + \cdots + a_1x + a_0 \in \mathbb{Q}[x]
+        \]
+        be an irreducible polynomial of degree greater than 1, in which all roots lie on the unit circle of 
+        $\mathbb{C}$. Show that $a_i = a_{n-i}$ for all $i$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Find the minimal polynomial of $\alpha = \sqrt{3 + 2\sqrt{2}}$ over the field $\mathbb{Q}$ of rational numbers.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Find the minimal polynomial of $\alpha = \sqrt[3]{2 + \sqrt{2}}$ over the field $\mathbb{Q}$ of rational numbers.
+    \end{Exercise}
+    \begin{Answer}
+        Let $\alpha = \sqrt[3]{2 + \sqrt{2}}$. Then 
+        \[
+            \alpha^3 = 2 + \sqrt{2} \implies (\alpha^3 - 2)^2 = 2 \implies \alpha^6 - 4\alpha^3 + 2 = 0.
+        \]
+        So the minimal polynomial is $f(x) = x^6 - 4x^3 + 2$ over $\mathbb{Q}$ that has $\alpha$ as a root.
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $p$ be a prime, and $f(x) \in \mathbb{Z}_p[x]$ be irreducible polynomial of degree $m$. Show that 
+        $f(x) | (x^{p^n} - x)$ if and only if $m | n$. 
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $p$ and $q$ be distinct primes. Show that $\sqrt{q}$ is not an element of $\mathbb{Q}(\sqrt{p})$. 
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Determine the Galois group of $x^4 - 3$ over the field $\mathbb{Q}$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Determine the Galois group of $x^3 + 3x^2 - 1$ over the field $\mathbb{Q}$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $f(x) = x^4 + x^3 + 4x - 1 \in \mathbb{Z}_5[x]$. Find the Galois group of the 
+        splitting field of $f$ over $\mathbb{Z}_5$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $K$ be a Galois extension of the field $F$ with Galois group $G$. Let $g(x)$ be a monic polynomial
+        over $F$ that splits over $K$ (that is, $K$ contains a splitting field for $g(x)$ over $F$) and let 
+        $\Gamma \subseteq K$ be the set of roots of $g(x)$. Show that $g(x)$ is a power of a polynomial 
+        that is irreducible over $F$ if and only if $G$ is transitive on $\Gamma$.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Let $f(x) \in \mathbb{Q}[x]$ be an irreducible polynomial of degree 4 with exactly two real roots.
+        Show that the Galois group of $f$ over $\mathbb{Q}$ is either $S_4$ or the 
+        dihedral group of order 8.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that the multiplicative group of a finite field must be cyclic.
+    \end{Exercise}
+    \begin{Answer}
+    Let $F$ be a finite field with $|F| = q$. Consider the multiplicative group $F^* = F \setminus \{0_F\}$.
+    So $|F^*| = q - 1$. We want to show that there exists an element $a \in F^*$ such that 
+    $\ord(a) = q - 1$. We will appeal to a property of finite abelian groups: the order 
+    of every element in a finite abelian group divides the maximum order of all the elements.
+
+    Let $m$ be the maximum order of all the elements in $F^*$. Since the order of every element 
+    in $F^*$ divides $m$, each $a \in F^*$ satisfies $a^m = 1_F$. Thus, every element of $F^*$ is a root of 
+    the polynomial $x^m - 1_F$. Since $x^m - 1_F$ has at most $m$ roots in $F$, we have $q - 1 \leq m$.
+    At the same time, by Lagrange's theorem, $m$ divides $q - 1$. Thus $m = q - 1$.
+    Hence, this implies that there exists an element $a \in F^*$ such that $\ord(a) = q - 1 = |F^*|$. 
+    Therefore, $F^*$ is cyclic.
+    \end{Answer}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that every finite extension of a finite field is a Galois extension.
+    \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
         Let $E$ be an extension field of a field $F$ and let $\alpha \in E$ be transcendental over $F$. Show that every element of $F(\alpha)$ is not in $F$ 
         is also transcendental over $F$. 
     \end{Exercise}
@@ -1288,3 +1624,5 @@ are the $n$ distinct $n$-th roots of unity.
     prime field $\mathbb{Z}_p \leq F$.
     \end{Exercise}
 \end{mdframed}
+
+\newpage\null\thispagestyle{blank}\newpage

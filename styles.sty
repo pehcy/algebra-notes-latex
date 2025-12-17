@@ -3,7 +3,9 @@
 \usepackage{amssymb}
 \usepackage{amsbsy}
 \usepackage{bbm}
+\usepackage{derivative}
 \usepackage{graphicx}
+\usepackage{pifont}
 \usepackage[export]{adjustbox}
 \newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
 \usepackage{amsthm}
@@ -41,6 +43,18 @@
 \DeclareTextFontCommand{\bred}{\color{fireEngRed}\bfseries}
 \DeclareTextFontCommand{\bgreen}{\color{extinctGreen}\bfseries}
 \DeclareTextFontCommand{\bgold}{\color{darkGoldrod}\bfseries}
+
+\usepackage{scrlayer}
+\DeclareNewLayer[
+    foreground,
+    %textarea,% use only the textarea
+    contents={%
+      \parbox[b][\layerheight][c]{\layerwidth}
+        {\centering This page 
+          intentionally left blank.}%
+    }
+  ]{blankpage.fg}
+\DeclarePageStyleByLayers{blank}{blankpage.fg}
 
 \definecolor{Acolor}{RGB}{104,129,174}
 \definecolor{Bcolor}{RGB}{227,118,59}
@@ -162,6 +176,7 @@
 %\newmdtheoremenv{definition}{Definition}[section]
 
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
 \newtheoremstyle{break}{0pt}{0pt}{\normalfont}{0pt}{\bfseries}{}{\newline}{\thmname{#1} \thmnumber{#2} \quad \thmnote{\textbf#3}}
 \declaretheorem[numberwithin=chapter,style=break,name=Theorem]{theorem}
@@ -211,16 +226,16 @@
 \usepackage{thmtools}
 
 \declaretheoremstyle[
-spaceabove=20pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
+spaceabove=2em, spacebelow=6pt,
+headfont={\color{orange!55!black} \ding{46} \normalfont\bfseries},
 notefont=\mdseries, notebraces={(}{)},
 bodyfont=\normalfont,
 postheadspace=1em,
 numberwithin=section
 ]{exstyle}
 \declaretheoremstyle[
-spaceabove=6pt, spacebelow=20pt,
-headfont=\normalfont\bfseries,
+spaceabove=6pt, spacebelow=2em,
+headfont={\color{green!55!black} \ding{47} \normalfont\bfseries},
 notefont=\mdseries, notebraces={(}{)},
 bodyfont=\normalfont,
 postheadspace=1em,
@@ -257,8 +272,8 @@ numbered=no
 %  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
 %\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
-% \usepackage{txfonts}
 \usepackage{tgpagella}
+%\usepackage{txfonts}
 %\usepackage{mathptmx, newtxmath}
 %\usepackage{libertine}
 %\usepackage[T1]{fontenc}
