@@ -3268,6 +3268,14 @@ product of all these pieces is the desired factorization of $G$.
             \item Let $*$ defined on $G = \mathbb{Z}$ by letting $a * b = \max \{a,b\} \quad \forall a, b \in \mathbb{Z}$.
         \end{enumerate}
     \end{Exercise}
+    \begin{Answer}
+        \begin{enumerate}
+            \item Yes
+            \item Yes
+            \item No, because $-1, 2 \in \mathbb{R}^*$ but $\sqrt{-1 \times 2} \notin \mathbb{R}^*$.
+            \item No, because there is no inverse.
+        \end{enumerate}
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
@@ -3340,6 +3348,13 @@ product of all these pieces is the desired factorization of $G$.
     \begin{Exercise}
         Show that if every element of the group $G$ is its own inverse, then $G$ is abelian.
     \end{Exercise}
+    \begin{Answer}
+        For all $a,b$ in $G$, since every element is its own inverse in $G$. Hence
+        \begin{align*}
+            ab = (ab)^{-1} &\implies ab = b^{-1} a^{-1} & \text{socks-shoes theorem}\\
+            &\implies ab = ba & \text{since } a = a^{-1} \text{ and } b = b^{-1}\\
+        \end{align*}
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
@@ -3544,6 +3559,19 @@ product of all these pieces is the desired factorization of $G$.
         Find $ker(\phi)$ for map $\phi : \mathbb{Z}_{10} \to \mathbb{Z}_{20}$ such that 
         $\phi(1) = 8$.
     \end{Exercise}
+    \begin{Answer}
+        Since $\phi$ is a homomorphism, then for all $n \in \mathbb{Z}_{10}$, we have 
+        \[
+            \phi(n) = \phi(\underbrace{1 + 1 + \cdots + 1}_{n \text{ times}}) = n \cdot \phi(1) = 8n \mod 20.
+        \]
+        Thus, 
+        \begin{align*}
+            ker(\phi) &= \{ n \in \mathbb{Z}_{10} \> | \> \phi(n) = 0 \}\\
+            &= \{ n \in \mathbb{Z}_{10} \> | \> 8n \equiv 0 \mod 20 \}\\
+            &= \{ n \in \mathbb{Z}_{10} \> | \> n = 0, 5\}\\
+            &= \{ 0, 5\}
+        \end{align*}
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
