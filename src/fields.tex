@@ -61,6 +61,31 @@
     The $p(x)$ is called the "minimal polynomial of $u$ over $F$".
 \end{remark}
 
+\begin{theorem}[Minimal polynomial]
+    Suppose $E$ is a field extension of $F$, and $\alpha \in E$ is algebraic over $F$. 
+    Suppose the degree of the minimal polynomial $m_{\alpha}(x)$ of 
+    $\alpha$ over $F$ is $n$. Then every element of $F(\alpha)$ can be written uniquely in the form 
+    \begin{equation}
+        c_0 + c_1 \alpha + c_2 \alpha^2 + \cdots + c_{n-1} \alpha^{n-1}
+    \end{equation}
+    for some $\alpha_i$'s in $F$
+\end{theorem}
+\begin{proof}
+    By the first isomorphism theorem of rings, we said that 
+    \[
+        \overline{\phi}_\alpha : F[x] / \langle m_\alpha(x) \rangle \to F[\alpha], 
+        \quad \overline{\phi}_\alpha(f(x) + \langle m_\alpha(x) \rangle) := f(\alpha)
+    \]
+    is an isomorphism. Every element of $F[x] / \langle m_\alpha(x) \rangle$ can be 
+    uniquely written as $(\sum^{n-1}_{i=0} c_ix^i) + \langle m_\alpha(x) \rangle$ 
+    for some $c_i$'s in $F$. Hence, we obtain the conclusion that 
+    every element of $F[\alpha]$ can be uniquely written as 
+    \[
+        \overline{\phi}_\alpha \left( \sum^{n-1}_{i=0} c_ix^i + \langle m_\alpha(x) \rangle \right) = \sum^{n-1}_{i =0} c_i \alpha^i.
+    \]
+    This completes the proof.
+\end{proof}
+
 \begin{example}
     $\mathbb{R}$ is an extension field of $\mathbb{Q}$ and $\sqrt{3} \in \mathbb{R}$ is algebraic,
     then
@@ -680,12 +705,20 @@ equations. There are no formula for the solution of all polynomial equations of 
 Galois theory had a profound influence on the development of later mathematics for beyond the scope of 
 the original solvability problem. Why? Because his theory connecting the field extensions with groups.
 
+The \textit{Galois group} of an extension $E/F$, denoted $\gal_{F} E$, is the group 
+of automorphisms of $E$ which are the identity on field $F$.
+
 \begin{definition}[Galois group]
     Let $K$ be an extension field of $F$. An $F$-automorphism of $K$ is an isomorphism $\sigma : K \to K$ that 
     fixes $F$ elementwise. That is, $\sigma(c) \to c, \forall c \in F$.
 
     The set of all $F$-automorphisms of $K$ is denoted $\gal_F K$ and is called the Galois group of $K$ over $F$.
 \end{definition}
+
+\begin{remark}
+    Some books use the notation $\gal(E/F)$ to denote the galois group of extension $E/F$. 
+    In this notes we write $\gal_{F} E$, the subscript represents the field 
+\end{remark}
 
 \begin{theorem}
     If $K$ is an extension field of $F$, then $\gal_F K$ is a group under the operation 
@@ -914,6 +947,40 @@ the original solvability problem. Why? Because his theory connecting the field e
     $\sigma(\sqrt[3]{2}) = \sqrt[3]{2}$. Thus $\sigma = 1$. The fixed field of $\gal_\mathbb{Q} \mathbb{Q}[\sqrt[3]{2}]$ is 
     $\mathbb{Q}[\sqrt[3]{2}]$.
 \end{example}
+
+\begin{theorem}
+    Suppose the extension $E/F$ is a splitting field of some polynomial. Then $\forall \alpha \in E$, 
+    the minimal polynomial of $\alpha$ must split completely (into the linear factors) in $E$.
+\end{theorem}
+\begin{proof}
+    Suppose $E$ is the splitting field of some polynomial $Q$, and we fix $\alpha \in E$ with polynomial 
+    $p(x)$; then we want to show that $p(x)$ splits completely in $E$.
+
+    Let $K$ be a subfield of $E$ where $p(x)$ splits completely. Then in $K$, we have 
+    \[
+        p(x) = (x - \alpha_1)(x - \alpha_2) \ldots (x - \alpha_n)
+    \]
+    where $\alpha_i \in K$ for all $i$ and $\alpha_1 = \alpha$. We need to check that 
+    $\alpha_i \in E$ for all $i$, and we already know $\alpha \in E$.
+
+    Again, we have that $F(\alpha_i) \cong F(\alpha)$, since $\alpha_i$ and $\alpha$ have the 
+    same minimal polynomial. Now consider $E$ from the perspective of these intermediate fields. We 
+    know that $E$ is the splitting field from $Q$ over $F(\alpha)$. But we do not yet know whether 
+    $\alpha_i$ is in $E$ or not, but at least we know that if we adjoin it, then $E(\alpha_i)$ is 
+    the splitting field for $Q$ over $F(\alpha_i)$.
+
+    By the uniqueness of the splitting field, there exists an isomorphism $E \cong E(\alpha_i)$ extending the 
+    isomorphism $F(\alpha) \cong F(\alpha_i)$. We had indentified both $F(\alpha)$ and $F(\alpha_i)$, and 
+    since $Q$ has coefficients in $F$ (which preserved by the isomorphism). It is the same 
+    polynomial in both fields --- the isomorphism takes one copy of $Q$ to the other. 
+
+    Since our isomorphism is the identity of $F$, this means 
+    \[
+        [E:F] = [E(\alpha_i) : F],
+    \]
+    and since $E(\alpha_i) \supset E$, this means we must have $E(\alpha_i) = E$, and 
+    therefore $\alpha_i \in E$.
+\end{proof}
 
 \subsection{Fundamental Theorem of Galois theory}
 
@@ -1498,7 +1565,17 @@ are the $n$ distinct $n$-th roots of unity.
         Consequently, any two finite fields with $p^n$ number of elements are isomorphic. This 
         is exactly what we wanted to show.
 
-        Let $E$ and $F$ be two finite fields with 
+        Let $E$ and $F$ be two finite fields with $p^n$ number of elements. By theorem 
+        $E$ and $F$ must contain subfields $E_p$ and $F_p$, each also have $p$ elements. 
+        Hence $E$ and $F$ are splitting fields of $x^{p^n} - x$ over $E_p$ and $F_p$, respectively.
+        Again, we have 
+        \[
+            E_p \cong \mathbb{Z}/\langle p \rangle, \text{ and }
+            F_p \cong \mathbb{Z}/\langle p \rangle 
+            \implies E_p \cong F_p.
+        \]
+        Hence, by uniqueness of splitting fields (up to isomorphism), it follows that 
+        $E$ isomorphic to $F$. This completes the proof.
     \end{Answer}
 
     \vspace{0.752cm}
@@ -1557,16 +1634,126 @@ are the $n$ distinct $n$-th roots of unity.
     \begin{Exercise}
         Let $p$ and $q$ be distinct primes. Show that $\sqrt{q}$ is not an element of $\mathbb{Q}(\sqrt{p})$. 
     \end{Exercise}
+    \begin{Answer}
+        We proof by contradiction. Suppose not, suppose that $\sqrt{q}$ is an element of $\mathbb{Q}(\sqrt{p})$. Then 
+        $\mathbb{Q}(\sqrt{p})$ is the smallest subfield containing $\mathbb{Q}$ and $\sqrt{q}$. Notice that 
+        every element can be expressed as $a+b\sqrt{p}$ where $a, b \in \mathbb{Q}$. So now we let 
+        \[
+            \sqrt{q} = a+b\sqrt{p}. \label{eq:fs.0} \tag{{\color{orange} $\heartsuit$}}
+        \]
+        Now squaring both sides:
+        \begin{align*}
+            q = (a + b\sqrt{p})^2 &\implies q = a^2 + 2ab\sqrt{p} + b^2p\\
+            &\implies  2ab\sqrt{p}  = q - a^2 - b^2p. \label{eq:fs.1} \tag{{\color{myred} $\clubsuit$}}
+        \end{align*}
+        Now consider three possible cases:
+
+        \textbf{Case 1}: If $2ab \neq 0$, then from \eqref{eq:fs.1} we express $\sqrt{p}$ in term of $p, q, a, b$:
+        \[
+            \sqrt{p} = \frac{q - a^2 - b^2p}{2ab}
+        \]
+        and $\sqrt{p}$ is rational and this contradicts 
+        the fact that $p$ is prime. 
+
+        \textbf{Case 2}: If $a = 0$, then \eqref{eq:fs.0} becomes $\sqrt{q} = b\sqrt{p}$. Squaring both sides 
+        gives $q = b^2p$, so 
+        \[
+            \frac{q}{p} = b^2, \text{ where } b \in \mathbb{Q}.
+        \]
+        Because $b$ is rational, so is $b^2$. However, $\frac{q}{p}$ should be the ratio 
+        of distinct primes, which is not a perfect square of a rational. Again, this 
+        is a contradiction.
+
+        \textbf{Case 3}: If $b = 0$, then \eqref{eq:fs.0} becomes $\sqrt{q} = a \implies q = a^2$. 
+        Since $q$ is prime, it cannot be the square of rational numbers (Unless $a = 0$, but 
+        $q$ is prime. So $q$ always greater than zero). And if $a$ is rational, $a^2 = q$ 
+        and $a = \pm \sqrt{q}$, which is absurd.
+
+        In conclusion, with all these cases, we said that 
+        $\sqrt{q} \notin \mathbb{Q}(\sqrt{p})$ if $p$ and $q$ are coprime. This completes the proof.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
         Determine the Galois group of $x^4 - 3$ over the field $\mathbb{Q}$.
     \end{Exercise}
+    \begin{Answer}
+        The roots of polynomial $p(x) = x^4 - 3$ are 
+        \[
+            \alpha_1 = \sqrt[4]{3},\quad \alpha_2 = -\sqrt[4]{3},\quad
+            \alpha_3 = i\sqrt[4]{3},\quad \alpha_4 = -i\sqrt[4]{3}.
+        \]
+        The splitting field $K$ that generated by all the roots over $\mathbb{Q}$ is 
+        $K = \mathbb{Q}(\sqrt[4]{3}, i)$. Now we need to determine the degree of field 
+        extension $[K : \mathbb{Q}]$. 
+
+        \begin{center}
+        $\begin{tikzcd}
+        \mathbb{Q}(\sqrt[4]{3}, i) \arrow[dash]{d} \\
+        \mathbb{Q}(\sqrt[4]{3}) \arrow[dash]{d}\\
+        \mathbb{Q} \\
+        \end{tikzcd}
+        $   
+        \end{center}
+
+        The polynomial $x^4 - 3$ is irreducible 
+        over $\mathbb{Q}$ by Eisenstein's criterion with $p=3$, and $[\mathbb{Q}(\sqrt[4]{3}) : \mathbb{Q}] = 4$. 
+        and the imaginary unit $i$ is not in the subfield $\mathbb{Q}(\sqrt[4]{3})$, 
+        so 
+        \[
+             [\mathbb{Q}(\sqrt[4]{3}): \mathbb{Q}] = 2.
+        \]
+        The total degree of the field extension is
+        \begin{align*}
+            [K:\mathbb{Q}] &= [\mathbb{Q}(\sqrt[4]{3}, i) : \mathbb{Q}(\sqrt[4]{3})] \times [\mathbb{Q}(\sqrt[4]{3}): \mathbb{Q}]\\
+            &= 2 \times 4\\
+            &= 8
+        \end{align*}
+        The degree of field extension is equal to the order of galois group $\gal_{\mathbb{Q}} K$. So the order of 
+        $\gal_{\mathbb{Q}} K$ is also $8$.
+
+        The automorphisms of the galois group $\gal_{\mathbb{Q}} K$ is generated by $\sqrt[4]{3}$ 
+        and $i$. We can define two automorphisms:
+        \[
+            \sigma : \sigma(\sqrt[4]{3}) = i\sqrt[4]{3}, \quad \sigma(i) = i;
+        \]
+        \[
+            \rho : \rho(\sqrt[4]{3}) = \sqrt[4]{3}, \quad \rho(i) = -i;
+        \]
+        Now, notice that these automorphisms satisfies $\sigma^4 = 1$, $\rho^2 = 1$, and 
+        $\rho \sigma \rho^{-1} = \sigma^3$. This is isomorphic to dihedral group of order $8$, $D_8$.
+        Thus $\gal_{\mathbb{Q}} K \cong D_8$.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
         Determine the Galois group of $x^3 + 3x^2 - 1$ over the field $\mathbb{Q}$.
+        
+        [Hint]: The discriminant for general cubic equation $ax^3 + bx^2 + cx + d = 0$ is 
+        \[
+            \Delta = b^2 c^2 - 4ac^3 - 4b^3d - 27 a^2 d^2 + 18abcd.
+        \]
     \end{Exercise}
+    \begin{Answer}
+        First off, we perform a basic calculus --- find the derivative of polynomial $f(x) = x^3 + 3x^2 - 1$.
+        The derivative of $f$ is 
+        \[
+            f'(x) = 3x^2 + 6x, \quad \implies \text{roots are } -2, 0.
+        \]
+        Check that $f(-3) = -1 < 0$; $f(-1) = 1 > 0$; $f(1) = 3 > 0$. There is one root in $\mathbb{R}$, 
+        two roots in $\mathbb{C}$. Since there are no rational roots, $f$ is irreducible over $\mathbb{Q}$.
+
+        The galois group of irreducible cubic polynomial is either $A_3$ or $S_3$ --- we want determine which is it.
+        If the discriminant of an irreducible cubic is a perfect square in $\mathbb{Q}$, then the galois group 
+        is cyclic with order 3 and hence isomorphic to $A_3$. Otherwise the galois group is $S_3$.
+
+        Check the discriminant for $f(x) = x^3 + 3x^2 - 1$:
+        \[
+            \Delta = (3^2 * 0^2) - 4(1)(0)^3 - 4(3^3)(-1) - 27(-1)^2 + 18 (1 * 3 * 0 * -1) = 81.
+        \]
+        Since $\Delta = \sqrt{81} = 9 \in \mathbb{Q}$, so the galois group of 
+        $x^3 + 3x^2 - 1$ over $\mathbb{Q}$ is $A_3$.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}

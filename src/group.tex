@@ -1241,7 +1241,7 @@ forms a group under function composition
 
 Dihedral groups are an essential class in group theory that arise naturally in geometry and other areas of mathematics.
 
-For $n \geq 3$, the dihedral group $D_n$ is described as the rigid motions taking a regular 
+For $n \geq 3$, the dihedral group $D_{2n}$ is described as the rigid motions taking a regular 
 $n$-gon back to itself, with the operations 
 
 We could said that the rotational symmetry group of an equilateral triangle, $C_3$, is isomorphic to
@@ -1259,25 +1259,25 @@ which these reflection lines runs from one of the vertices to the center of the 
 \begin{figure}[ht]
     \centering
     \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral2_360.pdf}}
-    \caption{The rotation $r$ on dihedral group $D_3$ with order 6. $r$ in $D_3$ is described as rotating equilateral triangle $120$ degree.}
+    \caption{The rotation $r$ on dihedral group $D_6$ with order 6. $r$ in $D_6$ is described as rotating equilateral triangle $120$ degree.}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral2.pdf}}
-    \caption{The group action $f$ on dihedral group $D_3$ with order 6. $f$ is a horizontal flip.}
+    \caption{The group action $f$ on dihedral group $D_6$ with order 6. $f$ is a horizontal flip.}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \makebox[\textwidth]{\includegraphics[width=0.8\paperwidth]{./images/Dihedral3.pdf}}
-    \caption{The composition of $120\deg$ rotation with horizontal reflection form another reflection line at vertice}
+    \caption{The composition of $120\deg$ rotation with horizontal reflection form another reflection line at vertice.}
 \end{figure}
 
 \begin{theorem}
-    Let the $n$-degree dihedral group  
+    Let the $2n$-degree dihedral group  
     \[
-        D_n = \langle r, s \> | \> r^n = e, s^2 = e, srs = r^{-1} \rangle.
+        D_{2n} = \langle r, s \> | \> r^n = e, s^2 = e, srs = r^{-1} \rangle.
     \]
     Then 
     \begin{enumerate}
@@ -3607,14 +3607,14 @@ product of all these pieces is the desired factorization of $G$.
 
     \vspace{0.752cm}
     \begin{Exercise}
-        Find the conjugacy classes of dihedral group order 4. 
+        Find the conjugacy classes of dihedral group order 8. 
     \end{Exercise}
     \begin{Answer}
-        The dihedral group of order 4 is 
+        The dihedral group of order 8 is 
         \[
-            D_4 = \{ e, r, r^2, r^3, s, sr, sr^2, sr^3 \}
+            D_8 = \{ e, r, r^2, r^3, s, sr, sr^2, sr^3 \}
         \]
-        The members of a conjugacy class of $D_4$ are different but have the 
+        The members of a conjugacy class of $D_8$ are different but have the 
         same type of effect on a 2D square: $r$ and $r^3$ are a 90 degree rotation 
         in clockwise and counter-clockwise respectively; $s$ and $sr^2$ are reflections 
         across a diagonal; and $sr$ and $sr^3$ are reflections across an edge bisector.

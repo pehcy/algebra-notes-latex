@@ -717,6 +717,9 @@ INPUT ./src/./images/Gaussian_int.png
 INPUT src/./images/Gaussian_int.png
 INPUT ./src/./images/Gaussian_int.png
 INPUT ./src/./images/Gaussian_int.png
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT ./src/fields.tex
 INPUT src/fields.tex
 INPUT ./src/fields.tex

@@ -2045,6 +2045,43 @@ $b=0$.
             1 & 2 \\ 2 & 4
         \end{bmatrix}$ is a zero divisor in $M_2(\mathbb{Z})$.
     \end{Exercise}
+    \begin{Answer}
+        To show that $A = \begin{bmatrix}
+            1 & 2 \\ 2 & 4
+        \end{bmatrix}$ is a zero divisor in $M_2(\mathbb{Z})$, we need to find a nonzero matrix $B$ such that $AB = 0$.
+        Notice that $\det A = 0$ and is not invertible. We can try to find $B$ (one of the possible matrices) using eigenvalues and eigenvectors.
+
+        Solve the equation $\det(A - \lambda I) = 0$:
+        \begin{align*}
+            \det\begin{bmatrix}
+                1 - \lambda & 2 \\ 2 & 4 - \lambda
+            \end{bmatrix} = 0 
+            &\implies (1 - \lambda)(4 - \lambda) - 4 = 0\\
+            &\implies \lambda^2 - 5\lambda = 0
+        \end{align*}
+
+        On solving, we get $\lambda_1 = 0$ and $\lambda_2 = 5$. Note that we only need to find the eigenvector corresponding to $\lambda_1 = 0$ for this case, and solve
+        \[
+            \begin{bmatrix}
+            1-0 & 2 \\ 2 & 4-0
+        \end{bmatrix} \begin{bmatrix}
+            x_1 \\ x_2
+        \end{bmatrix} = \begin{bmatrix}
+            0 \\ 0
+        \end{bmatrix}
+        \]
+        Setting $x_2$ as a free variable, we get $x_1 = -2x_2$. Thus one of the eigenvectors is
+        \[
+            \overrightarrow{v}_1 = \begin{bmatrix}
+                -2 \\ 1
+            \end{bmatrix}.
+        \]
+        Now, let $\overrightarrow{v}_1$ to be the first and second columns of matrix $B$, said 
+        $B = \begin{bmatrix}
+            -2 & -2 \\ 1 & 1
+        \end{bmatrix}$. Then $AB = 0$.
+        Therefore, $A$ is a zero divisor in $M_2(\mathbb{Z})$.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
@@ -2085,6 +2122,22 @@ $b=0$.
             \item Show that $AB \subseteq (A \cap B)$.
         \end{enumerate}
     \end{Exercise}
+
+    \vspace{0.752cm}
+    \begin{Exercise}
+        Show that if $A$ and $B$ are coprime ideals of a ring $R$, then 
+        $AB = A \cap B$.
+    \end{Exercise}
+    \begin{Answer}
+        If $A$ and $B$ are coprime, this implies that we can find 
+        $a \in A$ and $b \in B$ such that $a + b = 1$. Now 
+        if $x \in A \cap B$ we can also have 
+        \[
+            x = 1x = (a + b)x = ax + bx.
+        \]
+        Since $x \in B$, we have $ax \in AB$; and since $x \in B$, we have 
+        $bx \in AB$. It follows that $x \in AB$.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
@@ -2175,6 +2228,55 @@ $b=0$.
     \begin{Exercise}
         Show that the ring $\mathbb{Z}[\sqrt{3}]$ is an Euclidean domain.
     \end{Exercise}
+    \begin{Answer}
+        Consider ring $R = \mathbb{Z}[\sqrt{3}] = \{ a + b\sqrt{3} \> | \> a, b \in \mathbb{Z} \}$ with 
+        norm 
+        \[
+            N(a + b\sqrt{3}) = |a^2 - 3b^2|.
+        \]
+
+        To show $\mathbb{Z}[\sqrt{3}]$ is Euclidean domain. We need to find a division algorithm 
+        in $\mathbb{Z}[\sqrt{3}]$. For all $\alpha, \beta \in \mathbb{Z}[\sqrt{3}]$ with $\beta \neq 0$, 
+        $\exists q, r \in \mathbb{Z}[\sqrt{3}]$ such that 
+        \[
+            \alpha = q \beta + r, \quad N(r) < N(\beta).
+        \]
+
+        \textbf{Intuition}: Construct the quotient and remainder in $\mathbb{Z}[\sqrt{3}]$.
+
+        Consider the division $\mfrac{\alpha}{\beta}$ in the field $\mathbb{Q}[\sqrt{3}]$. Let 
+        \[
+            \frac{\alpha}{\beta} = x + y\sqrt{3}, \quad \text{where } x,y\in \mathbb{Q}.
+        \]
+        Our goal is to find integers $p, q$ that are closest to $x, y$ respectively, such that 
+        $\displaystyle |x - p| \leq \frac{1}{2}$ and $\displaystyle |y - q| \leq \frac{1}{2}$.
+
+        Let $\mathfrak{Q} = p + q\sqrt{3} \in \mathbb{Z}[\sqrt{3}]$ to be our proposed quotient. Define the remainder 
+        \[
+            \gamma = \alpha - \mathfrak{Q}\beta \in \mathbb{Z}[\sqrt{3}].
+        \]
+        We want to show $N(\gamma) < N(\beta)$ or $N(\gamma) = 0$. Compute 
+        \begin{align*}
+            \gamma &= \alpha - \mathfrak{Q}\beta\\
+            &= \alpha - (p + q\sqrt{3})\beta\\
+            &= \beta \left( \frac{\alpha}{\beta} - (p+q\sqrt{3})\right)\\
+            &= \beta [(x - p) + (y - q)\sqrt{3}]
+        \end{align*}
+        Using the norm property $N(uv) = N(u)\, N(v)$, we have 
+        \[
+            N(\gamma) = N(\beta) \, N\left( (x - p) + (y-q)\sqrt{3} \right)
+        \]
+        and 
+        \[
+            N\left( (x - p) + (y-q)\sqrt{3} \right) = |(x-p)^2 - 3(y - q)^2|.
+        \]
+        Since $\displaystyle |x - p| \leq \frac{1}{2}$ and $\displaystyle |y - q| \leq \frac{1}{2}$, we have 
+        \begin{align*}
+            |(x-p)^2 - 3(y - q)^2| &\leq \max \{ (x-p)^2, 3(y-q)^2\} \\
+            &\leq \max \left\{ \frac{1}{4}, \frac{3}{4} \right\} = \frac{3}{4}.
+        \end{align*}
+        Thus, $N(\gamma) \leq \frac{3}{4} N(\beta) < \beta$.
+    \end{Answer}
 
     \vspace{0.752cm}
     \begin{Exercise}
