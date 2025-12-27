@@ -227,7 +227,7 @@
 
 \declaretheoremstyle[
 spaceabove=2em, spacebelow=6pt,
-headfont={\color{orange!55!black} \ding{46} \normalfont\bfseries},
+headfont={\large \color{fireEngRed} \ding{81} \sffamily\bfseries},
 notefont=\mdseries, notebraces={(}{)},
 bodyfont=\normalfont,
 postheadspace=1em,
@@ -235,7 +235,7 @@ numberwithin=section
 ]{exstyle}
 \declaretheoremstyle[
 spaceabove=6pt, spacebelow=2em,
-headfont={\color{green!55!black} \ding{47} \normalfont\bfseries},
+headfont={\large \ding{82} \sffamily\bfseries},
 notefont=\mdseries, notebraces={(}{)},
 bodyfont=\normalfont,
 postheadspace=1em,
@@ -251,8 +251,8 @@ numbered=no
 %\newtcbtheorem{policy}{Policy Type}{fonttitle=\bfseries\upshape,fontupper=\itshape,colframe=blue!0!black,colback=white!99,colbacktitle=blue!20!white,coltitle=blue!75!black}{th}
 
 \usepackage[lastexercise,answerdelayed]{exercise}
-\counterwithin{Exercise}{section}
-\counterwithin{Answer}{section}
+\counterwithin{Exercise}{chapter}
+\counterwithin{Answer}{chapter}
 \newcommand{\AtBeginExerciseHeader}{\hspace{-0.75cm}}
 \renewcommand{\ExerciseHeader}{\AtBeginExerciseHeader \textbf{\ExerciseHeaderDifficulty \ExerciseName~\ExerciseHeaderNB} \quad }
 %\renewcommand{\ExerciseHeader}{\textbf{\ExerciseName~\ExerciseHeaderNB}\quad}
