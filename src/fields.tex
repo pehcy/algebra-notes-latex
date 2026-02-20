@@ -863,6 +863,24 @@ of automorphisms of $E$ which are the identity on field $F$.
     \]
 \end{proof}
 
+\subsection{Galois group of cubics}
+
+\begin{theorem}[Galois group of cubics]
+    Let $K$ to be a field with $\text{char} K \neq 2$, and $f(x)$ be a separable 
+    irreducible cubic polynomial in $K[x]$. If the discriminant of $f$ is 
+    a square in $K$ then the galois group of $f(x)$ over $K$ is $A_3$. 
+    Otherwise, If the discriminant of $f$ is not
+    a square in $K$, then the galois group of $f(x)$ over $K$ is $S_3$. 
+\end{theorem}
+\begin{proof}
+    The permutation action of the Galois group of $f(X)$ on its roots turns the galois
+group into a transitive subgroup of $S_3$. The only transitive subgroups of
+$S_3$ are $A_3$ and $S_3$ itself, and we can decide when the galois group is in $A_3$ or not using the
+discriminant.
+\end{proof}
+
+\section{Intermediate Fields}
+
 \begin{definition}[Intermediate field]
     Let $K$ be an extension field of $F$. A field $E$ such that
     \[

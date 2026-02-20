@@ -1,5 +1,5 @@
 \documentclass[11pt,twoside]{report}
-\usepackage[a4paper, margin=22.4mm,bottom=1in,top=1in,footskip=31.5pt]{geometry}
+\usepackage[paperheight=10.5in,paperwidth=8.5in, margin=22.4mm,bottom=1in,top=1in,footskip=31.5pt]{geometry}
 \usepackage{styles}
 \usepackage{import}
 \usepackage{fancyhdr}
@@ -32,14 +32,19 @@
       pehcy (MurphyShark) \quad \textsf{https://github.com/pehcy} \\
   }    
   \vfill
-  \includegraphics[width=0.55\paperwidth]{./src/images/wave.png} % also works with logo.pdf
+  \includegraphics[clip,trim=0 0 {.5\wd0} 0]{./src/images/wave.png} % also works with logo.pdf
   \vskip2cm
   {
     Based on lectures UECM 3363 Abstract Algebra in Universiti Tunku Abdul Rahman in 2020\\
     Notes taken by MurphyShark.
   }
   \vfill
-  \vfill
+  \begin{flushleft}
+    \footnotesize Typeset with \LaTeX, amsmath 
+
+    \footnotesize Tag: Mathematics and Statistics
+    %and \includegraphics[scale=0.06, height=3ex]{./src/images/Julia.png}
+  \end{flushleft}
 \end{titlepage}
   \newpage
   \import{src/}{group.tex}
